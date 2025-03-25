@@ -2,42 +2,50 @@
 const services = [
   {
     title: "Epilare Definitivă Laser",
-    description: "Tratament premium cu laser de ultimă generație pentru toate zonele corpului. Tehnologie avansată pentru rezultate permanente.",
+    description:
+      "Tratament premium cu laser de ultimă generație pentru toate zonele corpului. Tehnologie avansată pentru rezultate permanente.",
     icon: "laser",
-    image: "/service-laser.jpg"
+    image: "/service-laser.jpg",
   },
   {
     title: "New Eride Smart Dual",
-    description: "Folosim aparat de ultimă generație fabricat în Spania, ce emite simultan trei lungimi de undă (755 nm, 808 nm și 1064 nm) pentru rezultate optime.",
+    description:
+      "Folosim aparat de ultimă generație fabricat în Spania, ce emite simultan trei lungimi de undă (755 nm, 808 nm și 1064 nm) pentru rezultate optime.",
     icon: "tech",
-    image: "/service-tech.jpg"
+    image: "/service-tech.jpg",
   },
   {
     title: "Tratament Nedureros",
-    description: "Procedura noastră este nedureroasă și eficientă pentru toate tipurile de piele și păr, datorită tehnologiei de răcire integrată.",
+    description:
+      "Procedura noastră este nedureroasă și eficientă pentru toate tipurile de piele și păr, datorită tehnologiei de răcire integrată.",
     icon: "comfort",
-    image: "/service-comfort.jpg"
+    image: "/service-comfort.jpg",
   },
   {
     title: "Ședință Testare GRATUITĂ",
-    description: "Oferim o ședință de testare gratuită pentru inghinal total, bikini line sau axilă pentru a evalua nevoile tale specifice.",
+    description:
+      "Oferim o ședință de testare gratuită pentru inghinal total, bikini line sau axilă pentru a evalua nevoile tale specifice.",
     icon: "free",
-    image: "/service-free.jpg"
-  }
+    image: "/service-free.jpg",
+  },
 ];
 
-import ServiceCard from './ServiceCard.astro';
+import ServiceCard from "./ServiceCard.astro";
 ---
 
 <section id="servicii" class="py-20 bg-gray-50">
   <div class="container mx-auto px-4">
     <div class="text-center max-w-3xl mx-auto mb-16">
-      <h2 class="text-3xl md:text-4xl font-bold mb-4 text-primary-700">Serviciile Noastre</h2>
+      <h2 class="text-3xl md:text-4xl font-bold mb-4 text-primary-700">
+        Serviciile Noastre
+      </h2>
       <p class="text-lg text-gray-600">
-        Descoperă gama completă de servicii oferite de SIA Skin Center. Tratamente personalizate pentru toate nevoile tale de îngrijire a pielii.
+        Descoperă gama completă de servicii oferite de SIA Skin Center.
+        Tratamente personalizate pentru toate nevoile tale de îngrijire a
+        pielii.
       </p>
     </div>
-    
+
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 mt-12">
       <ServiceCard
         title="Epilare Definitivă cu Laser"
@@ -54,11 +62,15 @@ import ServiceCard from './ServiceCard.astro';
         cta="Programează Acum"
       />
     </div>
-    
+
     <div class="text-center mt-10">
-      <a href="/servicii" class="bg-primary-600 hover:bg-primary-700 text-white font-medium px-6 py-3 rounded-full transition-colors inline-block">
+      <a
+        href="/servicii"
+        class="bg-primary-600 hover:bg-primary-700 text-white font-medium px-6 py-3 rounded-full transition-colors inline-block"
+      >
         Vezi toate serviciile
       </a>
     </div>
   </div>
-</section> 
+</section>
+

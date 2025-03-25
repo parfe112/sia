@@ -10,12 +10,14 @@ interface Props {
 const { title, image, description, link, cta } = Astro.props;
 ---
 
-<div class="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-all hover:-translate-y-1 duration-300">
+<div
+  class="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-all hover:-translate-y-1 duration-300"
+>
   <div class="mb-6">
     <div class="relative h-48 mb-4 rounded-lg overflow-hidden">
-      <img 
-        src={image} 
-        alt={title} 
+      <img
+        src={image}
+        alt={title}
         class="w-full h-full object-cover transition-transform hover:scale-105 duration-500"
       />
     </div>
@@ -24,10 +26,24 @@ const { title, image, description, link, cta } = Astro.props;
       {description}
     </p>
   </div>
-  <a href={link} class="inline-flex items-center text-primary-600 font-medium hover:text-primary-700">
+  <a
+    href={link}
+    class="inline-flex items-center text-primary-600 font-medium hover:text-primary-700"
+  >
     <span>{cta}</span>
-    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="h-5 w-5 ml-1"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M9 5l7 7-7 7"></path>
     </svg>
   </a>
-</div> 
+</div>
+
