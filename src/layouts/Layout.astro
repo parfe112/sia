@@ -1,4 +1,6 @@
 ---
+import "@diadal/aos/dist/css/aos.css";
+
 interface Props {
   title?: string;
   description?: string;
@@ -65,3 +67,11 @@ import "../styles/global.css";
     height: 100%;
   }
 </style>
+
+<script>
+  // Import AOS inside the client script to avoid 'Cannot find name' error
+  import AOS from "@diadal/aos";
+  document.addEventListener("DOMContentLoaded", () => {
+    AOS.init();
+  });
+</script>

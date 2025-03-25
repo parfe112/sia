@@ -1,0 +1,112 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Cursor-Specific Rules for SIA Skin Center
+
+## Setup and Configuration
+
+- **Framework**: Astro v5.5+ with SSR
+- **CSS**: Tailwind v4 (NOT Tailwind v3)
+- **Node Version**: v18+
+- **Package Manager**: npm
+
+## Tailwind v4 Syntax Rules
+
+Ensure that when writing CSS in Cursor, you follow Tailwind v4 conventions:
+
+### ✅ DO
+
+```html
+<!-- Use direct color classes -->
+<div class="text-primary-600 bg-indigo-200">Content</div>
+
+<!-- For CSS custom properties in styles -->
+<style>
+  .custom-element {
+    color: rgb(var(--primary-600));
+    background-color: rgb(var(--gray-100));
+  }
+</style>
+```
+
+### ❌ DON'T
+
+```html
+<!-- Don't use Tailwind v3 syntax like -->
+<div class="text-primary-600 hover:!bg-red-500">Content</div>
+
+<!-- Don't use incorrect CSS variable format -->
+<style>
+  .custom-element {
+    /* Wrong - Tailwind v3 style */
+    color: var(--primary-600);
+    /* Wrong - missing rgb() wrapper */
+    background-color: var(--gray-100);
+  }
+</style>
+```
+
+## Animation Guidelines
+
+When implementing animations with AOS:
+
+```html
+<!-- Correct usage -->
+<div 
+  data-aos="fade-up" 
+  data-aos-duration="800" 
+  data-aos-delay="200" 
+  class="..."
+>
+  Content to animate
+</div>
+```
+
+## HTML Structure Best Practices
+
+Follow these patterns:
+
+```html
+<!-- Mobile-first responsive design -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+  <!-- Grid items -->
+</div>
+
+<!-- Flexbox usage -->
+<div class="flex flex-col sm:flex-row items-center justify-between">
+  <!-- Flex items -->
+</div>
+```
+
+## Component Import Patterns
+
+```astro
+---
+// Import components
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+
+// Define props with TypeScript interface
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+// Destructure props with defaults
+const { 
+  title = "Default Title",
+  description = "Default description" 
+} = Astro.props;
+---
+
+<Layout title={title} description={description}>
+  <Header />
+  <!-- Content -->
+</Layout>
+```
+
+## DO NOT RUN DEV SERVER MANUALLY
+
+The dev server restarts automatically as it's using Vite. Never run `npm run dev` manually - the server auto-refreshes when changes are detected. 

@@ -1,0 +1,199 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Astro Framework Documentation
+
+## Project Setup
+
+Our SIA Skin Center site uses Astro v5.5+ with the following configuration:
+
+- **Rendering Mode**: Server-side rendering (SSR)
+- **Adapter**: Node.js standalone adapter
+- **CSS Framework**: Tailwind CSS v4
+- **Animation Library**: AOS (Animate On Scroll)
+
+## Astro Component Structure
+
+### Basic Component Syntax
+
+```astro
+---
+// Component script section (JavaScript/TypeScript)
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "Default description" } = Astro.props;
+
+// Import other components
+import SomeComponent from '../components/SomeComponent.astro';
+
+// Component logic
+const items = ["Item 1", "Item 2", "Item 3"];
+---
+
+<!-- Component template section (HTML) -->
+<div class="component-wrapper">
+  <h1>{title}</h1>
+  {description && <p>{description}</p>}
+  
+  <ul>
+    {items.map(item => (
+      <li>{item}</li>
+    ))}
+  </ul>
+  
+  <SomeComponent />
+</div>
+
+<style>
+  /* Component scoped styles */
+  .component-wrapper {
+    padding: 1rem;
+  }
+</style>
+
+<script>
+  // Client-side JavaScript
+  document.addEventListener('DOMContentLoaded', () => {
+    console.log('Component mounted');
+  });
+</script>
+```
+
+### Layouts
+
+Our main layout file (`src/layouts/Layout.astro`) handles:
+
+- Document structure
+- Meta tags
+- CSS imports
+- AOS initialization
+
+Layouts are used in page components:
+
+```astro
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Page Title" description="Page description">
+  <Header />
+  <main>
+    <!-- Page content -->
+  </main>
+  <Footer />
+</Layout>
+```
+
+## Routing
+
+Astro uses file-based routing:
+
+- `src/pages/index.astro` → `/`
+- `src/pages/about.astro` → `/about`
+- `src/pages/services/index.astro` → `/services`
+- `src/pages/services/[id].astro` → `/services/:id` (dynamic route)
+
+## Data Fetching
+
+For SSR data fetching:
+
+```astro
+---
+// In a page or component
+export const prerender = false; // For SSR
+
+const response = await fetch('https://api.example.com/data');
+const data = await response.json();
+---
+
+<div>
+  {data.map(item => (
+    <div>{item.name}</div>
+  ))}
+</div>
+```
+
+## Adding Animations with AOS
+
+AOS is integrated in the Layout component. Use it in any component:
+
+```html
+<div 
+  data-aos="fade-up" 
+  data-aos-duration="800" 
+  data-aos-delay="100"
+  class="..."
+>
+  Animated content
+</div>
+```
+
+Common AOS animation types:
+- `fade-up`, `fade-down`, `fade-left`, `fade-right`
+- `zoom-in`, `zoom-out`
+- `flip-up`, `flip-down`, `flip-left`, `flip-right`
+
+## Working with Images
+
+```astro
+---
+// Import images (static imports)
+import myImage from '../assets/images/image.jpg';
+---
+
+<!-- Using imported image -->
+<img src={myImage} alt="Description" />
+
+<!-- Using image from src folder -->
+<img src="/src/assets/images/other-image.jpg" alt="Description" />
+
+<!-- Using image from public folder (less common) -->
+<img src="/public-image.jpg" alt="Description" />
+```
+
+## Server Endpoints
+
+Create API endpoints in Astro:
+
+```ts
+// src/pages/api/example.ts
+export const prerender = false;
+
+import type { APIRoute } from 'astro';
+
+export const GET: APIRoute = async ({ params, request }) => {
+  // Handle GET request
+  return new Response(
+    JSON.stringify({ message: 'Success' }),
+    {
+      status: 200,
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }
+  );
+};
+
+export const POST: APIRoute = async ({ request }) => {
+  const data = await request.json();
+  // Process data...
+  
+  return new Response(
+    JSON.stringify({ success: true }),
+    { status: 200 }
+  );
+};
+```
+
+## Resources
+
+- [Astro Documentation](mdc:https:/docs.astro.build)
+- [Tailwind CSS Documentation](mdc:https:/tailwindcss.com)
+- [AOS Documentation](mdc:https:/michalsnik.github.io/aos) 

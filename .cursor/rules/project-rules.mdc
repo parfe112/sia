@@ -1,0 +1,91 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# SIA Skin Center - Project Rules & Technologies
+
+## Core Technologies
+
+- **Framework**: [Astro v5.5+](mdc:https:/astro.build) - A modern static site builder with excellent performance
+- **CSS Framework**: [Tailwind CSS v4](mdc:https:/tailwindcss.com) - The latest version with CSS variables approach
+- **Animation**: [@diadal/aos](mdc:https:/github.com/michalsnik/aos) - Animate On Scroll library
+- **Environment**: Node.js server-side rendering
+
+## Tailwind CSS v4 Rules
+
+Tailwind v4 uses a different approach than v3. Key differences to remember:
+
+### Configuration
+
+- **NO tailwind.config.js/mjs file** - Configuration is done directly in CSS
+- Uses CSS variables instead of JavaScript config
+- Uses the `@import "tailwindcss";` syntax instead of `@tailwind` directives
+
+### Color Usage
+
+Colors are defined as CSS variables with RGB values:
+
+```css
+/* How colors are defined in global.css */
+:root {
+  --primary-600: 2 132 199; /* rgb values */
+}
+
+/* How to use colors in your HTML */
+<div class="text-primary-600">Text in primary color</div>
+```
+
+### Custom Utilities
+
+Custom utilities use the `@utility` syntax instead of `@layer utilities`:
+
+```css
+/* How utilities are defined */
+@utility container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  /* etc */
+}
+```
+
+### CSS Variables in Custom Components
+
+When using CSS variables directly in component styles, use:
+
+```css
+.my-component {
+  /* Correct syntax */
+  color: rgb(var(--primary-600));
+  
+  /* NOT like this (Tailwind v3 style) */
+  color: var(--primary-600);
+}
+```
+
+## Astro Component Rules
+
+- Create `.astro` files for pages and components
+- Use React-like props interface at the top of components
+- Import global CSS only in the Layout component
+
+## Image Handling
+
+- Store assets in `/src/assets/` folder
+- For SSR rendering, use paths starting with `/src/assets/` not `/public/`
+- Use the following format for images:
+  ```html
+  <img src="/src/assets/path/to/image.jpg" alt="Description" class="..." />
+  ```
+
+## Animation System
+
+- Use AOS (Animate On Scroll) for scroll-based animations
+- AOS is imported and initialized in the Layout component
+
+## Development Guidelines
+
+- **DO NOT** manually restart the dev server - it auto-updates
+- Write all new components with mobile-first approach
+- When working on pages with both mobile and desktop views, always update both 
