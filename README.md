@@ -1,4 +1,88 @@
-# Astro Starter Kit: Basics
+# SIA Laser - Website pentru Epilare Definitivă cu Laser
+
+Un website modern pentru un centru de epilare definitivă cu laser, construit folosind Astro și Tailwind CSS.
+
+## Caracteristici
+
+- Design modern și responsive
+- Optimizat pentru SEO
+- Secțiuni pentru servicii, prețuri, despre noi și contact
+- Formular de programare
+- Afișare hartă Google Maps
+- Pagină de întrebări frecvente
+- Footer cu informații de contact și linkuri rapide
+
+## Tehnologii folosite
+
+- [Astro](https://astro.build/) - Framework web
+- [Tailwind CSS](https://tailwindcss.com/) - Framework CSS
+- [Inter Font](https://fonts.google.com/specimen/Inter) - Font principal
+
+## Pornirea proiectului în mod local
+
+1. Clonează repository-ul:
+   ```bash
+   git clone https://github.com/username/sialaser.git
+   cd sialaser
+   ```
+
+2. Instalează dependențele:
+   ```bash
+   npm install
+   ```
+
+3. Pornește serverul de dezvoltare:
+   ```bash
+   npm run dev
+   ```
+
+4. Deschide în browser:
+   ```
+   http://localhost:4321
+   ```
+
+## Structura proiectului
+
+```
+src/
+├── components/     # Componentele Astro
+├── layouts/        # Layout-urile aplicației
+├── pages/          # Paginile aplicației
+└── styles/         # Fișiere CSS globale
+```
+
+## Componente
+
+- `Header.astro` - Bara de navigare
+- `Hero.astro` - Secțiunea principală
+- `Services.astro` - Servicii oferite
+- `Benefits.astro` - Beneficiile epilării cu laser
+- `Pricing.astro` - Prețuri și pachete
+- `About.astro` - Despre centrul SIA Laser
+- `Contact.astro` - Informații de contact și formular de programare
+- `Footer.astro` - Footer-ul site-ului
+
+## Personalizare
+
+Pentru a personaliza site-ul, poți modifica următoarele:
+
+- Culorile pot fi modificate în `tailwind.config.mjs`
+- Textele și conținutul pot fi modificate în fișierele din directorul `components/`
+- Imaginile pot fi înlocuite în directorul `public/`
+
+## Build pentru producție
+
+Pentru a crea versiunea de producție a site-ului:
+
+```bash
+npm run build
+```
+
+Rezultatul va fi generat în directorul `dist/`.
+
+## Licență
+
+Acest proiect este licențiat sub [MIT License](LICENSE).
 
 ```sh
 npm create astro@latest -- --template basics
@@ -46,3 +130,4 @@ All commands are run from the root of the project, from a terminal:
 ## 👀 Want to learn more?
 
 Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+# sia
