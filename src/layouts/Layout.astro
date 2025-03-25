@@ -1,14 +1,53 @@
+---
+interface Props {
+	title?: string;
+	description?: string;
+}
+
+const { 
+	title = "SIA Skin Center | Epilare Definitivă cu Laser",
+	description = "Servicii profesionale de epilare definitivă cu laser la SIA Skin Center. Descoperă ofertele noastre și programează o sesiune pentru a scăpa definitiv de părul nedorit."
+} = Astro.props;
+---
+
 <!doctype html>
-<html lang="en">
+<html lang="ro" class="scroll-smooth">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" type="image/png" href="/favicon.png" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		
+		<!-- Fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+		
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={Astro.url} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content="/og-image.jpg" />
+		
+		<!-- Twitter -->
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:url" content={Astro.url} />
+		<meta property="twitter:title" content={title} />
+		<meta property="twitter:description" content={description} />
+		<meta property="twitter:image" content="/og-image.jpg" />
 	</head>
-	<body>
+	<body class="bg-white font-sans text-gray-800 antialiased">
 		<slot />
+		
+		<!-- Footer script for animations if needed -->
+		<script>
+			document.addEventListener('DOMContentLoaded', () => {
+				// Initialize animations or other client-side features here
+			});
+		</script>
 	</body>
 </html>
 

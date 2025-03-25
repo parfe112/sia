@@ -1,0 +1,141 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout 
+  title="Ședință Testare Gratuită | SIA Skin Center" 
+  description="Rezervă o ședință gratuită de testare pentru a afla care sunt cele mai potrivite tratamente pentru tine. Consultanță personalizată fără obligații."
+>
+  <Header />
+  <main>
+    <section class="pt-32 pb-20">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col lg:flex-row items-center gap-12">
+          <div class="lg:w-1/2">
+            <div class="inline-block bg-primary-100 text-primary-700 font-semibold px-4 py-1 rounded-full text-sm mb-6">
+              GRATUIT
+            </div>
+            
+            <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-primary-700">
+              Ședință de Testare Gratuită
+            </h1>
+            
+            <p class="text-lg text-gray-700 mb-6">
+              La SIA Skin Center, înțelegem importanța deciziilor informate când vine vorba de îngrijirea pielii tale. De aceea, oferim o ședință de testare gratuită pentru toți clienții noi.
+            </p>
+            
+            <p class="text-lg text-gray-700 mb-6">
+              În cadrul acestei ședințe, specialiștii noștri vor evalua tipul tău de piele, discuta despre preocupările și obiectivele tale, și vor recomanda cele mai potrivite tratamente pentru nevoile tale specifice.
+            </p>
+            
+            <p class="text-lg text-gray-700 mb-8">
+              Această ședință nu implică nicio obligație și este concepută pentru a te ajuta să înțelegi mai bine opțiunile disponibile și rezultatele la care te poți aștepta.
+            </p>
+            
+            <div class="bg-gray-50 p-6 rounded-xl border border-gray-100 mb-8">
+              <h2 class="text-xl font-bold mb-4 text-primary-700">Ce include ședința gratuită:</h2>
+              <ul class="space-y-3">
+                <li class="flex items-start">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary-600 mr-2 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>Evaluare detaliată a pielii</span>
+                </li>
+                <li class="flex items-start">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary-600 mr-2 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>Consultanță personalizată</span>
+                </li>
+                <li class="flex items-start">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary-600 mr-2 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>Testarea laserului pe o zonă mică (pentru epilare)</span>
+                </li>
+                <li class="flex items-start">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary-600 mr-2 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>Recomandări de tratament personalizate</span>
+                </li>
+                <li class="flex items-start">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary-600 mr-2 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>Estimare de preț fără obligații</span>
+                </li>
+              </ul>
+            </div>
+            
+            <div class="flex flex-col sm:flex-row gap-4">
+              <a href="/#programare" class="bg-primary-600 hover:bg-primary-700 text-white font-medium px-6 py-3 rounded-full transition-colors text-center">
+                Programează-te acum
+              </a>
+              <a href="/preturi" class="bg-white hover:bg-gray-100 text-primary-700 font-medium px-6 py-3 rounded-full border border-primary-200 transition-colors text-center">
+                Vezi prețurile
+              </a>
+            </div>
+          </div>
+          
+          <div class="lg:w-1/2">
+            <div class="relative">
+              <div class="absolute inset-0 bg-primary-200 rounded-full filter blur-xl opacity-30 transform scale-110"></div>
+              <img 
+                src="/src/assets/poze/PAK1114.jpg" 
+                alt="Ședință de testare gratuită" 
+                class="relative z-10 rounded-2xl shadow-xl max-w-full h-auto object-cover"
+              />
+              <div class="absolute -bottom-6 -right-6 bg-white rounded-xl shadow-lg p-5 z-20">
+                <div class="flex items-center space-x-4">
+                  <div class="bg-primary-100 p-3 rounded-full">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <p class="font-bold text-lg">Fără costuri</p>
+                    <p class="text-gray-600 text-sm">și fără obligații</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="mt-20 max-w-3xl mx-auto">
+          <h2 class="text-2xl md:text-3xl font-bold mb-8 text-center">De ce să alegi o ședință de testare?</h2>
+          
+          <div class="space-y-6">
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+              <h3 class="font-bold text-lg mb-2">Personalizare</h3>
+              <p class="text-gray-700">Fiecare persoană este unică, iar tratamentele de îngrijire a pielii ar trebui să fie la fel. În cadrul ședinței de testare, vom adapta recomandările noastre la nevoile tale specifice.</p>
+            </div>
+            
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+              <h3 class="font-bold text-lg mb-2">Confort și siguranță</h3>
+              <p class="text-gray-700">Testarea preliminară te ajută să te familiarizezi cu procedurile și să te asiguri că te simți confortabil înainte de a te angaja la un tratament complet.</p>
+            </div>
+            
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+              <h3 class="font-bold text-lg mb-2">Rezultate așteptate</h3>
+              <p class="text-gray-700">În timpul ședinței, îți vom explica rezultatele la care te poți aștepta, calendarul de tratament recomandat și răspunde la orice întrebări ai putea avea.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="mt-16 text-center">
+          <a href="/servicii" class="inline-flex items-center text-primary-600 font-medium hover:text-primary-700">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+            </svg>
+            Vezi toate serviciile
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout> 

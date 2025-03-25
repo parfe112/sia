@@ -1,0 +1,90 @@
+<header class="fixed top-0 left-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-100">
+  <div class="container mx-auto px-4">
+    <div class="flex justify-between items-center h-20">
+      <!-- Logo -->
+      <a href="/" class="flex items-center space-x-2 text-primary-600 font-bold text-2xl">
+        <img src="/src/assets/poze/logo-sia-MARE-FARA-FUNDAL-1536x1145.png" alt="SIA Skin Center Logo" class="h-14" />
+        <span class="text-gray-500 font-normal">Skin Center</span>
+      </a>
+      
+      <!-- Navigation -->
+      <nav class="hidden md:flex items-center space-x-8">
+        <a href="/" class="text-gray-600 hover:text-primary-600 font-medium transition-colors">Acasă</a>
+        
+        <div class="relative group">
+          <button class="group flex items-center hover:text-primary-500 text-gray-700 text-sm font-medium">
+            <span>Servicii</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1 transition-transform group-hover:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div class="absolute left-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-2 z-10 hidden group-hover:block">
+            <a href="/servicii/epilare-definitiva-laser" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Epilare Definitivă Laser</a>
+            <a href="/servicii/sedinta-testare-gratuita" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Ședință Testare Gratuită</a>
+            <a href="/servicii" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 font-medium text-primary-600">Vezi toate serviciile</a>
+          </div>
+        </div>
+        
+        <a href="/preturi" class="text-gray-600 hover:text-primary-600 font-medium transition-colors">Prețuri</a>
+        <a href="/contact" class="text-gray-600 hover:text-primary-600 font-medium transition-colors">Contact</a>
+      </nav>
+      
+      <!-- CTA -->
+      <div class="flex items-center space-x-4">
+        <a href="/#programare" class="hidden md:inline-flex bg-primary-600 hover:bg-primary-700 text-white font-medium px-4 py-2 rounded-full transition-colors">
+          Programare
+        </a>
+        
+        <!-- Mobile menu button -->
+        <button class="md:hidden text-gray-600 hover:text-primary-600 transition-colors" id="mobile-menu-button">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Mobile menu -->
+  <div class="md:hidden bg-white border-t border-gray-100 hidden" id="mobile-menu">
+    <div class="container mx-auto px-4 py-3 space-y-1">
+      <a href="/" class="block px-4 py-2 text-gray-700 hover:bg-primary-50 hover:text-primary-600 rounded-md">Acasă</a>
+      
+      <div class="py-2">
+        <div class="font-medium mb-1 text-sm text-gray-500">Servicii</div>
+        <ul class="pl-2">
+          <li>
+            <a href="/servicii/epilare-definitiva-laser" class="block py-2 text-sm text-gray-700 hover:text-primary-600">Epilare Definitivă Laser</a>
+          </li>
+          <li>
+            <a href="/servicii/sedinta-testare-gratuita" class="block py-2 text-sm text-gray-700 hover:text-primary-600">Ședință Testare Gratuită</a>
+          </li>
+          <li>
+            <a href="/servicii" class="block py-2 text-sm font-medium text-primary-600 hover:text-primary-700">Vezi toate serviciile</a>
+          </li>
+        </ul>
+      </div>
+      
+      <a href="/preturi" class="block px-4 py-2 text-gray-700 hover:bg-primary-50 hover:text-primary-600 rounded-md">Prețuri</a>
+      <a href="/contact" class="block px-4 py-2 text-gray-700 hover:bg-primary-50 hover:text-primary-600 rounded-md">Contact</a>
+      
+      <div class="pt-2">
+        <a href="/#programare" class="block w-full bg-primary-600 hover:bg-primary-700 text-white font-medium px-4 py-2 rounded-full text-center transition-colors">
+          Programare
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<script>
+  // Mobile menu toggle
+  const mobileMenuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+  
+  if (mobileMenuButton && mobileMenu) {
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  }
+</script> 

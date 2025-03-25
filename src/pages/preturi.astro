@@ -1,0 +1,403 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout 
+  title="Prețuri | SIA Skin Center" 
+  description="Lista completă de prețuri pentru serviciile de epilare definitivă cu laser la SIA Skin Center."
+>
+  <Header />
+  
+  <main>
+    <section class="pt-32 pb-20">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+          <h1 class="text-4xl font-bold text-pink-700 mb-4">Lista completă de prețuri</h1>
+          <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+            Descoperă prețurile noastre competitive pentru toate serviciile oferite. Consultă listele de mai jos sau contactează-ne pentru detalii suplimentare și oferte personalizate.
+          </p>
+        </div>
+        
+        <!-- Tab navigation -->
+        <div class="mb-10 max-w-2xl mx-auto">
+          <div class="border-b border-gray-200">
+            <nav class="flex justify-center -mb-px">
+              <button id="tab-femei" class="tab-btn active py-4 px-6 border-b-2 border-pink-600 text-pink-600 font-medium">
+                Prețuri Femei
+              </button>
+              <button id="tab-barbati" class="tab-btn py-4 px-6 border-b-2 border-transparent text-gray-500 hover:text-indigo-500 hover:border-indigo-300 font-medium">
+                Prețuri Bărbați
+              </button>
+            </nav>
+          </div>
+        </div>
+        
+        <!-- Tab content -->
+        <div class="max-w-5xl mx-auto">
+          <!-- Femei Content -->
+          <div id="content-femei" class="tab-content">
+            <div class="bg-white rounded-xl shadow-md overflow-hidden mb-12">
+              <div class="bg-pink-600 py-4 px-6">
+                <h2 class="text-2xl font-bold text-white">Epilare definitivă femei</h2>
+              </div>
+              
+              <div class="p-6">
+                <div class="overflow-x-auto">
+                  <table class="min-w-full bg-white border border-pink-100 text-left">
+                    <thead>
+                      <tr class="border-b border-pink-100">
+                        <th class="py-3 px-2 font-bold text-pink-600">ZONĂ EPILARE</th>
+                        <th class="py-3 px-2 font-bold text-pink-600">PREȚ ȘEDINȚĂ</th>
+                        <th class="py-3 px-2 font-bold text-pink-600">PREȚ ABONAMENT<br><span class="text-xs font-normal text-pink-600">(10 ȘEDINȚE LA PREȚ DE 8)</span></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr class="border-b border-pink-100">
+                        <td class="py-2 px-2">AXILĂ/INGHINAL</td>
+                        <td class="py-2 px-2">ȘEDINȚĂ TEST</td>
+                        <td class="py-2 px-2">---</td>
+                      </tr>
+                      <tr class="border-b border-pink-100">
+                        <td class="py-2 px-2">AXILĂ</td>
+                        <td class="py-2 px-2">50 LEI</td>
+                        <td class="py-2 px-2">400 LEI <span class="text-sm text-gray-500 line-through">(500 LEI)</span></td>
+                      </tr>
+                      <tr class="border-b border-pink-100">
+                        <td class="py-2 px-2">FULL BODY INCLUDE TOATE ZONELE CORPULUI</td>
+                        <td class="py-2 px-2">500 LEI</td>
+                        <td class="py-2 px-2">4000 LEI <span class="text-sm text-gray-500 line-through">(5000 LEI)</span></td>
+                      </tr>
+                      <tr class="border-b border-pink-100">
+                        <td class="py-2 px-2">PACHET SUMMER AXILĂ, INGHINAL TOTAL, PICIOARE LUNG</td>
+                        <td class="py-2 px-2">350 LEI</td>
+                        <td class="py-2 px-2">2800 LEI <span class="text-sm text-gray-500 line-through">(3500 LEI)</span></td>
+                      </tr>
+                      <tr class="border-b border-pink-100">
+                        <td class="py-2 px-2">MUSTAȚĂ</td>
+                        <td class="py-2 px-2">35 LEI</td>
+                        <td class="py-2 px-2">250 LEI <span class="text-sm text-gray-500 line-through">(350 LEI)</span></td>
+                      </tr>
+                      <tr class="border-b border-pink-100">
+                        <td class="py-2 px-2">BĂRBIE</td>
+                        <td class="py-2 px-2">35 LEI</td>
+                        <td class="py-2 px-2">250 LEI <span class="text-sm text-gray-500 line-through">(350 LEI)</span></td>
+                      </tr>
+                      <tr class="border-b border-pink-100">
+                        <td class="py-2 px-2">PERCIUNI</td>
+                        <td class="py-2 px-2">35 LEI</td>
+                        <td class="py-2 px-2">250 LEI <span class="text-sm text-gray-500 line-through">(350 LEI)</span></td>
+                      </tr>
+                      <tr class="border-b border-pink-100">
+                        <td class="py-2 px-2">FAȚĂ INTEGRAL (BĂRBIE, MUSTAȚĂ, PERCIUNI ȘI POMEȚI)</td>
+                        <td class="py-2 px-2">140 LEI</td>
+                        <td class="py-2 px-2">1100 LEI <span class="text-sm text-gray-500 line-through">(1400 LEI)</span></td>
+                      </tr>
+                      <tr class="border-b border-pink-100">
+                        <td class="py-2 px-2">GÂT PARȚIAL</td>
+                        <td class="py-2 px-2">90 LEI</td>
+                        <td class="py-2 px-2">720 LEI <span class="text-sm text-gray-500 line-through">(900 LEI)</span></td>
+                      </tr>
+                      <tr class="border-b border-pink-100">
+                        <td class="py-2 px-2">GÂT INTEGRAL</td>
+                        <td class="py-2 px-2">140 LEI</td>
+                        <td class="py-2 px-2">1100 LEI <span class="text-sm text-gray-500 line-through">(1400 LEI)</span></td>
+                      </tr>
+                      <tr class="border-b border-pink-100">
+                        <td class="py-2 px-2">PERIAREOLAR</td>
+                        <td class="py-2 px-2">35 LEI</td>
+                        <td class="py-2 px-2">250 LEI <span class="text-sm text-gray-500 line-through">(350 LEI)</span></td>
+                      </tr>
+                      <tr class="border-b border-pink-100">
+                        <td class="py-2 px-2">LINIE ALBĂ ABDOMEN</td>
+                        <td class="py-2 px-2">50 LEI</td>
+                        <td class="py-2 px-2">400 LEI <span class="text-sm text-gray-500 line-through">(500 LEI)</span></td>
+                      </tr>
+                      <tr class="border-b border-pink-100">
+                        <td class="py-2 px-2">ABDOMEN INTEGRAL</td>
+                        <td class="py-2 px-2">140 LEI</td>
+                        <td class="py-2 px-2">1100 LEI <span class="text-sm text-gray-500 line-through">(1400 LEI)</span></td>
+                      </tr>
+                      <tr class="border-b border-pink-100">
+                        <td class="py-2 px-2">LOMBAR</td>
+                        <td class="py-2 px-2">90 LEI</td>
+                        <td class="py-2 px-2">720 LEI <span class="text-sm text-gray-500 line-through">(900 LEI)</span></td>
+                      </tr>
+                      <tr class="border-b border-pink-100">
+                        <td class="py-2 px-2">SPATE INTEGRAL</td>
+                        <td class="py-2 px-2">200 LEI</td>
+                        <td class="py-2 px-2">1600 LEI <span class="text-sm text-gray-500 line-through">(2000 LEI)</span></td>
+                      </tr>
+                      <tr class="border-b border-pink-100">
+                        <td class="py-2 px-2">ANTEBRAȚE</td>
+                        <td class="py-2 px-2">90 LEI</td>
+                        <td class="py-2 px-2">720 LEI <span class="text-sm text-gray-500 line-through">(900 LEI)</span></td>
+                      </tr>
+                      <tr class="border-b border-pink-100">
+                        <td class="py-2 px-2">BRAȚE INTEGRAL (DEGETE, MÂINI, ANTEBRAȚ ȘI BRAȚ)</td>
+                        <td class="py-2 px-2">160 LEI</td>
+                        <td class="py-2 px-2">1280 LEI <span class="text-sm text-gray-500 line-through">(1600 LEI)</span></td>
+                      </tr>
+                      <tr class="border-b border-pink-100">
+                        <td class="py-2 px-2">MÂINI (DEGETE ȘI PARTEA DORSALĂ A MÂINII)</td>
+                        <td class="py-2 px-2">50 LEI</td>
+                        <td class="py-2 px-2">400 LEI <span class="text-sm text-gray-500 line-through">(500 LEI)</span></td>
+                      </tr>
+                      <tr class="border-b border-pink-100">
+                        <td class="py-2 px-2">INTERFESIERI</td>
+                        <td class="py-2 px-2">50 LEI</td>
+                        <td class="py-2 px-2">400 LEI <span class="text-sm text-gray-500 line-through">(500 LEI)</span></td>
+                      </tr>
+                      <tr class="border-b border-pink-100">
+                        <td class="py-2 px-2">BIKINI LINE</td>
+                        <td class="py-2 px-2">50 LEI</td>
+                        <td class="py-2 px-2">400 LEI <span class="text-sm text-gray-500 line-through">(500 LEI)</span></td>
+                      </tr>
+                      <tr class="border-b border-pink-100">
+                        <td class="py-2 px-2">INGHINAL (BIKINI LINE ȘI PUBIS)</td>
+                        <td class="py-2 px-2">90 LEI</td>
+                        <td class="py-2 px-2">720 LEI <span class="text-sm text-gray-500 line-through">(900 LEI)</span></td>
+                      </tr>
+                      <tr class="border-b border-pink-100">
+                        <td class="py-2 px-2">INGHINAL TOTAL (BIKINI LINE, PUBIS ȘI INTERFESIERI)</td>
+                        <td class="py-2 px-2">150 LEI</td>
+                        <td class="py-2 px-2">1200 LEI <span class="text-sm text-gray-500 line-through">(1500 LEI)</span></td>
+                      </tr>
+                      <tr class="border-b border-pink-100">
+                        <td class="py-2 px-2">PICIOARE SCURT(GAMBE)</td>
+                        <td class="py-2 px-2">190 LEI</td>
+                        <td class="py-2 px-2">1520 LEI <span class="text-sm text-gray-500 line-through">(1900 LEI)</span></td>
+                      </tr>
+                      <tr class="border-b border-pink-100">
+                        <td class="py-2 px-2">PICIOARE LUNG (GAMBE, COAPSE, LABA PICIORULUI ȘI DEGETE)</td>
+                        <td class="py-2 px-2">280 LEI</td>
+                        <td class="py-2 px-2">2240 LEI <span class="text-sm text-gray-500 line-through">(2800 LEI)</span></td>
+                      </tr>
+                      <tr class="border-b border-pink-100">
+                        <td class="py-2 px-2">LABA PICIORULUI ȘI DEGETE</td>
+                        <td class="py-2 px-2">50 LEI</td>
+                        <td class="py-2 px-2">400 LEI <span class="text-sm text-gray-500 line-through">(500 LEI)</span></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                
+                <div class="mt-8 text-center">
+                  <a 
+                    href="https://siaskincenter.kit.com/oferta-epilare-definitiva-bucuresti" 
+                    target="_blank"
+                    class="animate-pulse bg-yellow-500 hover:bg-yellow-400 text-primary-800 font-bold px-8 py-4 rounded-full transition-colors inline-flex items-center shadow-lg border-2 border-yellow-300"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    DESCARCĂ VOUCHERUL CU 50% REDUCERE
+                    <div class="absolute -top-3 -right-3 bg-red-600 text-white text-xs font-bold px-2 py-1 rounded-full">
+                      50% OFF
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Bărbați Content -->
+          <div id="content-barbati" class="tab-content hidden">
+            <div class="bg-white rounded-xl shadow-md overflow-hidden mb-12">
+              <div class="bg-indigo-600 py-4 px-6">
+                <h2 class="text-2xl font-bold text-white">Epilare definitivă bărbați</h2>
+              </div>
+              
+              <div class="p-6">
+                <div class="overflow-x-auto">
+                  <table class="w-full text-left">
+                    <thead>
+                      <tr class="border-b-2 border-indigo-100">
+                        <th class="py-3 px-2 font-bold text-blue-600">ZONĂ EPILARE</th>
+                        <th class="py-3 px-2 font-bold text-blue-600">PREȚ ȘEDINȚĂ</th>
+                        <th class="py-3 px-2 font-bold text-blue-600">PREȚ ABONAMENT<br><span class="text-xs font-normal text-blue-600">(10 ȘEDINȚE LA PREȚ DE 8)</span></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr class="border-b border-gray-100">
+                        <td class="py-2 px-2">AXILĂ</td>
+                        <td class="py-2 px-2">70 LEI</td>
+                        <td class="py-2 px-2">560 LEI <span class="text-sm text-gray-500 line-through">(700 LEI)</span></td>
+                      </tr>
+                      <tr class="border-b border-gray-100">
+                        <td class="py-2 px-2">ANTEBRAȚ</td>
+                        <td class="py-2 px-2">100 LEI</td>
+                        <td class="py-2 px-2">800 LEI <span class="text-sm text-gray-500 line-through">(1000 LEI)</span></td>
+                      </tr>
+                      <tr class="border-b border-gray-100">
+                        <td class="py-2 px-2">BRAȚ INTEGRAL</td>
+                        <td class="py-2 px-2">200 LEI</td>
+                        <td class="py-2 px-2">1600 LEI <span class="text-sm text-gray-500 line-through">(2000 LEI)</span></td>
+                      </tr>
+                      <tr class="border-b border-gray-100">
+                        <td class="py-2 px-2">CONTUR BARBĂ</td>
+                        <td class="py-2 px-2">100 LEI</td>
+                        <td class="py-2 px-2">800 LEI <span class="text-sm text-gray-500 line-through">(1000 LEI)</span></td>
+                      </tr>
+                      <tr class="border-b border-gray-100">
+                        <td class="py-2 px-2">ÎNTRE SPRÂNCENE</td>
+                        <td class="py-2 px-2">35 LEI</td>
+                        <td class="py-2 px-2">280 LEI <span class="text-sm text-gray-500 line-through">(350 LEI)</span></td>
+                      </tr>
+                      <tr class="border-b border-gray-100">
+                        <td class="py-2 px-2">FACIAL COMPLET</td>
+                        <td class="py-2 px-2">180 LEI</td>
+                        <td class="py-2 px-2">1440 LEI <span class="text-sm text-gray-500 line-through">(1800 LEI)</span></td>
+                      </tr>
+                      <tr class="border-b border-gray-100">
+                        <td class="py-2 px-2">GÂT PARȚIAL</td>
+                        <td class="py-2 px-2">90 LEI</td>
+                        <td class="py-2 px-2">720 LEI <span class="text-sm text-gray-500 line-through">(900 LEI)</span></td>
+                      </tr>
+                      <tr class="border-b border-gray-100">
+                        <td class="py-2 px-2">GÂT INTEGRAL</td>
+                        <td class="py-2 px-2">150 LEI</td>
+                        <td class="py-2 px-2">1200 LEI <span class="text-sm text-gray-500 line-through">(1500 LEI)</span></td>
+                      </tr>
+                      <tr class="border-b border-gray-100">
+                        <td class="py-2 px-2">PIEPT (ZONA PECTORALĂ)</td>
+                        <td class="py-2 px-2">150 LEI</td>
+                        <td class="py-2 px-2">1200 LEI <span class="text-sm text-gray-500 line-through">(1500 LEI)</span></td>
+                      </tr>
+                      <tr class="border-b border-gray-100">
+                        <td class="py-2 px-2">ABDOMEN</td>
+                        <td class="py-2 px-2">150 LEI</td>
+                        <td class="py-2 px-2">1200 LEI <span class="text-sm text-gray-500 line-through">(1500 LEI)</span></td>
+                      </tr>
+                      <tr class="border-b border-gray-100">
+                        <td class="py-2 px-2">PIEPT INTEGRAL</td>
+                        <td class="py-2 px-2">300 LEI</td>
+                        <td class="py-2 px-2">2400 LEI <span class="text-sm text-gray-500 line-through">(3000 LEI)</span></td>
+                      </tr>
+                      <tr class="border-b border-gray-100">
+                        <td class="py-2 px-2">ZONA LOMBARĂ</td>
+                        <td class="py-2 px-2">150 LEI</td>
+                        <td class="py-2 px-2">1200 LEI <span class="text-sm text-gray-500 line-through">(1500 LEI)</span></td>
+                      </tr>
+                      <tr class="border-b border-gray-100">
+                        <td class="py-2 px-2">ZONA CERVICALĂ</td>
+                        <td class="py-2 px-2">150 LEI</td>
+                        <td class="py-2 px-2">1200 LEI <span class="text-sm text-gray-500 line-through">(1500 LEI)</span></td>
+                      </tr>
+                      <tr class="border-b border-gray-100">
+                        <td class="py-2 px-2">SPATE INTEGRAL</td>
+                        <td class="py-2 px-2">300 LEI</td>
+                        <td class="py-2 px-2">2400 LEI <span class="text-sm text-gray-500 line-through">(3000 LEI)</span></td>
+                      </tr>
+                      <tr class="border-b border-gray-100">
+                        <td class="py-2 px-2">PICIOARE PARȚIAL</td>
+                        <td class="py-2 px-2">200 LEI</td>
+                        <td class="py-2 px-2">1600 LEI <span class="text-sm text-gray-500 line-through">(2000 LEI)</span></td>
+                      </tr>
+                      <tr class="border-b border-gray-100">
+                        <td class="py-2 px-2">PICIOARE INTEGRAL</td>
+                        <td class="py-2 px-2">400 LEI</td>
+                        <td class="py-2 px-2">3200 LEI <span class="text-sm text-gray-500 line-through">(4000 LEI)</span></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                
+                <div class="mt-8 text-center">
+                  <a 
+                    href="https://siaskincenter.kit.com/oferta-epilare-definitiva-bucuresti" 
+                    target="_blank"
+                    class="animate-pulse bg-yellow-500 hover:bg-yellow-400 text-primary-800 font-bold px-8 py-4 rounded-full transition-colors inline-flex items-center shadow-lg border-2 border-yellow-300"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    DESCARCĂ VOUCHERUL CU 50% REDUCERE
+                    <div class="absolute -top-3 -right-3 bg-red-600 text-white text-xs font-bold px-2 py-1 rounded-full">
+                      50% OFF
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="mt-20 text-center max-w-3xl mx-auto">
+          <h2 class="text-2xl font-bold text-pink-700 mb-4">Informații importante</h2>
+          <ul class="text-gray-600 space-y-3 text-left">
+            <li class="flex items-start">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-pink-600 mr-2 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              Prețurile sunt per ședință și sunt exprimate în RON.
+            </li>
+            <li class="flex items-start">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-pink-600 mr-2 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              Pentru rezultate optime, recomandăm un pachet de 6-8 ședințe, programate la interval de 4-6 săptămâni.
+            </li>
+            <li class="flex items-start">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-pink-600 mr-2 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              Oferte speciale disponibile pentru pachetele de ședințe multiple.
+            </li>
+            <li class="flex items-start">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-pink-600 mr-2 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              Prima ședință include o consultație gratuită pentru evaluarea nevoilor tale.
+            </li>
+          </ul>
+          
+          <div class="mt-10">
+            <a href="/contact" class="bg-indigo-600 hover:bg-indigo-700 text-white font-medium px-8 py-4 rounded-full transition-colors inline-block">
+              Programează o consultație
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <Footer />
+</Layout>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const tabContents = document.querySelectorAll('.tab-content');
+    
+    tabBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Remove active class from all buttons
+        tabBtns.forEach(b => b.classList.remove('active', 'border-pink-600', 'text-pink-600'));
+        tabBtns.forEach(b => b.classList.add('border-transparent', 'text-gray-500'));
+        
+        // Add active class to clicked button
+        btn.classList.add('active', 'border-pink-600', 'text-pink-600');
+        btn.classList.remove('border-transparent', 'text-gray-500');
+        
+        // Hide all content
+        tabContents.forEach(content => content.classList.add('hidden'));
+        
+        // Show corresponding content
+        const contentId = 'content-' + btn.id.split('-')[1];
+        const contentElement = document.getElementById(contentId);
+        if (contentElement) {
+          contentElement.classList.remove('hidden');
+        }
+      });
+    });
+  });
+</script>
+
+<style>
+  .tab-btn.active {
+    border-color: var(--pink-600);
+    color: var(--pink-600);
+  }
+</style> 
