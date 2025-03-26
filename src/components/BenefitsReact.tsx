@@ -200,7 +200,10 @@ const BenefitsReact = () => {
                 </p>
               </div>
               <div className="flex-shrink-0">
-                <button className="bg-gradient-to-r from-blue-500 to-red-700 hover:from-primary-600 hover:to-primary-800 text-white font-medium py-3 px-8 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                <button
+                  onClick={() => (window.location.href = "/contact")}
+                  className="bg-gradient-to-r from-blue-500 to-red-700 hover:from-primary-600 hover:to-primary-800 text-white font-medium py-3 px-8 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+                >
                   Programează ședință
                 </button>
               </div>

@@ -52,89 +52,285 @@ import logoImage from "../assets/poze/logo.png";
       <!-- CTA -->
       <div class="hidden md:block">
         <a
-          href="/#programare"
+          href="/contact"
           class="bg-primary-600 hover:bg-primary-700 text-white font-medium px-6 py-2 rounded-full transition-colors"
         >
           Programare
         </a>
       </div>
 
-      <!-- Mobile menu button -->
+      <!-- Mobile menu button - with direct onclick attribute -->
       <button
-        id="mobile-menu-button"
-        class="md:hidden text-gray-600 hover:text-primary-600"
+        class="md:hidden flex items-center justify-center w-10 h-10 rounded-full bg-primary-50 text-primary-600 hover:bg-primary-100 transition-colors"
         aria-label="Menu"
         type="button"
+        onclick="document.getElementById('mobile-menu').classList.toggle('translate-x-full');document.getElementById('mobile-menu-overlay').classList.toggle('hidden');document.body.classList.toggle('overflow-hidden');"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          class="h-8 w-8"
-          fill="none"
+          width="24"
+          height="24"
           viewBox="0 0 24 24"
+          fill="none"
           stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
         >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M4 6h16M4 12h16M4 18h16"></path>
+          <line x1="4" x2="20" y1="12" y2="12"></line>
+          <line x1="4" x2="20" y1="6" y2="6"></line>
+          <line x1="4" x2="20" y1="18" y2="18"></line>
         </svg>
       </button>
     </div>
   </div>
 
-  <!-- Mobile menu -->
+  <!-- Mobile menu - sliding from right -->
   <div
     id="mobile-menu"
-    class="md:hidden hidden bg-white border-t border-gray-100 py-4 shadow-md"
+    class="fixed inset-0 z-50 transform translate-x-full transition-transform duration-300 ease-in-out md:hidden bg-white shadow-xl"
   >
-    <div class="container mx-auto px-4 py-3 space-y-1">
+    <div
+      class="h-20 border-b border-gray-100 flex items-center justify-between px-4 bg-white"
+    >
       <a
         href="/"
-        class="block px-4 py-2 text-gray-700 hover:bg-primary-50 hover:text-primary-600 rounded-md"
-        >Acasă</a
+        class="flex items-center space-x-2 text-primary-600 font-bold text-2xl"
       >
-
-      <!-- Simplified Servicii link, no submenu -->
-      <a
-        href="/servicii"
-        class="block px-4 py-2 text-gray-700 hover:bg-primary-50 hover:text-primary-600 rounded-md"
-        >Servicii</a
+        <Image
+          src={logoImage}
+          alt="SIA Skin Center Logo"
+          width={56}
+          height={42}
+          class="h-14 w-auto"
+        />
+        <span class="text-gray-500 font-normal">Skin Center</span>
+      </a>
+      <!-- Close button with direct onclick attribute -->
+      <button
+        class="flex items-center justify-center w-10 h-10 rounded-full bg-primary-50 text-primary-600 hover:bg-primary-100 transition-colors"
+        onclick="document.getElementById('mobile-menu').classList.toggle('translate-x-full');document.getElementById('mobile-menu-overlay').classList.toggle('hidden');document.body.classList.toggle('overflow-hidden');"
       >
-
-      <a
-        href="/preturi"
-        class="block px-4 py-2 text-gray-700 hover:bg-primary-50 hover:text-primary-600 rounded-md"
-        >Prețuri</a
-      >
-      <a
-        href="/contact"
-        class="block px-4 py-2 text-gray-700 hover:bg-primary-50 hover:text-primary-600 rounded-md"
-        >Contact</a
-      >
-
-      <div class="pt-2">
-        <a
-          href="/#programare"
-          class="block w-full bg-primary-600 hover:bg-primary-700 text-white font-medium px-4 py-2 rounded-full text-center transition-colors"
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
         >
-          Programare
+          <path d="M18 6 6 18"></path>
+          <path d="m6 6 12 12"></path>
+        </svg>
+      </button>
+    </div>
+
+    <div
+      class="container bg-primary-200 mx-auto px-4 py-8 overflow-y-auto"
+      style="max-height: calc(100vh - 80px);"
+    >
+      <nav class="space-y-5">
+        <a
+          href="/"
+          class="flex items-center px-5 py-4 text-lg text-gray-800 hover:bg-primary-50 hover:text-primary-600 rounded-xl transition-colors border border-gray-100 shadow-sm"
+          onclick="document.getElementById('mobile-menu').classList.toggle('translate-x-full');document.getElementById('mobile-menu-overlay').classList.toggle('hidden');document.body.classList.toggle('overflow-hidden');"
+        >
+          <svg
+            class="w-6 h-6 mr-3 text-primary-600"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            ><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"
+            ></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg
+          >
+          Acasă
         </a>
+
+        <a
+          href="/servicii"
+          class="flex items-center px-5 py-4 text-lg text-gray-800 hover:bg-primary-50 hover:text-primary-600 rounded-xl transition-colors border border-gray-100 shadow-sm"
+          onclick="document.getElementById('mobile-menu').classList.toggle('translate-x-full');document.getElementById('mobile-menu-overlay').classList.toggle('hidden');document.body.classList.toggle('overflow-hidden');"
+        >
+          <svg
+            class="w-6 h-6 mr-3 text-primary-600"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            ><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"
+            ></path><line x1="16" x2="2" y1="8" y2="22"></line><line
+              x1="17.5"
+              x2="9"
+              y1="15"
+              y2="15"></line></svg
+          >
+          Servicii
+        </a>
+
+        <a
+          href="/preturi"
+          class="flex items-center px-5 py-4 text-lg text-gray-800 hover:bg-primary-50 hover:text-primary-600 rounded-xl transition-colors border border-gray-100 shadow-sm"
+          onclick="document.getElementById('mobile-menu').classList.toggle('translate-x-full');document.getElementById('mobile-menu-overlay').classList.toggle('hidden');document.body.classList.toggle('overflow-hidden');"
+        >
+          <svg
+            class="w-6 h-6 mr-3 text-primary-600"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            ><circle cx="12" cy="12" r="10"></circle><path
+              d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"></path><path
+              d="M12 18V6"></path></svg
+          >
+          Prețuri
+        </a>
+
+        <a
+          href="/contact"
+          class="flex items-center px-5 py-4 text-lg text-gray-800 hover:bg-primary-50 hover:text-primary-600 rounded-xl transition-colors border border-gray-100 shadow-sm"
+          onclick="document.getElementById('mobile-menu').classList.toggle('translate-x-full');document.getElementById('mobile-menu-overlay').classList.toggle('hidden');document.body.classList.toggle('overflow-hidden');"
+        >
+          <svg
+            class="w-6 h-6 mr-3 text-primary-600"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            ><path
+              d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+            ></path></svg
+          >
+          Contact
+        </a>
+
+        <div class="pt-5">
+          <a
+            href="/contact"
+            class="flex items-center justify-center w-full bg-primary-600 hover:bg-primary-700 text-white font-bold px-5 py-4 rounded-xl text-center transition-colors shadow-md"
+            onclick="document.getElementById('mobile-menu').classList.toggle('translate-x-full');document.getElementById('mobile-menu-overlay').classList.toggle('hidden');document.body.classList.toggle('overflow-hidden');"
+          >
+            <svg
+              class="w-6 h-6 mr-2"
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              ><rect width="18" height="18" x="3" y="4" rx="2" ry="2"
+              ></rect><line x1="16" x2="16" y1="2" y2="6"></line><line
+                x1="8"
+                x2="8"
+                y1="2"
+                y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line><path
+                d="M8 14h.01"></path><path d="M12 14h.01"></path><path
+                d="M16 14h.01"></path><path d="M8 18h.01"></path><path
+                d="M12 18h.01"></path><path d="M16 18h.01"></path></svg
+            >
+            Programare
+          </a>
+        </div>
+      </nav>
+
+      <div class="mt-12 border-t border-gray-200 pt-6">
+        <div class="flex items-center justify-center space-x-6">
+          <a
+            href="https://facebook.com"
+            class="text-primary-600 hover:text-primary-700 bg-primary-50 p-3 rounded-full transition-colors"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="w-6 h-6"
+              ><path
+                d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+              ></path></svg
+            >
+          </a>
+          <a
+            href="https://instagram.com"
+            class="text-primary-600 hover:text-primary-700 bg-primary-50 p-3 rounded-full transition-colors"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="w-6 h-6"
+              ><rect width="20" height="20" x="2" y="2" rx="5" ry="5"
+              ></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"
+              ></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg
+            >
+          </a>
+          <a
+            href="tel:+40722222222"
+            class="text-primary-600 hover:text-primary-700 bg-primary-50 p-3 rounded-full transition-colors"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="w-6 h-6"
+              ><path
+                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+              ></path></svg
+            >
+          </a>
+        </div>
       </div>
     </div>
   </div>
+
+  <!-- Overlay for mobile menu - with direct onclick attribute -->
+  <div
+    id="mobile-menu-overlay"
+    class="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 hidden md:hidden"
+    onclick="document.getElementById('mobile-menu').classList.toggle('translate-x-full');document.getElementById('mobile-menu-overlay').classList.toggle('hidden');document.body.classList.toggle('overflow-hidden');"
+  >
+  </div>
 </header>
-
-<script is:inline>
-  // Mobile menu toggle - using is:inline to ensure code runs without bundling issues
-  document.addEventListener("DOMContentLoaded", function () {
-    const mobileMenuButton = document.getElementById("mobile-menu-button");
-    const mobileMenu = document.getElementById("mobile-menu");
-
-    if (mobileMenuButton && mobileMenu) {
-      mobileMenuButton.addEventListener("click", function () {
-        mobileMenu.classList.toggle("hidden");
-      });
-    }
-  });
-</script>
