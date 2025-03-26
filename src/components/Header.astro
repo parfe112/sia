@@ -4,62 +4,90 @@ import logoImage from "../assets/poze/logo.png";
 ---
 
 <header
-  class="fixed top-0 left-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-100"
+  class="fixed top-0 left-0 w-full z-50 bg-white/80 backdrop-blur-xl border-b border-gray-100/50"
 >
   <div class="container mx-auto px-4">
     <div class="flex justify-between items-center h-20">
       <!-- Logo -->
       <a
         href="/"
-        class="flex items-center space-x-2 text-primary-600 font-bold text-2xl"
+        class="flex items-center space-x-3 text-primary-600 font-bold text-2xl"
       >
         <Image
           src={logoImage}
           alt="SIA Skin Center Logo"
-          width={56}
-          height={42}
+          width={256}
+          height={192}
           class="h-14 w-auto"
+          quality={100}
+          format="png"
+          densities={[1, 2]}
+          loading="eager"
         />
         <span class="text-gray-500 font-normal">Skin Center</span>
       </a>
 
-      <!-- Navigation -->
-      <nav class="hidden md:flex items-center space-x-8">
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:flex items-center space-x-1">
         <a
           href="/"
-          class="text-gray-600 hover:text-primary-600 font-medium transition-colors"
-          >Acasă</a
+          class="text-gray-600 hover:text-primary-600 font-medium px-4 py-2 rounded-full transition-all hover:bg-primary-50/50"
         >
+          Acasă
+        </a>
 
         <a
           href="/servicii"
-          class="text-gray-600 hover:text-primary-600 font-medium transition-colors"
-          >Servicii</a
+          class="text-gray-600 hover:text-primary-600 font-medium px-4 py-2 rounded-full transition-all hover:bg-primary-50/50"
         >
+          Servicii
+        </a>
 
         <a
           href="/preturi"
-          class="text-gray-600 hover:text-primary-600 font-medium transition-colors"
-          >Prețuri</a
+          class="text-gray-600 hover:text-primary-600 font-medium px-4 py-2 rounded-full transition-all hover:bg-primary-50/50"
         >
+          Prețuri
+        </a>
+
         <a
           href="/contact"
-          class="text-gray-600 hover:text-primary-600 font-medium transition-colors"
-          >Contact</a
+          class="text-gray-600 hover:text-primary-600 font-medium px-4 py-2 rounded-full transition-all hover:bg-primary-50/50"
         >
+          Contact
+        </a>
       </nav>
 
-      <!-- CTA -->
-      <div class="hidden md:block">
+      <!-- Desktop CTA and WhatsApp -->
+      <div class="hidden md:flex items-center space-x-3">
+        <a
+          href="https://wa.me/40722222222"
+          target="_blank"
+          class="flex items-center justify-center w-10 h-10 rounded-full bg-green-500 text-white hover:bg-green-600 transition-all hover:scale-105 shadow-sm hover:shadow-md"
+          aria-label="WhatsApp"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            class="w-5 h-5"
+          >
+            <path
+              d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564c.173.087.287.129.332.202.045.073.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm.029 18.88c-1.161 0-2.305-.292-3.318-.844l-3.677.964.984-3.595c-.607-1.052-.927-2.246-.926-3.468.001-3.825 3.113-6.937 6.937-6.937 1.856.001 3.598.723 4.907 2.034 1.31 1.311 2.031 3.054 2.03 4.908-.001 3.825-3.113 6.938-6.937 6.938z"
+            ></path>
+          </svg>
+        </a>
         <a
           href="/contact"
-          class="bg-primary-600 hover:bg-primary-700 text-white font-medium px-6 py-2 rounded-full transition-colors"
+          class="bg-primary-600 hover:bg-primary-700 text-white font-medium px-6 py-2.5 rounded-full transition-all shadow-sm hover:shadow-md hover:scale-105"
         >
           Programare
         </a>
       </div>
 
-      <!-- Mobile menu button - with direct onclick attribute -->
+      <!-- Mobile menu button -->
       <button
         class="md:hidden flex items-center justify-center w-10 h-10 rounded-full bg-primary-50 text-primary-600 hover:bg-primary-100 transition-colors"
         aria-label="Menu"
@@ -85,28 +113,32 @@ import logoImage from "../assets/poze/logo.png";
     </div>
   </div>
 
-  <!-- Mobile menu - sliding from right -->
+  <!-- Mobile menu -->
   <div
     id="mobile-menu"
-    class="fixed inset-0 z-50 transform translate-x-full transition-transform duration-300 ease-in-out md:hidden bg-white shadow-xl"
+    class="fixed inset-0 z-50 transform translate-x-full transition-transform duration-300 ease-in-out md:hidden bg-pink-700"
   >
     <div
-      class="h-20 border-b border-gray-100 flex items-center justify-between px-4 bg-white"
+      class="h-20 border-b border-gray-100 flex items-center justify-between px-4"
     >
       <a
         href="/"
-        class="flex items-center space-x-2 text-primary-600 font-bold text-2xl"
+        class="flex items-center space-x-3 text-primary-600 font-bold text-2xl"
       >
         <Image
           src={logoImage}
           alt="SIA Skin Center Logo"
-          width={56}
-          height={42}
+          width={256}
+          height={192}
           class="h-14 w-auto"
+          quality={100}
+          format="png"
+          densities={[1, 2]}
+          loading="eager"
         />
         <span class="text-gray-500 font-normal">Skin Center</span>
       </a>
-      <!-- Close button with direct onclick attribute -->
+      <!-- Close button -->
       <button
         class="flex items-center justify-center w-10 h-10 rounded-full bg-primary-50 text-primary-600 hover:bg-primary-100 transition-colors"
         onclick="document.getElementById('mobile-menu').classList.toggle('translate-x-full');document.getElementById('mobile-menu-overlay').classList.toggle('hidden');document.body.classList.toggle('overflow-hidden');"
@@ -132,10 +164,10 @@ import logoImage from "../assets/poze/logo.png";
       class="container bg-primary-200 mx-auto px-4 py-8 overflow-y-auto"
       style="max-height: calc(100vh - 80px);"
     >
-      <nav class="space-y-5">
+      <nav class="space-y-3">
         <a
           href="/"
-          class="flex items-center px-5 py-4 text-lg text-gray-800 hover:bg-primary-50 hover:text-primary-600 rounded-xl transition-colors border border-gray-100 shadow-sm"
+          class="flex items-center px-5 py-3 text-lg text-gray-800 hover:bg-primary-50 hover:text-primary-600 rounded-xl transition-all"
           onclick="document.getElementById('mobile-menu').classList.toggle('translate-x-full');document.getElementById('mobile-menu-overlay').classList.toggle('hidden');document.body.classList.toggle('overflow-hidden');"
         >
           <svg
@@ -157,7 +189,7 @@ import logoImage from "../assets/poze/logo.png";
 
         <a
           href="/servicii"
-          class="flex items-center px-5 py-4 text-lg text-gray-800 hover:bg-primary-50 hover:text-primary-600 rounded-xl transition-colors border border-gray-100 shadow-sm"
+          class="flex items-center px-5 py-3 text-lg text-gray-800 hover:bg-primary-50 hover:text-primary-600 rounded-xl transition-all"
           onclick="document.getElementById('mobile-menu').classList.toggle('translate-x-full');document.getElementById('mobile-menu-overlay').classList.toggle('hidden');document.body.classList.toggle('overflow-hidden');"
         >
           <svg
@@ -183,7 +215,7 @@ import logoImage from "../assets/poze/logo.png";
 
         <a
           href="/preturi"
-          class="flex items-center px-5 py-4 text-lg text-gray-800 hover:bg-primary-50 hover:text-primary-600 rounded-xl transition-colors border border-gray-100 shadow-sm"
+          class="flex items-center px-5 py-3 text-lg text-gray-800 hover:bg-primary-50 hover:text-primary-600 rounded-xl transition-all"
           onclick="document.getElementById('mobile-menu').classList.toggle('translate-x-full');document.getElementById('mobile-menu-overlay').classList.toggle('hidden');document.body.classList.toggle('overflow-hidden');"
         >
           <svg
@@ -206,7 +238,7 @@ import logoImage from "../assets/poze/logo.png";
 
         <a
           href="/contact"
-          class="flex items-center px-5 py-4 text-lg text-gray-800 hover:bg-primary-50 hover:text-primary-600 rounded-xl transition-colors border border-gray-100 shadow-sm"
+          class="flex items-center px-5 py-3 text-lg text-gray-800 hover:bg-primary-50 hover:text-primary-600 rounded-xl transition-all"
           onclick="document.getElementById('mobile-menu').classList.toggle('translate-x-full');document.getElementById('mobile-menu-overlay').classList.toggle('hidden');document.body.classList.toggle('overflow-hidden');"
         >
           <svg
@@ -227,10 +259,30 @@ import logoImage from "../assets/poze/logo.png";
           Contact
         </a>
 
-        <div class="pt-5">
+        <div class="pt-5 space-y-3">
+          <a
+            href="https://wa.me/0770889907"
+            target="_blank"
+            class="flex items-center justify-center w-full bg-green-500 hover:bg-green-600 text-white font-bold px-5 py-3 rounded-xl text-center transition-all"
+            onclick="document.getElementById('mobile-menu').classList.toggle('translate-x-full');document.getElementById('mobile-menu-overlay').classList.toggle('hidden');document.body.classList.toggle('overflow-hidden');"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              class="w-6 h-6 mr-2"
+            >
+              <path
+                d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564c.173.087.287.129.332.202.045.073.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm.029 18.88c-1.161 0-2.305-.292-3.318-.844l-3.677.964.984-3.595c-.607-1.052-.927-2.246-.926-3.468.001-3.825 3.113-6.937 6.937-6.937 1.856.001 3.598.723 4.907 2.034 1.31 1.311 2.031 3.054 2.03 4.908-.001 3.825-3.113 6.938-6.937 6.938z"
+              ></path>
+            </svg>
+            WhatsApp
+          </a>
           <a
             href="/contact"
-            class="flex items-center justify-center w-full bg-primary-600 hover:bg-primary-700 text-white font-bold px-5 py-4 rounded-xl text-center transition-colors shadow-md"
+            class="flex items-center justify-center w-full bg-primary-600 hover:bg-primary-700 text-white font-bold px-5 py-3 rounded-xl text-center transition-all"
             onclick="document.getElementById('mobile-menu').classList.toggle('translate-x-full');document.getElementById('mobile-menu-overlay').classList.toggle('hidden');document.body.classList.toggle('overflow-hidden');"
           >
             <svg
@@ -259,11 +311,11 @@ import logoImage from "../assets/poze/logo.png";
         </div>
       </nav>
 
-      <div class="mt-12 border-t border-gray-200 pt-6">
+      <div class="mt-12 border-t border-gray-100 pt-6">
         <div class="flex items-center justify-center space-x-6">
           <a
             href="https://facebook.com"
-            class="text-primary-600 hover:text-primary-700 bg-primary-50 p-3 rounded-full transition-colors"
+            class="text-primary-600 hover:text-primary-700 bg-primary-50 p-3 rounded-full transition-all hover:scale-110"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -283,7 +335,7 @@ import logoImage from "../assets/poze/logo.png";
           </a>
           <a
             href="https://instagram.com"
-            class="text-primary-600 hover:text-primary-700 bg-primary-50 p-3 rounded-full transition-colors"
+            class="text-primary-600 hover:text-primary-700 bg-primary-50 p-3 rounded-full transition-all hover:scale-110"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -303,7 +355,7 @@ import logoImage from "../assets/poze/logo.png";
           </a>
           <a
             href="tel:+40722222222"
-            class="text-primary-600 hover:text-primary-700 bg-primary-50 p-3 rounded-full transition-colors"
+            class="text-primary-600 hover:text-primary-700 bg-primary-50 p-3 rounded-full transition-all hover:scale-110"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -326,7 +378,7 @@ import logoImage from "../assets/poze/logo.png";
     </div>
   </div>
 
-  <!-- Overlay for mobile menu - with direct onclick attribute -->
+  <!-- Overlay for mobile menu -->
   <div
     id="mobile-menu-overlay"
     class="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 hidden md:hidden"
