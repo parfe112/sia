@@ -63,6 +63,8 @@ import logoImage from "../assets/poze/logo.png";
       <button
         id="mobile-menu-button"
         class="md:hidden text-gray-600 hover:text-primary-600"
+        aria-label="Menu"
+        type="button"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -93,32 +95,12 @@ import logoImage from "../assets/poze/logo.png";
         >Acasă</a
       >
 
-      <div class="py-2">
-        <div class="font-medium mb-1 text-sm text-gray-500">Servicii</div>
-        <ul class="pl-2">
-          <li>
-            <a
-              href="/servicii/epilare-definitiva-laser"
-              class="block py-2 text-sm text-gray-700 hover:text-primary-600"
-              >Epilare Definitivă Laser</a
-            >
-          </li>
-          <li>
-            <a
-              href="/servicii/sedinta-testare-gratuita"
-              class="block py-2 text-sm text-gray-700 hover:text-primary-600"
-              >Ședință Testare Gratuită</a
-            >
-          </li>
-          <li>
-            <a
-              href="/servicii"
-              class="block py-2 text-sm font-medium text-primary-600 hover:text-primary-700"
-              >Vezi toate serviciile</a
-            >
-          </li>
-        </ul>
-      </div>
+      <!-- Simplified Servicii link, no submenu -->
+      <a
+        href="/servicii"
+        class="block px-4 py-2 text-gray-700 hover:bg-primary-50 hover:text-primary-600 rounded-md"
+        >Servicii</a
+      >
 
       <a
         href="/preturi"
@@ -143,14 +125,16 @@ import logoImage from "../assets/poze/logo.png";
   </div>
 </header>
 
-<script>
-  // Mobile menu toggle
-  const mobileMenuButton = document.getElementById("mobile-menu-button");
-  const mobileMenu = document.getElementById("mobile-menu");
+<script is:inline>
+  // Mobile menu toggle - using is:inline to ensure code runs without bundling issues
+  document.addEventListener("DOMContentLoaded", function () {
+    const mobileMenuButton = document.getElementById("mobile-menu-button");
+    const mobileMenu = document.getElementById("mobile-menu");
 
-  if (mobileMenuButton && mobileMenu) {
-    mobileMenuButton.addEventListener("click", () => {
-      mobileMenu.classList.toggle("hidden");
-    });
-  }
+    if (mobileMenuButton && mobileMenu) {
+      mobileMenuButton.addEventListener("click", function () {
+        mobileMenu.classList.toggle("hidden");
+      });
+    }
+  });
 </script>
