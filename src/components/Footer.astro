@@ -1,4 +1,7 @@
 ---
+import { Image } from "astro:assets";
+import logoImage from "../assets/poze/logo.png";
+
 const currentYear = new Date().getFullYear();
 ---
 
@@ -7,10 +10,12 @@ const currentYear = new Date().getFullYear();
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
       <div>
         <div class="flex items-center gap-2 mb-6">
-          <img
-            src="/src/assets/poze/logo.png"
+          <Image
+            src={logoImage}
             alt="SIA Skin Center Logo"
-            class="h-10"
+            width={40}
+            height={40}
+            class="h-10 w-auto"
           />
           <span class="text-xl font-bold text-white"
             >SIA<span class="text-secondary-400">Skin Center</span></span
@@ -24,11 +29,11 @@ const currentYear = new Date().getFullYear();
           <a
             href="https://www.facebook.com/profile.php?id=61554965023675"
             target="_blank"
-            class="text-[#1877F2] hover:opacity-80 transition-opacity"
+            class="bg-[#1877F2] p-3 rounded-full hover:bg-[#0e66da] transition-colors"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="h-6 w-6"
+              class="h-6 w-6 text-white"
               fill="currentColor"
               viewBox="0 0 24 24"
             >
@@ -40,11 +45,11 @@ const currentYear = new Date().getFullYear();
           <a
             href="https://www.instagram.com/sia_epilare_definitiva/"
             target="_blank"
-            class="text-transparent bg-clip-text bg-gradient-to-r from-[#FCAF45] via-[#E1306C] to-[#5851DB] hover:opacity-80 transition-opacity"
+            class="bg-gradient-to-r from-[#FCAF45] via-[#E1306C] to-[#5851DB] p-3 rounded-full hover:opacity-90 transition-opacity"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="h-6 w-6"
+              class="h-6 w-6 text-white"
               fill="currentColor"
               viewBox="0 0 24 24"
             >
@@ -56,11 +61,11 @@ const currentYear = new Date().getFullYear();
           <a
             href="https://www.tiktok.com/@sia.skin.center"
             target="_blank"
-            class="text-black hover:opacity-80 transition-opacity"
+            class="bg-black p-3 rounded-full hover:bg-gray-900 transition-colors"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="h-6 w-6"
+              class="h-6 w-6 text-white"
               fill="currentColor"
               viewBox="0 0 24 24"
             >
@@ -77,37 +82,43 @@ const currentYear = new Date().getFullYear();
         <ul class="space-y-3">
           <li>
             <a href="/" class="text-gray-400 hover:text-white transition-colors"
-              >Acasă</a>
+              >Acasă</a
+            >
           </li>
           <li>
             <a
               href="#servicii"
               class="text-gray-400 hover:text-white transition-colors"
-              >Servicii</a>
+              >Servicii</a
+            >
           </li>
           <li>
             <a
               href="#avantaje"
               class="text-gray-400 hover:text-white transition-colors"
-              >Avantaje</a>
+              >Avantaje</a
+            >
           </li>
           <li>
             <a
               href="#preturi"
               class="text-gray-400 hover:text-white transition-colors"
-              >Prețuri</a>
+              >Prețuri</a
+            >
           </li>
           <li>
             <a
               href="#despre"
               class="text-gray-400 hover:text-white transition-colors"
-              >Despre Noi</a>
+              >Despre Noi</a
+            >
           </li>
           <li>
             <a
               href="#contact"
               class="text-gray-400 hover:text-white transition-colors"
-              >Contact</a>
+              >Contact</a
+            >
           </li>
         </ul>
       </div>
@@ -119,31 +130,36 @@ const currentYear = new Date().getFullYear();
             <a
               href="#servicii"
               class="text-gray-400 hover:text-white transition-colors"
-              >Epilare Facială</a>
+              >Epilare Facială</a
+            >
           </li>
           <li>
             <a
               href="#servicii"
               class="text-gray-400 hover:text-white transition-colors"
-              >Epilare Corp Femei</a>
+              >Epilare Corp Femei</a
+            >
           </li>
           <li>
             <a
               href="#servicii"
               class="text-gray-400 hover:text-white transition-colors"
-              >Epilare Corp Bărbați</a>
+              >Epilare Corp Bărbați</a
+            >
           </li>
           <li>
             <a
               href="#servicii"
               class="text-gray-400 hover:text-white transition-colors"
-              >Pachete Personalizate</a>
+              >Pachete Personalizate</a
+            >
           </li>
           <li>
             <a
               href="#programare"
               class="text-gray-400 hover:text-white transition-colors"
-              >Programare</a>
+              >Programare</a
+            >
           </li>
         </ul>
       </div>
@@ -334,4 +350,3 @@ const currentYear = new Date().getFullYear();
     });
   }
 </script>
-

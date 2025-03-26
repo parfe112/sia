@@ -1,126 +1,227 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
+import Layout from "../../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import laserImage from "../../assets/poze/aparat-laser.jpg";
+import consultationImage from "../../assets/poze/PAK1114.jpg";
 ---
 
-<Layout 
-  title="Servicii | SIA Skin Center" 
+<Layout
+  title="Servicii | SIA Skin Center"
   description="Descoperă gama completă de servicii oferite de SIA Skin Center. Tratamente personalizate pentru toate nevoile tale de îngrijire a pielii."
 >
-  <Header />
   <main>
     <section class="pt-32 pb-20">
       <div class="container mx-auto px-4">
         <div class="text-center max-w-3xl mx-auto mb-16">
-          <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-primary-700">
+          <h1
+            class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-primary-700"
+          >
             Serviciile Noastre
           </h1>
           <p class="text-lg text-gray-700">
-            La SIA Skin Center, oferim o gamă completă de servicii de înaltă calitate, personalizate pentru a răspunde nevoilor specifice ale fiecărui client. Descoperă tratamentele noastre și programează o ședință pentru a te bucura de rezultate excepționale.
+            La SIA Skin Center, oferim o gamă completă de servicii de înaltă
+            calitate, personalizate pentru a răspunde nevoilor specifice ale
+            fiecărui client. Descoperă tratamentele noastre și programează o
+            ședință pentru a te bucura de rezultate excepționale.
           </p>
         </div>
-        
+
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
           <!-- Epilare Definitiva Laser -->
-          <div class="bg-white rounded-2xl shadow-sm overflow-hidden border border-gray-100 transition-transform hover:shadow-md hover:-translate-y-1">
+          <div
+            class="bg-white rounded-2xl shadow-sm overflow-hidden border border-gray-100 transition-transform hover:shadow-md hover:-translate-y-1"
+          >
             <div class="relative">
-              <img 
-                src="/src/assets/poze/aparat-laser.jpg" 
-                alt="Epilare Definitivă cu Laser" 
+              <Image
+                src={laserImage}
+                alt="Epilare Definitivă cu Laser"
+                width={800}
+                height={500}
                 class="w-full h-64 object-cover"
               />
-              <div class="absolute top-4 right-4 bg-primary-600 text-white text-xs font-bold px-3 py-1 rounded-full">
+              <div
+                class="absolute top-4 right-4 bg-primary-600 text-white text-xs font-bold px-3 py-1 rounded-full"
+              >
                 POPULAR
               </div>
             </div>
             <div class="p-6">
-              <h2 class="text-2xl font-bold mb-3 text-primary-700">Epilare Definitivă cu Laser</h2>
+              <h2 class="text-2xl font-bold mb-3 text-primary-700">
+                Epilare Definitivă cu Laser
+              </h2>
               <p class="text-gray-600 mb-6">
-                Tratamente de epilare definitivă folosind tehnologie avansată New Eride Smart Dual. Proceduri nedureroase și eficiente pentru toate zonele corpului.
+                Tratamente de epilare definitivă folosind tehnologie avansată
+                New Eride Smart Dual. Proceduri nedureroase și eficiente pentru
+                toate zonele corpului.
               </p>
               <ul class="space-y-2 mb-6">
                 <li class="flex items-center text-sm text-gray-600">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5 text-primary-600 mr-2"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"></path>
                   </svg>
                   <span>Tehnologie laser de ultimă generație</span>
                 </li>
                 <li class="flex items-center text-sm text-gray-600">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5 text-primary-600 mr-2"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"></path>
                   </svg>
                   <span>Rezultate permanente</span>
                 </li>
                 <li class="flex items-center text-sm text-gray-600">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5 text-primary-600 mr-2"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"></path>
                   </svg>
                   <span>Procedură nedureroasă</span>
                 </li>
               </ul>
-              <a href="/servicii/epilare-definitiva-laser" class="inline-block bg-primary-600 hover:bg-primary-700 text-white font-medium px-6 py-3 rounded-full transition-colors text-center w-full">
+              <a
+                href="/servicii/epilare-definitiva-laser"
+                class="inline-block bg-primary-600 hover:bg-primary-700 text-white font-medium px-6 py-3 rounded-full transition-colors text-center w-full"
+              >
                 Află mai multe
               </a>
             </div>
           </div>
-          
+
           <!-- Sedinta Testare Gratuita -->
-          <div class="bg-white rounded-2xl shadow-sm overflow-hidden border border-gray-100 transition-transform hover:shadow-md hover:-translate-y-1">
+          <div
+            class="bg-white rounded-2xl shadow-sm overflow-hidden border border-gray-100 transition-transform hover:shadow-md hover:-translate-y-1"
+          >
             <div class="relative">
-              <img 
-                src="/src/assets/poze/PAK1114.jpg" 
-                alt="Ședință de Testare Gratuită" 
+              <Image
+                src={consultationImage}
+                alt="Ședință de Testare Gratuită"
+                width={800}
+                height={500}
                 class="w-full h-64 object-cover"
               />
-              <div class="absolute top-4 right-4 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full">
+              <div
+                class="absolute top-4 right-4 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full"
+              >
                 GRATUIT
               </div>
             </div>
             <div class="p-6">
-              <h2 class="text-2xl font-bold mb-3 text-primary-700">Ședință de Testare Gratuită</h2>
+              <h2 class="text-2xl font-bold mb-3 text-primary-700">
+                Ședință de Testare Gratuită
+              </h2>
               <p class="text-gray-600 mb-6">
-                Rezervă o ședință gratuită de consultanță și testare pentru a afla care sunt cele mai potrivite tratamente pentru nevoile tale.
+                Rezervă o ședință gratuită de consultanță și testare pentru a
+                afla care sunt cele mai potrivite tratamente pentru nevoile
+                tale.
               </p>
               <ul class="space-y-2 mb-6">
                 <li class="flex items-center text-sm text-gray-600">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5 text-primary-600 mr-2"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"></path>
                   </svg>
                   <span>Evaluare personalizată</span>
                 </li>
                 <li class="flex items-center text-sm text-gray-600">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5 text-primary-600 mr-2"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"></path>
                   </svg>
                   <span>Testare fără obligații</span>
                 </li>
                 <li class="flex items-center text-sm text-gray-600">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5 text-primary-600 mr-2"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"></path>
                   </svg>
                   <span>Recomandări profesionale</span>
                 </li>
               </ul>
-              <a href="/servicii/sedinta-testare-gratuita" class="inline-block bg-primary-600 hover:bg-primary-700 text-white font-medium px-6 py-3 rounded-full transition-colors text-center w-full">
+              <a
+                href="/servicii/sedinta-testare-gratuita"
+                class="inline-block bg-primary-600 hover:bg-primary-700 text-white font-medium px-6 py-3 rounded-full transition-colors text-center w-full"
+              >
                 Află mai multe
               </a>
             </div>
           </div>
         </div>
-        
+
         <div class="mt-20 bg-gray-50 rounded-2xl p-8 max-w-4xl mx-auto">
           <div class="flex flex-col md:flex-row items-center gap-8">
             <div class="md:w-2/3">
-              <h2 class="text-2xl font-bold mb-4 text-primary-700">Nu ești sigur de ce serviciu ai nevoie?</h2>
+              <h2 class="text-2xl font-bold mb-4 text-primary-700">
+                Nu ești sigur de ce serviciu ai nevoie?
+              </h2>
               <p class="text-gray-600 mb-6">
-                Contactează-ne pentru o consultație gratuită și personalizată. Specialiștii noștri te vor ajuta să alegi tratamentele potrivite pentru nevoile tale.
+                Contactează-ne pentru o consultație gratuită și personalizată.
+                Specialiștii noștri te vor ajuta să alegi tratamentele potrivite
+                pentru nevoile tale.
               </p>
               <div class="flex flex-col sm:flex-row gap-4">
-                <a href="/#programare" class="bg-primary-600 hover:bg-primary-700 text-white font-medium px-6 py-3 rounded-full transition-colors text-center">
+                <a
+                  href="/#programare"
+                  class="bg-primary-600 hover:bg-primary-700 text-white font-medium px-6 py-3 rounded-full transition-colors text-center"
+                >
                   Programează o consultație
                 </a>
-                <a href="/contact" class="bg-white hover:bg-gray-100 text-primary-700 font-medium px-6 py-3 rounded-full border border-primary-200 transition-colors text-center">
+                <a
+                  href="/contact"
+                  class="bg-white hover:bg-gray-100 text-primary-700 font-medium px-4 py-3 rounded-full border border-primary-200 transition-colors text-center"
+                >
                   Contactează-ne
                 </a>
               </div>
@@ -128,8 +229,19 @@ import Footer from '../../components/Footer.astro';
             <div class="md:w-1/3 flex justify-center">
               <div class="bg-white p-4 rounded-full shadow-lg">
                 <div class="bg-primary-100 p-6 rounded-full">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-16 w-16 text-primary-600"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"
+                    ></path>
                   </svg>
                 </div>
               </div>
@@ -139,5 +251,4 @@ import Footer from '../../components/Footer.astro';
       </div>
     </section>
   </main>
-  <Footer />
-</Layout> 
+</Layout>

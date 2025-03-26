@@ -1,4 +1,6 @@
 ---
+import ButtonAdvert from "../components/shared/ButtonAdvert.astro";
+
 interface PricingItem {
   name: string;
   price: number;
@@ -18,50 +20,97 @@ const pricingCategories: PricingCategory[] = [];
     <div class="text-center max-w-3xl mx-auto mb-16">
       <h2 class="text-3xl md:text-4xl font-bold mb-6">Prețuri Transparente</h2>
       <p class="text-lg text-gray-600">
-        Oferim prețuri competitive și pachete personalizate pentru toate tipurile de tratamente.
-        Consultațiile inițiale sunt gratuite!
+        Oferim prețuri competitive și pachete personalizate pentru toate
+        tipurile de tratamente. Consultațiile inițiale sunt gratuite!
       </p>
     </div>
-    
+
     <div class="bg-white p-8 rounded-xl shadow-md max-w-3xl mx-auto">
       <h3 class="text-2xl font-bold mb-4 text-center">Oferte Speciale</h3>
+
+      <div class="mb-8" data-aos="fade-up" data-aos-duration="800">
+        <ButtonAdvert />
+      </div>
+
       <div class="space-y-4">
         <div class="flex items-start gap-4 border-b border-gray-100 pb-4">
           <div class="bg-primary-100 p-3 rounded-full text-primary-600">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
             </svg>
           </div>
           <div>
-            <h4 class="font-bold text-lg">FULL BODY cu VOUCHER</h4>
-            <p class="text-gray-600">Descarcă voucherul nostru și beneficiezi de pachetul FULL BODY la doar 250 lei.</p>
+            <h4 class="font-bold text-lg">Pachet 6 ședințe</h4>
+            <p class="text-gray-600">
+              La achiziția unui pachet de 6 ședințe pentru o zonă, beneficiezi
+              de 15% reducere.
+            </p>
           </div>
         </div>
-        
+
         <div class="flex items-start gap-4 border-b border-gray-100 pb-4">
           <div class="bg-primary-100 p-3 rounded-full text-primary-600">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+              ></path>
             </svg>
           </div>
           <div>
             <h4 class="font-bold text-lg">Testare GRATUITĂ</h4>
-            <p class="text-gray-600">Oferim o ședință de testare GRATUITĂ pentru inghinal total, bikini line sau axilă pentru a evalua nevoile tale specifice.</p>
+            <p class="text-gray-600">
+              Oferim o ședință de testare GRATUITĂ pentru inghinal total, bikini
+              line sau axilă pentru a evalua nevoile tale specifice.
+            </p>
           </div>
         </div>
-        
+
         <div class="flex items-start gap-4">
           <div class="bg-primary-100 p-3 rounded-full text-primary-600">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+              ></path>
             </svg>
           </div>
           <div>
             <h4 class="font-bold text-lg">Tehnologie avansată</h4>
-            <p class="text-gray-600">Folosim aparatul New Eride Smart Dual, de ultimă generație fabricat în Spania, cu trei lungimi de undă (755 nm, 808 nm și 1064 nm).</p>
+            <p class="text-gray-600">
+              Folosim aparatul New Eride Smart Dual, de ultimă generație
+              fabricat în Spania, cu trei lungimi de undă (755 nm, 808 nm și
+              1064 nm).
+            </p>
           </div>
         </div>
       </div>
     </div>
   </div>
-</section> 
+</section>
