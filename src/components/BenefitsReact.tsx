@@ -173,13 +173,24 @@ const BenefitsReact = () => {
               </div>
 
               {/* Learn More Indicator */}
-              <a
-                href={benefit.link}
-                className={`flex items-center justify-end p-4 mt-2 ${benefit.color} text-sm font-medium transition-opacity duration-300 ${hoveredCard === benefit.id ? "opacity-100" : "opacity-0"}`}
+              <p
+                className={`flex flex-col items-center justify-end p-4 mtr-2 ${benefit.color} text-sm font-medium `}
               >
-                <span>Află mai multe</span>
-                <ChevronRight className="ml-1 w-4 h-4" />
-              </a>
+                <a
+                  href={benefit.link}
+                  aria-label={`${benefit.title} - Află mai multe`}
+                >
+                  <span className="transition-opacity duration-300">
+                    Află mai multe
+                  </span>
+                  <ChevronRight className="ml-1 w-4 h-4" />
+                  <span
+                    className={`transition-opacity duration-300 ${hoveredCard === benefit.id ? "opacity-100" : "opacity-0"}`}
+                  >
+                    {benefit.title}
+                  </span>
+                </a>
+              </p>
             </div>
           ))}
         </div>

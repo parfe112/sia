@@ -1,6 +1,16 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Loader2, Sparkles, Clock, Calendar, Tag } from "lucide-react";
+import {
+  X,
+  Loader2,
+  Sparkles,
+  Clock,
+  Calendar,
+  Tag,
+  User,
+  Mail,
+  Phone,
+} from "lucide-react";
 
 interface FormState {
   name: string;
@@ -16,9 +26,9 @@ enum SubmitStatus {
 
 const VoucherFormReact: React.FC = () => {
   const [formState, setFormState] = useState<FormState>({
-    name: "Mark",
-    email: "mark@gmail.com",
-    phone: "0722222222",
+    name: "",
+    email: "",
+    phone: "",
   });
 
   const [focusedField, setFocusedField] = useState<string | null>(null);
@@ -149,8 +159,8 @@ const VoucherFormReact: React.FC = () => {
               />
             </motion.div>
             <h3 className="text-xl md:text-2xl font-bold text-primary-800 mb-2">
-              Voucherul a fost trimis email dar nu a fost activat inca. Sunați
-              la numărul de mai jos pentru activare.
+              Voucherul a fost trimis pe email dar nu a fost activat inca.
+              Sunați la numărul de mai jos pentru activare.
               <br />
               <br />
               <a
@@ -190,22 +200,25 @@ const VoucherFormReact: React.FC = () => {
                 >
                   Numele tău
                 </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formState.name}
-                  onChange={handleInputChange}
-                  onFocus={() => handleFocus("name")}
-                  onBlur={handleBlur}
-                  required
-                  className={`w-full px-3 py-2 md:px-4 md:py-3 text-sm rounded-lg border transition-all duration-300 ${
-                    focusedField === "name"
-                      ? `border-emerald-400 ring-2 ring-emerald-400/20`
-                      : "border-primary-200 hover:border-primary-300"
-                  }`}
-                  placeholder="Nume și prenume"
-                />
+                <div className="relative">
+                  <User className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    value={formState.name}
+                    onChange={handleInputChange}
+                    onFocus={() => handleFocus("name")}
+                    onBlur={handleBlur}
+                    required
+                    className={`w-full pl-10 pr-4 py-2 md:pl-10 md:pr-4 md:py-3 text-sm rounded-lg border transition-all duration-300 ${
+                      focusedField === "name"
+                        ? `border-emerald-400 ring-2 ring-emerald-400/20`
+                        : "border-primary-200 hover:border-primary-300"
+                    }`}
+                    placeholder="Nume și prenume"
+                  />
+                </div>
               </motion.div>
 
               <motion.div variants={itemVariants} className="mb-3">
@@ -215,22 +228,25 @@ const VoucherFormReact: React.FC = () => {
                 >
                   Adresa ta de email
                 </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formState.email}
-                  onChange={handleInputChange}
-                  onFocus={() => handleFocus("email")}
-                  onBlur={handleBlur}
-                  required
-                  className={`w-full px-3 py-2 md:px-4 md:py-3 text-sm rounded-lg border transition-all duration-300 ${
-                    focusedField === "email"
-                      ? `border-blue-400 ring-2 ring-blue-400/20`
-                      : "border-primary-200 hover:border-primary-300"
-                  }`}
-                  placeholder="email@exemplu.com"
-                />
+                <div className="relative">
+                  <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={formState.email}
+                    onChange={handleInputChange}
+                    onFocus={() => handleFocus("email")}
+                    onBlur={handleBlur}
+                    required
+                    className={`w-full pl-10 pr-4 py-2 md:pl-10 md:pr-4 md:py-3 text-sm rounded-lg border transition-all duration-300 ${
+                      focusedField === "email"
+                        ? `border-blue-400 ring-2 ring-blue-400/20`
+                        : "border-primary-200 hover:border-primary-300"
+                    }`}
+                    placeholder="email@exemplu.com"
+                  />
+                </div>
               </motion.div>
 
               <motion.div variants={itemVariants} className="mb-4">
@@ -240,22 +256,25 @@ const VoucherFormReact: React.FC = () => {
                 >
                   Număr de telefon
                 </label>
-                <input
-                  type="tel"
-                  id="phone"
-                  name="phone"
-                  value={formState.phone}
-                  onChange={handleInputChange}
-                  onFocus={() => handleFocus("phone")}
-                  onBlur={handleBlur}
-                  required
-                  className={`w-full px-3 py-2 md:px-4 md:py-3 text-sm rounded-lg border transition-all duration-300 ${
-                    focusedField === "phone"
-                      ? `border-purple-400 ring-2 ring-purple-400/20`
-                      : "border-primary-200 hover:border-primary-300"
-                  }`}
-                  placeholder="07xx xxx xxx"
-                />
+                <div className="relative">
+                  <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    value={formState.phone}
+                    onChange={handleInputChange}
+                    onFocus={() => handleFocus("phone")}
+                    onBlur={handleBlur}
+                    required
+                    className={`w-full pl-10 pr-4 py-2 md:pl-10 md:pr-4 md:py-3 text-sm rounded-lg border transition-all duration-300 ${
+                      focusedField === "phone"
+                        ? `border-purple-400 ring-2 ring-purple-400/20`
+                        : "border-primary-200 hover:border-primary-300"
+                    }`}
+                    placeholder="07xx xxx xxx"
+                  />
+                </div>
               </motion.div>
 
               <div className="mt-auto">
