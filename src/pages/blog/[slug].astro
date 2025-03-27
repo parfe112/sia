@@ -1,0 +1,967 @@
+---
+import { getCollection, type CollectionEntry } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+
+export const prerender = true;
+
+// Define prop types
+interface Props {
+  entry: CollectionEntry<"blog">;
+}
+
+// Generate static paths for all blog posts
+export async function getStaticPaths() {
+  const blogEntries = await getCollection(
+    "blog",
+    ({ data }: CollectionEntry<"blog">) => {
+      return import.meta.env.PROD ? !data.draft : true;
+    }
+  );
+
+  return blogEntries.map((entry: CollectionEntry<"blog">) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+// Get the blog post for this page
+const { entry } = Astro.props as Props;
+const { Content } = await entry.render();
+
+// Get related posts (same category or shared tags)
+const allPosts = await getCollection("blog");
+const relatedPosts = allPosts
+  .filter(
+    (post: CollectionEntry<"blog">) =>
+      post.slug !== entry.slug &&
+      (post.data.category === entry.data.category ||
+        (post.data.tags &&
+          entry.data.tags &&
+          post.data.tags.some((tag: string) => entry.data.tags?.includes(tag))))
+  )
+  .sort(
+    (a: CollectionEntry<"blog">, b: CollectionEntry<"blog">) =>
+      b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+  )
+  .slice(0, 3);
+
+// Date formatter
+const formatDate = (date: Date): string => {
+  return new Intl.DateTimeFormat("ro-RO", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  }).format(date);
+};
+---
+
+<Layout
+  title={`${entry.data.title} - SIA Skin Center`}
+  description={entry.data.description}
+>
+  <main>
+    <!-- Hero Section with full-width image -->
+    <div class="relative">
+      {
+        entry.data.image && (
+          <div class="absolute inset-0 z-0 h-[50vh] md:h-[60vh] overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-b from-[rgba(var(--background),0.3)] via-[rgba(var(--background),0.6)] to-[rgb(var(--background))] z-10" />
+            <img
+              src={entry.data.image}
+              alt={entry.data.title}
+              class="w-full h-full object-cover opacity-90 dark:opacity-70"
+            />
+          </div>
+        )
+      }
+
+      <div
+        class="container mx-auto px-4 pt-24 pb-12 md:pt-36 md:pb-20 relative z-10"
+      >
+        <div class="max-w-4xl mx-auto">
+          <!-- Category and date -->
+          <div
+            class="flex flex-wrap gap-4 items-center justify-center mb-6 text-sm"
+            data-aos="fade-down"
+            data-aos-duration="700"
+          >
+            {
+              entry.data.category && (
+                <span class="inline-block bg-[rgb(var(--primary-50))] dark:bg-[rgb(var(--primary-900))]/30 text-[rgb(var(--primary-600))] dark:text-[rgb(var(--primary-400))] px-4 py-1.5 rounded-full">
+                  {entry.data.category}
+                </span>
+              )
+            }
+            <time
+              datetime={entry.data.pubDate.toISOString()}
+              class="text-[rgb(var(--text-tertiary))] font-medium flex items-center"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-4 h-4 mr-1.5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                ></path>
+              </svg>
+              {formatDate(entry.data.pubDate)}
+            </time>
+          </div>
+
+          <!-- Title -->
+          <h1
+            class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-center text-[rgb(var(--text-primary))] leading-tight mb-6"
+            data-aos="fade-up"
+            data-aos-duration="700"
+          >
+            {entry.data.title}
+          </h1>
+
+          <!-- Reading time or description (if available) -->
+          {
+            entry.data.description && (
+              <p
+                class="text-xl text-center text-[rgb(var(--text-secondary))] max-w-3xl mx-auto mb-8"
+                data-aos="fade-up"
+                data-aos-delay="100"
+                data-aos-duration="700"
+              >
+                {entry.data.description}
+              </p>
+            )
+          }
+
+          <!-- Author info -->
+          {
+            entry.data.author && (
+              <div
+                class="flex items-center justify-center mt-8 mb-4"
+                data-aos="fade-up"
+                data-aos-delay="200"
+              >
+                <div class="flex items-center bg-[rgb(var(--card))] dark:bg-[rgb(var(--card))] border border-[rgb(var(--border))]/50 px-5 py-3 rounded-full shadow-sm">
+                  <div class="w-10 h-10 rounded-full bg-[rgb(var(--primary-100))] dark:bg-[rgb(var(--primary-200))]/20 flex items-center justify-center text-[rgb(var(--primary-600))] dark:text-[rgb(var(--primary-500))] mr-3 text-lg font-bold">
+                    {entry.data.author.charAt(0)}
+                  </div>
+                  <div>
+                    <p class="font-medium text-[rgb(var(--text-primary))]">
+                      {entry.data.author}
+                    </p>
+                    <p class="text-sm text-[rgb(var(--text-tertiary))]">
+                      {entry.data.updateDate
+                        ? "Actualizat: " + formatDate(entry.data.updateDate)
+                        : "Autor"}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            )
+          }
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container mx-auto px-4 py-8">
+      <div class="max-w-5xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+          <!-- Main content column -->
+          <div class="lg:col-span-9">
+            <!-- Featured image (if not shown as hero) -->
+            {
+              !entry.data.image && entry.data.image && (
+                <div
+                  class="w-full mb-8 rounded-2xl overflow-hidden shadow-md"
+                  data-aos="fade-up"
+                >
+                  <img
+                    src={entry.data.image}
+                    alt={entry.data.title}
+                    class="w-full h-auto"
+                  />
+                </div>
+              )
+            }
+
+            <!-- Content with enhanced styling -->
+            <article
+              class="bg-[rgb(var(--card))] dark:bg-[rgb(var(--card))] border border-[rgb(var(--border))]/50 rounded-2xl p-6 md:p-10 shadow-sm mb-10 blog-content relative overflow-hidden"
+              data-aos="fade-up"
+              data-aos-duration="800"
+            >
+              <div
+                class="prose prose-lg dark:prose-invert max-w-none prose-img:rounded-xl prose-headings:text-[rgb(var(--text-primary))] prose-p:text-[rgb(var(--text-secondary))] prose-a:text-[rgb(var(--primary-600))] dark:prose-a:text-[rgb(var(--primary-400))] prose-strong:text-[rgb(var(--text-primary))] prose-blockquote:border-l-[rgb(var(--primary-300))] prose-blockquote:text-[rgb(var(--text-secondary))] prose-blockquote:bg-[rgb(var(--primary-50))]/10 dark:prose-blockquote:bg-[rgb(var(--primary-900))]/10 prose-blockquote:p-4 prose-blockquote:rounded-r-lg prose-code:text-[rgb(var(--primary-600))] dark:prose-code:text-[rgb(var(--primary-400))] prose-code:bg-[rgb(var(--primary-50))]/20 dark:prose-code:bg-[rgb(var(--primary-900))]/20 prose-code:px-1 prose-code:py-0.5 prose-code:rounded prose-code:before:content-none prose-code:after:content-none"
+              >
+                <Content />
+              </div>
+            </article>
+
+            <!-- Tags -->
+            {
+              entry.data.tags && entry.data.tags.length > 0 && (
+                <div
+                  class="bg-[rgb(var(--card))] dark:bg-[rgb(var(--card))] border border-[rgb(var(--border))]/50 rounded-2xl p-6 mb-10 shadow-sm"
+                  data-aos="fade-up"
+                >
+                  <h3 class="text-lg font-medium mb-4 text-[rgb(var(--text-primary))]">
+                    Etichete:
+                  </h3>
+                  <div class="flex flex-wrap gap-3">
+                    {entry.data.tags.map((tag: string) => (
+                      <span class="bg-[rgb(var(--primary-100))] dark:bg-[rgb(var(--primary-800))]/60 text-[rgb(var(--primary-700))] dark:text-[rgb(var(--primary-200))] px-4 py-2 rounded-full text-sm font-medium shadow-sm">
+                        #{tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )
+            }
+
+            <!-- Social share -->
+            <div
+              class="flex items-center justify-between bg-[rgb(var(--accent-1))]/10 dark:bg-[rgb(var(--accent-1))]/5 rounded-2xl p-6 mb-10"
+              data-aos="fade-up"
+            >
+              <p class="font-medium text-[rgb(var(--text-primary))]">
+                Distribuie articolul
+              </p>
+              <div class="flex items-center gap-4">
+                <button
+                  title="Distribuie pe Twitter"
+                  class="w-10 h-10 rounded-full flex items-center justify-center text-[rgb(var(--text-secondary))] hover:text-[rgb(var(--primary-600))] hover:bg-[rgb(var(--primary-50))] dark:hover:bg-[rgb(var(--primary-900))]/20 transition-colors"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="18"
+                    height="18"
+                    fill="currentColor"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"
+                    ></path>
+                  </svg>
+                </button>
+                <button
+                  title="Distribuie pe Facebook"
+                  class="w-10 h-10 rounded-full flex items-center justify-center text-[rgb(var(--text-secondary))] hover:text-[rgb(var(--primary-600))] hover:bg-[rgb(var(--primary-50))] dark:hover:bg-[rgb(var(--primary-900))]/20 transition-colors"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="18"
+                    height="18"
+                    fill="currentColor"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"
+                    ></path>
+                  </svg>
+                </button>
+                <button
+                  title="Distribuie pe LinkedIn"
+                  class="w-10 h-10 rounded-full flex items-center justify-center text-[rgb(var(--text-secondary))] hover:text-[rgb(var(--primary-600))] hover:bg-[rgb(var(--primary-50))] dark:hover:bg-[rgb(var(--primary-900))]/20 transition-colors"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="18"
+                    height="18"
+                    fill="currentColor"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"
+                    ></path>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sidebar -->
+          <div class="lg:col-span-3">
+            <!-- Related posts sidebar -->
+            {
+              relatedPosts.length > 0 && (
+                <div
+                  class="bg-[rgb(var(--card))] dark:bg-[rgb(var(--card))] border border-[rgb(var(--border))]/50 rounded-2xl p-6 shadow-sm mb-8 sticky top-24"
+                  data-aos="fade-left"
+                >
+                  <h2 class="text-xl font-bold text-[rgb(var(--text-primary))] mb-5 pb-3 border-b border-[rgb(var(--border))]/50">
+                    Articole similare
+                  </h2>
+                  <div class="space-y-6">
+                    {relatedPosts.map((post: CollectionEntry<"blog">) => (
+                      <a
+                        href={`/blog/${post.slug}`}
+                        class="group flex flex-col gap-3 hover:translate-x-1 transition-transform"
+                      >
+                        {post.data.image && (
+                          <div class="w-full h-36 rounded-lg overflow-hidden">
+                            <img
+                              src={post.data.image}
+                              alt={post.data.title}
+                              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                            />
+                          </div>
+                        )}
+                        <div>
+                          <h3 class="font-bold text-[rgb(var(--text-primary))] group-hover:text-[rgb(var(--primary))] transition-colors">
+                            {post.data.title}
+                          </h3>
+                          <time
+                            datetime={post.data.pubDate.toISOString()}
+                            class="text-sm text-[rgb(var(--text-tertiary))]"
+                          >
+                            {formatDate(post.data.pubDate)}
+                          </time>
+                        </div>
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              )
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Call to action -->
+    <div class="container mx-auto px-4 py-12 mb-8">
+      <div
+        class="max-w-5xl mx-auto bg-gradient-to-r from-[rgb(var(--primary-50))] to-[rgb(var(--accent-1))] dark:from-[rgb(var(--primary-900))]/20 dark:to-[rgb(var(--accent-1))]/20 rounded-2xl p-8 md:p-12 shadow-md"
+        data-aos="fade-up"
+      >
+        <div
+          class="flex flex-col md:flex-row md:items-center justify-between gap-8"
+        >
+          <div>
+            <h2
+              class="text-2xl md:text-3xl font-bold text-[rgb(var(--text-primary))] mb-3"
+            >
+              Vrei tratamente personalizate?
+            </h2>
+            <p class="text-[rgb(var(--text-secondary))] text-lg">
+              Programează o consultație gratuită și află ce soluții sunt
+              potrivite pentru tine.
+            </p>
+          </div>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a
+              href="/contact"
+              class="px-8 py-3.5 bg-[rgb(var(--primary))] hover:bg-[rgb(var(--primary-dark))] text-white font-medium rounded-lg transition-colors text-center shadow-sm hover:shadow-md border border-[rgb(var(--primary))]"
+            >
+              Programează acum
+            </a>
+            <a
+              href="/servicii"
+              class="px-8 py-3.5 bg-[rgb(var(--background))] dark:bg-[rgb(var(--card))] hover:bg-[rgb(var(--accent-1))] dark:hover:bg-[rgb(var(--accent-1))]/20 text-[rgb(var(--text-primary))] font-medium rounded-lg transition-colors text-center shadow-sm hover:shadow-md border border-[rgb(var(--border))]"
+            >
+              Vezi serviciile
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Back to blog link -->
+    <div class="container mx-auto px-4 mb-16">
+      <div class="max-w-4xl mx-auto text-center">
+        <a
+          href="/blog"
+          class="inline-flex items-center text-[rgb(var(--primary-600))] dark:text-[rgb(var(--primary-400))] hover:text-[rgb(var(--primary-dark))] transition-colors group"
+          data-aos="fade-up"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5 mr-2 transition-transform group-hover:-translate-x-1"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z"
+              clip-rule="evenodd"></path>
+          </svg>
+          Înapoi la blog
+        </a>
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<style is:global>
+  /* Enhanced styling for blog content */
+  .prose {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: rgb(var(--text-secondary));
+
+    /* Improved heading styles */
+    & h1,
+    & h2,
+    & h3,
+    & h4,
+    & h5,
+    & h6 {
+      position: relative;
+      margin-top: 2.5rem;
+      margin-bottom: 1.25rem;
+      color: rgb(var(--text-primary));
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: -0.6rem;
+        left: 0;
+        height: 4px;
+        width: 4rem;
+        background: linear-gradient(
+          to right,
+          rgb(var(--primary)),
+          rgba(var(--primary), 0.2)
+        );
+        border-radius: 4px;
+      }
+    }
+
+    /* Specific heading sizes and spacing */
+    & h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-top: 0;
+      margin-bottom: 2rem;
+
+      &::after {
+        width: 6rem;
+      }
+    }
+
+    & h2 {
+      font-size: 2rem;
+      font-weight: 700;
+
+      &::after {
+        width: 5rem;
+      }
+    }
+
+    & h3 {
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+
+    & h4 {
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+
+    /* Paragraph styling */
+    & p {
+      margin-bottom: 1.75rem;
+      line-height: 1.8;
+
+      &:first-of-type {
+        font-size: 1.25rem;
+        color: rgb(var(--text-primary));
+      }
+    }
+
+    /* First letter styling for first paragraph */
+    & > p:first-of-type::first-letter {
+      font-size: 3.5rem;
+      font-weight: 700;
+      float: left;
+      line-height: 0.85;
+      margin-right: 0.15em;
+      margin-top: 0.12em;
+      color: rgb(var(--primary));
+    }
+
+    /* Image enhancements */
+    & img {
+      border-radius: 1rem;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+      transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+      margin: 2.5rem auto;
+      max-width: 100%;
+      height: auto;
+      display: block;
+
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+      }
+
+      .dark & {
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+
+        &:hover {
+          box-shadow: 0 15px 30px rgba(0, 0, 0, 0.35);
+        }
+      }
+    }
+
+    /* Image captions */
+    & img + em {
+      display: block;
+      text-align: center;
+      font-style: italic;
+      font-size: 0.9rem;
+      color: rgb(var(--text-tertiary));
+      margin-top: -1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    /* List styling */
+    & ul,
+    & ol {
+      margin: 1.75rem 0 2rem 0;
+      padding-left: 1.5rem;
+    }
+
+    & ul {
+      list-style-type: none;
+    }
+
+    & ul li {
+      position: relative;
+      padding-left: 1.75rem;
+      margin-bottom: 0.75rem;
+
+      &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0.6rem;
+        height: 0.5rem;
+        width: 0.5rem;
+        background-color: rgb(var(--primary));
+        border-radius: 50%;
+      }
+    }
+
+    & ol {
+      list-style-type: decimal;
+      padding-left: 1.75rem;
+
+      & li {
+        margin-bottom: 0.75rem;
+        padding-left: 0.5rem;
+      }
+
+      & li::marker {
+        color: rgb(var(--primary));
+        font-weight: 600;
+      }
+    }
+
+    /* Nested lists */
+    & ul ul,
+    & ol ol,
+    & ul ol,
+    & ol ul {
+      margin: 0.75rem 0;
+    }
+
+    /* Blockquote styling */
+    & blockquote {
+      font-style: italic;
+      font-size: 1.2rem;
+      border-radius: 0 1rem 1rem 0;
+      padding: 2rem;
+      margin: 2.5rem 0;
+      background: linear-gradient(
+        to right,
+        rgba(var(--primary-50), 0.2),
+        rgba(var(--primary-50), 0.05)
+      );
+      border-left: 5px solid rgb(var(--primary));
+      position: relative;
+
+      &::before {
+        content: "\201C";
+        position: absolute;
+        top: -1.5rem;
+        left: 1rem;
+        font-size: 5rem;
+        font-family: Georgia, serif;
+        color: rgba(var(--primary), 0.15);
+        line-height: 1;
+      }
+
+      .dark & {
+        background: linear-gradient(
+          to right,
+          rgba(var(--primary-900), 0.3),
+          rgba(var(--primary-900), 0.1)
+        );
+
+        &::before {
+          color: rgba(var(--primary), 0.2);
+        }
+      }
+
+      & p {
+        margin-bottom: 0.75rem;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+
+      & cite {
+        display: block;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 1rem;
+        margin-top: 1rem;
+        color: rgb(var(--text-primary));
+
+        &::before {
+          content: "— ";
+        }
+      }
+    }
+
+    /* Link styling */
+    & a {
+      text-decoration: none;
+      color: rgb(var(--primary));
+      position: relative;
+      font-weight: 500;
+      background-image: linear-gradient(
+        transparent 90%,
+        rgba(var(--primary), 0.3) 10%
+      );
+      background-repeat: no-repeat;
+      background-size: 0% 100%;
+      background-position: 0 100%;
+      transition:
+        background-size 0.3s ease,
+        color 0.3s ease;
+      padding: 0 0.15em;
+      border-radius: 0.15em;
+
+      &:hover {
+        background-size: 100% 100%;
+        color: rgb(var(--primary-dark));
+      }
+
+      .dark & {
+        &:hover {
+          color: rgb(var(--primary-200));
+        }
+      }
+    }
+
+    /* Code block styling */
+    & pre {
+      border-radius: 0.75rem;
+      margin: 2rem 0;
+      padding: 1.5rem;
+      background-color: rgb(var(--card));
+      overflow-x: auto;
+      border: 1px solid rgba(var(--border), 0.5);
+
+      .dark & {
+        background-color: rgba(var(--card-foreground), 0.05);
+      }
+    }
+
+    & code {
+      font-family: "Fira Code", "Menlo", monospace;
+      font-size: 0.95em;
+      border-radius: 0.25rem;
+      padding: 0.15em 0.4em;
+      background-color: rgba(var(--primary-50), 0.4);
+      color: rgb(var(--primary-700));
+
+      .dark & {
+        background-color: rgba(var(--primary-900), 0.4);
+        color: rgb(var(--primary-300));
+      }
+    }
+
+    & pre code {
+      padding: 0;
+      background-color: transparent;
+      color: inherit;
+    }
+
+    /* Table styling */
+    & table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      margin: 2.5rem 0;
+      overflow: hidden;
+      border-radius: 0.75rem;
+      border: 1px solid rgba(var(--border), 0.7);
+    }
+
+    & th {
+      background-color: rgba(var(--primary-50), 0.4);
+      color: rgb(var(--text-primary));
+      font-weight: 600;
+      text-align: left;
+      font-size: 1.1rem;
+
+      .dark & {
+        background-color: rgba(var(--primary-900), 0.3);
+      }
+    }
+
+    & th,
+    & td {
+      padding: 1rem 1.2rem;
+      border-bottom: 1px solid rgba(var(--border), 0.4);
+    }
+
+    & tr:last-child td {
+      border-bottom: none;
+    }
+
+    & tr:nth-child(even) {
+      background-color: rgba(var(--accent-1), 0.1);
+    }
+
+    /* Horizontal rule */
+    & hr {
+      border: 0;
+      height: 2px;
+      margin: 3rem 0;
+      background: linear-gradient(
+        to right,
+        rgba(var(--primary), 0.5),
+        transparent
+      );
+      border-radius: 2px;
+    }
+
+    /* Section dividers with decorative elements */
+    & hr.section-divider {
+      position: relative;
+      height: 1.5rem;
+      background: none;
+      margin: 3.5rem 0;
+
+      &::before {
+        content: "• • •";
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 1.5rem;
+        line-height: 1;
+        color: rgb(var(--primary));
+        letter-spacing: 0.75rem;
+      }
+    }
+
+    /* Definition lists */
+    & dl {
+      margin: 2rem 0;
+    }
+
+    & dt {
+      font-weight: 700;
+      color: rgb(var(--text-primary));
+      margin-top: 1.5rem;
+      font-size: 1.1rem;
+    }
+
+    & dd {
+      margin-left: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    /* Abbreviations */
+    & abbr {
+      border-bottom: 1px dotted rgba(var(--text-tertiary), 0.7);
+      cursor: help;
+      text-decoration: none;
+    }
+
+    /* Subscript and superscript */
+    & sub,
+    & sup {
+      font-size: 0.75em;
+    }
+
+    /* Video embeds */
+    & .video-container {
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 aspect ratio */
+      height: 0;
+      margin: 2.5rem 0;
+      overflow: hidden;
+      border-radius: 1rem;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+
+      & iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+      }
+
+      .dark & {
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+      }
+    }
+
+    /* Call to action boxes */
+    & .callout {
+      padding: 1.5rem;
+      margin: 2.5rem 0;
+      border-radius: 0.75rem;
+      background-color: rgba(var(--primary-50), 0.4);
+      border-left: 4px solid rgb(var(--primary));
+
+      .dark & {
+        background-color: rgba(var(--primary-900), 0.3);
+      }
+
+      &.warning {
+        background-color: rgba(var(--accent-red), 0.1);
+        border-left-color: rgb(var(--accent-red));
+      }
+
+      &.info {
+        background-color: rgba(var(--accent-blue), 0.1);
+        border-left-color: rgb(var(--accent-blue));
+      }
+
+      &.success {
+        background-color: rgba(var(--accent-green), 0.1);
+        border-left-color: rgb(var(--accent-green));
+      }
+
+      & h4 {
+        margin-top: 0;
+        margin-bottom: 1rem;
+
+        &::after {
+          display: none;
+        }
+      }
+
+      & p:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    /* Figures with captions */
+    & figure {
+      margin: 2.5rem 0;
+
+      & img {
+        margin-bottom: 0.5rem;
+      }
+
+      & figcaption {
+        text-align: center;
+        font-size: 0.9rem;
+        color: rgb(var(--text-tertiary));
+        font-style: italic;
+      }
+    }
+
+    /* Footnotes */
+    & .footnotes {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(var(--border), 0.5);
+      font-size: 0.9rem;
+
+      & ol {
+        margin-top: 1rem;
+      }
+
+      & li {
+        margin-bottom: 0.5rem;
+      }
+
+      & .footnote-backref {
+        font-family: sans-serif;
+      }
+    }
+
+    /* Mobile optimizations */
+    @media (max-width: 640px) {
+      font-size: 1.05rem;
+
+      & h1 {
+        font-size: 2rem;
+      }
+
+      & h2 {
+        font-size: 1.6rem;
+      }
+
+      & h3 {
+        font-size: 1.3rem;
+      }
+
+      & blockquote {
+        padding: 1.5rem;
+        font-size: 1.1rem;
+      }
+
+      & > p:first-of-type::first-letter {
+        font-size: 2.8rem;
+      }
+    }
+  }
+
+  /* Article-specific elements */
+  article.blog-content {
+    &::before {
+      content: "";
+      position: absolute;
+      top: -5rem;
+      right: -5rem;
+      width: 15rem;
+      height: 15rem;
+      background: radial-gradient(
+        circle,
+        rgba(var(--primary), 0.1) 0%,
+        rgba(var(--primary), 0) 70%
+      );
+      z-index: -1;
+      border-radius: 50%;
+      opacity: 0.7;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -5rem;
+      left: -5rem;
+      width: 15rem;
+      height: 15rem;
+      background: radial-gradient(
+        circle,
+        rgba(var(--accent-1), 0.1) 0%,
+        rgba(var(--accent-1), 0) 70%
+      );
+      z-index: -1;
+      border-radius: 50%;
+      opacity: 0.7;
+    }
+  }
+</style>

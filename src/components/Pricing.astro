@@ -11,33 +11,43 @@ interface PricingCategory {
   title: string;
   items: PricingItem[];
 }
-
-const pricingCategories: PricingCategory[] = [];
 ---
 
-<section id="preturi" class="py-20 bg-gray-50">
+<section id="preturi" class="py-20 bg-[rgb(var(--background))]">
   <div class="container mx-auto px-4">
     <div class="text-center max-w-3xl mx-auto mb-16">
-      <h2 class="text-3xl md:text-4xl font-bold mb-6">Prețuri Transparente</h2>
-      <p class="text-lg text-gray-600">
+      <h2
+        class="text-3xl md:text-4xl font-bold mb-6 text-[rgb(var(--text-primary))]"
+      >
+        Prețuri Transparente
+      </h2>
+      <p class="text-lg text-[rgb(var(--text-secondary))]">
         Oferim prețuri competitive și pachete personalizate pentru toate
         tipurile de tratamente. Consultațiile inițiale sunt gratuite!
       </p>
     </div>
 
-    <div class="bg-white p-8 rounded-xl shadow-md max-w-3xl mx-auto">
-      <h3 class="text-2xl font-bold mb-4 text-center">Oferte Speciale</h3>
+    <div
+      class="bg-[rgb(var(--feature-box-bg))] p-8 rounded-xl shadow-md max-w-3xl mx-auto border border-[rgb(var(--feature-box-border))]"
+    >
+      <h3
+        class="text-2xl font-bold mb-4 text-center text-[rgb(var(--text-primary))]"
+      >
+        Oferte Speciale
+      </h3>
 
       <div class="mb-8" data-aos="fade-up" data-aos-duration="800">
         <!-- <ButtonAdvert /> -->
       </div>
 
       <div class="space-y-4">
-        <div class="flex items-start gap-4 border-b border-gray-100 pb-4">
-          <div class="bg-primary-100 p-3 rounded-full text-primary-600">
+        <div
+          class="flex items-start gap-4 border-b border-[rgb(var(--border))] pb-4"
+        >
+          <div class="bg-[rgb(var(--primary-600))] p-3 rounded-full">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="h-6 w-6"
+              class="h-6 w-6 text-white"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -50,19 +60,23 @@ const pricingCategories: PricingCategory[] = [];
             </svg>
           </div>
           <div>
-            <h4 class="font-bold text-lg">Pachet 6 ședințe</h4>
-            <p class="text-gray-600">
+            <h4 class="font-bold text-lg text-[rgb(var(--text-primary))]">
+              Pachet 6 ședințe
+            </h4>
+            <p class="text-[rgb(var(--text-secondary))]">
               La achiziția unui pachet de 6 ședințe pentru o zonă, beneficiezi
               de 15% reducere.
             </p>
           </div>
         </div>
 
-        <div class="flex items-start gap-4 border-b border-gray-100 pb-4">
-          <div class="bg-primary-100 p-3 rounded-full text-primary-600">
+        <div
+          class="flex items-start gap-4 border-b border-[rgb(var(--border))] pb-4"
+        >
+          <div class="bg-[rgb(var(--primary-600))] p-3 rounded-full">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="h-6 w-6"
+              class="h-6 w-6 text-white"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -76,8 +90,10 @@ const pricingCategories: PricingCategory[] = [];
             </svg>
           </div>
           <div>
-            <h4 class="font-bold text-lg">Testare GRATUITĂ</h4>
-            <p class="text-gray-600">
+            <h4 class="font-bold text-lg text-[rgb(var(--text-primary))]">
+              Testare GRATUITĂ
+            </h4>
+            <p class="text-[rgb(var(--text-secondary))]">
               Oferim o ședință de testare GRATUITĂ pentru inghinal total, bikini
               line sau axilă pentru a evalua nevoile tale specifice.
             </p>
@@ -85,10 +101,10 @@ const pricingCategories: PricingCategory[] = [];
         </div>
 
         <div class="flex items-start gap-4">
-          <div class="bg-primary-100 p-3 rounded-full text-primary-600">
+          <div class="bg-[rgb(var(--primary-600))] p-3 rounded-full">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="h-6 w-6"
+              class="h-6 w-6 text-white"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -102,8 +118,10 @@ const pricingCategories: PricingCategory[] = [];
             </svg>
           </div>
           <div>
-            <h4 class="font-bold text-lg">Tehnologie avansată</h4>
-            <p class="text-gray-600">
+            <h4 class="font-bold text-lg text-[rgb(var(--text-primary))]">
+              Tehnologie avansată
+            </h4>
+            <p class="text-[rgb(var(--text-secondary))]">
               Folosim aparatul New Eride Smart Dual, de ultimă generație
               fabricat în Spania, cu trei lungimi de undă (755 nm, 808 nm și
               1064 nm).

@@ -55,12 +55,28 @@ import "../styles/global.css";
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content="/og-image.jpg" />
+
+    <!-- Script pentru încărcarea temei înainte de conținut pentru a preveni flash-ul -->
+    <script is:inline>
+      // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+      if (
+        localStorage.getItem("theme") === "dark" ||
+        (!localStorage.getItem("theme") &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    </script>
   </head>
-  <Header />
-  <body class="bg-white font-sans text-gray-800 antialiased">
+  <body
+    class="bg-[rgb(var(--background))] text-[rgb(var(--foreground))] font-sans antialiased transition-theme"
+  >
+    <Header />
     <slot />
+    <Footer />
   </body>
-  <Footer />
 
   <style>
     html,
@@ -78,6 +94,4 @@ import "../styles/global.css";
       AOS.init();
     });
   </script>
-
-
 </html>

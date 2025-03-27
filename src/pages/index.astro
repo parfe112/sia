@@ -5,7 +5,7 @@ import Hero from "../components/Hero.astro";
 import BenefitsReact from "../components/BenefitsReact.tsx";
 import Pricing from "../components/Pricing.astro";
 import About from "../components/About.astro";
-import Testimonials from "../components/Testimonials.astro";
+import TestimonialsReact from "../components/TestimonialsReact";
 import FAQ from "../components/FAQ.astro";
 import CTA from "../components/CTA.astro";
 
@@ -20,10 +20,10 @@ import CTA from "../components/CTA.astro";
   <Header />
   <main>
     <Hero />
+    <TestimonialsReact client:load />
     <BenefitsReact client:load />
     <Pricing />
     <About />
-    <Testimonials />
     <FAQ />
     <CTA />
   </main>

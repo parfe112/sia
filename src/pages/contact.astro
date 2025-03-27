@@ -7,5 +7,19 @@ import ContactFormReact from "../components/ContactFormReact";
   title="Contact | SIA Skin Center"
   description="Contactează-ne pentru programări sau informații suplimentare despre serviciile noastre. Suntem aici pentru a răspunde întrebărilor tale."
 >
-  <ContactFormReact client:load />
+  <div
+    class="relative bg-gradient-to-b from-[rgb(var(--primary-50))] via-[rgb(var(--background))] to-[rgb(var(--background))] dark:from-[rgb(var(--primary-200))]/5 dark:via-[rgb(var(--background))] dark:to-[rgb(var(--background))] py-10 transition-theme"
+  >
+    <!-- Background decorative elements -->
+    <div
+      class="absolute top-0 right-0 w-1/3 h-1/3 bg-[rgb(var(--primary-100))] dark:bg-[rgb(var(--primary-700))]/30 opacity-30 dark:opacity-20 rounded-bl-full -z-10"
+    >
+    </div>
+    <div
+      class="absolute bottom-0 left-0 w-1/4 h-1/4 bg-[rgb(var(--secondary-400))] opacity-10 rounded-tr-full -z-10"
+    >
+    </div>
+
+    <ContactFormReact client:load />
+  </div>
 </Layout>

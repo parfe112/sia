@@ -142,20 +142,82 @@ Common AOS animation types:
 
 ## Working with Images
 
+Always use Astro's built-in Image components for optimized image delivery:
+
 ```astro
 ---
+// Import the Image component
+import { Image, Picture } from 'astro:assets';
+
 // Import images (static imports)
 import myImage from '../assets/images/image.jpg';
 ---
 
-<!-- Using imported image -->
-<img src={myImage} alt="Description" />
+<!-- Basic optimized image -->
+<Image 
+  src={myImage}
+  alt="Description"
+  width={800}
+  height={600}
+  class="..."
+/>
 
-<!-- Using image from src folder -->
-<img src="/src/assets/images/other-image.jpg" alt="Description" />
+<!-- Image with avif/webp formats -->
+<Picture 
+  src={myImage}
+  alt="Description"
+  formats={['avif', 'webp']}
+  sizes="(max-width: 800px) 100vw, 800px"
+  widths={[400, 800, 1200]}
+  class="..."
+/>
 
-<!-- Using image from public folder (less common) -->
-<img src="/public-image.jpg" alt="Description" />
+<!-- Remote image (must be from authorized domains in config) -->
+<Image 
+  src="https://example.com/image.jpg"
+  alt="Description"
+  width={1200}
+  height={900}
+  class="..."
+/>
+
+<!-- Image from public folder -->
+<Image 
+  src="/images/image.jpg"
+  alt="Description"
+  width={800}
+  height={600}
+  class="..."
+/>
+```
+
+Benefits of using Astro's Image components:
+- Automatic format conversion to modern formats (avif, webp)
+- Responsive image handling with proper sizes and srcset attributes
+- Lazy loading by default
+- Optimized file sizes
+- Prevents layout shifts with proper width/height
+
+Best practices:
+1. Always provide width and height to prevent layout shifts
+2. Use `<Picture>` with formats array for multiple formats
+3. Use widths array for responsive images
+4. Set proper sizes attribute for responsive images
+5. Always provide meaningful alt text for accessibility
+
+To authorize remote image domains, add them to your Astro config:
+
+```js
+// astro.config.mjs
+export default defineConfig({
+  image: {
+    domains: ["example.com", "images.unsplash.com"],
+    // For more control:
+    remotePatterns: [
+      { protocol: "https", hostname: "**.example.com" }
+    ]
+  }
+});
 ```
 
 ## Server Endpoints

@@ -40,6 +40,114 @@ alwaysApply: true
 }
 ```
 
+## Light and Dark Theme
+
+Our project uses both light and dark themes. Variables are defined in CSS for both themes:
+
+```css
+/* Light theme (default) */
+:root {
+  --background: 255 255 255;
+  --foreground: 15 23 42; 
+  --primary-600: 98 34 103;
+  /* Additional colors... */
+}
+
+/* Dark theme */
+.dark {
+  --background: 15 23 42;
+  --foreground: 241 245 249;
+  --primary-600: 155 105 160;
+  /* Additional colors with different values... */
+}
+```
+
+### Using Dark Mode in Components
+
+#### Tailwind Classes with Dark Mode Variants
+
+```html
+<!-- Background colors -->
+<div class="bg-white dark:bg-gray-800">
+  <!-- Content -->
+</div>
+
+<!-- Text colors -->
+<p class="text-gray-800 dark:text-gray-200">This text adapts to theme</p>
+
+<!-- Border colors -->
+<div class="border border-gray-200 dark:border-gray-700">
+  <!-- Content -->
+</div>
+
+<!-- Using RGB CSS Variables -->
+<div class="bg-[rgb(var(--background))] text-[rgb(var(--foreground))]">
+  <!-- Content -->
+</div>
+```
+
+#### Best Practices for Theme-Aware Components
+
+1. Always include dark variants for all visual elements:
+
+```html
+<button class="bg-primary-100 dark:bg-primary-800 
+               text-primary-700 dark:text-primary-200
+               hover:bg-primary-200 dark:hover:bg-primary-700
+               border-primary-300 dark:border-primary-600">
+  Button Text
+</button>
+```
+
+2. Use the system color variables when possible:
+
+```html
+<div class="bg-[rgb(var(--card))] text-[rgb(var(--card-foreground))]
+            border border-[rgb(var(--border))]">
+  <!-- Content using system-defined colors -->
+</div>
+```
+
+3. Apply transitions for theme changes:
+
+```html
+<div class="transition-theme">
+  <!-- Content that transitions smoothly between themes -->
+</div>
+```
+
+The `transition-theme` utility is defined as:
+
+```css
+@utility transition-theme {
+  transition-property: color, background-color, border-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+}
+```
+
+4. Common patterns for icon elements:
+
+```html
+<div class="bg-[rgb(var(--primary-100))] dark:bg-[rgb(var(--primary-200))]/20 p-2 rounded-full">
+  <svg class="h-5 w-5 text-[rgb(var(--primary-600))] dark:text-[rgb(var(--primary-500))]">
+    <!-- SVG Content -->
+  </svg>
+</div>
+```
+
+5. For complex components, use class composition:
+
+```astro
+---
+// In a component
+const variantClasses = {
+  primary: "bg-[rgb(var(--primary-600))] hover:bg-[rgb(var(--primary-500))] text-white dark:bg-[rgb(var(--primary-700))] dark:hover:bg-[rgb(var(--primary-600))]",
+  secondary: "bg-white text-[rgb(var(--primary-800))] dark:bg-[rgb(var(--card))] dark:text-[rgb(var(--text-primary))]"
+}
+---
+```
+
 ## Container Utility
 
 Defined directly in CSS:
@@ -131,4 +239,113 @@ Our project uses the following primary color palette:
 --primary-950: 8 47 73; /* 082f49 */
 ```
 
-For a complete list of available colors, see the `src/styles/global.css` file. 
+For a complete list of available colors, see the `src/styles/global.css` file.
+
+## Animations with Framer Motion
+
+Our project includes Framer Motion for advanced animations in React components. Use this for interactive animations that go beyond what CSS transitions can easily provide.
+
+### Basic Usage
+
+```tsx
+import { motion } from "framer-motion";
+
+// Simple animation
+<motion.div
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.5 }}
+  className="bg-[rgb(var(--card))] dark:bg-[rgb(var(--card-foreground))]"
+>
+  Content with entrance animation
+</motion.div>
+```
+
+### Hover and Tap Animations
+
+```tsx
+<motion.button
+  className="bg-primary-600 dark:bg-primary-700 text-white rounded-lg px-4 py-2"
+  whileHover={{ 
+    scale: 1.05,
+    backgroundColor: "rgb(var(--primary-500))" 
+  }}
+  whileTap={{ scale: 0.98 }}
+>
+  Interactive Button
+</motion.button>
+```
+
+### Animated UI Components
+
+For complex UI components that need rich animations, combine Framer Motion with our dark mode theme support:
+
+```tsx
+<motion.a
+  href={href}
+  className="relative z-10 group bg-[rgb(var(--primary-100))] hover:bg-[rgb(var(--primary-200))] text-[rgb(var(--primary-900))] dark:bg-[rgb(var(--primary-800))] dark:text-[rgb(var(--primary-200))] transition-theme"
+  whileHover={{
+    y: -5,
+    boxShadow: "0 10px 25px rgba(var(--primary-500), 0.4)",
+  }}
+  whileTap={{ scale: 0.98 }}
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.3 }}
+>
+  Animated Link
+</motion.a>
+```
+
+### Theme-Aware Animations
+
+When building animated components, remember to support both light and dark themes:
+
+```tsx
+// Define animations that work with both themes
+const variants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: {
+      duration: 0.5,
+      staggerChildren: 0.1 // For animating lists
+    }
+  }
+};
+
+// Use in component
+<motion.div
+  variants={variants}
+  initial="hidden"
+  animate="visible"
+  className="bg-[rgb(var(--background))] dark:bg-[rgb(var(--card))] transition-theme"
+>
+  <motion.h2 variants={variants} className="text-[rgb(var(--text-primary))]">
+    Animated Heading
+  </motion.h2>
+  <motion.p variants={variants} className="text-[rgb(var(--text-secondary))]">
+    Animated paragraph that works in both light and dark mode
+  </motion.p>
+</motion.div>
+```
+
+### Complex Animation Examples
+
+For examples of complex animations, see:
+- `src/components/shared/ButtonAdvert.tsx` - Animated CTA button with effects
+- `src/components/VoucherFormReact.tsx` - Interactive form with state-based animations
+
+Remember to combine Framer Motion animations with our `transition-theme` utility for smooth theme transitions:
+
+```tsx
+<motion.div 
+  className="transition-theme bg-[rgb(var(--card))] dark:bg-[rgb(var(--card-foreground))]"
+  animate={{ 
+    // motion animations
+  }}
+>
+  Content with both theme transitions and Framer animations
+</motion.div>
+``` 

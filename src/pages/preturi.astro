@@ -14,10 +14,12 @@ import Footer from "../components/Footer.astro";
     <section class="pt-32 pb-20">
       <div class="container mx-auto px-4">
         <div class="text-center mb-12">
-          <h1 class="text-4xl font-bold text-pink-700 mb-4">
+          <h1 class="text-4xl font-bold text-[rgb(var(--text-primary))] mb-4">
             Lista completă de prețuri
           </h1>
-          <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+          <p
+            class="text-lg text-[rgb(var(--text-secondary))] max-w-3xl mx-auto"
+          >
             Descoperă prețurile noastre competitive pentru toate serviciile
             oferite. Consultă listele de mai jos sau contactează-ne pentru
             detalii suplimentare și oferte personalizate.
@@ -26,17 +28,17 @@ import Footer from "../components/Footer.astro";
 
         <!-- Tab navigation -->
         <div class="mb-10 max-w-2xl mx-auto">
-          <div class="border-b border-gray-200">
+          <div class="border-b border-[rgb(var(--border))]">
             <nav class="flex justify-center -mb-px">
               <button
                 id="tab-femei"
-                class="tab-btn active py-4 px-6 border-b-2 border-pink-600 text-pink-600 font-medium"
+                class="tab-btn active py-4 px-6 border-b-2 border-[rgb(var(--primary-600))] text-[rgb(var(--primary-600))] font-medium transition-all duration-300"
               >
                 Prețuri Femei
               </button>
               <button
                 id="tab-barbati"
-                class="tab-btn py-4 px-6 border-b-2 border-transparent text-gray-500 hover:text-indigo-500 hover:border-indigo-300 font-medium"
+                class="tab-btn py-4 px-6 border-b-2 border-transparent text-[rgb(var(--text-secondary))] hover:text-[rgb(var(--primary-600))] hover:border-[rgb(var(--primary-300))] font-medium transition-all duration-300"
               >
                 Prețuri Bărbați
               </button>
@@ -48,8 +50,10 @@ import Footer from "../components/Footer.astro";
         <div class="max-w-5xl mx-auto">
           <!-- Femei Content -->
           <div id="content-femei" class="tab-content">
-            <div class="bg-white rounded-xl shadow-md overflow-hidden mb-12">
-              <div class="bg-pink-600 py-4 px-6">
+            <div
+              class="bg-[rgb(var(--feature-box-bg))] rounded-xl shadow-md overflow-hidden mb-12 border border-[rgb(var(--feature-box-border))] transition-theme"
+            >
+              <div class="bg-[rgb(var(--primary-600))] py-4 px-6">
                 <h2 class="text-2xl font-bold text-white">
                   Epilare definitivă femei
                 </h2>
@@ -58,281 +62,373 @@ import Footer from "../components/Footer.astro";
               <div class="p-6">
                 <div class="overflow-x-auto">
                   <table
-                    class="min-w-full bg-white border border-pink-100 text-left"
+                    class="min-w-full bg-[rgb(var(--feature-box-bg))] border border-[rgb(var(--border))] text-left"
                   >
                     <thead>
-                      <tr class="border-b border-pink-100">
-                        <th class="py-3 px-2 font-bold text-pink-600"
+                      <tr class="border-b border-[rgb(var(--border))]">
+                        <th
+                          class="py-3 px-2 font-bold text-[rgb(var(--text-primary))]"
                           >ZONĂ EPILARE</th
                         >
-                        <th class="py-3 px-2 font-bold text-pink-600"
+                        <th
+                          class="py-3 px-2 font-bold text-[rgb(var(--text-primary))]"
                           >PREȚ ȘEDINȚĂ</th
                         >
-                        <th class="py-3 px-2 font-bold text-pink-600"
-                          >PREȚ ABONAMENT<br /><span
-                            class="text-xs font-normal text-pink-600"
-                            >(10 ȘEDINȚE LA PREȚ DE 8)</span
-                          ></th
+                        <th
+                          class="py-3 px-2 font-bold text-[rgb(var(--text-primary))]"
                         >
+                          PREȚ ABONAMENT<br />
+                          <span
+                            class="text-xs font-normal text-[rgb(var(--text-secondary))]"
+                          >
+                            (10 ȘEDINȚE LA PREȚ DE 8)
+                          </span>
+                        </th>
                       </tr>
                     </thead>
                     <tbody>
-                      <tr class="border-b border-pink-100">
-                        <td class="py-2 px-2">AXILĂ/INGHINAL</td>
-                        <td class="py-2 px-2">ȘEDINȚĂ TEST</td>
-                        <td class="py-2 px-2">---</td>
+                      <tr class="border-b border-[rgb(var(--border))]">
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
+                          >AXILĂ/INGHINAL</td
+                        >
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
+                          >ȘEDINȚĂ TEST</td
+                        >
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
+                          >---</td
+                        >
                       </tr>
-                      <tr class="border-b border-pink-100">
-                        <td class="py-2 px-2">AXILĂ</td>
-                        <td class="py-2 px-2">50 LEI</td>
-                        <td class="py-2 px-2"
+                      <tr class="border-b border-[rgb(var(--border))]">
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
+                          >AXILĂ</td
+                        >
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
+                          >50 LEI</td
+                        >
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
                           >400 LEI <span
                             class="text-sm text-gray-500 line-through"
                             >(500 LEI)</span
                           ></td
                         >
                       </tr>
-                      <tr class="border-b border-pink-100">
-                        <td class="py-2 px-2"
+                      <tr class="border-b border-[rgb(var(--border))]">
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
                           >FULL BODY INCLUDE TOATE ZONELE CORPULUI</td
                         >
-                        <td class="py-2 px-2">500 LEI</td>
-                        <td class="py-2 px-2"
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
+                          >500 LEI</td
+                        >
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
                           >4000 LEI <span
                             class="text-sm text-gray-500 line-through"
                             >(5000 LEI)</span
                           ></td
                         >
                       </tr>
-                      <tr class="border-b border-pink-100">
-                        <td class="py-2 px-2"
+                      <tr class="border-b border-[rgb(var(--border))]">
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
                           >PACHET SUMMER AXILĂ, INGHINAL TOTAL, PICIOARE LUNG</td
                         >
-                        <td class="py-2 px-2">350 LEI</td>
-                        <td class="py-2 px-2"
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
+                          >350 LEI</td
+                        >
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
                           >2800 LEI <span
                             class="text-sm text-gray-500 line-through"
                             >(3500 LEI)</span
                           ></td
                         >
                       </tr>
-                      <tr class="border-b border-pink-100">
-                        <td class="py-2 px-2">MUSTAȚĂ</td>
-                        <td class="py-2 px-2">35 LEI</td>
-                        <td class="py-2 px-2"
+                      <tr class="border-b border-[rgb(var(--border))]">
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
+                          >MUSTAȚĂ</td
+                        >
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
+                          >35 LEI</td
+                        >
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
                           >250 LEI <span
                             class="text-sm text-gray-500 line-through"
                             >(350 LEI)</span
                           ></td
                         >
                       </tr>
-                      <tr class="border-b border-pink-100">
-                        <td class="py-2 px-2">BĂRBIE</td>
-                        <td class="py-2 px-2">35 LEI</td>
-                        <td class="py-2 px-2"
+                      <tr class="border-b border-[rgb(var(--border))]">
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
+                          >BĂRBIE</td
+                        >
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
+                          >35 LEI</td
+                        >
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
                           >250 LEI <span
                             class="text-sm text-gray-500 line-through"
                             >(350 LEI)</span
                           ></td
                         >
                       </tr>
-                      <tr class="border-b border-pink-100">
-                        <td class="py-2 px-2">PERCIUNI</td>
-                        <td class="py-2 px-2">35 LEI</td>
-                        <td class="py-2 px-2"
+                      <tr class="border-b border-[rgb(var(--border))]">
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
+                          >PERCIUNI</td
+                        >
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
+                          >35 LEI</td
+                        >
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
                           >250 LEI <span
                             class="text-sm text-gray-500 line-through"
                             >(350 LEI)</span
                           ></td
                         >
                       </tr>
-                      <tr class="border-b border-pink-100">
-                        <td class="py-2 px-2"
+                      <tr class="border-b border-[rgb(var(--border))]">
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
                           >FAȚĂ INTEGRAL (BĂRBIE, MUSTAȚĂ, PERCIUNI ȘI POMEȚI)</td
                         >
-                        <td class="py-2 px-2">140 LEI</td>
-                        <td class="py-2 px-2"
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
+                          >140 LEI</td
+                        >
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
                           >1100 LEI <span
                             class="text-sm text-gray-500 line-through"
                             >(1400 LEI)</span
                           ></td
                         >
                       </tr>
-                      <tr class="border-b border-pink-100">
-                        <td class="py-2 px-2">GÂT PARȚIAL</td>
-                        <td class="py-2 px-2">90 LEI</td>
-                        <td class="py-2 px-2"
+                      <tr class="border-b border-[rgb(var(--border))]">
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
+                          >GÂT PARȚIAL</td
+                        >
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
+                          >90 LEI</td
+                        >
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
                           >720 LEI <span
                             class="text-sm text-gray-500 line-through"
                             >(900 LEI)</span
                           ></td
                         >
                       </tr>
-                      <tr class="border-b border-pink-100">
-                        <td class="py-2 px-2">GÂT INTEGRAL</td>
-                        <td class="py-2 px-2">140 LEI</td>
-                        <td class="py-2 px-2"
+                      <tr class="border-b border-[rgb(var(--border))]">
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
+                          >GÂT INTEGRAL</td
+                        >
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
+                          >140 LEI</td
+                        >
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
                           >1100 LEI <span
                             class="text-sm text-gray-500 line-through"
                             >(1400 LEI)</span
                           ></td
                         >
                       </tr>
-                      <tr class="border-b border-pink-100">
-                        <td class="py-2 px-2">PERIAREOLAR</td>
-                        <td class="py-2 px-2">35 LEI</td>
-                        <td class="py-2 px-2"
+                      <tr class="border-b border-[rgb(var(--border))]">
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
+                          >PERIAREOLAR</td
+                        >
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
+                          >35 LEI</td
+                        >
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
                           >250 LEI <span
                             class="text-sm text-gray-500 line-through"
                             >(350 LEI)</span
                           ></td
                         >
                       </tr>
-                      <tr class="border-b border-pink-100">
-                        <td class="py-2 px-2">LINIE ALBĂ ABDOMEN</td>
-                        <td class="py-2 px-2">50 LEI</td>
-                        <td class="py-2 px-2"
+                      <tr class="border-b border-[rgb(var(--border))]">
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
+                          >LINIE ALBĂ ABDOMEN</td
+                        >
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
+                          >50 LEI</td
+                        >
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
                           >400 LEI <span
                             class="text-sm text-gray-500 line-through"
                             >(500 LEI)</span
                           ></td
                         >
                       </tr>
-                      <tr class="border-b border-pink-100">
-                        <td class="py-2 px-2">ABDOMEN INTEGRAL</td>
-                        <td class="py-2 px-2">140 LEI</td>
-                        <td class="py-2 px-2"
+                      <tr class="border-b border-[rgb(var(--border))]">
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
+                          >ABDOMEN INTEGRAL</td
+                        >
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
+                          >140 LEI</td
+                        >
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
                           >1100 LEI <span
                             class="text-sm text-gray-500 line-through"
                             >(1400 LEI)</span
                           ></td
                         >
                       </tr>
-                      <tr class="border-b border-pink-100">
-                        <td class="py-2 px-2">LOMBAR</td>
-                        <td class="py-2 px-2">90 LEI</td>
-                        <td class="py-2 px-2"
+                      <tr class="border-b border-[rgb(var(--border))]">
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
+                          >LOMBAR</td
+                        >
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
+                          >90 LEI</td
+                        >
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
                           >720 LEI <span
                             class="text-sm text-gray-500 line-through"
                             >(900 LEI)</span
                           ></td
                         >
                       </tr>
-                      <tr class="border-b border-pink-100">
-                        <td class="py-2 px-2">SPATE INTEGRAL</td>
-                        <td class="py-2 px-2">200 LEI</td>
-                        <td class="py-2 px-2"
+                      <tr class="border-b border-[rgb(var(--border))]">
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
+                          >SPATE INTEGRAL</td
+                        >
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
+                          >200 LEI</td
+                        >
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
                           >1600 LEI <span
                             class="text-sm text-gray-500 line-through"
                             >(2000 LEI)</span
                           ></td
                         >
                       </tr>
-                      <tr class="border-b border-pink-100">
-                        <td class="py-2 px-2">ANTEBRAȚE</td>
-                        <td class="py-2 px-2">90 LEI</td>
-                        <td class="py-2 px-2"
+                      <tr class="border-b border-[rgb(var(--border))]">
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
+                          >ANTEBRAȚE</td
+                        >
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
+                          >90 LEI</td
+                        >
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
                           >720 LEI <span
                             class="text-sm text-gray-500 line-through"
                             >(900 LEI)</span
                           ></td
                         >
                       </tr>
-                      <tr class="border-b border-pink-100">
-                        <td class="py-2 px-2"
+                      <tr class="border-b border-[rgb(var(--border))]">
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
                           >BRAȚE INTEGRAL (DEGETE, MÂINI, ANTEBRAȚ ȘI BRAȚ)</td
                         >
-                        <td class="py-2 px-2">160 LEI</td>
-                        <td class="py-2 px-2"
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
+                          >160 LEI</td
+                        >
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
                           >1280 LEI <span
                             class="text-sm text-gray-500 line-through"
                             >(1600 LEI)</span
                           ></td
                         >
                       </tr>
-                      <tr class="border-b border-pink-100">
-                        <td class="py-2 px-2"
+                      <tr class="border-b border-[rgb(var(--border))]">
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
                           >MÂINI (DEGETE ȘI PARTEA DORSALĂ A MÂINII)</td
                         >
-                        <td class="py-2 px-2">50 LEI</td>
-                        <td class="py-2 px-2"
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
+                          >50 LEI</td
+                        >
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
                           >400 LEI <span
                             class="text-sm text-gray-500 line-through"
                             >(500 LEI)</span
                           ></td
                         >
                       </tr>
-                      <tr class="border-b border-pink-100">
-                        <td class="py-2 px-2">INTERFESIERI</td>
-                        <td class="py-2 px-2">50 LEI</td>
-                        <td class="py-2 px-2"
+                      <tr class="border-b border-[rgb(var(--border))]">
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
+                          >INTERFESIERI</td
+                        >
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
+                          >50 LEI</td
+                        >
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
                           >400 LEI <span
                             class="text-sm text-gray-500 line-through"
                             >(500 LEI)</span
                           ></td
                         >
                       </tr>
-                      <tr class="border-b border-pink-100">
-                        <td class="py-2 px-2">BIKINI LINE</td>
-                        <td class="py-2 px-2">50 LEI</td>
-                        <td class="py-2 px-2"
+                      <tr class="border-b border-[rgb(var(--border))]">
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
+                          >BIKINI LINE</td
+                        >
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
+                          >50 LEI</td
+                        >
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
                           >400 LEI <span
                             class="text-sm text-gray-500 line-through"
                             >(500 LEI)</span
                           ></td
                         >
                       </tr>
-                      <tr class="border-b border-pink-100">
-                        <td class="py-2 px-2"
+                      <tr class="border-b border-[rgb(var(--border))]">
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
                           >INGHINAL (BIKINI LINE ȘI PUBIS)</td
                         >
-                        <td class="py-2 px-2">90 LEI</td>
-                        <td class="py-2 px-2"
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
+                          >90 LEI</td
+                        >
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
                           >720 LEI <span
                             class="text-sm text-gray-500 line-through"
                             >(900 LEI)</span
                           ></td
                         >
                       </tr>
-                      <tr class="border-b border-pink-100">
-                        <td class="py-2 px-2"
+                      <tr class="border-b border-[rgb(var(--border))]">
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
                           >INGHINAL TOTAL (BIKINI LINE, PUBIS ȘI INTERFESIERI)</td
                         >
-                        <td class="py-2 px-2">150 LEI</td>
-                        <td class="py-2 px-2"
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
+                          >150 LEI</td
+                        >
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
                           >1200 LEI <span
                             class="text-sm text-gray-500 line-through"
                             >(1500 LEI)</span
                           ></td
                         >
                       </tr>
-                      <tr class="border-b border-pink-100">
-                        <td class="py-2 px-2">PICIOARE SCURT(GAMBE)</td>
-                        <td class="py-2 px-2">190 LEI</td>
-                        <td class="py-2 px-2"
+                      <tr class="border-b border-[rgb(var(--border))]">
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
+                          >PICIOARE SCURT(GAMBE)</td
+                        >
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
+                          >190 LEI</td
+                        >
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
                           >1520 LEI <span
                             class="text-sm text-gray-500 line-through"
                             >(1900 LEI)</span
                           ></td
                         >
                       </tr>
-                      <tr class="border-b border-pink-100">
-                        <td class="py-2 px-2"
+                      <tr class="border-b border-[rgb(var(--border))]">
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
                           >PICIOARE LUNG (GAMBE, COAPSE, LABA PICIORULUI ȘI
                           DEGETE)</td
                         >
-                        <td class="py-2 px-2">280 LEI</td>
-                        <td class="py-2 px-2"
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
+                          >280 LEI</td
+                        >
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
                           >2240 LEI <span
                             class="text-sm text-gray-500 line-through"
                             >(2800 LEI)</span
                           ></td
                         >
                       </tr>
-                      <tr class="border-b border-pink-100">
-                        <td class="py-2 px-2">LABA PICIORULUI ȘI DEGETE</td>
-                        <td class="py-2 px-2">50 LEI</td>
-                        <td class="py-2 px-2"
+                      <tr class="border-b border-[rgb(var(--border))]">
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
+                          >LABA PICIORULUI ȘI DEGETE</td
+                        >
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
+                          >50 LEI</td
+                        >
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
                           >400 LEI <span
                             class="text-sm text-gray-500 line-through"
                             >(500 LEI)</span
@@ -347,7 +443,7 @@ import Footer from "../components/Footer.astro";
                   <a
                     href="https://siaskincenter.kit.com/oferta-epilare-definitiva-bucuresti"
                     target="_blank"
-                    class="animate-pulse bg-yellow-500 hover:bg-yellow-400 text-primary-800 font-bold px-8 py-4 rounded-full transition-colors inline-flex items-center shadow-lg border-2 border-yellow-300"
+                    class="animate-pulse bg-[rgb(var(--primary-500))] hover:bg-[rgb(var(--primary-600))] text-white font-bold px-8 py-4 rounded-full transition-all duration-300 inline-flex items-center shadow-lg border-2 border-[rgb(var(--primary-400))]"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -365,7 +461,7 @@ import Footer from "../components/Footer.astro";
                     </svg>
                     DESCARCĂ VOUCHERUL CU 50% REDUCERE
                     <div
-                      class="absolute -top-3 -right-3 bg-red-600 text-white text-xs font-bold px-2 py-1 rounded-full"
+                      class="absolute -top-3 -right-3 bg-[rgb(var(--primary-700))] text-white text-xs font-bold px-2 py-1 rounded-full"
                     >
                       50% OFF
                     </div>
@@ -377,8 +473,10 @@ import Footer from "../components/Footer.astro";
 
           <!-- Bărbați Content -->
           <div id="content-barbati" class="tab-content hidden">
-            <div class="bg-white rounded-xl shadow-md overflow-hidden mb-12">
-              <div class="bg-indigo-600 py-4 px-6">
+            <div
+              class="bg-[rgb(var(--feature-box-bg))] rounded-xl shadow-md overflow-hidden mb-12 border border-[rgb(var(--feature-box-border))] transition-theme"
+            >
+              <div class="bg-[rgb(var(--primary-600))] py-4 px-6">
                 <h2 class="text-2xl font-bold text-white">
                   Epilare definitivă bărbați
                 </h2>
@@ -386,178 +484,250 @@ import Footer from "../components/Footer.astro";
 
               <div class="p-6">
                 <div class="overflow-x-auto">
-                  <table class="w-full text-left">
+                  <table
+                    class="min-w-full bg-[rgb(var(--feature-box-bg))] border border-[rgb(var(--border))] text-left"
+                  >
                     <thead>
-                      <tr class="border-b-2 border-indigo-100">
-                        <th class="py-3 px-2 font-bold text-blue-600"
+                      <tr class="border-b border-[rgb(var(--border))]">
+                        <th
+                          class="py-3 px-2 font-bold text-[rgb(var(--text-primary))]"
                           >ZONĂ EPILARE</th
                         >
-                        <th class="py-3 px-2 font-bold text-blue-600"
+                        <th
+                          class="py-3 px-2 font-bold text-[rgb(var(--text-primary))]"
                           >PREȚ ȘEDINȚĂ</th
                         >
-                        <th class="py-3 px-2 font-bold text-blue-600"
-                          >PREȚ ABONAMENT<br /><span
-                            class="text-xs font-normal text-blue-600"
-                            >(10 ȘEDINȚE LA PREȚ DE 8)</span
-                          ></th
+                        <th
+                          class="py-3 px-2 font-bold text-[rgb(var(--text-primary))]"
                         >
+                          PREȚ ABONAMENT<br />
+                          <span
+                            class="text-xs font-normal text-[rgb(var(--text-secondary))]"
+                          >
+                            (10 ȘEDINȚE LA PREȚ DE 8)
+                          </span>
+                        </th>
                       </tr>
                     </thead>
                     <tbody>
-                      <tr class="border-b border-gray-100">
-                        <td class="py-2 px-2">AXILĂ</td>
-                        <td class="py-2 px-2">70 LEI</td>
-                        <td class="py-2 px-2"
+                      <tr class="border-b border-[rgb(var(--border))]">
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
+                          >AXILĂ</td
+                        >
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
+                          >70 LEI</td
+                        >
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
                           >560 LEI <span
                             class="text-sm text-gray-500 line-through"
                             >(700 LEI)</span
                           ></td
                         >
                       </tr>
-                      <tr class="border-b border-gray-100">
-                        <td class="py-2 px-2">ANTEBRAȚ</td>
-                        <td class="py-2 px-2">100 LEI</td>
-                        <td class="py-2 px-2"
+                      <tr class="border-b border-[rgb(var(--border))]">
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
+                          >ANTEBRAȚ</td
+                        >
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
+                          >100 LEI</td
+                        >
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
                           >800 LEI <span
                             class="text-sm text-gray-500 line-through"
                             >(1000 LEI)</span
                           ></td
                         >
                       </tr>
-                      <tr class="border-b border-gray-100">
-                        <td class="py-2 px-2">BRAȚ INTEGRAL</td>
-                        <td class="py-2 px-2">200 LEI</td>
-                        <td class="py-2 px-2"
+                      <tr class="border-b border-[rgb(var(--border))]">
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
+                          >BRAȚ INTEGRAL</td
+                        >
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
+                          >200 LEI</td
+                        >
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
                           >1600 LEI <span
                             class="text-sm text-gray-500 line-through"
                             >(2000 LEI)</span
                           ></td
                         >
                       </tr>
-                      <tr class="border-b border-gray-100">
-                        <td class="py-2 px-2">CONTUR BARBĂ</td>
-                        <td class="py-2 px-2">100 LEI</td>
-                        <td class="py-2 px-2"
+                      <tr class="border-b border-[rgb(var(--border))]">
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
+                          >CONTUR BARBĂ</td
+                        >
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
+                          >100 LEI</td
+                        >
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
                           >800 LEI <span
                             class="text-sm text-gray-500 line-through"
                             >(1000 LEI)</span
                           ></td
                         >
                       </tr>
-                      <tr class="border-b border-gray-100">
-                        <td class="py-2 px-2">ÎNTRE SPRÂNCENE</td>
-                        <td class="py-2 px-2">35 LEI</td>
-                        <td class="py-2 px-2"
+                      <tr class="border-b border-[rgb(var(--border))]">
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
+                          >ÎNTRE SPRÂNCENE</td
+                        >
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
+                          >35 LEI</td
+                        >
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
                           >280 LEI <span
                             class="text-sm text-gray-500 line-through"
                             >(350 LEI)</span
                           ></td
                         >
                       </tr>
-                      <tr class="border-b border-gray-100">
-                        <td class="py-2 px-2">FACIAL COMPLET</td>
-                        <td class="py-2 px-2">180 LEI</td>
-                        <td class="py-2 px-2"
+                      <tr class="border-b border-[rgb(var(--border))]">
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
+                          >FACIAL COMPLET</td
+                        >
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
+                          >180 LEI</td
+                        >
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
                           >1440 LEI <span
                             class="text-sm text-gray-500 line-through"
                             >(1800 LEI)</span
                           ></td
                         >
                       </tr>
-                      <tr class="border-b border-gray-100">
-                        <td class="py-2 px-2">GÂT PARȚIAL</td>
-                        <td class="py-2 px-2">90 LEI</td>
-                        <td class="py-2 px-2"
+                      <tr class="border-b border-[rgb(var(--border))]">
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
+                          >GÂT PARȚIAL</td
+                        >
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
+                          >90 LEI</td
+                        >
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
                           >720 LEI <span
                             class="text-sm text-gray-500 line-through"
                             >(900 LEI)</span
                           ></td
                         >
                       </tr>
-                      <tr class="border-b border-gray-100">
-                        <td class="py-2 px-2">GÂT INTEGRAL</td>
-                        <td class="py-2 px-2">150 LEI</td>
-                        <td class="py-2 px-2"
+                      <tr class="border-b border-[rgb(var(--border))]">
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
+                          >GÂT INTEGRAL</td
+                        >
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
+                          >150 LEI</td
+                        >
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
                           >1200 LEI <span
                             class="text-sm text-gray-500 line-through"
                             >(1500 LEI)</span
                           ></td
                         >
                       </tr>
-                      <tr class="border-b border-gray-100">
-                        <td class="py-2 px-2">PIEPT (ZONA PECTORALĂ)</td>
-                        <td class="py-2 px-2">150 LEI</td>
-                        <td class="py-2 px-2"
+                      <tr class="border-b border-[rgb(var(--border))]">
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
+                          >PIEPT (ZONA PECTORALĂ)</td
+                        >
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
+                          >150 LEI</td
+                        >
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
                           >1200 LEI <span
                             class="text-sm text-gray-500 line-through"
                             >(1500 LEI)</span
                           ></td
                         >
                       </tr>
-                      <tr class="border-b border-gray-100">
-                        <td class="py-2 px-2">ABDOMEN</td>
-                        <td class="py-2 px-2">150 LEI</td>
-                        <td class="py-2 px-2"
+                      <tr class="border-b border-[rgb(var(--border))]">
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
+                          >ABDOMEN</td
+                        >
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
+                          >150 LEI</td
+                        >
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
                           >1200 LEI <span
                             class="text-sm text-gray-500 line-through"
                             >(1500 LEI)</span
                           ></td
                         >
                       </tr>
-                      <tr class="border-b border-gray-100">
-                        <td class="py-2 px-2">PIEPT INTEGRAL</td>
-                        <td class="py-2 px-2">300 LEI</td>
-                        <td class="py-2 px-2"
+                      <tr class="border-b border-[rgb(var(--border))]">
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
+                          >PIEPT INTEGRAL</td
+                        >
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
+                          >300 LEI</td
+                        >
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
                           >2400 LEI <span
                             class="text-sm text-gray-500 line-through"
                             >(3000 LEI)</span
                           ></td
                         >
                       </tr>
-                      <tr class="border-b border-gray-100">
-                        <td class="py-2 px-2">ZONA LOMBARĂ</td>
-                        <td class="py-2 px-2">150 LEI</td>
-                        <td class="py-2 px-2"
+                      <tr class="border-b border-[rgb(var(--border))]">
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
+                          >ZONA LOMBARĂ</td
+                        >
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
+                          >150 LEI</td
+                        >
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
                           >1200 LEI <span
                             class="text-sm text-gray-500 line-through"
                             >(1500 LEI)</span
                           ></td
                         >
                       </tr>
-                      <tr class="border-b border-gray-100">
-                        <td class="py-2 px-2">ZONA CERVICALĂ</td>
-                        <td class="py-2 px-2">150 LEI</td>
-                        <td class="py-2 px-2"
+                      <tr class="border-b border-[rgb(var(--border))]">
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
+                          >ZONA CERVICALĂ</td
+                        >
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
+                          >150 LEI</td
+                        >
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
                           >1200 LEI <span
                             class="text-sm text-gray-500 line-through"
                             >(1500 LEI)</span
                           ></td
                         >
                       </tr>
-                      <tr class="border-b border-gray-100">
-                        <td class="py-2 px-2">SPATE INTEGRAL</td>
-                        <td class="py-2 px-2">300 LEI</td>
-                        <td class="py-2 px-2"
+                      <tr class="border-b border-[rgb(var(--border))]">
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
+                          >SPATE INTEGRAL</td
+                        >
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
+                          >300 LEI</td
+                        >
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
                           >2400 LEI <span
                             class="text-sm text-gray-500 line-through"
                             >(3000 LEI)</span
                           ></td
                         >
                       </tr>
-                      <tr class="border-b border-gray-100">
-                        <td class="py-2 px-2">PICIOARE PARȚIAL</td>
-                        <td class="py-2 px-2">200 LEI</td>
-                        <td class="py-2 px-2"
+                      <tr class="border-b border-[rgb(var(--border))]">
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
+                          >PICIOARE PARȚIAL</td
+                        >
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
+                          >200 LEI</td
+                        >
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
                           >1600 LEI <span
                             class="text-sm text-gray-500 line-through"
                             >(2000 LEI)</span
                           ></td
                         >
                       </tr>
-                      <tr class="border-b border-gray-100">
-                        <td class="py-2 px-2">PICIOARE INTEGRAL</td>
-                        <td class="py-2 px-2">400 LEI</td>
-                        <td class="py-2 px-2"
+                      <tr class="border-b border-[rgb(var(--border))]">
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
+                          >PICIOARE INTEGRAL</td
+                        >
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
+                          >400 LEI</td
+                        >
+                        <td class="py-2 px-2 text-[rgb(var(--text-primary))]"
                           >3200 LEI <span
                             class="text-sm text-gray-500 line-through"
                             >(4000 LEI)</span
@@ -572,7 +742,7 @@ import Footer from "../components/Footer.astro";
                   <a
                     href="https://siaskincenter.kit.com/oferta-epilare-definitiva-bucuresti"
                     target="_blank"
-                    class="animate-pulse bg-yellow-500 hover:bg-yellow-400 text-primary-800 font-bold px-8 py-4 rounded-full transition-colors inline-flex items-center shadow-lg border-2 border-yellow-300"
+                    class="animate-pulse bg-[rgb(var(--primary-500))] hover:bg-[rgb(var(--primary-600))] text-white font-bold px-8 py-4 rounded-full transition-all duration-300 inline-flex items-center shadow-lg border-2 border-[rgb(var(--primary-400))]"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -590,7 +760,7 @@ import Footer from "../components/Footer.astro";
                     </svg>
                     DESCARCĂ VOUCHERUL CU 50% REDUCERE
                     <div
-                      class="absolute -top-3 -right-3 bg-red-600 text-white text-xs font-bold px-2 py-1 rounded-full"
+                      class="absolute -top-3 -right-3 bg-[rgb(var(--primary-700))] text-white text-xs font-bold px-2 py-1 rounded-full"
                     >
                       50% OFF
                     </div>
@@ -602,14 +772,14 @@ import Footer from "../components/Footer.astro";
         </div>
 
         <div class="mt-20 text-center max-w-3xl mx-auto">
-          <h2 class="text-2xl font-bold text-pink-700 mb-4">
+          <h2 class="text-2xl font-bold text-[rgb(var(--text-primary))] mb-4">
             Informații importante
           </h2>
-          <ul class="text-gray-600 space-y-3 text-left">
+          <ul class="text-[rgb(var(--text-secondary))] space-y-3 text-left">
             <li class="flex items-start">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="h-5 w-5 text-pink-600 mr-2 mt-1"
+                class="h-5 w-5 text-[rgb(var(--primary-600))] mr-2 mt-1"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -626,7 +796,7 @@ import Footer from "../components/Footer.astro";
             <li class="flex items-start">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="h-5 w-5 text-pink-600 mr-2 mt-1"
+                class="h-5 w-5 text-[rgb(var(--primary-600))] mr-2 mt-1"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -644,7 +814,7 @@ import Footer from "../components/Footer.astro";
             <li class="flex items-start">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="h-5 w-5 text-pink-600 mr-2 mt-1"
+                class="h-5 w-5 text-[rgb(var(--primary-600))] mr-2 mt-1"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -661,7 +831,7 @@ import Footer from "../components/Footer.astro";
             <li class="flex items-start">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="h-5 w-5 text-pink-600 mr-2 mt-1"
+                class="h-5 w-5 text-[rgb(var(--primary-600))] mr-2 mt-1"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -681,7 +851,7 @@ import Footer from "../components/Footer.astro";
           <div class="mt-10">
             <a
               href="/contact"
-              class="bg-indigo-600 hover:bg-indigo-700 text-white font-medium px-8 py-4 rounded-full transition-colors inline-block"
+              class="bg-[rgb(var(--primary-600))] hover:bg-[rgb(var(--primary-700))] text-white font-medium px-8 py-4 rounded-full transition-all duration-300 inline-block"
             >
               Programează o consultație
             </a>
@@ -704,15 +874,31 @@ import Footer from "../components/Footer.astro";
     tabBtns.forEach((btn) => {
       btn.addEventListener("click", () => {
         // Reset active state for all tabs
-        tabBtns.forEach((b) =>
-          b.classList.remove("active", "border-pink-600", "text-pink-600")
-        );
+        tabBtns.forEach((b) => {
+          b.classList.remove(
+            "active",
+            "border-[rgb(var(--primary-600))]",
+            "text-[rgb(var(--primary-600))]"
+          );
+          b.classList.add(
+            "border-transparent",
+            "text-[rgb(var(--text-secondary))]"
+          );
+        });
         // Hide all content
         tabFemei.classList.add("hidden");
         tabBarbati.classList.add("hidden");
 
         // Add active styles
-        btn.classList.add("active", "border-pink-600", "text-pink-600");
+        btn.classList.add(
+          "active",
+          "border-[rgb(var(--primary-600))]",
+          "text-[rgb(var(--primary-600))]"
+        );
+        btn.classList.remove(
+          "border-transparent",
+          "text-[rgb(var(--text-secondary))]"
+        );
 
         // Show selected content
         if (btn.id === "tab-femei") {
@@ -727,7 +913,7 @@ import Footer from "../components/Footer.astro";
 
 <style>
   .tab-btn.active {
-    border-color: rgb(var(--pink-600));
-    color: rgb(var(--pink-600));
+    border-color: rgb(var(--primary-600));
+    color: rgb(var(--primary-600));
   }
 </style>

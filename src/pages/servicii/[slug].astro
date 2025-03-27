@@ -1,0 +1,643 @@
+---
+import { getCollection, type CollectionEntry } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import ButtonAdvert from "../../components/shared/ButtonAdvert.tsx";
+
+export const prerender = true;
+
+// Define prop types
+interface Props {
+  entry: CollectionEntry<"services">;
+  relatedServices: CollectionEntry<"services">[];
+}
+
+// Generate static paths for all services
+export async function getStaticPaths() {
+  const services = await getCollection("services");
+
+  return services.map((entry: CollectionEntry<"services">) => {
+    // Find related services - excluding current service
+    const relatedServices = services
+      .filter(
+        (service: CollectionEntry<"services">) =>
+          service.slug !== entry.slug &&
+          (service.data.category === entry.data.category ||
+            (service.data.tags &&
+              entry.data.tags &&
+              service.data.tags.some((tag: string) =>
+                entry.data.tags?.includes(tag)
+              )))
+      )
+      .slice(0, 3);
+
+    // If there aren't enough related services by category/tags, add random services
+    if (relatedServices.length < 2) {
+      const randomServices = services
+        .filter(
+          (service: CollectionEntry<"services">) =>
+            service.slug !== entry.slug &&
+            !relatedServices.some((rel) => rel.slug === service.slug)
+        )
+        .slice(0, 3 - relatedServices.length);
+
+      relatedServices.push(...randomServices);
+    }
+
+    return {
+      params: { slug: entry.slug },
+      props: { entry, relatedServices },
+    };
+  });
+}
+
+// Get the service details from props
+const { entry, relatedServices } = Astro.props;
+
+// Render the content
+const { Content } = await entry.render();
+
+const { data } = entry;
+---
+
+<Layout
+  title={`${data.title} - SIA Skin Center`}
+  description={data.description || `Descoperă serviciul ${data.title}`}
+>
+  <main>
+    <!-- Hero Section -->
+    <div class="relative">
+      {
+        data.image && (
+          <div class="absolute inset-0 z-0 h-[40vh] md:h-[50vh] overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-b from-transparent to-[rgb(var(--background))] dark:to-[rgb(var(--background))] z-10" />
+            <img
+              src={data.image.src || data.image}
+              alt={data.title}
+              class="w-full h-full object-cover opacity-20 dark:opacity-10"
+            />
+          </div>
+        )
+      }
+
+      <div class="container mx-auto px-4 py-16 md:py-20 relative z-10">
+        <div class="max-w-4xl mx-auto text-center">
+          <div class="flex flex-wrap gap-2 justify-center mb-4">
+            {
+              data.category && (
+                <span
+                  class="inline-block bg-[rgb(var(--primary-50))] dark:bg-[rgb(var(--primary-900))]/30 text-[rgb(var(--primary-600))] dark:text-[rgb(var(--primary-400))] text-sm px-4 py-1.5 rounded-full"
+                  data-aos="fade-down"
+                  data-aos-duration="500"
+                >
+                  {data.category}
+                </span>
+              )
+            }
+
+            {
+              data.tags && data.tags.length > 0 && (
+                <div
+                  class="flex flex-wrap gap-2 justify-center"
+                  data-aos="fade-down"
+                  data-aos-duration="500"
+                  data-aos-delay="100"
+                >
+                  {data.tags.map((tag: string) => (
+                    <span class="text-sm px-3 py-1 bg-[rgb(var(--accent-1))] text-[rgb(var(--text-primary))] rounded-full">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              )
+            }
+          </div>
+
+          <h1
+            class="text-4xl md:text-5xl lg:text-6xl font-bold text-[rgb(var(--text-primary))] mb-6 leading-tight"
+            data-aos="fade-up"
+            data-aos-duration="700"
+          >
+            {data.title}
+          </h1>
+          {
+            data.shortDescription && (
+              <p
+                class="text-lg md:text-xl text-[rgb(var(--text-secondary))] max-w-3xl mx-auto mb-8"
+                data-aos="fade-up"
+                data-aos-delay="100"
+                data-aos-duration="700"
+              >
+                {data.shortDescription}
+              </p>
+            )
+          }
+          <ButtonAdvert client:only="react" />
+          <div
+            class="flex flex-wrap justify-center gap-4 mt-8"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <a
+              href="/contact"
+              class="px-8 py-3.5 bg-[rgb(var(--background))] dark:bg-[rgb(var(--card))] hover:bg-[rgb(var(--accent-1))] dark:hover:bg-[rgb(var(--accent-1))]/20 text-[rgb(var(--text-primary))] font-medium rounded-lg transition-colors text-center shadow-sm hover:shadow-md border border-[rgb(var(--border))]"
+            >
+              Întreabă detalii
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container mx-auto px-4 py-12 md:py-16">
+      <div class="max-w-7xl mx-auto">
+        <!-- Service details grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-16">
+          <!-- Image column -->
+          <div class="lg:col-span-5 xl:col-span-6 order-1 lg:order-1">
+            <div
+              class="sticky top-24 overflow-hidden rounded-2xl shadow-xl border border-[rgb(var(--border))]"
+              data-aos="fade-right"
+              data-aos-duration="800"
+            >
+              {
+                data.image && (
+                  <img
+                    src={data.image.src || data.image}
+                    alt={data.title}
+                    class="w-full h-auto object-cover aspect-[4/3]"
+                  />
+                )
+              }
+            </div>
+          </div>
+
+          <!-- Service info column -->
+          <div class="lg:col-span-7 xl:col-span-6 order-2 lg:order-2">
+            <div class="space-y-8" data-aos="fade-left" data-aos-duration="800">
+              <!-- Price section -->
+              {
+                data.price && (
+                  <div class="bg-[rgb(var(--card))] dark:bg-[rgb(var(--card))] border border-[rgb(var(--border))] rounded-xl p-6 shadow-sm">
+                    <h2 class="text-lg font-semibold text-[rgb(var(--text-secondary))] mb-3">
+                      Preț
+                    </h2>
+                    <div class="flex items-end gap-3">
+                      <span class="text-3xl font-bold text-[rgb(var(--primary))]">
+                        {data.price} lei
+                      </span>
+                      {data.oldPrice && (
+                        <span class="text-lg text-[rgb(var(--text-tertiary))] line-through">
+                          {data.oldPrice} lei
+                        </span>
+                      )}
+                      {data.discount && (
+                        <span class="ml-auto bg-[rgb(var(--accent-red))] text-white text-sm font-medium px-3 py-1 rounded-lg">
+                          Economisești {data.discount}%
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                )
+              }
+
+              <!-- Features -->
+              {
+                data.features && data.features.length > 0 && (
+                  <div class="bg-[rgb(var(--card))] dark:bg-[rgb(var(--card))] border border-[rgb(var(--border))] rounded-xl p-6 shadow-sm">
+                    <h2 class="text-lg font-semibold text-[rgb(var(--text-secondary))] mb-4">
+                      Beneficii
+                    </h2>
+                    <ul class="space-y-4">
+                      {data.features.map((feature: string) => (
+                        <li class="flex items-start text-[rgb(var(--text-secondary))]">
+                          <div class="flex-shrink-0 h-6 w-6 rounded-full bg-[rgb(var(--primary-50))] dark:bg-[rgb(var(--primary-900))]/30 flex items-center justify-center mr-3 mt-0.5">
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="14"
+                              height="14"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              class="text-[rgb(var(--primary))]"
+                            >
+                              <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                          </div>
+                          <span>{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )
+              }
+
+              <!-- Additional info -->
+              <div
+                class="bg-[rgb(var(--card))] dark:bg-[rgb(var(--card))] border border-[rgb(var(--border))] rounded-xl p-6 shadow-sm"
+              >
+                <h2
+                  class="text-lg font-semibold text-[rgb(var(--text-secondary))] mb-4"
+                >
+                  Detalii serviciu
+                </h2>
+                <div class="space-y-4">
+                  {
+                    data.duration && (
+                      <div class="flex items-center text-[rgb(var(--text-secondary))]">
+                        <div class="flex-shrink-0 h-10 w-10 rounded-full bg-[rgb(var(--primary-50))] dark:bg-[rgb(var(--primary-900))]/30 flex items-center justify-center mr-4">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="18"
+                            height="18"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="text-[rgb(var(--primary))]"
+                          >
+                            <circle cx="12" cy="12" r="10" />
+                            <polyline points="12 6 12 12 16 14" />
+                          </svg>
+                        </div>
+                        <div>
+                          <p class="text-sm font-medium text-[rgb(var(--text-tertiary))]">
+                            Durată
+                          </p>
+                          <p class="font-medium">{data.duration}</p>
+                        </div>
+                      </div>
+                    )
+                  }
+
+                  {
+                    data.category && (
+                      <div class="flex items-center text-[rgb(var(--text-secondary))]">
+                        <div class="flex-shrink-0 h-10 w-10 rounded-full bg-[rgb(var(--primary-50))] dark:bg-[rgb(var(--primary-900))]/30 flex items-center justify-center mr-4">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="18"
+                            height="18"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="text-[rgb(var(--primary))]"
+                          >
+                            <path d="M20 14.66V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h5.34" />
+                            <polygon points="18 2 22 6 12 16 8 16 8 12 18 2" />
+                          </svg>
+                        </div>
+                        <div>
+                          <p class="text-sm font-medium text-[rgb(var(--text-tertiary))]">
+                            Categorie
+                          </p>
+                          <p class="font-medium">{data.category}</p>
+                        </div>
+                      </div>
+                    )
+                  }
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Content -->
+        <div
+          class="service-content max-w-4xl mx-auto mt-16 mb-20"
+          data-aos="fade-up"
+          data-aos-duration="800"
+        >
+          <div
+            class="prose prose-lg dark:prose-invert max-w-none rounded-xl overflow-hidden"
+          >
+            <Content />
+          </div>
+        </div>
+
+        <!-- Call to action -->
+        <div
+          class="bg-gradient-to-r from-[rgb(var(--primary-50))] to-[rgb(var(--accent-1))] dark:from-[rgb(var(--primary-900))]/20 dark:to-[rgb(var(--accent-1))]/20 rounded-2xl p-8 md:p-12 my-16 shadow-md"
+          data-aos="fade-up"
+        >
+          <div
+            class="flex flex-col md:flex-row md:items-center justify-between gap-8"
+          >
+            <div>
+              <h2
+                class="text-2xl md:text-3xl font-bold text-[rgb(var(--text-primary))] mb-3"
+              >
+                Ești interesat de acest serviciu?
+              </h2>
+              <p class="text-[rgb(var(--text-secondary))] text-lg">
+                Contactează-ne pentru programare sau mai multe informații. Te
+                așteptăm!
+              </p>
+            </div>
+            <div class="flex flex-col sm:flex-row gap-4">
+              <a
+                href="/contact"
+                class="px-8 py-3.5 bg-white hover:bg-gray-50 dark:bg-[rgb(var(--card))] dark:hover:bg-[rgb(var(--background))] text-[rgb(var(--text-primary))] font-medium rounded-lg transition-colors text-center shadow-sm hover:shadow-md whitespace-nowrap border border-[rgb(var(--border))]"
+              >
+                Contactează-ne
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Related services -->
+        {
+          relatedServices.length > 0 && (
+            <div class="mt-16 md:mt-24 mb-16">
+              <h2
+                class="text-3xl font-bold text-[rgb(var(--text-primary))] mb-12 text-center"
+                data-aos="fade-up"
+              >
+                <span class="relative inline-block">
+                  <span class="absolute h-1 w-12 bg-[rgb(var(--primary))] bottom-0 left-1/2 -translate-x-1/2 -mb-3" />
+                  Servicii similare
+                </span>
+              </h2>
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {relatedServices.map((service, index) => (
+                  <a
+                    href={`/servicii/${service.slug}`}
+                    class="group block h-full"
+                    data-aos="fade-up"
+                    data-aos-delay={100 * index}
+                  >
+                    <article class="h-full flex flex-col bg-[rgb(var(--card))] border border-[rgb(var(--border))]/50 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 group-hover:-translate-y-2">
+                      {service.data.image && (
+                        <div class="h-48 overflow-hidden">
+                          <img
+                            src={service.data.image.src || service.data.image}
+                            alt={service.data.title}
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                          />
+                        </div>
+                      )}
+                      <div class="p-5 flex-grow flex flex-col">
+                        <h3 class="text-lg font-bold text-[rgb(var(--text-primary))] mb-2 group-hover:text-[rgb(var(--primary))] transition-colors">
+                          {service.data.title}
+                        </h3>
+                        {service.data.shortDescription && (
+                          <p class="text-sm text-[rgb(var(--text-secondary))] mb-4 line-clamp-2">
+                            {service.data.shortDescription}
+                          </p>
+                        )}
+                        {service.data.price && (
+                          <div class="mt-auto pt-3 font-medium text-[rgb(var(--primary))]">
+                            {service.data.price} lei
+                          </div>
+                        )}
+                      </div>
+                    </article>
+                  </a>
+                ))}
+              </div>
+            </div>
+          )
+        }
+
+        <!-- Back to services -->
+        <div class="text-center mb-12">
+          <a
+            href="/servicii"
+            class="inline-flex items-center text-[rgb(var(--primary))] hover:text-[rgb(var(--primary-dark))] transition-colors group"
+            data-aos="fade-up"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="mr-2 group-hover:-translate-x-1 transition-transform"
+            >
+              <path d="m15 18-6-6 6-6"></path>
+            </svg>
+            Înapoi la toate serviciile
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<style is:global>
+  /* Custom styling for Markdown content */
+  .service-content {
+    /* Base styles */
+    & .prose {
+      color: rgb(var(--text-secondary));
+
+      /* Headings */
+      & h1,
+      & h2,
+      & h3,
+      & h4,
+      & h5,
+      & h6 {
+        color: rgb(var(--text-primary));
+        margin-top: 2em;
+        margin-bottom: 0.75em;
+        font-weight: 700;
+        line-height: 1.2;
+        position: relative;
+
+        &::before {
+          content: "";
+          position: absolute;
+          bottom: -0.25em;
+          left: 0;
+          width: 2em;
+          height: 0.125em;
+          background-color: rgb(var(--primary-300));
+          border-radius: 0.125em;
+          transition: width 0.3s ease-in-out;
+        }
+
+        &:hover::before {
+          width: 3em;
+        }
+      }
+
+      & h1 {
+        font-size: 2.25em;
+      }
+
+      & h2 {
+        font-size: 1.75em;
+      }
+
+      & h3 {
+        font-size: 1.5em;
+      }
+
+      /* Paragraphs */
+      & p {
+        margin-bottom: 1.5em;
+        line-height: 1.7;
+      }
+
+      /* Lists */
+      & ul,
+      & ol {
+        margin-top: 1em;
+        margin-bottom: 1em;
+        padding-left: 1.5em;
+      }
+
+      & li {
+        margin-bottom: 0.5em;
+        padding-left: 0.5em;
+      }
+
+      & ul li {
+        list-style-type: none;
+        position: relative;
+
+        &::before {
+          content: "•";
+          color: rgb(var(--primary));
+          font-weight: bold;
+          position: absolute;
+          left: -1.25em;
+        }
+      }
+
+      /* Links */
+      & a {
+        color: rgb(var(--primary));
+        text-decoration: none;
+        border-bottom: 1px dashed rgba(var(--primary), 0.5);
+        transition: all 0.2s ease;
+
+        &:hover {
+          border-bottom: 1px solid rgb(var(--primary));
+        }
+      }
+
+      /* Images */
+      & img {
+        border-radius: 0.5rem;
+        margin: 2em 0;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        display: block;
+        max-width: 100%;
+        height: auto;
+
+        .dark & {
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+        }
+      }
+
+      /* Blockquotes */
+      & blockquote {
+        border-left: 4px solid rgb(var(--primary));
+        padding: 1em 1.5em;
+        margin: 1.5em 0;
+        background-color: rgba(var(--primary-50), 0.2);
+        border-radius: 0 0.5rem 0.5rem 0;
+        font-style: italic;
+
+        .dark & {
+          background-color: rgba(var(--primary-900), 0.2);
+        }
+
+        & p {
+          margin-bottom: 0;
+        }
+      }
+
+      /* Code blocks */
+      & pre {
+        background-color: rgb(var(--card));
+        border: 1px solid rgba(var(--border), 0.5);
+        border-radius: 0.5rem;
+        padding: 1em;
+        margin: 1.5em 0;
+        overflow-x: auto;
+
+        .dark & {
+          background-color: rgba(var(--card-foreground), 0.1);
+        }
+      }
+
+      & code {
+        font-family: "Menlo", "Monaco", "Courier New", monospace;
+        font-size: 0.9em;
+        padding: 0.2em 0.4em;
+        border-radius: 0.25em;
+        background-color: rgba(var(--primary-50), 0.3);
+        color: rgb(var(--primary-700));
+
+        .dark & {
+          background-color: rgba(var(--primary-900), 0.3);
+          color: rgb(var(--primary-300));
+        }
+      }
+
+      & pre code {
+        background-color: transparent;
+        padding: 0;
+        color: inherit;
+      }
+
+      /* Tables */
+      & table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 2em 0;
+        overflow: hidden;
+        border-radius: 0.5rem;
+        box-shadow: 0 0 0 1px rgba(var(--border), 0.5);
+      }
+
+      & th {
+        background-color: rgba(var(--primary-50), 0.3);
+        color: rgb(var(--text-primary));
+        font-weight: 600;
+        text-align: left;
+
+        .dark & {
+          background-color: rgba(var(--primary-900), 0.3);
+        }
+      }
+
+      & th,
+      & td {
+        padding: 0.75em 1em;
+        border: 1px solid rgba(var(--border), 0.5);
+      }
+
+      & tr:nth-child(even) {
+        background-color: rgba(var(--primary-50), 0.1);
+
+        .dark & {
+          background-color: rgba(var(--primary-900), 0.1);
+        }
+      }
+
+      /* Horizontal rule */
+      & hr {
+        border: 0;
+        height: 1px;
+        background-color: rgba(var(--border), 0.8);
+        margin: 2em 0;
+      }
+    }
+  }
+</style>

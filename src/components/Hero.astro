@@ -1,7 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import heroBackground from "../assets/poze/hero.jpg";
-import ButtonAdvert from "../components/shared/ButtonAdvert.astro";
+import ButtonAdvert from "../components/shared/ButtonAdvert.tsx";
 import Button from "../components/shared/Button.astro";
 ---
 
@@ -16,18 +16,18 @@ import Button from "../components/shared/Button.astro";
       quality={80}
     />
     <div
-      class="absolute inset-0 bg-gradient-to-r from-primary-900/90 to-primary-700/50"
+      class="absolute inset-0 bg-gradient-to-r from-red-500/60 to-black/60 transition-theme"
     >
     </div>
   </div>
 
   <div class="container mx-auto px-4 relative z-10">
     <div
-      class="max-w-xl text-white"
+      class="max-w-xl text-white transition-theme"
       data-aos="fade-right"
       data-aos-duration="1000"
     >
-      <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white">
         Descoperă frumusețea pielii tale perfecte
       </h1>
 
@@ -62,19 +62,19 @@ import Button from "../components/shared/Button.astro";
         data-aos-delay="400"
         data-aos-duration="800"
       >
-        <ButtonAdvert />
+        <ButtonAdvert client:only="react" />
       </div>
     </div>
 
     <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6">
       <div
-        class="bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-white/20"
+        class="bg-black/30 backdrop-blur-sm p-6 rounded-xl border border-white/20 shadow-xl transition-theme"
         data-aos="fade-up"
         data-aos-delay="300"
         data-aos-duration="800"
       >
         <div
-          class="bg-primary-600 w-12 h-12 rounded-full flex items-center justify-center mb-4"
+          class="bg-[rgb(var(--primary-600))] w-12 h-12 rounded-full flex items-center justify-center mb-4 shadow-md"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -91,20 +91,20 @@ import Button from "../components/shared/Button.astro";
           </svg>
         </div>
         <h3 class="text-xl font-bold text-white mb-2">Rapid și eficient</h3>
-        <p class="text-white/80">
+        <p class="text-white/90">
           Tratamente rapide și eficiente, potrivite chiar și pentru cele mai
           ocupate agende.
         </p>
       </div>
 
       <div
-        class="bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-white/20"
+        class="bg-black/30 backdrop-blur-sm p-6 rounded-xl border border-white/20 shadow-xl transition-theme"
         data-aos="fade-up"
         data-aos-delay="500"
         data-aos-duration="800"
       >
         <div
-          class="bg-primary-600 w-12 h-12 rounded-full flex items-center justify-center mb-4"
+          class="bg-[rgb(var(--primary-600))] w-12 h-12 rounded-full flex items-center justify-center mb-4 shadow-md"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -122,20 +122,20 @@ import Button from "../components/shared/Button.astro";
           </svg>
         </div>
         <h3 class="text-xl font-bold text-white mb-2">Rezultate de durată</h3>
-        <p class="text-white/80">
+        <p class="text-white/90">
           Tratamentele noastre oferă rezultate vizibile pe termen lung, cu
           efecte care durează ani întregi.
         </p>
       </div>
 
       <div
-        class="bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-white/20"
+        class="bg-black/30 backdrop-blur-sm p-6 rounded-xl border border-white/20 shadow-xl transition-theme"
         data-aos="fade-up"
         data-aos-delay="700"
         data-aos-duration="800"
       >
         <div
-          class="bg-primary-600 w-12 h-12 rounded-full flex items-center justify-center mb-4"
+          class="bg-[rgb(var(--primary-600))] w-12 h-12 rounded-full flex items-center justify-center mb-4 shadow-md"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -153,7 +153,7 @@ import Button from "../components/shared/Button.astro";
           </svg>
         </div>
         <h3 class="text-xl font-bold text-white mb-2">Tehnologie sigură</h3>
-        <p class="text-white/80">
+        <p class="text-white/90">
           Folosim tehnologii de ultimă generație, care asigură tratamente sigure
           și eficiente pentru toate tipurile de piele.
         </p>

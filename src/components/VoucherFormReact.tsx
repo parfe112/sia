@@ -124,7 +124,7 @@ const VoucherFormReact: React.FC = () => {
     <div className="grid grid-cols-1 sm:grid-cols-2 items-stretch gap-2 sm:gap-0">
       {/* Form Section */}
       <motion.div
-        className="bg-white rounded-2xl sm:rounded-r-none shadow-xl p-4 sm:p-5 md:p-6 overflow-hidden h-full flex flex-col"
+        className="bg-[rgb(var(--bg-card-light))] dark:bg-[rgb(var(--bg-card-dark))] rounded-2xl sm:rounded-r-none shadow-xl p-4 sm:p-5 md:p-6 overflow-hidden h-full flex flex-col transition-theme"
         initial={{ opacity: 0, x: -50 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.5 }}
@@ -158,14 +158,14 @@ const VoucherFormReact: React.FC = () => {
                 strokeWidth={3}
               />
             </motion.div>
-            <h3 className="text-xl md:text-2xl font-bold text-primary-800 mb-2">
+            <h3 className="text-xl md:text-2xl font-bold text-[rgb(var(--text-primary))] mb-2">
               Voucherul a fost trimis pe email dar nu a fost activat inca.
               Sunați la numărul de mai jos pentru activare.
               <br />
               <br />
               <a
                 href="tel:0770889907"
-                className="bg-green-500 text-white rounded-xl p-4"
+                className="bg-green-500 hover:bg-green-600 text-white rounded-xl p-4 inline-block transition-all duration-300 transform hover:scale-105"
               >
                 0770 889 907
               </a>
@@ -196,12 +196,12 @@ const VoucherFormReact: React.FC = () => {
               <motion.div variants={itemVariants} className="mb-3">
                 <label
                   htmlFor="name"
-                  className="block text-xs md:text-sm font-medium text-primary-700 mb-1"
+                  className="block text-xs md:text-sm font-medium text-[rgb(var(--field-label))] mb-1"
                 >
                   Numele tău
                 </label>
                 <div className="relative">
-                  <User className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                  <User className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-[rgb(var(--text-tertiary))]" />
                   <input
                     type="text"
                     id="name"
@@ -211,10 +211,10 @@ const VoucherFormReact: React.FC = () => {
                     onFocus={() => handleFocus("name")}
                     onBlur={handleBlur}
                     required
-                    className={`w-full pl-10 pr-4 py-2 md:pl-10 md:pr-4 md:py-3 text-sm rounded-lg border transition-all duration-300 ${
+                    className={`w-full pl-10 pr-4 py-2 md:pl-10 md:pr-4 md:py-3 text-sm rounded-lg bg-white dark:bg-[rgb(var(--card))] text-[rgb(var(--text-primary))] border transition-all duration-300 ${
                       focusedField === "name"
                         ? `border-emerald-400 ring-2 ring-emerald-400/20`
-                        : "border-primary-200 hover:border-primary-300"
+                        : "border-[rgb(var(--border))] hover:border-primary-300"
                     }`}
                     placeholder="Nume și prenume"
                   />
@@ -224,12 +224,12 @@ const VoucherFormReact: React.FC = () => {
               <motion.div variants={itemVariants} className="mb-3">
                 <label
                   htmlFor="email"
-                  className="block text-xs md:text-sm font-medium text-primary-700 mb-1"
+                  className="block text-xs md:text-sm font-medium text-[rgb(var(--field-label))] mb-1"
                 >
                   Adresa ta de email
                 </label>
                 <div className="relative">
-                  <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                  <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-[rgb(var(--text-tertiary))]" />
                   <input
                     type="email"
                     id="email"
@@ -239,10 +239,10 @@ const VoucherFormReact: React.FC = () => {
                     onFocus={() => handleFocus("email")}
                     onBlur={handleBlur}
                     required
-                    className={`w-full pl-10 pr-4 py-2 md:pl-10 md:pr-4 md:py-3 text-sm rounded-lg border transition-all duration-300 ${
+                    className={`w-full pl-10 pr-4 py-2 md:pl-10 md:pr-4 md:py-3 text-sm rounded-lg bg-white dark:bg-[rgb(var(--card))] text-[rgb(var(--text-primary))] border transition-all duration-300 ${
                       focusedField === "email"
                         ? `border-blue-400 ring-2 ring-blue-400/20`
-                        : "border-primary-200 hover:border-primary-300"
+                        : "border-[rgb(var(--border))] hover:border-primary-300"
                     }`}
                     placeholder="email@exemplu.com"
                   />
@@ -252,12 +252,12 @@ const VoucherFormReact: React.FC = () => {
               <motion.div variants={itemVariants} className="mb-4">
                 <label
                   htmlFor="phone"
-                  className="block text-xs md:text-sm font-medium text-primary-700 mb-1"
+                  className="block text-xs md:text-sm font-medium text-[rgb(var(--field-label))] mb-1"
                 >
                   Număr de telefon
                 </label>
                 <div className="relative">
-                  <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                  <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-[rgb(var(--text-tertiary))]" />
                   <input
                     type="tel"
                     id="phone"
@@ -267,10 +267,10 @@ const VoucherFormReact: React.FC = () => {
                     onFocus={() => handleFocus("phone")}
                     onBlur={handleBlur}
                     required
-                    className={`w-full pl-10 pr-4 py-2 md:pl-10 md:pr-4 md:py-3 text-sm rounded-lg border transition-all duration-300 ${
+                    className={`w-full pl-10 pr-4 py-2 md:pl-10 md:pr-4 md:py-3 text-sm rounded-lg bg-white dark:bg-[rgb(var(--card))] text-[rgb(var(--text-primary))] border transition-all duration-300 ${
                       focusedField === "phone"
                         ? `border-purple-400 ring-2 ring-purple-400/20`
-                        : "border-primary-200 hover:border-primary-300"
+                        : "border-[rgb(var(--border))] hover:border-primary-300"
                     }`}
                     placeholder="07xx xxx xxx"
                   />
@@ -297,7 +297,7 @@ const VoucherFormReact: React.FC = () => {
 
                 <motion.p
                   variants={itemVariants}
-                  className="text-xs text-center text-gray-500 mt-2 md:mt-3"
+                  className="text-xs text-center text-[rgb(var(--text-tertiary))] mt-2 md:mt-3"
                 >
                   Îți respectăm intimitatea. Te poți dezabona oricând.
                 </motion.p>
@@ -309,7 +309,7 @@ const VoucherFormReact: React.FC = () => {
 
       {/* Promo Info Section */}
       <motion.div
-        className="relative bg-gradient-to-br from-primary-600 to-secondary-400 text-white p-4 sm:p-5 md:p-6 rounded-2xl sm:rounded-l-none shadow-xl overflow-hidden h-full"
+        className="relative bg-gradient-to-br from-[rgb(var(--primary-600))] to-[rgb(var(--secondary-400))] text-white p-4 sm:p-5 md:p-6 rounded-2xl sm:rounded-l-none shadow-xl overflow-hidden h-full transition-theme"
         initial={{ opacity: 0, x: 50 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.5, delay: 0.2 }}
@@ -343,7 +343,7 @@ const VoucherFormReact: React.FC = () => {
             }}
           />
           <motion.div
-            className="absolute top-1/3 right-10 w-8 h-8 md:w-12 md:h-12 rounded-full bg-secondary-500/20"
+            className="absolute top-1/3 right-10 w-8 h-8 md:w-12 md:h-12 rounded-full bg-[rgb(var(--secondary-500))]/20"
             animate={{
               y: [0, 20, 0],
               x: [0, -5, 0],

@@ -1,0 +1,409 @@
+---
+import { getCollection, type CollectionEntry } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+
+export const prerender = true;
+
+// Get all blog entries
+const allBlogEntries = await getCollection(
+  "blog",
+  ({ data }: CollectionEntry<"blog">) => {
+    return import.meta.env.PROD ? !data.draft : true;
+  }
+);
+
+// Sort posts by publication date (newest first)
+const sortedPosts = allBlogEntries.sort(
+  (a: CollectionEntry<"blog">, b: CollectionEntry<"blog">) =>
+    b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+
+// Get featured posts
+const featuredPosts = sortedPosts.filter(
+  (post: CollectionEntry<"blog">) => post.data.featured
+);
+
+// Date formatter
+const formatDate = (date: Date): string => {
+  return new Intl.DateTimeFormat("ro-RO", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  }).format(date);
+};
+
+// Categories for filtering
+const categories = [
+  ...new Set(sortedPosts.map((post) => post.data.category).filter(Boolean)),
+];
+---
+
+<Layout
+  title="Blog - SIA Skin Center"
+  description="Articole și sfaturi despre îngrijirea pielii, tratamente estetice și știri din domeniul frumuseții"
+>
+  <main class="container mx-auto px-4 py-12 md:py-16">
+    <div class="max-w-7xl mx-auto">
+      <!-- Hero section -->
+      <div class="text-center mb-12 md:mb-16">
+        <h1
+          class="text-4xl md:text-5xl font-bold text-[rgb(var(--text-primary))] mb-4"
+          data-aos="fade-up"
+        >
+          Blog SIA
+        </h1>
+        <p
+          class="text-lg text-[rgb(var(--text-secondary))] max-w-2xl mx-auto"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
+          Articole, sfaturi și știri despre îngrijirea pielii, tratamente
+          estetice și frumusețe
+        </p>
+      </div>
+
+      <!-- Featured posts -->
+      {
+        featuredPosts.length > 0 && (
+          <div class="mb-16">
+            <h2
+              class="text-2xl font-bold text-[rgb(var(--text-primary))] mb-8"
+              data-aos="fade-up"
+            >
+              Articole recomandate
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {featuredPosts.slice(0, 2).map((post, index) => (
+                <a
+                  href={`/blog/${post.slug}`}
+                  class="group block h-full"
+                  data-aos="fade-up"
+                  data-aos-delay={index * 100}
+                >
+                  <article class="h-full flex flex-col bg-[rgb(var(--card))] dark:bg-[rgb(var(--card))] border border-[rgb(var(--border))]/50 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all group-hover:-translate-y-1 duration-300">
+                    {post.data.image && (
+                      <div class="aspect-[16/9] overflow-hidden">
+                        <img
+                          src={post.data.image}
+                          alt={post.data.title}
+                          class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        />
+                      </div>
+                    )}
+                    <div class="p-6 flex-grow">
+                      <div class="flex justify-between items-center mb-3">
+                        {post.data.category && (
+                          <span class="bg-[rgb(var(--primary-600))]/10 dark:bg-[rgb(var(--primary-600))]/20 text-[rgb(var(--primary-600))] dark:text-[rgb(var(--primary-400))] px-3 py-1 rounded-full text-sm">
+                            {post.data.category}
+                          </span>
+                        )}
+                        <time class="text-sm text-[rgb(var(--text-tertiary))]">
+                          {formatDate(post.data.pubDate)}
+                        </time>
+                      </div>
+                      <h3 class="text-xl font-bold text-[rgb(var(--text-primary))] mb-3 group-hover:text-[rgb(var(--primary-600))] transition-colors">
+                        {post.data.title}
+                      </h3>
+                      <p class="text-[rgb(var(--text-secondary))] mb-4 line-clamp-2">
+                        {post.data.description}
+                      </p>
+                      <div class="flex justify-between items-center mt-auto pt-4 border-t border-[rgb(var(--border))]/50">
+                        {post.data.author && (
+                          <div class="flex items-center">
+                            <div class="w-8 h-8 rounded-full bg-[rgb(var(--primary-100))] dark:bg-[rgb(var(--primary-200))]/20 flex items-center justify-center text-[rgb(var(--primary-600))] dark:text-[rgb(var(--primary-500))] mr-2 text-sm">
+                              {post.data.author.charAt(0)}
+                            </div>
+                            <span class="text-sm text-[rgb(var(--text-secondary))]">
+                              {post.data.author}
+                            </span>
+                          </div>
+                        )}
+                        <span class="text-[rgb(var(--primary-600))] dark:text-[rgb(var(--primary-400))] inline-flex items-center text-sm font-medium">
+                          Citește mai mult
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="h-4 w-4 ml-1 group-hover:translate-x-1 transition-transform"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M14 5l7 7m0 0l-7 7m7-7H3"
+                            />
+                          </svg>
+                        </span>
+                      </div>
+                    </div>
+                  </article>
+                </a>
+              ))}
+            </div>
+          </div>
+        )
+      }
+
+      <!-- Filter and Sort Controls -->
+      <div class="flex flex-col md:flex-row justify-between mb-8">
+        <div class="relative mb-4 md:mb-0">
+          <select
+            id="category-filter"
+            class="py-2 px-4 pr-10 bg-[rgb(var(--background))] dark:bg-[rgb(var(--card))] border border-[rgb(var(--border))] rounded-lg text-[rgb(var(--text-primary))] appearance-none focus:outline-none focus:ring-2 focus:ring-[rgb(var(--primary-600))]"
+          >
+            <option value="">Toate categoriile</option>
+            {
+              categories.map((category) => (
+                <option value={category}>{category}</option>
+              ))
+            }
+          </select>
+          <div
+            class="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 text-[rgb(var(--text-secondary))]"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                clip-rule="evenodd"></path>
+            </svg>
+          </div>
+        </div>
+        <div class="relative">
+          <select
+            id="sort-options"
+            class="py-2 px-4 pr-10 bg-[rgb(var(--background))] dark:bg-[rgb(var(--card))] border border-[rgb(var(--border))] rounded-lg text-[rgb(var(--text-primary))] appearance-none focus:outline-none focus:ring-2 focus:ring-[rgb(var(--primary-600))]"
+          >
+            <option value="date-desc">Cele mai noi</option>
+            <option value="date-asc">Cele mai vechi</option>
+            <option value="title-asc">Alfabetic (A-Z)</option>
+            <option value="title-desc">Alfabetic (Z-A)</option>
+          </select>
+          <div
+            class="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 text-[rgb(var(--text-secondary))]"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                clip-rule="evenodd"></path>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- All blog posts -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {
+          sortedPosts.map((post, index) => (
+            <a
+              href={`/blog/${post.slug}`}
+              class="group block h-full"
+              data-aos="fade-up"
+              data-aos-delay={100 * (index % 3)}
+            >
+              <article class="h-full flex flex-col bg-[rgb(var(--card))] dark:bg-[rgb(var(--card))] border border-[rgb(var(--border))]/50 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all group-hover:-translate-y-1 duration-300">
+                {post.data.image && (
+                  <div class="h-48 overflow-hidden">
+                    <img
+                      src={post.data.image}
+                      alt={post.data.title}
+                      class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                  </div>
+                )}
+                <div class="p-5 flex-grow">
+                  <div class="flex justify-between items-center mb-2">
+                    {post.data.category && (
+                      <span class="bg-[rgb(var(--primary-600))]/10 dark:bg-[rgb(var(--primary-600))]/20 text-[rgb(var(--primary-600))] dark:text-[rgb(var(--primary-400))] px-2 py-1 rounded-full text-xs">
+                        {post.data.category}
+                      </span>
+                    )}
+                    <time class="text-xs text-[rgb(var(--text-tertiary))]">
+                      {formatDate(post.data.pubDate)}
+                    </time>
+                  </div>
+                  <h3 class="text-lg font-bold text-[rgb(var(--text-primary))] mb-2 group-hover:text-[rgb(var(--primary-600))] transition-colors">
+                    {post.data.title}
+                  </h3>
+                  <p class="text-sm text-[rgb(var(--text-secondary))] mb-4 line-clamp-2">
+                    {post.data.description}
+                  </p>
+                  <span class="text-[rgb(var(--primary-600))] dark:text-[rgb(var(--primary-400))] inline-flex items-center text-sm font-medium mt-auto">
+                    Citește mai mult
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-4 w-4 ml-1 group-hover:translate-x-1 transition-transform"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M14 5l7 7m0 0l-7 7m7-7H3"
+                      />
+                    </svg>
+                  </span>
+                </div>
+              </article>
+            </a>
+          ))
+        }
+      </div>
+
+      <!-- Pagination placeholder (can be implemented later) -->
+      <div class="mt-12 flex justify-center">
+        <nav class="inline-flex" aria-label="Pagination">
+          <a
+            href="#"
+            class="px-3 py-2 bg-[rgb(var(--card))] dark:bg-[rgb(var(--card-foreground))] border border-[rgb(var(--border))] border-r-0 rounded-l-lg text-[rgb(var(--text-secondary))] hover:bg-[rgb(var(--accent-1))] dark:hover:bg-[rgb(var(--accent-1))]/20 transition-colors"
+          >
+            <span class="sr-only">Previous</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+                clip-rule="evenodd"></path>
+            </svg>
+          </a>
+          <a
+            href="#"
+            aria-current="page"
+            class="px-4 py-2 bg-[rgb(var(--primary-600))] text-white border border-[rgb(var(--primary-600))]"
+          >
+            1
+          </a>
+          <a
+            href="#"
+            class="px-4 py-2 bg-[rgb(var(--card))] dark:bg-[rgb(var(--card-foreground))] border border-[rgb(var(--border))] text-[rgb(var(--text-secondary))] hover:bg-[rgb(var(--accent-1))] dark:hover:bg-[rgb(var(--accent-1))]/20 transition-colors"
+          >
+            2
+          </a>
+          <a
+            href="#"
+            class="px-4 py-2 bg-[rgb(var(--card))] dark:bg-[rgb(var(--card-foreground))] border border-[rgb(var(--border))] text-[rgb(var(--text-secondary))] hover:bg-[rgb(var(--accent-1))] dark:hover:bg-[rgb(var(--accent-1))]/20 transition-colors"
+          >
+            3
+          </a>
+          <span
+            class="px-4 py-2 bg-[rgb(var(--card))] dark:bg-[rgb(var(--card-foreground))] border border-[rgb(var(--border))] text-[rgb(var(--text-tertiary))]"
+          >
+            ...
+          </span>
+          <a
+            href="#"
+            class="px-4 py-2 bg-[rgb(var(--card))] dark:bg-[rgb(var(--card-foreground))] border border-[rgb(var(--border))] border-l-0 text-[rgb(var(--text-secondary))] hover:bg-[rgb(var(--accent-1))] dark:hover:bg-[rgb(var(--accent-1))]/20 transition-colors"
+          >
+            8
+          </a>
+          <a
+            href="#"
+            class="px-3 py-2 bg-[rgb(var(--card))] dark:bg-[rgb(var(--card-foreground))] border border-[rgb(var(--border))] border-l-0 rounded-r-lg text-[rgb(var(--text-secondary))] hover:bg-[rgb(var(--accent-1))] dark:hover:bg-[rgb(var(--accent-1))]/20 transition-colors"
+          >
+            <span class="sr-only">Next</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                clip-rule="evenodd"></path>
+            </svg>
+          </a>
+        </nav>
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<script>
+  // Filter and sort functionality
+  document.addEventListener("DOMContentLoaded", () => {
+    const categorySelect = document.getElementById(
+      "category-filter"
+    ) as HTMLSelectElement;
+    const sortSelect = document.getElementById(
+      "sort-options"
+    ) as HTMLSelectElement;
+    const articlesContainer = document.querySelector(
+      ".grid.grid-cols-1.md\\:grid-cols-2.lg\\:grid-cols-3"
+    );
+
+    if (!categorySelect || !sortSelect || !articlesContainer) return;
+
+    const articles = Array.from(articlesContainer.children);
+
+    const filterAndSort = () => {
+      const category = categorySelect.value;
+      const sortOption = sortSelect.value;
+
+      const filteredArticles = articles.filter((article) => {
+        if (!category) return true;
+
+        const categoryElement = article.querySelector(
+          '[class*="bg-[rgb(var(--primary-600"))'
+        );
+        if (!categoryElement) return false;
+        return categoryElement.textContent?.trim() === category;
+      });
+
+      filteredArticles.sort((a, b) => {
+        const titleElementA = a.querySelector("h3");
+        const titleElementB = b.querySelector("h3");
+        const titleA = titleElementA?.textContent?.trim() || "";
+        const titleB = titleElementB?.textContent?.trim() || "";
+
+        const timeElementA = a.querySelector("time");
+        const timeElementB = b.querySelector("time");
+        const dateA = timeElementA?.getAttribute("datetime")
+          ? new Date(timeElementA.getAttribute("datetime") || "")
+          : new Date(0);
+        const dateB = timeElementB?.getAttribute("datetime")
+          ? new Date(timeElementB.getAttribute("datetime") || "")
+          : new Date(0);
+
+        switch (sortOption) {
+          case "date-desc":
+            return dateB.getTime() - dateA.getTime();
+          case "date-asc":
+            return dateA.getTime() - dateB.getTime();
+          case "title-asc":
+            return titleA.localeCompare(titleB);
+          case "title-desc":
+            return titleB.localeCompare(titleA);
+          default:
+            return 0;
+        }
+      });
+
+      articlesContainer.innerHTML = "";
+      filteredArticles.forEach((article) => {
+        articlesContainer.appendChild(article);
+      });
+    };
+
+    categorySelect.addEventListener("change", filterAndSort);
+    sortSelect.addEventListener("change", filterAndSort);
+  });
+</script>
