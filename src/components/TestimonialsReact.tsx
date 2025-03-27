@@ -264,7 +264,7 @@ const TestimonialsReact: React.FC = () => {
 
                 {/* Hover Effect Overlay */}
                 <div
-                  className={`absolute inset-0 bg-gradient-to-t from-[rgb(var(--primary-600))]/80 to-transparent rounded-xl opacity-0 transition-opacity duration-300 flex items-end justify-center p-6 ${
+                  className={`absolute inset-0 bg-[rgb(var(--primary-600))]/30 rounded-xl opacity-0 transition-opacity duration-300 flex items-end justify-center p-6 z-10 ${
                     isHovering === index ? "opacity-100" : ""
                   }`}
                 >
@@ -272,7 +272,7 @@ const TestimonialsReact: React.FC = () => {
                     href={googleReviewsLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-white font-medium bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full hover:bg-white/30 transition-all duration-300"
+                    className="text-white font-medium bg-[rgb(var(--primary-600))]/70 px-4 py-2 rounded-full hover:bg-[rgb(var(--primary-600))]/80 transition-all duration-300"
                     aria-label="Vezi toate recenziile noastre pe Google Maps"
                   >
                     Vezi toate recenziile
@@ -285,7 +285,7 @@ const TestimonialsReact: React.FC = () => {
           {/* Simple Navigation Arrows */}
           <button
             onClick={handlePrev}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 md:translate-x-0 bg-white dark:bg-[rgb(var(--card))] p-2 rounded-full shadow-lg text-[rgb(var(--text-primary))] hover:bg-[rgb(var(--primary-50))] dark:hover:bg-[rgb(var(--primary-900))] z-10"
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 md:translate-x-0 bg-white dark:bg-[rgb(var(--card))] p-2 rounded-full shadow-lg text-[rgb(var(--text-primary))]  z-20 hover:scale-110 transition-transform"
             aria-label="Previous review"
           >
             <ChevronLeft className="w-5 h-5" />
@@ -293,7 +293,7 @@ const TestimonialsReact: React.FC = () => {
 
           <button
             onClick={handleNext}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 md:translate-x-0 bg-white dark:bg-[rgb(var(--card))] p-2 rounded-full shadow-lg text-[rgb(var(--text-primary))] hover:bg-[rgb(var(--primary-50))] dark:hover:bg-[rgb(var(--primary-900))] z-10"
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 md:translate-x-0 bg-white dark:bg-[rgb(var(--card))] p-2 rounded-full shadow-lg text-[rgb(var(--text-primary))] z-20 hover:scale-110 transition-transform"
             aria-label="Next review"
           >
             <ChevronRight className="w-5 h-5" />

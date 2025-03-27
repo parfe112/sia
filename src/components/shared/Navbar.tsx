@@ -47,6 +47,7 @@ const Navbar: React.FC<NavbarProps> = ({ logoUrl }) => {
             <a
               href="/"
               className="nav-item text-white font-medium p-2 rounded-full flex items-center justify-center transition-all duration-300 hover:bg-[#6b21a8] group min-w-10 hover:px-4"
+              aria-label="Pagina principală"
             >
               <Home
                 size={20}
@@ -60,6 +61,7 @@ const Navbar: React.FC<NavbarProps> = ({ logoUrl }) => {
             <a
               href="/servicii"
               className="nav-item text-white font-medium p-2 rounded-full flex items-center justify-center transition-all duration-300 hover:bg-[#6b21a8] group min-w-10 hover:px-4"
+              aria-label="Servicii oferite"
             >
               <FileCode
                 size={20}
@@ -74,6 +76,7 @@ const Navbar: React.FC<NavbarProps> = ({ logoUrl }) => {
             <a
               href="/preturi"
               className="nav-item text-white font-medium p-2 rounded-full flex items-center justify-center transition-all duration-300 hover:bg-[#6b21a8] group min-w-10 hover:px-4"
+              aria-label="Lista de prețuri"
             >
               <CircleDollarSign
                 size={20}
@@ -100,6 +103,7 @@ const Navbar: React.FC<NavbarProps> = ({ logoUrl }) => {
             <a
               href="/blog"
               className="nav-item text-white font-medium p-2 rounded-full flex items-center justify-center transition-all duration-300 hover:bg-[#6b21a8] group min-w-10 hover:px-4"
+              aria-label="Articole pe blog"
             >
               <FileText
                 size={20}
@@ -112,6 +116,7 @@ const Navbar: React.FC<NavbarProps> = ({ logoUrl }) => {
             <a
               href="/contact"
               className="nav-item text-white font-medium p-2 rounded-full flex items-center justify-center transition-all duration-300 hover:bg-[#6b21a8] group min-w-10 hover:px-4"
+              aria-label="Informații de contact"
             >
               <Phone
                 size={20}
@@ -145,7 +150,11 @@ const Navbar: React.FC<NavbarProps> = ({ logoUrl }) => {
 
         {/* Mobile Navigation - Always Compact */}
         <div className="md:hidden flex items-center justify-between h-14 px-4 relative">
-          <a href="/" className="flex items-center">
+          <a
+            href="/"
+            className="flex items-center"
+            aria-label="Pagina principală"
+          >
             <img
               src={typeof logoUrl === "string" ? logoUrl : logoUrl?.src}
               alt="SIA Skin Center Logo"
@@ -214,6 +223,7 @@ const Navbar: React.FC<NavbarProps> = ({ logoUrl }) => {
           <a
             href="/"
             className="flex items-center space-x-3 text-white font-bold text-2xl"
+            aria-label="Pagina principală"
           >
             <img
               src={typeof logoUrl === "string" ? logoUrl : logoUrl?.src}
@@ -244,6 +254,7 @@ const Navbar: React.FC<NavbarProps> = ({ logoUrl }) => {
               href="/"
               className="flex items-center px-5 py-3 text-lg text-white hover:bg-[#6b21a8] rounded-xl transition-all"
               onClick={toggleMobileMenu}
+              aria-label="Pagina principală"
             >
               <Home className="w-6 h-6 mr-3 text-white" stroke="#ffffff" />
               Acasă
@@ -253,6 +264,7 @@ const Navbar: React.FC<NavbarProps> = ({ logoUrl }) => {
               href="/servicii"
               className="flex items-center px-5 py-3 text-lg text-white hover:bg-[#6b21a8] rounded-xl transition-all"
               onClick={toggleMobileMenu}
+              aria-label="Servicii oferite"
             >
               <FileCode className="w-6 h-6 mr-3 text-white" stroke="#ffffff" />
               Servicii
@@ -262,6 +274,7 @@ const Navbar: React.FC<NavbarProps> = ({ logoUrl }) => {
               href="/blog"
               className="flex items-center px-5 py-3 text-lg text-white hover:bg-[#6b21a8] rounded-xl transition-all"
               onClick={toggleMobileMenu}
+              aria-label="Articole pe blog"
             >
               <FileText className="w-6 h-6 mr-3 text-white" stroke="#ffffff" />
               Blog
@@ -271,6 +284,7 @@ const Navbar: React.FC<NavbarProps> = ({ logoUrl }) => {
               href="/preturi"
               className="flex items-center px-5 py-3 text-lg text-white hover:bg-[#6b21a8] rounded-xl transition-all"
               onClick={toggleMobileMenu}
+              aria-label="Lista de prețuri"
             >
               <CircleDollarSign
                 className="w-6 h-6 mr-3 text-white"
@@ -283,6 +297,7 @@ const Navbar: React.FC<NavbarProps> = ({ logoUrl }) => {
               href="/contact"
               className="flex items-center px-5 py-3 text-lg text-white hover:bg-[#6b21a8] rounded-xl transition-all"
               onClick={toggleMobileMenu}
+              aria-label="Informații de contact"
             >
               <Phone className="w-6 h-6 mr-3 text-white" stroke="#ffffff" />
               Contact
