@@ -196,6 +196,7 @@ const TestimonialsReact: React.FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center ml-2 text-[rgb(var(--primary-600))] hover:text-[rgb(var(--primary-700))]"
+                aria-label="Vezi recenziile noastre pe Google Maps"
               >
                 <ExternalLink className="w-4 h-4" />
               </a>
@@ -272,6 +273,7 @@ const TestimonialsReact: React.FC = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-white font-medium bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full hover:bg-white/30 transition-all duration-300"
+                    aria-label="Vezi toate recenziile noastre pe Google Maps"
                   >
                     Vezi toate recenziile
                   </a>
@@ -299,18 +301,20 @@ const TestimonialsReact: React.FC = () => {
         </div>
 
         {/* Simple Dots Navigation */}
-        <div className="flex justify-center mt-8 space-x-2">
+        <div className="flex justify-center mt-8 space-x-3">
           {googleReviews.map((_, index) => (
             <button
               key={index}
               onClick={() => selectReview(index)}
-              className={`w-2 h-2 rounded-full transition-colors ${
+              className={`w-4 h-4 rounded-full transition-colors p-4 flex items-center justify-center touch-manipulation ${
                 index === activeIndex
                   ? "bg-[rgb(var(--primary-600))]"
                   : "bg-[rgb(var(--primary-300))]"
               }`}
               aria-label={`Go to review ${index + 1}`}
-            />
+            >
+              <span className="sr-only">Review {index + 1}</span>
+            </button>
           ))}
         </div>
 

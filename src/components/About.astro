@@ -1,6 +1,5 @@
 ---
 import { Image } from "astro:assets";
-import OptimizedImage from "../components/shared/OptimizedImage.astro";
 
 // Import images
 import interiorImage from "../assets/images/lab.jpg";
@@ -15,7 +14,7 @@ import procedureImage from "../assets/images/naked-flower.jpg";
       <div class="lg:w-1/2">
         <div class="relative">
           <div class="grid grid-cols-2 gap-4">
-            <OptimizedImage
+            <Image
               src={interiorImage}
               alt="SIA Skin Center Interior"
               width={500}
@@ -25,7 +24,7 @@ import procedureImage from "../assets/images/naked-flower.jpg";
               format="webp"
               sizes="(max-width: 768px) 100vw, 400px"
             />
-            <OptimizedImage
+            <Image
               src={beforeAfterImage}
               alt="Tratament la SIA Skin Center"
               width={500}
@@ -35,7 +34,7 @@ import procedureImage from "../assets/images/naked-flower.jpg";
               format="webp"
               sizes="(max-width: 768px) 100vw, 400px"
             />
-            <OptimizedImage
+            <Image
               src={servicesImage}
               alt="Servicii profesionale SIA Skin Center"
               width={500}
@@ -45,7 +44,7 @@ import procedureImage from "../assets/images/naked-flower.jpg";
               format="webp"
               sizes="(max-width: 768px) 100vw, 400px"
             />
-            <OptimizedImage
+            <Image
               src={procedureImage}
               alt="Procedură la SIA Skin Center"
               width={500}

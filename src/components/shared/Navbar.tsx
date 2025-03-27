@@ -161,6 +161,7 @@ const Navbar: React.FC<NavbarProps> = ({ logoUrl }) => {
             <a
               href="tel:0770889907"
               className="flex items-center justify-center w-9 h-9 rounded-full bg-blue-600 text-white hover:bg-blue-700 transition-transform hover:scale-110 shadow-md"
+              aria-label="Apelează telefonic"
             >
               <Phone size={18} stroke="#ffffff" strokeWidth={2.5} />
             </a>
@@ -185,7 +186,7 @@ const Navbar: React.FC<NavbarProps> = ({ logoUrl }) => {
           {/* Mobile menu button */}
           <button
             className="flex items-center justify-center w-10 h-10 rounded-full bg-[#6b21a8] text-white hover:bg-[#7e22ce] transition-colors z-10"
-            aria-label="Menu"
+            aria-label="Deschide meniul"
             type="button"
             onClick={toggleMobileMenu}
           >
@@ -228,6 +229,7 @@ const Navbar: React.FC<NavbarProps> = ({ logoUrl }) => {
           <button
             className="flex items-center justify-center w-10 h-10 rounded-full bg-[#6b21a8] text-white hover:bg-[#7e22ce] transition-colors"
             onClick={toggleMobileMenu}
+            aria-label="Închide meniul"
           >
             <X size={24} />
           </button>
@@ -293,6 +295,7 @@ const Navbar: React.FC<NavbarProps> = ({ logoUrl }) => {
                 href="https://www.facebook.com/profile.php?id=61554965023675"
                 target="_blank"
                 className="bg-[#1877F2] p-3 rounded-full text-white hover:opacity-90 transition-opacity"
+                aria-label="Pagina noastră de Facebook"
               >
                 <Facebook className="w-5 h-5" />
               </a>
@@ -300,6 +303,7 @@ const Navbar: React.FC<NavbarProps> = ({ logoUrl }) => {
                 href="https://www.instagram.com/sia_epilare_definitiva/"
                 target="_blank"
                 className="bg-gradient-to-r from-[#FCAF45] via-[#E1306C] to-[#5851DB] p-3 rounded-full text-white hover:opacity-90 transition-opacity"
+                aria-label="Profilul nostru de Instagram"
               >
                 <Instagram className="w-5 h-5" />
               </a>
@@ -307,6 +311,7 @@ const Navbar: React.FC<NavbarProps> = ({ logoUrl }) => {
                 href="https://wa.me/40770889907"
                 target="_blank"
                 className="bg-green-500 p-3 rounded-full text-white hover:bg-green-600 transition-all"
+                aria-label="Contactează-ne pe WhatsApp"
               >
                 <MessageCircle size={20} stroke="#ffffff" strokeWidth={2.5} />
               </a>
