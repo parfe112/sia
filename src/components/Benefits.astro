@@ -1,0 +1,271 @@
+---
+import { getCollection, type CollectionEntry } from "astro:content";
+import { Image } from "astro:assets";
+
+// Import icons direct din Lucide Astro
+import { Zap, ShieldCheck, CheckCircle, Heart, Users, BadgeDollarSign, ChevronRight } from "lucide-react";
+
+// Get all services
+const services = await getCollection("services");
+
+// Sort services by order property
+const sortedServices = services.sort(
+  (a: CollectionEntry<"services">, b: CollectionEntry<"services">) =>
+    (a.data.order || 999) - (b.data.order || 999)
+);
+
+// Icon mapping
+const getIconComponent = (slug: string, category: string) => {
+  if (slug === "epilare-definitiva-laser") return CheckCircle;
+  if (slug === "epilare-definitiva-bucuresti") return ShieldCheck;
+  if (slug === "epilare-definitiva-acasa") return BadgeDollarSign;
+  if (slug === "epilare-full-body") return Heart;
+  if (slug === "epilare-definitiva-elysion-pro") return ShieldCheck;
+  if (category === "Epilare Definitivă") return Zap;
+  return Users; // default
+};
+
+// Color mapping
+const getColors = (slug: string, category: string) => {
+  if (slug === "epilare-definitiva-laser") {
+    return {
+      color: "text-emerald-600",
+      hoverColor: "bg-emerald-600",
+      bgColor: "bg-gradient-to-br from-emerald-500 to-emerald-700",
+      darkColor: "dark:text-emerald-300",
+      darkHoverColor: "dark:bg-emerald-600",
+      darkBgColor: "dark:bg-gradient-to-br dark:from-emerald-600 dark:to-emerald-900",
+    };
+  }
+  
+  if (slug === "epilare-definitiva-bucuresti") {
+    return {
+      color: "text-purple-600",
+      hoverColor: "bg-purple-600",
+      bgColor: "bg-gradient-to-br from-purple-500 to-purple-700",
+      darkColor: "dark:text-purple-300",
+      darkHoverColor: "dark:bg-purple-600",
+      darkBgColor: "dark:bg-gradient-to-br dark:from-purple-600 dark:to-purple-900",
+    };
+  }
+  
+  if (category === "Epilare Definitivă") {
+    return {
+      color: "text-blue-600",
+      hoverColor: "bg-blue-600",
+      bgColor: "bg-gradient-to-br from-blue-500 to-blue-700",
+      darkColor: "dark:text-blue-300",
+      darkHoverColor: "dark:bg-blue-600",
+      darkBgColor: "dark:bg-gradient-to-br dark:from-blue-600 dark:to-blue-900",
+    };
+  }
+  
+  // Default
+  return {
+    color: "text-rose-600",
+    hoverColor: "bg-rose-600",
+    bgColor: "bg-gradient-to-br from-rose-500 to-rose-700",
+    darkColor: "dark:text-rose-300",
+    darkHoverColor: "dark:bg-rose-600",
+    darkBgColor: "dark:bg-gradient-to-br dark:from-rose-600 dark:to-rose-900",
+  };
+};
+
+// Helper to get keywords from slug
+const getKeywordsFromSlug = (slug: string) => {
+  return slug.split("-").join(" ");
+};
+---
+<section class="py-20 relative overflow-hidden" id="avantaje">
+  <!-- Background decorative elements -->
+  <div class="absolute inset-0 bg-gradient-to-b from-[rgb(var(--background))] to-[rgb(var(--primary-50))] dark:from-[rgb(var(--background))] dark:to-[rgb(var(--primary-200))]/5 -z-10 transition-theme"></div>
+  <div class="absolute -top-24 -right-24 w-96 h-96 bg-gradient-to-br from-[rgb(var(--primary-200))]/30 to-[rgb(var(--primary-300))]/20 rounded-full blur-3xl -z-10"></div>
+  <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-gradient-to-tr from-blue-200/30 to-purple-300/20 dark:from-blue-900/30 dark:to-purple-800/20 rounded-full blur-3xl -z-10"></div>
+
+  <div class="container mx-auto px-4 relative z-10">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold mb-6 text-[rgb(var(--text-primary))]" data-aos="fade-up">
+        O piele netedă, un viitor fără griji!
+      </h2>
+      <p class="text-lg text-[rgb(var(--text-secondary))]" data-aos="fade-up" data-aos-delay="100">
+        La SIA Skin Center, transformăm experiența epilării faciale și
+        corporale cu tratamente personalizate care îți oferă o piele
+        impecabilă, fără dureri și fără griji, indiferent de anotimp.
+      </p>
+    </div>
+
+    <!-- Main grid of benefits -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {sortedServices.map((service) => {
+        const IconComponent = getIconComponent(service.slug, service.data.category);
+        const colors = getColors(service.slug, service.data.category);
+        const keywords = getKeywordsFromSlug(service.slug);
+        
+        return (
+          <a
+            href={`/servicii/${service.slug}`}
+            class="group"
+            data-aos="fade-up"
+          >
+            <div class="benefit-card relative bg-white dark:bg-[rgb(var(--card))] rounded-2xl shadow-lg overflow-hidden border border-[rgb(var(--feature-box-border))] transition-all duration-500 h-full hover:-translate-y-2 hover:shadow-xl">
+              <!-- Top Gradient Line -->
+              <div class={`absolute top-0 left-0 right-0 h-1 ${colors.hoverColor} ${colors.darkHoverColor} transform origin-left transition-transform duration-500 scale-x-0 group-hover:scale-x-100`}></div>
+
+              <!-- Card Content -->
+              <div class="p-8">
+                <!-- Title and Icon Row -->
+                <div class="flex items-center mb-4">
+                  <div class={`benefit-icon flex-shrink-0 w-14 h-14 rounded-xl ${colors.bgColor} ${colors.darkBgColor} text-white flex items-center justify-center shadow-lg transform transition-all duration-500 group-hover:rotate-[-8deg] group-hover:scale-110`}>
+                    <IconComponent size={24} />
+                  </div>
+                  <h3 class="text-xl font-bold ml-4 text-[rgb(var(--feature-box-text))]">
+                    {service.data.title}
+                  </h3>
+                </div>
+
+                <!-- Full Width Description -->
+                <p class="text-[rgb(var(--text-secondary))] w-full mb-4">
+                  {service.data.shortDescription}
+                </p>
+                
+                <!-- Additional card decoration -->
+                <div class="h-1 w-16 bg-gradient-to-r from-[rgb(var(--primary-300))] to-transparent rounded-full"></div>
+                
+                <!-- List of features/benefits if available -->
+                {service.data.features && service.data.features.length > 0 && (
+                  <div class="mt-4 space-y-2">
+                    {service.data.features.slice(0, 3).map((feature: string) => (
+                      <div class="flex items-center">
+                        <div class={`w-2 h-2 rounded-full ${colors.bgColor} ${colors.darkBgColor} mr-2`}></div>
+                        <span class="text-sm text-[rgb(var(--text-secondary))]">{feature}</span>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              <!-- Learn More Indicator -->
+              <div class="flex items-center justify-end p-4 font-medium">
+                <div class={`learn-more-link flex flex-col items-end ${colors.color} ${colors.darkColor} hover:text-[rgb(var(--primary-700))] dark:hover:text-[rgb(var(--primary-400))] text-sm`}>
+                  <div class="flex items-center">
+                    <span class="transition-opacity duration-300 font-bold">
+                      Află mai multe despre {keywords}
+                    </span>
+                    <ChevronRight />
+                  </div>
+                  <span class="text-xs mt-1 text-[rgb(var(--text-secondary))]">
+                    {service.data.price && `${service.data.price} lei`}
+                  </span>
+                </div>
+              </div>
+            </div>
+          </a>
+        );
+      })}
+    </div>
+
+    <!-- Bottom call-to-action card -->
+    <div class="mt-16 relative" data-aos="fade-up">
+      <div class="absolute inset-0 bg-gradient-to-r from-[rgb(var(--primary-500))] to-[rgb(var(--primary-700))] rounded-2xl transform rotate-1 scale-[1.03] opacity-20 blur-sm"></div>
+      <div class="relative bg-[rgb(var(--feature-box-bg))] rounded-2xl p-8 shadow-xl backdrop-blur-sm border border-[rgb(var(--feature-box-border))] transition-theme">
+        <div class="flex flex-col md:flex-row items-center justify-between">
+          <div class="mb-6 md:mb-0 md:mr-8">
+            <h3 class="text-2xl font-bold mb-2 text-[rgb(var(--text-primary))]">
+              Rezultate garantate pentru fiecare client
+            </h3>
+            <p class="text-[rgb(var(--text-secondary))] max-w-2xl">
+              Tehnologia noastră avansată și specialiștii cu experiență
+              asigură că fiecare client beneficiază de rezultate optime,
+              adaptate perfect tipului de piele și nevoilor individuale.
+            </p>
+          </div>
+          <div class="flex-shrink-0">
+            <a
+              href="/contact"
+              class="inline-block bg-gradient-to-r from-[rgb(var(--primary-600))] to-[rgb(var(--primary-800))] hover:from-[rgb(var(--primary-500))] hover:to-[rgb(var(--primary-700))] text-white font-medium py-3 px-8 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+            >
+              Programează ședință
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.benefit-card {
+  position: relative;
+  backdrop-filter: blur(10px);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.benefit-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background: linear-gradient(140deg, rgba(255,255,255,0.1), rgba(255,255,255,0));
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.benefit-card:hover::before {
+  opacity: 1;
+}
+
+.benefit-icon {
+  position: relative;
+  overflow: hidden;
+  box-shadow: 
+    0 6px 12px -2px rgba(0, 0, 0, 0.25),
+    0 0 0 1px rgba(255, 255, 255, 0.2) inset;
+  z-index: 1;
+}
+
+.benefit-icon::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
+  z-index: 2;
+}
+
+.learn-more-link {
+  position: relative;
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+
+.learn-more-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: currentColor;
+  transition: width 0.3s ease;
+}
+
+.group:hover .learn-more-link::after {
+  width: 100%;
+}
+
+/* Separate underline just for the primary text */
+.learn-more-link div::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: currentColor;
+  transition: width 0.3s ease;
+}
+
+.group:hover .learn-more-link div::after {
+  width: 100%;
+}
+</style> 

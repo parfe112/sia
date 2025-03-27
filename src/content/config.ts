@@ -3,7 +3,7 @@ import { defineCollection, z } from 'astro:content';
 // Blog collection schema
 const blogCollection = defineCollection({
   type: 'content',
-  schema: z.object({
+  schema: ({ image }) => z.object({
     title: z.string(),
     description: z.string().optional(),
     pubDate: z.date(),
@@ -11,7 +11,7 @@ const blogCollection = defineCollection({
     author: z.string().optional(),
     category: z.string().optional(),
     tags: z.array(z.string()).optional(),
-    image: z.any().optional(),
+    image: image().optional(),
     featured: z.boolean().optional().default(false),
     draft: z.boolean().optional().default(false),
   }),
@@ -20,21 +20,21 @@ const blogCollection = defineCollection({
 // Services collection schema
 const servicesCollection = defineCollection({
   type: 'content',
-  schema: z.object({
+  schema: ({ image }) => z.object({
     title: z.string(),
-    description: z.string().optional(),
-    shortDescription: z.string().optional(),
-    image: z.any().optional(),
-    category: z.string().optional(),
+    description: z.string(),
+    shortDescription: z.string(),
+    image: image(),
+    category: z.string(),
     tags: z.array(z.string()).optional(),
-    price: z.number().optional(),
+    price: z.number(),
     oldPrice: z.number().optional(),
     discount: z.number().optional(),
-    duration: z.string().optional(),
+    duration: z.string(),
     features: z.array(z.string()).optional(),
-    featured: z.boolean().optional().default(false),
+    featured: z.boolean().optional(),
     order: z.number().optional(),
-    publishDate: z.date().optional(),
+    schemaType: z.string().optional()
   }),
 });
 
