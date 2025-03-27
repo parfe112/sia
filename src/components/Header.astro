@@ -1,5 +1,6 @@
 ---
-import logoUrl from "../assets/images/logo.png";
+import { Image } from "astro:assets";
+import logoImage from "../assets/images/logo.png";
 import HeaderNavigation from "./shared/HeaderNavigation";
 ---
 
@@ -7,7 +8,7 @@ import HeaderNavigation from "./shared/HeaderNavigation";
   id="mainHeader"
   class="fixed w-full top-0 z-30 transition-all duration-300"
 >
-  <HeaderNavigation logoUrl={logoUrl} client:load />
+  <HeaderNavigation logoUrl={logoImage} client:load />
 </header>
 
 <style>
