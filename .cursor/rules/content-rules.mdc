@@ -3,4 +3,213 @@ description:
 globs: 
 alwaysApply: true
 ---
- 
+# Content and SEO Rules for Markdown Files
+
+## Internal Linking Strategy
+
+When working with Markdown files in the `content/blog` and `content/servicii` collections, follow these internal linking guidelines to maximize SEO value:
+
+### Cross-Collection Linking
+
+1. **Scan for Relevant Content**
+   - For each new MD file, scan existing content in both `content/blog` and `content/servicii` 
+   - Identify related content based on:
+     - Matching categories
+     - Matching or related tags
+     - Keyword similarity
+
+2. **Minimum Internal Links**
+   - Each blog post should link to at least 2-3 related services
+   - Each service page should link to at least 1-2 related blog posts
+   - Include at least 1 link to the main category page
+
+3. **Link Placement**
+   - Place links naturally within content
+   - Prioritize links in the first 25% of content
+   - Include at least one link in conclusion/summary sections
+
+### Link Format Guidelines
+
+Use this standard format for internal links:
+
+```md
+[anchor text](mdc:relative-url)
+```
+
+Example:
+```md
+Suntem specialiști în [epilare definitivă](mdc:servicii/epilare-definitiva) și oferim...
+```
+
+## Keyword Optimization
+
+### Primary Keyword Handling
+
+1. **Filename as Keyword**
+   - The filename (without extension) represents the primary keyword
+   - Example: `epilare-laser.md` → primary keyword is "epilare laser"
+
+2. **Primary Keyword Linking**
+   - Link the primary keyword to its corresponding main page at least once
+   - For blog posts: link to the related service page
+   - For services: link to the main services index or related category page
+
+3. **Keyword Placement**
+   - Include primary keyword in:
+     - First paragraph of content
+     - At least one heading (preferably H2)
+     - Meta description
+     - Image alt text
+
+### Secondary Keywords
+
+1. **Identify Secondary Keywords**
+   - Use tags in frontmatter to define secondary keywords
+   - Example:
+     ```md
+     ---
+     title: "Epilare Definitivă cu Laser"
+     tags: ["epilare laser", "tratament facial", "îngrijire piele"]
+     ---
+     ```
+
+2. **Secondary Keyword Linking**
+   - Link at least one secondary keyword to a relevant service or blog post
+   - Vary anchor text instead of using exact keyword match every time
+
+## Content Formatting for SEO
+
+### Heading Structure
+
+1. **Hierarchical Headings**
+   - Start with H1 (title)
+   - Follow with H2 for main sections
+   - Use H3 for subsections
+   - Avoid skipping levels (e.g., H2 to H4)
+
+2. **Keyword in Headings**
+   - Include primary keyword in at least one H2
+   - Include secondary keywords in other headings
+
+### Content Blocks
+
+1. **Paragraph Length**
+   - Keep paragraphs short (3-5 sentences)
+   - Break up long text with subheadings
+
+2. **Rich Content**
+   - Include at least one list (ordered or unordered)
+   - Include at least one image with keyword-optimized alt text
+   - Consider adding a table for comparison data when relevant
+
+### Schema Markup
+
+Add JSON-LD schema for better SERP features:
+
+```md
+---
+title: "Epilare Definitivă cu Laser"
+schemaType: "Service" # or "BlogPosting", "FAQPage", etc.
+---
+```
+
+## Internal Linking Process Checklist
+
+When creating or editing content:
+
+1. **Analyze existing content**
+   - Search for keyword matches in existing files
+   - Identify 3-5 potential internal linking opportunities
+
+2. **Implement links**
+   - Add contextually relevant links
+   - Use descriptive anchor text
+   - Ensure links target correct relative URLs
+
+3. **Review link distribution**
+   - Verify links are naturally distributed 
+   - Check both outbound and inbound links
+   - Ensure no broken or circular references
+
+4. **Track internal linking**
+   - Document internal linking in frontmatter for future reference:
+     ```md
+     ---
+     title: "Epilare Definitivă cu Laser"
+     linkedContent: 
+       - "/servicii/epilare-definitiva"
+       - "/blog/beneficiile-epilarii-cu-laser"
+     ---
+     ```
+
+## Best Practices for Frontmatter
+
+```md
+---
+title: "Epilare Definitivă cu Laser"
+description: "Tratament de epilare definitivă cu laser pentru rezultate de lungă durată și piele fină. Potrivit pentru toate tipurile de piele."
+image: "/images/epilare-definitiva.jpg"
+author: "Dr. Maria Popescu"
+pubDate: "2023-05-15"
+category: "Epilare Definitivă"
+featured: false
+tags: ["epilare laser", "tratament facial", "îngrijire piele"]
+linkedContent: 
+  - "/servicii/epilare-definitiva"
+  - "/blog/beneficiile-epilarii-cu-laser"
+schemaType: "Service"
+---
+```
+
+## Example of Optimized Content with Internal Links
+
+```md
+---
+title: "Epilare Definitivă cu Laser"
+description: "Tratament de epilare definitivă cu laser pentru rezultate de lungă durată și piele fină. Potrivit pentru toate tipurile de piele."
+image: "/images/epilare-definitiva.jpg"
+category: "Epilare Definitivă"
+tags: ["epilare laser", "tratament facial", "îngrijire piele"]
+---
+
+# Epilare Definitivă cu Laser
+
+[Epilarea definitivă cu laser](mdc:servicii/epilare-definitiva) este una dintre cele mai eficiente metode pentru îndepărtarea permanentă a părului nedorit. La SIA Skin Center, folosim tehnologie avansată pentru a oferi rezultate optime pentru toate tipurile de piele.
+
+## Beneficiile Epilării cu Laser
+
+Tratamentele noastre de [epilare cu laser](mdc:servicii/epilare-cu-laser) oferă numeroase avantaje:
+
+- Rezultate de lungă durată
+- Procedură non-invazivă
+- Reducerea semnificativă a creșterii părului
+- Tratament rapid și confortabil
+
+Aceste beneficii fac din epilarea cu laser o alegere excelentă pentru [îngrijirea pielii](mdc:blog/importanta-ingrijirii-pielii) pe termen lung.
+
+## Procesul de Tratament
+
+Procesul nostru de epilare cu laser implică următorii pași:
+
+1. Consultație inițială pentru evaluarea tipului de piele
+2. Pregătirea zonei de tratament
+3. Aplicarea tehnologiei laser
+4. Recomandări post-tratament pentru [îngrijirea pielii](mdc:servicii/ingrijire-piele)
+
+## Zone de Tratament Populare
+
+Oferim [epilare definitivă](mdc:servicii) pentru diverse zone ale corpului, inclusiv:
+
+| Zonă | Număr de ședințe recomandate |
+|------|------------------------------|
+| Față | 6-8 ședințe |
+| Axilă | 6-8 ședințe |
+| Picioare | 8-10 ședințe |
+| Zona inghinală | 6-8 ședințe |
+
+Pentru mai multe informații despre prețuri, vizitați pagina noastră de [prețuri epilare](mdc:preturi).
+
+## Îngrijire Post-Tratament
+
+După [procedura de epilare](mdc:blog/ce-sa-faci-dupa-epilare), este important să urmați recomandările specialistului pentru a obține cele mai bune rezultate.
+``` 

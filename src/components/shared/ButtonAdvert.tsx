@@ -28,7 +28,7 @@ export default function ButtonAdvert({
       <motion.a
         href={href}
         target={target}
-        className="relative z-10 group flex items-center justify-between bg-[rgb(var(--primary-100))] hover:bg-[rgb(var(--primary-200))] text-[rgb(var(--primary-900))] font-bold px-6 py-5 rounded-2xl text-lg md:text-xl transition-colors duration-300 shadow-lg hover:shadow-xl overflow-hidden w-full"
+        className="relative z-10 group flex items-center justify-between bg-[rgb(var(--primary-100))] hover:bg-[rgb(var(--primary-200))] dark:bg-amber-300 dark:hover:bg-amber-200 text-[rgb(var(--primary-900))] dark:text-gray-900 font-bold px-6 py-5 rounded-2xl text-lg md:text-xl transition-colors duration-300 shadow-lg hover:shadow-xl overflow-hidden w-full"
         whileHover={{
           y: -5,
           boxShadow: "0 10px 25px rgba(var(--primary-500), 0.4)",
@@ -48,7 +48,7 @@ export default function ButtonAdvert({
           <div className="flex items-center">
             <motion.svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6 mr-2 text-[rgb(var(--primary-900))]"
+              className="h-6 w-6 mr-2 text-[rgb(var(--primary-900))] dark:text-gray-900"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -69,7 +69,7 @@ export default function ButtonAdvert({
             </motion.svg>
 
             <motion.span
-              className="ml-4 tracking-wide relative overflow-hidden"
+              className="ml-4 tracking-wide relative overflow-hidden dark:text-gray-900"
               initial={{ opacity: 1 }}
               whileHover={{ scale: 1.05 }}
             >
@@ -90,7 +90,7 @@ export default function ButtonAdvert({
               />
             </motion.span>
           </div>
-          <span className="text-[rgb(var(--primary-900))]/80 text-sm font-normal mt-1">
+          <span className="text-[rgb(var(--primary-900))]/80 dark:text-gray-900/90 text-sm font-normal mt-1">
             {subText}
           </span>
         </div>
@@ -115,7 +115,7 @@ export default function ButtonAdvert({
             }}
           >
             <motion.div
-              className="-right-6 -top-8 bg-gradient-to-br from-yellow-400 to-yellow-500 text-black font-bold px-3 py-5 rounded-full flex flex-col items-center justify-center h-14 w-14 shadow-md border-2 border-yellow-300 dark:text-black"
+              className="-right-6 -top-8 bg-gradient-to-br from-yellow-400 to-yellow-500 dark:from-green-500 dark:to-green-600 text-black font-bold px-3 py-5 rounded-full flex flex-col items-center justify-center h-14 w-14 shadow-md border-2 border-yellow-300 dark:border-green-400 dark:text-white"
               whileHover={{ scale: 1.05 }}
             >
               <span className="text-xl leading-none">{discountAmount}</span>
@@ -163,6 +163,18 @@ export default function ButtonAdvert({
             #fbbf24, /* yellow-400 */
             rgb(var(--primary-500)),
             #fbbf24 /* yellow-400 */
+          );
+          animation: rotate-border 4s linear infinite;
+        }
+        
+        .dark .rotating-border {
+          background: conic-gradient(
+            from 0deg,
+            #fcd34d, /* yellow-300 */
+            #10b981, /* green-500 */
+            #fcd34d, /* yellow-300 */
+            #10b981, /* green-500 */
+            #fcd34d /* yellow-300 */
           );
           animation: rotate-border 4s linear infinite;
         }
