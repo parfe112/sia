@@ -1,11 +1,13 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import logoImage from "../assets/images/logo.png";
 import Header from "../components/Header.astro";
 import Hero from "../components/Hero.astro";
 import Benefits from "../components/Benefits.astro";
 import Pricing from "../components/Pricing.astro";
 import About from "../components/About.astro";
-import TestimonialsReact from "../components/TestimonialsReact";
+import TestimonialsReact from "../components/TestimonialsReact.tsx";
 import FAQ from "../components/FAQ.astro";
 import CTA from "../components/CTA.astro";
 
@@ -14,16 +16,32 @@ import CTA from "../components/CTA.astro";
 ---
 
 <Layout
-  title="SIA Skin Center - Epilare Definitivă cu Laser"
+  title="SIA Skin Center"
   description="SIA Skin Center oferă servicii premium de epilare definitivă cu laser. Rezultate garantate, tehnologie avansată și prețuri competitive."
 >
+  <!-- Desktop-only logo -->
+  <div class="hidden md:block absolute top-4 left-4 z-40">
+    <a href="/" class="block">
+      <Image
+        src={logoImage}
+        alt="SIA Skin Center Logo"
+        width={180}
+        height={135}
+        class="h-24 w-auto"
+        quality={100}
+        format="png"
+        loading="eager"
+      />
+    </a>
+  </div>
+
   <Header />
   <main>
     <Hero />
-    <TestimonialsReact client:load />
     <Benefits />
-    <Pricing />
     <About />
+    <TestimonialsReact client:load />
+    <Pricing />
     <FAQ />
     <CTA />
   </main>

@@ -2,43 +2,60 @@ import React, { useState, useEffect } from "react";
 import { Moon, Sun } from "lucide-react";
 
 const ThemeToggle: React.FC = () => {
-  const [theme, setTheme] = useState<"light" | "dark">("light");
+  // Initialize with null to detect the first render
+  const [theme, setTheme] = useState<"light" | "dark" | null>(null);
 
-  // La prima încărcare, verificăm tema din localStorage și dinpreferred browser
-  useEffect(() => {
-    // Verificăm dacă există o temă salvată
-    const savedTheme = localStorage.getItem("theme") as "light" | "dark" | null;
-
-    // Verificăm dacă browser-ul preferă tema întunecată
-    const prefersDark = window.matchMedia(
-      "(prefers-color-scheme: dark)"
-    ).matches;
-
-    // Setăm tema în funcție de ce am găsit
-    if (savedTheme) {
-      setTheme(savedTheme);
-    } else if (prefersDark) {
-      setTheme("dark");
-    }
-  }, []);
-
-  // Actualizăm clasa pe documentul HTML și localStorage la schimbarea temei
-  useEffect(() => {
+  // Function to apply theme to DOM
+  const applyTheme = (newTheme: "light" | "dark") => {
     const root = document.documentElement;
 
-    if (theme === "dark") {
+    if (newTheme === "dark") {
       root.classList.add("dark");
     } else {
       root.classList.remove("dark");
     }
 
-    localStorage.setItem("theme", theme);
-  }, [theme]);
-
-  // Comutăm între temele light și dark
-  const toggleTheme = () => {
-    setTheme(theme === "light" ? "dark" : "light");
+    localStorage.setItem("theme", newTheme);
   };
+
+  // On first load, determine and apply theme immediately
+  useEffect(() => {
+    // Check for saved theme
+    const savedTheme = localStorage.getItem("theme") as "light" | "dark" | null;
+    // Check for system preference
+    const prefersDark = window.matchMedia(
+      "(prefers-color-scheme: dark)"
+    ).matches;
+
+    let initialTheme: "light" | "dark";
+
+    // Determine initial theme
+    if (savedTheme === "light" || savedTheme === "dark") {
+      initialTheme = savedTheme;
+    } else {
+      initialTheme = prefersDark ? "dark" : "light";
+    }
+
+    // Apply theme immediately to avoid flicker and first-click issue
+    applyTheme(initialTheme);
+
+    // Update state
+    setTheme(initialTheme);
+  }, []);
+
+  // Toggle between light and dark themes
+  const toggleTheme = () => {
+    if (!theme) return; // Safety check
+
+    const newTheme = theme === "light" ? "dark" : "light";
+    setTheme(newTheme);
+    applyTheme(newTheme);
+  };
+
+  // Return null during initial load to avoid showing incorrect icon
+  if (theme === null) {
+    return <div className="w-5 h-5"></div>; // Placeholder while determining theme
+  }
 
   return (
     <button
