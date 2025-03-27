@@ -2,105 +2,172 @@
 import { Image } from "astro:assets";
 import logoImage from "../assets/images/logo.png";
 import ThemeToggle from "./shared/ThemeToggle";
+import {
+  Home,
+  FileText,
+  FileCode,
+  CircleDollarSign,
+  Phone,
+  MessageCircle,
+} from "lucide-react";
 ---
 
 <header
-  class="fixed top-0 left-0 w-full z-50 bg-[rgb(var(--background))]/80 backdrop-blur-xl border-b border-[rgb(var(--border))]/50 transition-theme"
+  class="fixed top-0 left-0 w-full z-50 transition-all duration-300"
+  id="mainHeader"
 >
-  <div class="container mx-auto px-4">
-    <div class="flex justify-between items-center h-20">
-      <!-- Logo -->
-      <a
-        href="/"
-        class="flex items-center space-x-3 text-primary-600 font-bold text-2xl"
-      >
-        <Image
-          src={logoImage}
-          alt="SIA Skin Center Logo"
-          width={256}
-          height={192}
-          class="h-14 w-auto"
-          quality={100}
-          format="png"
-          densities={[1, 2]}
-          loading="eager"
-        />
-      </a>
-
-      <!-- Desktop Navigation -->
-      <nav class="hidden md:flex items-center space-x-1">
+  <div
+    class="header-container transition-all duration-300 bg-primary-600 rounded-full mx-4 mt-4 md:mx-auto md:max-w-max shadow-lg hover:shadow-xl"
+  >
+    <!-- Desktop Navigation - Expandable -->
+    <nav
+      class="hidden md:flex items-center h-14 px-2 hover:px-6 transition-all duration-300 rounded-full relative"
+    >
+      <!-- Left side links -->
+      <div class="flex items-center">
         <a
           href="/"
-          class="text-[rgb(var(--foreground))]/80 hover:text-primary-600 font-medium px-4 py-2 rounded-full transition-all hover:bg-[rgb(var(--primary-100))]/50"
+          class="nav-item text-white font-medium p-2 rounded-full flex items-center justify-center transition-all duration-300 hover:bg-primary-700 group min-w-10 hover:px-4"
         >
-          Acasă
+          <Home
+            size={20}
+            className="group-hover:mr-2"
+            stroke="#ffffff"
+            strokeWidth={2.5}
+          />
+          <span class="nav-text hidden group-hover:inline">Acasă</span>
         </a>
 
         <a
           href="/servicii"
-          class="text-[rgb(var(--foreground))]/80 hover:text-primary-600 font-medium px-4 py-2 rounded-full transition-all hover:bg-[rgb(var(--primary-100))]/50"
+          class="nav-item text-white font-medium p-2 rounded-full flex items-center justify-center transition-all duration-300 hover:bg-primary-700 group min-w-10 hover:px-4"
         >
-          Servicii
+          <FileCode
+            size={20}
+            className="group-hover:mr-2"
+            stroke="#ffffff"
+            strokeWidth={2.5}
+          />
+          <span class="nav-text hidden group-hover:inline">Servicii</span>
         </a>
-
-        <a
-          href="/blog"
-          class="text-[rgb(var(--foreground))]/80 hover:text-primary-600 font-medium px-4 py-2 rounded-full transition-all hover:bg-[rgb(var(--primary-100))]/50"
-        >
-          Blog
-        </a>
-
         <a
           href="/preturi"
-          class="text-[rgb(var(--foreground))]/80 hover:text-primary-600 font-medium px-4 py-2 rounded-full transition-all hover:bg-[rgb(var(--primary-100))]/50"
+          class="nav-item text-white font-medium p-2 rounded-full flex items-center justify-center transition-all duration-300 hover:bg-primary-700 group min-w-10 hover:px-4"
         >
-          Prețuri
+          <CircleDollarSign
+            size={20}
+            className="group-hover:mr-2"
+            stroke="#ffffff"
+            strokeWidth={2.5}
+          />
+          <span class="nav-text hidden group-hover:inline">Prețuri</span>
         </a>
+      </div>
 
+      <!-- Center elements with fancy background -->
+      <div class="flex items-center mx-2 z-10 relative">
+        <div
+          class="absolute -inset-2 bg-primary-800 rounded-full blur-[1px] opacity-80"
+        >
+        </div>
+        <div class="relative z-10 flex items-center space-x-3 p-1">
+          <ThemeToggle client:load />
+        </div>
+      </div>
+
+      <!-- Right side links -->
+      <div class="flex items-center">
+        <a
+          href="/blog"
+          class="nav-item text-white font-medium p-2 rounded-full flex items-center justify-center transition-all duration-300 hover:bg-primary-700 group min-w-10 hover:px-4"
+        >
+          <FileText
+            size={20}
+            className="group-hover:mr-2"
+            stroke="#ffffff"
+            strokeWidth={2.5}
+          />
+          <span class="nav-text hidden group-hover:inline">Blog</span>
+        </a>
         <a
           href="/contact"
-          class="text-[rgb(var(--foreground))]/80 hover:text-primary-600 font-medium px-4 py-2 rounded-full transition-all hover:bg-[rgb(var(--primary-100))]/50"
+          class="nav-item text-white font-medium p-2 rounded-full flex items-center justify-center transition-all duration-300 hover:bg-primary-700 group min-w-10 hover:px-4"
         >
-          Contact
+          <Phone
+            size={20}
+            className="group-hover:mr-2"
+            stroke="#ffffff"
+            strokeWidth={2.5}
+          />
+          <span class="nav-text hidden group-hover:inline">Contact</span>
         </a>
-      </nav>
 
-      <!-- Desktop CTA and WhatsApp -->
-      <div class="hidden md:flex items-center space-x-3">
         <a
-          href="https://wa.me/40722222222"
+          href="https://wa.me/40770889907"
           target="_blank"
-          class="flex items-center justify-center w-10 h-10 rounded-full bg-green-500 text-white hover:bg-green-600 transition-all hover:scale-105 shadow-sm hover:shadow-md"
           aria-label="WhatsApp"
+          class="nav-item text-white font-medium p-2 rounded-full flex items-center justify-center transition-all duration-300 hover:bg-green-600 group min-w-10 hover:px-4 bg-green-500 ml-1"
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="currentColor"
-            class="w-5 h-5"
-          >
-            <path
-              d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564c.173.087.287.129.332.202.045.073.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm.029 18.88c-1.161 0-2.305-.292-3.318-.844l-3.677.964.984-3.595c-.607-1.052-.927-2.246-.926-3.468.001-3.825 3.113-6.937 6.937-6.937 1.856.001 3.598.723 4.907 2.034 1.31 1.311 2.031 3.054 2.03 4.908-.001 3.825-3.113 6.938-6.937 6.938z"
-            ></path>
-          </svg>
+          <MessageCircle
+            size={20}
+            className="group-hover:mr-2"
+            stroke="#ffffff"
+            strokeWidth={2.5}
+          />
+          <span class="nav-text hidden group-hover:inline">WhatsApp</span>
         </a>
+      </div>
+    </nav>
+
+    <!-- Mobile Navigation - Always Compact -->
+    <div class="md:hidden flex items-center justify-between h-14 px-4 relative">
+      <a href="/" class="flex items-center">
+        <Image
+          src={logoImage}
+          alt="SIA Skin Center Logo"
+          width={32}
+          height={32}
+          class="h-8 w-auto"
+          quality={100}
+          format="png"
+          loading="eager"
+        />
+      </a>
+
+      <!-- Center Controls - Mobile -->
+      <div
+        class="flex items-center space-x-4 absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2"
+      >
         <a
-          href="/contact"
-          class="bg-primary-600 hover:bg-primary-700 text-white font-medium px-6 py-2.5 rounded-full transition-all shadow-sm hover:shadow-md hover:scale-105"
+          href="tel:0770889907"
+          class="flex items-center justify-center w-9 h-9 rounded-full bg-primary-800 text-white hover:bg-primary-900 transition-transform hover:scale-110 shadow-md"
         >
-          Programare
+          <Phone size={18} stroke="#ffffff" strokeWidth={2.5} />
         </a>
+
         <ThemeToggle client:load />
+
+        <a
+          href="https://wa.me/40770889907"
+          target="_blank"
+          aria-label="WhatsApp"
+          class="flex ml-4 items-center justify-center w-9 h-9 rounded-full bg-green-500 hover:bg-green-600 transition-transform hover:scale-110 shadow-md"
+        >
+          <MessageCircle
+            size={18}
+            stroke="#ffffff"
+            strokeWidth={2.5}
+            className="text-white"
+          />
+        </a>
       </div>
 
       <!-- Mobile menu button -->
       <button
-        class="md:hidden flex items-center justify-center w-10 h-10 rounded-full bg-[rgb(var(--primary-100))] text-primary-600 hover:bg-[rgb(var(--primary-200))] transition-colors"
+        class="flex items-center justify-center w-10 h-10 rounded-full bg-primary-700 text-white hover:bg-primary-800 transition-colors z-10"
         aria-label="Menu"
         type="button"
-        onclick="document.getElementById('mobile-menu').classList.toggle('translate-x-full');document.getElementById('mobile-menu-overlay').classList.toggle('hidden');document.body.classList.toggle('overflow-hidden');"
+        id="mobile-menu-toggle"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -124,14 +191,14 @@ import ThemeToggle from "./shared/ThemeToggle";
   <!-- Mobile menu -->
   <div
     id="mobile-menu"
-    class="fixed inset-0 z-50 transform translate-x-full transition-transform duration-300 ease-in-out md:hidden bg-[rgb(var(--primary-200))]"
+    class="fixed inset-0 z-[9999] transform translate-x-full transition-transform duration-300 ease-in-out md:hidden bg-primary-900"
   >
     <div
-      class="h-20 border-b border-[rgb(var(--border))] flex items-center justify-between px-4"
+      class="h-20 border-b border-primary-700 flex items-center justify-between px-4"
     >
       <a
         href="/"
-        class="flex items-center space-x-3 text-primary-600 font-bold text-2xl"
+        class="flex items-center space-x-3 text-white font-bold text-2xl"
       >
         <Image
           src={logoImage}
@@ -144,164 +211,85 @@ import ThemeToggle from "./shared/ThemeToggle";
           densities={[1, 2]}
           loading="eager"
         />
-        <span class="text-[rgb(var(--foreground))] font-normal"
-          >Skin Center</span
-        >
+        <span class="text-white font-normal">Skin Center</span>
       </a>
       <!-- Close button -->
-      <div class="flex items-center space-x-2">
-        <ThemeToggle client:load />
-        <button
-          class="flex items-center justify-center w-10 h-10 rounded-full bg-[rgb(var(--primary-100))] text-primary-600 hover:bg-[rgb(var(--primary-200))] transition-colors"
-          onclick="document.getElementById('mobile-menu').classList.toggle('translate-x-full');document.getElementById('mobile-menu-overlay').classList.toggle('hidden');document.body.classList.toggle('overflow-hidden');"
+      <button
+        class="flex items-center justify-center w-10 h-10 rounded-full bg-primary-700 text-white hover:bg-primary-800 transition-colors"
+        id="mobile-menu-close"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <path d="M18 6 6 18"></path>
-            <path d="m6 6 12 12"></path>
-          </svg>
-        </button>
-      </div>
+          <path d="M18 6 6 18"></path>
+          <path d="m6 6 12 12"></path>
+        </svg>
+      </button>
     </div>
 
     <div
-      class="container bg-[rgb(var(--primary-200))] mx-auto px-4 py-8 overflow-y-auto"
+      class="container mx-auto px-4 py-8 overflow-y-auto"
       style="max-height: calc(100vh - 80px);"
     >
       <nav class="space-y-3">
         <a
           href="/"
-          class="flex items-center px-5 py-3 text-lg text-[rgb(var(--foreground))] hover:bg-[rgb(var(--primary-100))] hover:text-primary-600 rounded-xl transition-all"
-          onclick="document.getElementById('mobile-menu').classList.toggle('translate-x-full');document.getElementById('mobile-menu-overlay').classList.toggle('hidden');document.body.classList.toggle('overflow-hidden');"
+          class="flex items-center px-5 py-3 text-lg text-white hover:bg-primary-800 rounded-xl transition-all mobile-menu-link"
         >
-          <svg
-            class="w-6 h-6 mr-3 text-primary-600"
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            ><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"
-            ></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg
-          >
+          <Home className="w-6 h-6 mr-3 text-white" stroke="#ffffff" />
           Acasă
         </a>
 
         <a
           href="/servicii"
-          class="flex items-center px-5 py-3 text-lg text-[rgb(var(--foreground))] hover:bg-[rgb(var(--primary-100))] hover:text-primary-600 rounded-xl transition-all"
-          onclick="document.getElementById('mobile-menu').classList.toggle('translate-x-full');document.getElementById('mobile-menu-overlay').classList.toggle('hidden');document.body.classList.toggle('overflow-hidden');"
+          class="flex items-center px-5 py-3 text-lg text-white hover:bg-primary-800 rounded-xl transition-all mobile-menu-link"
         >
-          <svg
-            class="w-6 h-6 mr-3 text-primary-600"
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            ><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"
-            ></path><line x1="16" x2="2" y1="8" y2="22"></line><line
-              x1="17.5"
-              x2="9"
-              y1="15"
-              y2="15"></line></svg
-          >
+          <FileCode className="w-6 h-6 mr-3 text-white" stroke="#ffffff" />
           Servicii
         </a>
 
         <a
           href="/blog"
-          class="flex items-center px-5 py-3 text-lg text-[rgb(var(--foreground))] hover:bg-[rgb(var(--primary-100))] hover:text-primary-600 rounded-xl transition-all"
-          onclick="document.getElementById('mobile-menu').classList.toggle('translate-x-full');document.getElementById('mobile-menu-overlay').classList.toggle('hidden');document.body.classList.toggle('overflow-hidden');"
+          class="flex items-center px-5 py-3 text-lg text-white hover:bg-primary-800 rounded-xl transition-all mobile-menu-link"
         >
-          <svg
-            class="w-6 h-6 mr-3 text-primary-600"
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            ><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path
-              d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"
-            ></path></svg
-          >
+          <FileText className="w-6 h-6 mr-3 text-white" stroke="#ffffff" />
           Blog
         </a>
 
         <a
           href="/preturi"
-          class="flex items-center px-5 py-3 text-lg text-[rgb(var(--foreground))] hover:bg-[rgb(var(--primary-100))] hover:text-primary-600 rounded-xl transition-all"
-          onclick="document.getElementById('mobile-menu').classList.toggle('translate-x-full');document.getElementById('mobile-menu-overlay').classList.toggle('hidden');document.body.classList.toggle('overflow-hidden');"
+          class="flex items-center px-5 py-3 text-lg text-white hover:bg-primary-800 rounded-xl transition-all mobile-menu-link"
         >
-          <svg
-            class="w-6 h-6 mr-3 text-primary-600"
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            ><circle cx="12" cy="12" r="10"></circle><path
-              d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"></path><path
-              d="M12 18V6"></path></svg
-          >
+          <CircleDollarSign
+            className="w-6 h-6 mr-3 text-white"
+            stroke="#ffffff"
+          />
           Prețuri
         </a>
 
         <a
           href="/contact"
-          class="flex items-center px-5 py-3 text-lg text-[rgb(var(--foreground))] hover:bg-[rgb(var(--primary-100))] hover:text-primary-600 rounded-xl transition-all"
-          onclick="document.getElementById('mobile-menu').classList.toggle('translate-x-full');document.getElementById('mobile-menu-overlay').classList.toggle('hidden');document.body.classList.toggle('overflow-hidden');"
+          class="flex items-center px-5 py-3 text-lg text-white hover:bg-primary-800 rounded-xl transition-all mobile-menu-link"
         >
-          <svg
-            class="w-6 h-6 mr-3 text-primary-600"
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            ><path
-              d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
-            ></path></svg
-          >
+          <Phone className="w-6 h-6 mr-3 text-white" stroke="#ffffff" />
           Contact
         </a>
       </nav>
 
-      <div class="mt-10 pt-6 border-t border-[rgb(var(--border))]">
-        <div class="flex items-center space-x-4 mb-6">
+      <div class="mt-10 pt-6 border-t border-primary-700">
+        <div class="flex items-center justify-center space-x-4 mb-6">
           <a
             href="https://www.facebook.com/profile.php?id=61554965023675"
             target="_blank"
-            class="bg-[#1877F2] p-2 rounded-full text-white hover:opacity-90 transition-opacity"
+            class="bg-[#1877F2] p-3 rounded-full text-white hover:opacity-90 transition-opacity"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -319,7 +307,7 @@ import ThemeToggle from "./shared/ThemeToggle";
           <a
             href="https://www.instagram.com/sia_epilare_definitiva/"
             target="_blank"
-            class="bg-gradient-to-r from-[#FCAF45] via-[#E1306C] to-[#5851DB] p-2 rounded-full text-white hover:opacity-90 transition-opacity"
+            class="bg-gradient-to-r from-[#FCAF45] via-[#E1306C] to-[#5851DB] p-3 rounded-full text-white hover:opacity-90 transition-opacity"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -335,31 +323,17 @@ import ThemeToggle from "./shared/ThemeToggle";
             </svg>
           </a>
           <a
-            href="tel:0770889907"
-            class="bg-primary-600 text-white p-2 rounded-full hover:bg-primary-700 transition-colors"
+            href="https://wa.me/40770889907"
+            target="_blank"
+            class="bg-green-500 p-3 rounded-full text-white hover:bg-green-600 transition-all"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="w-5 h-5"
-            >
-              <path
-                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
-              ></path>
-            </svg>
+            <MessageCircle size={20} stroke="#ffffff" strokeWidth={2.5} />
           </a>
         </div>
 
         <a
           href="/contact"
-          class="block w-full bg-primary-600 hover:bg-primary-700 text-white font-medium px-6 py-3 rounded-xl transition-all text-center shadow-sm hover:shadow-md"
+          class="block w-full bg-primary-600 hover:bg-primary-700 text-white font-medium px-6 py-3 rounded-xl transition-all text-center shadow-sm hover:shadow-md mobile-menu-link"
         >
           Programare
         </a>
@@ -370,8 +344,138 @@ import ThemeToggle from "./shared/ThemeToggle";
   <!-- Mobile menu overlay -->
   <div
     id="mobile-menu-overlay"
-    class="fixed inset-0 bg-black/50 z-40 hidden md:hidden"
-    onclick="document.getElementById('mobile-menu').classList.toggle('translate-x-full');document.getElementById('mobile-menu-overlay').classList.toggle('hidden');document.body.classList.toggle('overflow-hidden');"
+    class="fixed inset-0 bg-black/50 z-[9000] hidden md:hidden"
   >
   </div>
 </header>
+
+<script>
+  // Setup mobile menu functionality
+  document.addEventListener("DOMContentLoaded", () => {
+    const mobileMenu = document.getElementById("mobile-menu");
+    const mobileMenuOverlay = document.getElementById("mobile-menu-overlay");
+    const mobileMenuToggle = document.getElementById("mobile-menu-toggle");
+    const mobileMenuClose = document.getElementById("mobile-menu-close");
+    const mobileMenuLinks = document.querySelectorAll(".mobile-menu-link");
+
+    function toggleMobileMenu() {
+      if (mobileMenu && mobileMenuOverlay) {
+        mobileMenu.classList.toggle("translate-x-full");
+        mobileMenuOverlay.classList.toggle("hidden");
+        document.body.classList.toggle("overflow-hidden");
+      }
+    }
+
+    // Toggle menu open
+    mobileMenuToggle?.addEventListener("click", toggleMobileMenu);
+
+    // Toggle menu closed
+    mobileMenuClose?.addEventListener("click", toggleMobileMenu);
+    mobileMenuOverlay?.addEventListener("click", toggleMobileMenu);
+
+    // Close menu when a link is clicked
+    mobileMenuLinks.forEach((link) => {
+      link.addEventListener("click", toggleMobileMenu);
+    });
+  });
+
+  // Header interaction - expand on hover/scroll
+  document.addEventListener("DOMContentLoaded", () => {
+    const header = document.getElementById("mainHeader");
+    const headerContainer = header?.querySelector(".header-container");
+
+    // Add hover class to header container on desktop
+    headerContainer?.addEventListener("mouseenter", () => {
+      if (window.innerWidth >= 768) {
+        // Only on desktop
+        headerContainer.classList.add("expanded");
+
+        // Show all nav text
+        const navTexts = headerContainer.querySelectorAll(".nav-text");
+        navTexts.forEach((text) => {
+          text.classList.remove("hidden");
+          text.classList.add("inline");
+        });
+
+        // Add margin to icons
+        const navItems = headerContainer.querySelectorAll(".nav-item");
+        navItems.forEach((item) => {
+          const icon = item.querySelector("svg");
+          if (icon) icon.classList.add("mr-2");
+        });
+      }
+    });
+
+    headerContainer?.addEventListener("mouseleave", () => {
+      if (window.innerWidth >= 768) {
+        // Only on desktop
+        headerContainer.classList.remove("expanded");
+
+        // Hide all nav text
+        const navTexts = headerContainer.querySelectorAll(".nav-text");
+        navTexts.forEach((text) => {
+          text.classList.add("hidden");
+          text.classList.remove("inline");
+        });
+
+        // Remove margin from icons
+        const navItems = headerContainer.querySelectorAll(".nav-item");
+        navItems.forEach((item) => {
+          const icon = item.querySelector("svg");
+          if (icon) icon.classList.remove("mr-2");
+        });
+      }
+    });
+  });
+</script>
+
+<style>
+  /* Custom styles for the animated header */
+  .header-container {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .header-container.expanded {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+
+  /* Add a subtle shadow effect */
+  .header-container {
+    box-shadow:
+      0 4px 6px -1px rgba(0, 0, 0, 0.1),
+      0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+
+  /* Enhance hover effect */
+  .nav-item {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .nav-item::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: white;
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateX(-50%);
+  }
+
+  .nav-item:hover::after {
+    width: 80%;
+    opacity: 0.7;
+  }
+
+  /* Add glass morphism effect for modern look */
+  @supports (backdrop-filter: blur(10px)) {
+    .header-container {
+      background-color: rgba(98, 34, 103, 0.9);
+      backdrop-filter: blur(10px);
+    }
+  }
+</style>
