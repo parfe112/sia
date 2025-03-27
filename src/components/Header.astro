@@ -44,6 +44,13 @@ import ThemeToggle from "./shared/ThemeToggle";
         </a>
 
         <a
+          href="/blog"
+          class="text-[rgb(var(--foreground))]/80 hover:text-primary-600 font-medium px-4 py-2 rounded-full transition-all hover:bg-[rgb(var(--primary-100))]/50"
+        >
+          Blog
+        </a>
+
+        <a
           href="/preturi"
           class="text-[rgb(var(--foreground))]/80 hover:text-primary-600 font-medium px-4 py-2 rounded-full transition-all hover:bg-[rgb(var(--primary-100))]/50"
         >
@@ -217,6 +224,29 @@ import ThemeToggle from "./shared/ThemeToggle";
               y2="15"></line></svg
           >
           Servicii
+        </a>
+
+        <a
+          href="/blog"
+          class="flex items-center px-5 py-3 text-lg text-[rgb(var(--foreground))] hover:bg-[rgb(var(--primary-100))] hover:text-primary-600 rounded-xl transition-all"
+          onclick="document.getElementById('mobile-menu').classList.toggle('translate-x-full');document.getElementById('mobile-menu-overlay').classList.toggle('hidden');document.body.classList.toggle('overflow-hidden');"
+        >
+          <svg
+            class="w-6 h-6 mr-3 text-primary-600"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            ><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path
+              d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"
+            ></path></svg
+          >
+          Blog
         </a>
 
         <a
