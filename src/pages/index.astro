@@ -1,6 +1,5 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { Image } from "astro:assets";
 import logoImage from "../assets/images/logo.png";
 import Header from "../components/Header.astro";
 import Hero from "../components/Hero.astro";
@@ -10,6 +9,7 @@ import About from "../components/About.astro";
 import TestimonialsReact from "../components/TestimonialsReact.tsx";
 import FAQ from "../components/FAQ.astro";
 import CTA from "../components/CTA.astro";
+import OptimizedImage from "../components/shared/OptimizedImage.astro";
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
@@ -22,13 +22,13 @@ import CTA from "../components/CTA.astro";
   <!-- Desktop-only logo -->
   <div class="hidden md:block absolute top-4 left-4 z-40">
     <a href="/" class="block">
-      <Image
+      <OptimizedImage
         src={logoImage}
         alt="SIA Skin Center Logo"
         width={180}
         height={135}
         class="h-24 w-auto"
-        quality={100}
+        quality={90}
         format="png"
         loading="eager"
       />

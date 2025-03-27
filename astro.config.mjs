@@ -17,6 +17,29 @@ export default defineConfig({
   image: {
     domains: [],
     remotePatterns: [{ protocol: "https" }],
+    service: {
+      entrypoint: "astro/assets/services/sharp",
+      config: {
+        jpeg: {
+          quality: 80,
+          progressive: true,
+        },
+        jpg: {
+          quality: 80,
+          progressive: true,
+        },
+        png: {
+          quality: 80,
+          progressive: true,
+        },
+        webp: {
+          quality: 80,
+        },
+        avif: {
+          quality: 75,
+        },
+      },
+    },
   },
   vite: {
     plugins: [tailwindcss()],

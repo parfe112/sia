@@ -150,6 +150,9 @@ const Navbar: React.FC<NavbarProps> = ({ logoUrl }) => {
               src={typeof logoUrl === "string" ? logoUrl : logoUrl?.src}
               alt="SIA Skin Center Logo"
               className="h-8 w-auto"
+              width={96}
+              height={72}
+              loading="eager"
             />
           </a>
 
@@ -215,6 +218,9 @@ const Navbar: React.FC<NavbarProps> = ({ logoUrl }) => {
               src={typeof logoUrl === "string" ? logoUrl : logoUrl?.src}
               alt="SIA Skin Center Logo"
               className="h-14 w-auto"
+              width={128}
+              height={96}
+              loading="eager"
             />
             <span className="text-white font-normal">Skin Center</span>
           </a>
