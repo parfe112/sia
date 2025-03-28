@@ -21,8 +21,6 @@ const googleReviews: Review[] = [
     rating: 5,
     text: "Echipa SIA a reușit să mă surprindă plăcut. M-am simțit foarte bine la fiecare sesiune de epilare iar rezultatele au fost remarcabile. Personal profesionist și foarte amabil. Recomand cu încredere!",
     avatarColor: "from-pink-400 to-pink-600",
-    avatarUrl:
-      "https://lh3.googleusercontent.com/a-/ALV-UjWEuNs3lCc94K_C7wCRs0yHSvbYGS90xQzQNVEjq1QCzLU=w60-h60-p-rp-mo-br100",
   },
   {
     id: "review2",
@@ -31,8 +29,6 @@ const googleReviews: Review[] = [
     rating: 5,
     text: "Sunt foarte mulțumită de rezultatele obținute! Personalul este foarte prietenos și profesionist! Aparatul nou achiziționat face ca procedura să fie nedureroasă. Recomand cu drag!",
     avatarColor: "from-purple-400 to-purple-600",
-    avatarUrl:
-      "https://lh3.googleusercontent.com/a-/ALV-UjXsipnVIW7q6wX6GJZ1SDXVdSNJJqj5QTXXSXs18VEoIXg=w60-h60-p-rp-mo-br100",
   },
   {
     id: "review3",
@@ -41,8 +37,6 @@ const googleReviews: Review[] = [
     rating: 5,
     text: "Locație foarte curată. Personalul foarte amabil. Am primit sfaturi bune în legătură cu ingrijirea pielii și sunt foarte încântată de rezultate. Cu siguranță voi reveni!",
     avatarColor: "from-emerald-400 to-emerald-600",
-    avatarUrl:
-      "https://lh3.googleusercontent.com/a-/ALV-UjXnk5IQOKUmmf2hOVZBBMFYVnNx76tnPCqRc6Y9qMfNyQ=w60-h60-p-rp-mo-br100",
   },
   {
     id: "review4",
@@ -51,8 +45,6 @@ const googleReviews: Review[] = [
     rating: 5,
     text: "O echipă super! Recomand cu toată încrederea și siguranța. Rezultate vizibile după prima ședință, iar pielea nu a suferit deloc de la prima ședință. Totul într-o atmosferă relaxantă. Bravo!",
     avatarColor: "from-amber-400 to-amber-600",
-    avatarUrl:
-      "https://lh3.googleusercontent.com/a-/ALV-UjXkDnYJbLIKT2p3JpWp1Zk1hc5y2vlDQMxzOK9qsf-mSg=w60-h60-p-rp-mo-br100",
   },
   {
     id: "review5",
@@ -61,8 +53,6 @@ const googleReviews: Review[] = [
     rating: 5,
     text: "Cea mai bună alegere! Și ca rezultate și ca preț. Recomand cu toată încrederea.",
     avatarColor: "from-rose-400 to-rose-600",
-    avatarUrl:
-      "https://lh3.googleusercontent.com/a-/ALV-UjVDUDrScGUfGNJZR9T7aFKvgTc0mIFMJNyALuLEi7vQPw=w60-h60-p-rp-mo-br100",
   },
   {
     id: "review6",
@@ -71,8 +61,6 @@ const googleReviews: Review[] = [
     rating: 5,
     text: "Super încântată de rezultatele epilarii definitive cu laser! Personalul foarte amabil și atmosfera plăcută, poți alege tipul de muzica, totul este super relaxant! Va recomand cu toată încrederea!",
     avatarColor: "from-sky-400 to-sky-600",
-    avatarUrl:
-      "https://lh3.googleusercontent.com/a-/ALV-UjUWNl5KwkrfKCr5TL9kJuUOlJUfrAQUQZrJUwDpU-E_9w=w60-h60-p-rp-mo-br100",
   },
   {
     id: "review7",
@@ -81,28 +69,6 @@ const googleReviews: Review[] = [
     rating: 5,
     text: "De departe cel mai bun centru de epilare! Am avut parte de o experienta placuta, chiar daca ma asteptam sa ma doara, nu am simtit mai nimic. Sunt foarte multumita! Recomand cu incredere!",
     avatarColor: "from-indigo-400 to-indigo-600",
-    avatarUrl:
-      "https://lh3.googleusercontent.com/a-/ALV-UjXIXbpNgVQJCrQvdD0FVNM41DLHprJ-nW1KrRzc-FwGIR8=w60-h60-p-rp-mo-br100",
-  },
-  {
-    id: "review8",
-    author: "Anamaria Barbu",
-    authorInitials: "AB",
-    rating: 5,
-    text: "Recomand cu încredere! Sunt foarte mulțumită de serviciile oferite și de personal, foarte amabil! 😊",
-    avatarColor: "from-fuchsia-400 to-fuchsia-600",
-    avatarUrl:
-      "https://lh3.googleusercontent.com/a-/ALV-UjWpq9FWUjUdHcMOJk14ZQfYH41Fta0WnOpSiYzDYgUd35s=w60-h60-p-rp-mo-br100",
-  },
-  {
-    id: "review9",
-    author: "Magda Iacob",
-    authorInitials: "MI",
-    rating: 5,
-    text: "Recomand cu încredere, personal profesionist, sunt foarte mulțumită de rezultatul obținut! Vor rămâne prima mea alegere în viitor.",
-    avatarColor: "from-teal-400 to-teal-600",
-    avatarUrl:
-      "https://lh3.googleusercontent.com/a-/ALV-UjULzA_R2S9L0Zt2qgMaM1YOClKE2E-aNRV1zCZTfA8d-X0=w60-h60-p-rp-mo-br100",
   },
 ];
 
@@ -154,14 +120,6 @@ const TestimonialsReact: React.FC = () => {
 
   const selectReview = (index: number) => {
     setActiveIndex(index);
-  };
-
-  // Function to handle image loading errors
-  const handleImageError = (
-    e: React.SyntheticEvent<HTMLImageElement, Event>
-  ) => {
-    const target = e.target as HTMLImageElement;
-    target.style.display = "none";
   };
 
   // Render visible reviews
@@ -226,34 +184,25 @@ const TestimonialsReact: React.FC = () => {
 
                   {/* Review Text */}
                   <div className="mb-6 flex-1">
+                    <h3 className="sr-only">Recenzie de la {review.author}</h3>
                     <p className="text-[rgb(var(--text-secondary))] italic line-clamp-5">
                       "{review.text}"
                     </p>
                   </div>
 
-                  {/* Author Info */}
+                  {/* Author Info - Simplified without problematic images */}
                   <div className="flex items-center">
                     <div className="relative w-12 h-12 mr-3">
-                      {review.avatarUrl && (
-                        <img
-                          src={review.avatarUrl}
-                          alt={review.author}
-                          className="w-12 h-12 rounded-full shadow-md object-cover border-2 border-[rgb(var(--primary-200))]"
-                          onError={handleImageError}
-                        />
-                      )}
                       <div
-                        className={`w-12 h-12 rounded-full bg-gradient-to-br ${review.avatarColor} flex items-center justify-center text-white font-bold shadow-md ${
-                          review.avatarUrl ? "hidden" : ""
-                        }`}
+                        className={`w-12 h-12 rounded-full bg-gradient-to-br ${review.avatarColor} flex items-center justify-center text-white font-bold shadow-md`}
                       >
                         {review.authorInitials}
                       </div>
                     </div>
                     <div>
-                      <h4 className="font-semibold text-[rgb(var(--text-primary))]">
+                      <div className="font-semibold text-[rgb(var(--text-primary))]">
                         {review.author}
-                      </h4>
+                      </div>
                       <div className="flex items-center text-xs text-[rgb(var(--text-secondary))]">
                         <Star className="w-3 h-3 fill-yellow-400 text-yellow-400 mr-1" />
                         <span>Google Review</span>
@@ -300,13 +249,13 @@ const TestimonialsReact: React.FC = () => {
           </button>
         </div>
 
-        {/* Simple Dots Navigation */}
+        {/* Simple Dots Navigation - Made bigger for better touch targets */}
         <div className="flex justify-center mt-8 space-x-3">
           {googleReviews.map((_, index) => (
             <button
               key={index}
               onClick={() => selectReview(index)}
-              className={`w-4 h-4 rounded-full transition-colors p-4 flex items-center justify-center touch-manipulation ${
+              className={`w-6 h-6 rounded-full transition-colors flex items-center justify-center touch-manipulation ${
                 index === activeIndex
                   ? "bg-[rgb(var(--primary-600))]"
                   : "bg-[rgb(var(--primary-300))]"
