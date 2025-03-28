@@ -57,22 +57,6 @@ const Navbar: React.FC<NavbarProps> = ({ logoComponent }) => {
               />
               <span className="nav-text hidden group-hover:inline">Acasă</span>
             </a>
-
-            <a
-              href="/servicii"
-              className="nav-item text-white font-medium p-2 rounded-full flex items-center justify-center transition-all duration-300 hover:bg-[#6b21a8] group min-w-10 hover:px-4"
-              aria-label="Servicii oferite"
-            >
-              <FileCode
-                size={20}
-                className="group-hover:mr-2"
-                stroke="#ffffff"
-                strokeWidth={2.5}
-              />
-              <span className="nav-text hidden group-hover:inline">
-                Servicii
-              </span>
-            </a>
             <a
               href="/preturi"
               className="nav-item text-white font-medium p-2 rounded-full flex items-center justify-center transition-all duration-300 hover:bg-[#6b21a8] group min-w-10 hover:px-4"
@@ -86,6 +70,21 @@ const Navbar: React.FC<NavbarProps> = ({ logoComponent }) => {
               />
               <span className="nav-text hidden group-hover:inline">
                 Prețuri
+              </span>
+            </a>
+            <a
+              href="/servicii"
+              className="nav-item text-white font-medium p-2 rounded-full flex items-center justify-center transition-all duration-300 hover:bg-[#6b21a8] group min-w-10 hover:px-4"
+              aria-label="Servicii oferite"
+            >
+              <FileCode
+                size={20}
+                className="group-hover:mr-2"
+                stroke="#ffffff"
+                strokeWidth={2.5}
+              />
+              <span className="nav-text hidden group-hover:inline">
+                Servicii
               </span>
             </a>
           </div>
@@ -208,7 +207,6 @@ const Navbar: React.FC<NavbarProps> = ({ logoComponent }) => {
             ? "opacity-100 pointer-events-auto"
             : "opacity-0 pointer-events-none"
         }`}
-        aria-hidden={!isMobileMenuOpen}
       >
         <div
           className={`absolute right-0 top-0 h-screen w-64 bg-[#581c87] transition-transform duration-500 transform p-6 ${
