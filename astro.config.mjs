@@ -15,6 +15,9 @@ export default defineConfig({
   },
   // Configure image optimization
   image: {
+    experimentalLayout: "responsive",
+    experimentalObjectFit: "cover",
+    experimentalObjectPosition: "center",
     domains: [],
     remotePatterns: [{ protocol: "https" }],
     service: {

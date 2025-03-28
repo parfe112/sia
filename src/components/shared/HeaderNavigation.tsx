@@ -5,11 +5,11 @@ import type { ImageMetadata } from "astro";
 type LogoUrlType = string | ImageMetadata | undefined;
 
 interface HeaderNavigationProps {
-  logoUrl?: LogoUrlType;
+  children?: React.ReactNode;
 }
 
-const HeaderNavigation: React.FC<HeaderNavigationProps> = ({ logoUrl }) => {
-  return <Navbar logoUrl={logoUrl} />;
+const HeaderNavigation: React.FC<HeaderNavigationProps> = ({ children }) => {
+  return <Navbar logoComponent={children} />;
 };
 
 export default HeaderNavigation;

@@ -18,10 +18,10 @@ import type { ImageMetadata } from "astro";
 type LogoUrlType = string | ImageMetadata | undefined;
 
 interface NavbarProps {
-  logoUrl?: LogoUrlType;
+  logoComponent?: React.ReactNode;
 }
 
-const Navbar: React.FC<NavbarProps> = ({ logoUrl }) => {
+const Navbar: React.FC<NavbarProps> = ({ logoComponent }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   // Toggle mobile menu
@@ -155,14 +155,7 @@ const Navbar: React.FC<NavbarProps> = ({ logoUrl }) => {
             className="flex items-center"
             aria-label="Pagina principală"
           >
-            <img
-              src={typeof logoUrl === "string" ? logoUrl : logoUrl?.src}
-              alt="SIA Skin Center Logo"
-              className="h-8 w-auto"
-              width={96}
-              height={72}
-              loading="eager"
-            />
+            {logoComponent}
           </a>
 
           {/* Center Controls - Mobile */}
@@ -199,164 +192,149 @@ const Navbar: React.FC<NavbarProps> = ({ logoUrl }) => {
             type="button"
             onClick={toggleMobileMenu}
           >
-            <Menu size={24} />
+            {isMobileMenuOpen ? (
+              <X size={20} stroke="#ffffff" strokeWidth={2.5} />
+            ) : (
+              <Menu size={20} stroke="#ffffff" strokeWidth={2.5} />
+            )}
           </button>
         </div>
       </div>
 
-      {/* Mobile menu - positioned higher in the DOM */}
+      {/* Mobile Menu Overlay */}
       <div
-        style={{
-          position: "fixed",
-          inset: 0,
-          zIndex: 9999,
-          transform: isMobileMenuOpen ? "translateX(0)" : "translateX(100%)",
-          transition: "transform 0.3s ease-in-out",
-          willChange: "transform",
-          backfaceVisibility: "hidden",
-          backgroundColor: "#581c87",
-          display: isMobileMenuOpen ? "block" : "block",
-        }}
-        className="md:hidden"
+        className={`fixed inset-0 bg-black/70 backdrop-blur-sm z-20 transition-opacity duration-300 md:hidden ${
+          isMobileMenuOpen
+            ? "opacity-100 pointer-events-auto"
+            : "opacity-0 pointer-events-none"
+        }`}
+        aria-hidden={!isMobileMenuOpen}
       >
-        <div className="h-20 border-b border-[#6b21a8] flex items-center justify-between px-4">
-          <a
-            href="/"
-            className="flex items-center space-x-3 text-white font-bold text-2xl"
-            aria-label="Pagina principală"
-          >
-            <img
-              src={typeof logoUrl === "string" ? logoUrl : logoUrl?.src}
-              alt="SIA Skin Center Logo"
-              className="h-14 w-auto"
-              width={128}
-              height={96}
-              loading="eager"
-            />
-            <span className="text-white font-normal">Skin Center</span>
-          </a>
-          {/* Close button */}
-          <button
-            className="flex items-center justify-center w-10 h-10 rounded-full bg-[#6b21a8] text-white hover:bg-[#7e22ce] transition-colors"
-            onClick={toggleMobileMenu}
-            aria-label="Închide meniul"
-          >
-            <X size={24} />
-          </button>
-        </div>
-
         <div
-          className="container mx-auto px-4 py-8 overflow-y-auto"
-          style={{ maxHeight: "calc(100vh - 80px)" }}
+          className={`absolute right-0 top-0 h-screen w-64 bg-[#581c87] transition-transform duration-500 transform p-6 ${
+            isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
+          }`}
         >
-          <nav className="space-y-3">
-            <a
-              href="/"
-              className="flex items-center px-5 py-3 text-lg text-white hover:bg-[#6b21a8] rounded-xl transition-all"
-              onClick={toggleMobileMenu}
-              aria-label="Pagina principală"
-            >
-              <Home className="w-6 h-6 mr-3 text-white" stroke="#ffffff" />
-              Acasă
-            </a>
-
-            <a
-              href="/servicii"
-              className="flex items-center px-5 py-3 text-lg text-white hover:bg-[#6b21a8] rounded-xl transition-all"
-              onClick={toggleMobileMenu}
-              aria-label="Servicii oferite"
-            >
-              <FileCode className="w-6 h-6 mr-3 text-white" stroke="#ffffff" />
-              Servicii
-            </a>
-
-            <a
-              href="/blog"
-              className="flex items-center px-5 py-3 text-lg text-white hover:bg-[#6b21a8] rounded-xl transition-all"
-              onClick={toggleMobileMenu}
-              aria-label="Articole pe blog"
-            >
-              <FileText className="w-6 h-6 mr-3 text-white" stroke="#ffffff" />
-              Blog
-            </a>
-
-            <a
-              href="/preturi"
-              className="flex items-center px-5 py-3 text-lg text-white hover:bg-[#6b21a8] rounded-xl transition-all"
-              onClick={toggleMobileMenu}
-              aria-label="Lista de prețuri"
-            >
-              <CircleDollarSign
-                className="w-6 h-6 mr-3 text-white"
-                stroke="#ffffff"
-              />
-              Prețuri
-            </a>
-
-            <a
-              href="/contact"
-              className="flex items-center px-5 py-3 text-lg text-white hover:bg-[#6b21a8] rounded-xl transition-all"
-              onClick={toggleMobileMenu}
-              aria-label="Informații de contact"
-            >
-              <Phone className="w-6 h-6 mr-3 text-white" stroke="#ffffff" />
-              Contact
-            </a>
-          </nav>
-
-          <div className="mt-10 pt-6 border-t border-[#6b21a8]">
-            <div className="flex items-center justify-center space-x-4 mb-6">
-              <a
-                href="https://www.facebook.com/profile.php?id=61554965023675"
-                target="_blank"
-                className="bg-[#1877F2] p-3 rounded-full text-white hover:opacity-90 transition-opacity"
-                aria-label="Pagina noastră de Facebook"
+          <div className="flex flex-col h-full text-white">
+            <div className="flex justify-between items-center mb-8">
+              <span className="font-bold text-xl">Meniu</span>
+              <button
+                onClick={toggleMobileMenu}
+                className="p-2 rounded-full hover:bg-[#6b21a8] transition-colors"
+                aria-label="Închide meniul"
               >
-                <Facebook className="w-5 h-5" />
-              </a>
-              <a
-                href="https://www.instagram.com/sia_epilare_definitiva/"
-                target="_blank"
-                className="bg-gradient-to-r from-[#FCAF45] via-[#E1306C] to-[#5851DB] p-3 rounded-full text-white hover:opacity-90 transition-opacity"
-                aria-label="Profilul nostru de Instagram"
-              >
-                <Instagram className="w-5 h-5" />
-              </a>
-              <a
-                href="https://wa.me/40770889907"
-                target="_blank"
-                className="bg-green-500 p-3 rounded-full text-white hover:bg-green-600 transition-all"
-                aria-label="Contactează-ne pe WhatsApp"
-              >
-                <MessageCircle size={20} stroke="#ffffff" strokeWidth={2.5} />
-              </a>
+                <X size={24} stroke="#ffffff" strokeWidth={2.5} />
+              </button>
             </div>
 
-            <a
-              href="/contact"
-              className="block w-full bg-[#7e22ce] hover:bg-[#8b5cf6] text-white font-medium px-6 py-3 rounded-xl transition-all text-center shadow-sm hover:shadow-md"
-              onClick={toggleMobileMenu}
-            >
-              Programare
-            </a>
+            <nav className="flex flex-col space-y-4">
+              <a
+                href="/"
+                className="flex items-center py-2 px-4 rounded-lg hover:bg-[#6b21a8] transition-colors"
+                onClick={toggleMobileMenu}
+              >
+                <Home
+                  size={20}
+                  className="mr-3"
+                  stroke="#ffffff"
+                  strokeWidth={2.5}
+                />
+                <span>Acasă</span>
+              </a>
+              <a
+                href="/servicii"
+                className="flex items-center py-2 px-4 rounded-lg hover:bg-[#6b21a8] transition-colors"
+                onClick={toggleMobileMenu}
+              >
+                <FileCode
+                  size={20}
+                  className="mr-3"
+                  stroke="#ffffff"
+                  strokeWidth={2.5}
+                />
+                <span>Servicii</span>
+              </a>
+              <a
+                href="/preturi"
+                className="flex items-center py-2 px-4 rounded-lg hover:bg-[#6b21a8] transition-colors"
+                onClick={toggleMobileMenu}
+              >
+                <CircleDollarSign
+                  size={20}
+                  className="mr-3"
+                  stroke="#ffffff"
+                  strokeWidth={2.5}
+                />
+                <span>Prețuri</span>
+              </a>
+              <a
+                href="/blog"
+                className="flex items-center py-2 px-4 rounded-lg hover:bg-[#6b21a8] transition-colors"
+                onClick={toggleMobileMenu}
+              >
+                <FileText
+                  size={20}
+                  className="mr-3"
+                  stroke="#ffffff"
+                  strokeWidth={2.5}
+                />
+                <span>Blog</span>
+              </a>
+              <a
+                href="/contact"
+                className="flex items-center py-2 px-4 rounded-lg hover:bg-[#6b21a8] transition-colors"
+                onClick={toggleMobileMenu}
+              >
+                <Phone
+                  size={20}
+                  className="mr-3"
+                  stroke="#ffffff"
+                  strokeWidth={2.5}
+                />
+                <span>Contact</span>
+              </a>
+            </nav>
+
+            <div className="mt-auto">
+              <div className="border-t border-[#7e22ce] my-6"></div>
+              <div className="flex justify-center space-x-4">
+                <a
+                  href="https://facebook.com/siaskincenter"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Facebook"
+                  className="p-2 rounded-full hover:bg-[#6b21a8] transition-colors"
+                >
+                  <Facebook size={24} stroke="#ffffff" strokeWidth={2} />
+                </a>
+                <a
+                  href="https://instagram.com/sia.skin.center"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Instagram"
+                  className="p-2 rounded-full hover:bg-[#6b21a8] transition-colors"
+                >
+                  <Instagram size={24} stroke="#ffffff" strokeWidth={2} />
+                </a>
+                <a
+                  href="https://wa.me/40770889907"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="WhatsApp"
+                  className="p-2 rounded-full bg-green-500 hover:bg-green-600 transition-colors"
+                >
+                  <MessageCircle
+                    size={24}
+                    stroke="#ffffff"
+                    strokeWidth={2}
+                    className="text-white"
+                  />
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-
-      {/* Mobile menu overlay */}
-      {isMobileMenuOpen && (
-        <div
-          style={{
-            position: "fixed",
-            inset: 0,
-            backgroundColor: "rgba(0, 0, 0, 0.5)",
-            backdropFilter: "blur(4px)",
-            zIndex: 9998,
-          }}
-          className="md:hidden"
-          onClick={toggleMobileMenu}
-        ></div>
-      )}
     </>
   );
 };
