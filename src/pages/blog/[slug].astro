@@ -2,7 +2,7 @@
 import { getCollection, type CollectionEntry } from "astro:content";
 import { Image } from "astro:assets";
 import Layout from "../../layouts/Layout.astro";
-
+import ButtonAdvert from "../../components/shared/ButtonAdvert.tsx";
 export const prerender = true;
 
 // Define prop types
@@ -152,7 +152,11 @@ const formatDate = (date: Date): string => {
                   </p>
                 </div>
               </div>
+
             </div>
+                          <div class="mt-16 flex justify-center">
+                <ButtonAdvert client:only="react" />
+              </div>
           )
         }
       </div>

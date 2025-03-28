@@ -1,5 +1,5 @@
 ---
-import ButtonAdvert from "./shared/ButtonAdvert.astro";
+import ButtonAdvert from "./shared/ButtonAdvert.tsx";
 
 interface PricingItem {
   name: string;
@@ -36,8 +36,8 @@ interface PricingCategory {
         Oferte Speciale
       </h3>
 
-      <div class="mb-8" data-aos="fade-up" data-aos-duration="800">
-        <ButtonAdvert />
+      <div class="m-4 flex justify-center">
+        <ButtonAdvert client:only="react" />
       </div>
 
       <div class="space-y-4">

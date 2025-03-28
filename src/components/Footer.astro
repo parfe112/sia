@@ -9,7 +9,7 @@ const currentYear = new Date().getFullYear();
   class="bg-[rgb(var(--footer-bg))] text-[rgb(var(--footer-fg))] pt-16 pb-8 transition-theme"
 >
   <div class="container mx-auto px-4">
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
       <div>
         <div class="flex items-center gap-2 mb-6">
           <Image
@@ -23,9 +23,6 @@ const currentYear = new Date().getFullYear();
             densities={[1, 2]}
             loading="lazy"
           />
-          <span class="text-xl font-bold text-[rgb(var(--footer-fg))]"
-            >SIA<span class="text-white">Skin Center</span></span
-          >
         </div>
         <p class="text-[rgb(var(--footer-fg))]/90 mb-6">
           Centru de epilare definitivă cu laser, oferind servicii premium pentru
@@ -87,88 +84,40 @@ const currentYear = new Date().getFullYear();
       </div>
 
       <div>
-        <h3 class="text-lg font-bold mb-6">Legături rapide</h3>
+        <h3 class="text-lg font-bold mb-6">Documente Legale</h3>
         <ul class="space-y-3">
           <li>
             <a
-              href="/"
+              href="/termeni-si-conditii"
               class="text-[rgb(var(--footer-fg))]/90 hover:text-white transition-colors"
-              >Acasă</a
+              >Termeni și Condiții</a
             >
           </li>
           <li>
             <a
-              href="/servicii"
+              href="/politica-de-confidentialitate"
               class="text-[rgb(var(--footer-fg))]/90 hover:text-white transition-colors"
-              >Servicii</a
+              >Politica de Confidențialitate</a
             >
           </li>
           <li>
             <a
-              href="/blog"
+              href="/politica-de-cookies"
               class="text-[rgb(var(--footer-fg))]/90 hover:text-white transition-colors"
-              >Blog</a
+              >Politica de Cookies</a
             >
           </li>
           <li>
             <a
-              href="/preturi"
+              href="/gdpr"
               class="text-[rgb(var(--footer-fg))]/90 hover:text-white transition-colors"
-              >Prețuri</a
-            >
-          </li>
-          <li>
-            <a
-              href="/contact"
-              class="text-[rgb(var(--footer-fg))]/90 hover:text-white transition-colors"
-              >Contact</a
+              >GDPR</a
             >
           </li>
         </ul>
       </div>
 
-      <div>
-        <h3 class="text-lg font-bold mb-6">Servicii</h3>
-        <ul class="space-y-3">
-          <li>
-            <a
-              href="#servicii"
-              class="text-[rgb(var(--footer-fg))]/90 hover:text-white transition-colors"
-              >Epilare Facială</a
-            >
-          </li>
-          <li>
-            <a
-              href="#servicii"
-              class="text-[rgb(var(--footer-fg))]/90 hover:text-white transition-colors"
-              >Epilare Corp Femei</a
-            >
-          </li>
-          <li>
-            <a
-              href="#servicii"
-              class="text-[rgb(var(--footer-fg))]/90 hover:text-white transition-colors"
-              >Epilare Corp Bărbați</a
-            >
-          </li>
-          <li>
-            <a
-              href="#servicii"
-              class="text-[rgb(var(--footer-fg))]/90 hover:text-white transition-colors"
-              >Pachete Personalizate</a
-            >
-          </li>
-          <li>
-            <a
-              href="#programare"
-              class="text-[rgb(var(--footer-fg))]/90 hover:text-white transition-colors"
-              >Programare</a
-            >
-          </li>
-        </ul>
-      </div>
-
-      <div>
+      <!-- <div>
         <h3 class="text-lg font-bold mb-6">Contact</h3>
         <ul class="space-y-4">
           <li class="flex items-start">
@@ -193,7 +142,7 @@ const currentYear = new Date().getFullYear();
             </svg>
             <div>
               <span class="text-[rgb(var(--footer-fg))]/90"
-                >Str. Antiaeriană nr 67, sector 5, București</span
+                >Str. Antiaeriană nr 67C, sector 5, București</span
               >
               <p class="text-[rgb(var(--footer-fg))]/90 mt-1 flex items-center">
                 <svg
@@ -294,7 +243,7 @@ const currentYear = new Date().getFullYear();
             </div>
           </li>
         </ul>
-      </div>
+      </div> -->
     </div>
 
     <div class="border-t border-gray-800 pt-8">
@@ -302,23 +251,25 @@ const currentYear = new Date().getFullYear();
         <p class="text-gray-300 text-sm mb-4 md:mb-0">
           &copy; {currentYear} SIA Skin Center. Toate drepturile rezervate.
         </p>
-        <div class="flex space-x-6">
-          <a
-            href="#"
-            class="text-gray-300 hover:text-white text-sm"
-            aria-label="Termeni și condiții">Termeni și condiții</a
-          >
-          <a
-            href="#"
-            class="text-gray-300 hover:text-white text-sm"
-            aria-label="Politica de confidențialitate"
-            >Politica de confidențialitate</a
-          >
-          <a
-            href="#"
-            class="text-gray-300 hover:text-white text-sm"
-            aria-label="Politica de cookies">Cookies</a
-          >
+        <div
+          class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-6 items-center"
+        >
+          <p class="text-gray-400 text-xs">
+            Design by <a
+              href="https://hyperai.ro"
+              target="_blank"
+              class="text-gray-300 hover:text-white transition-colors"
+              >hyperai.ro</a
+            >
+          </p>
+          <p class="text-gray-400 text-xs">
+            Hosted by <a
+              href="https://turbohost.ro"
+              target="_blank"
+              class="text-gray-300 hover:text-white transition-colors"
+              >turbohost.ro</a
+            >
+          </p>
         </div>
       </div>
     </div>

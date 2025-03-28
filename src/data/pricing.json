@@ -1,0 +1,206 @@
+{
+  "women": [
+    {
+      "name": "AXILĂ",
+      "price": 90,
+      "package": {
+        "price": 720,
+        "originalPrice": 900
+      }
+    },
+    {
+      "name": "GÂT INTEGRAL",
+      "price": 140,
+      "package": {
+        "price": 1100,
+        "originalPrice": 1400
+      }
+    },
+    {
+      "name": "PERIAREOLAR",
+      "price": 35,
+      "package": {
+        "price": 250,
+        "originalPrice": 350
+      }
+    },
+    {
+      "name": "LINIE ALBĂ ABDOMEN",
+      "price": 50,
+      "package": {
+        "price": 400,
+        "originalPrice": 500
+      }
+    },
+    {
+      "name": "ABDOMEN INTEGRAL",
+      "price": 140,
+      "package": {
+        "price": 1100,
+        "originalPrice": 1400
+      }
+    },
+    {
+      "name": "SPATE INTEGRAL",
+      "price": 200,
+      "package": {
+        "price": 1600,
+        "originalPrice": 2000
+      }
+    },
+    {
+      "name": "ANTEBRAȚE",
+      "price": 90,
+      "package": {
+        "price": 720,
+        "originalPrice": 900
+      }
+    },
+    {
+      "name": "BRAȚE INTEGRAL",
+      "price": 160,
+      "package": {
+        "price": 1280,
+        "originalPrice": 1600
+      }
+    },
+    {
+      "name": "MÂINI",
+      "price": 50,
+      "package": {
+        "price": 400,
+        "originalPrice": 500
+      }
+    },
+    {
+      "name": "INTERFESIERI",
+      "price": 50,
+      "package": {
+        "price": 400,
+        "originalPrice": 500
+      }
+    },
+    {
+      "name": "BIKINI LINE",
+      "price": 50,
+      "package": {
+        "price": 400,
+        "originalPrice": 500
+      }
+    },
+    {
+      "name": "INGHINAL",
+      "price": 90,
+      "package": {
+        "price": 720,
+        "originalPrice": 900
+      }
+    },
+    {
+      "name": "INGHINAL TOTAL",
+      "price": 150,
+      "package": {
+        "price": 1200,
+        "originalPrice": 1500
+      }
+    },
+    {
+      "name": "PICIOARE SCURT",
+      "price": 190,
+      "package": {
+        "price": 1520,
+        "originalPrice": 1900
+      }
+    },
+    {
+      "name": "PICIOARE LUNG",
+      "price": 280,
+      "package": {
+        "price": 2240,
+        "originalPrice": 2800
+      }
+    },
+    {
+      "name": "LABA PICIORULUI ȘI DEGETE",
+      "price": 50,
+      "package": {
+        "price": 400,
+        "originalPrice": 500
+      }
+    }
+  ],
+  "men": [
+    {
+      "name": "AXILĂ",
+      "price": 90,
+      "package": {
+        "price": 720,
+        "originalPrice": 900
+      }
+    },
+    {
+      "name": "BRAȚ INTEGRAL",
+      "price": 200,
+      "package": {
+        "price": 1600,
+        "originalPrice": 2000
+      }
+    },
+    {
+      "name": "CONTUR BARBĂ",
+      "price": 100,
+      "package": {
+        "price": 800,
+        "originalPrice": 1000
+      }
+    },
+    {
+      "name": "ÎNTRE SPRÂNCENE",
+      "price": 35,
+      "package": {
+        "price": 280,
+        "originalPrice": 350
+      }
+    },
+    {
+      "name": "FACIAL COMPLET",
+      "price": 180,
+      "package": {
+        "price": 1440,
+        "originalPrice": 1800
+      }
+    },
+    {
+      "name": "GÂT PARȚIAL",
+      "price": 90,
+      "package": {
+        "price": 720,
+        "originalPrice": 900
+      }
+    },
+    {
+      "name": "GÂT INTEGRAL",
+      "price": 150,
+      "package": {
+        "price": 1200,
+        "originalPrice": 1500
+      }
+    },
+    {
+      "name": "PIEPT",
+      "price": 150,
+      "package": {
+        "price": 1200,
+        "originalPrice": 1500
+      }
+    },
+    {
+      "name": "ABDOMEN",
+      "price": 150,
+      "package": {
+        "price": 1200,
+        "originalPrice": 1500
+      }
+    }
+  ]
+} 
