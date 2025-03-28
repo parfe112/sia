@@ -60,9 +60,9 @@ const formatDate = (date: Date): string => {
   title={`${entry.data.title} - SIA Skin Center`}
   description={entry.data.description}
 >
-  <main>
+  <main class="overflow-x-hidden">
     <!-- Hero Section with full-width image -->
-    <div class="relative">
+    <div class="relative overflow-hidden">
       {
         entry.data.image && (
           <div class="absolute inset-0 z-0 h-[50vh] md:h-[60vh] overflow-hidden">
@@ -160,7 +160,7 @@ const formatDate = (date: Date): string => {
   </main>
 
   <!-- Main Content -->
-  <div class="container mx-auto px-4 py-8">
+  <div class="container mx-auto px-4 py-8 overflow-x-hidden">
     <div class="max-w-5xl mx-auto">
       <div class="grid grid-cols-1 gap-8">
         <!-- Main content column -->
@@ -333,7 +333,7 @@ const formatDate = (date: Date): string => {
   </div>
 
   <!-- Call to action -->
-  <div class="container mx-auto px-4 py-12 mb-8">
+  <div class="container mx-auto px-4 py-12 mb-8 overflow-x-hidden">
     <div
       class="max-w-5xl mx-auto bg-gradient-to-r from-[rgb(var(--primary-50))] to-[rgb(var(--accent-1))] dark:from-[rgb(var(--primary-900))]/20 dark:to-[rgb(var(--accent-1))]/20 rounded-2xl p-8 md:p-12 shadow-md"
       data-aos="fade-up"
@@ -636,30 +636,41 @@ const formatDate = (date: Date): string => {
     /* Link styling */
     & a {
       text-decoration: none;
-      color: rgb(var(--primary));
+      color: rgb(var(--primary-600));
       position: relative;
-      font-weight: 500;
+      font-weight: 600;
       background-image: linear-gradient(
         transparent 90%,
-        rgba(var(--primary), 0.3) 10%
+        rgba(var(--primary-600), 0.3) 10%
       );
       background-repeat: no-repeat;
       background-size: 0% 100%;
       background-position: 0 100%;
       transition:
         background-size 0.3s ease,
-        color 0.3s ease;
+        color 0.3s ease,
+        background-color 0.3s ease;
       padding: 0 0.15em;
       border-radius: 0.15em;
+      border-bottom: 1px solid rgb(var(--primary-400));
 
       &:hover {
         background-size: 100% 100%;
-        color: rgb(var(--primary-dark));
+        color: rgb(var(--primary-800));
+        background-color: rgba(var(--primary-100), 0.3);
       }
 
       .dark & {
+        color: rgb(var(--primary-400));
+        border-bottom: 1px solid rgb(var(--primary-500));
+
         &:hover {
-          color: rgb(var(--primary-200));
+          color: rgb(var(--primary-300));
+          background-color: rgba(var(--primary-900), 0.3);
+          background-image: linear-gradient(
+            transparent 90%,
+            rgba(var(--primary-500), 0.3) 10%
+          );
         }
       }
     }
@@ -902,6 +913,8 @@ const formatDate = (date: Date): string => {
     /* Mobile optimizations */
     @media (max-width: 640px) {
       font-size: 1.05rem;
+      word-break: break-word;
+      overflow-wrap: break-word;
 
       & h1 {
         font-size: 2rem;
@@ -916,50 +929,68 @@ const formatDate = (date: Date): string => {
       }
 
       & blockquote {
-        padding: 1.5rem;
+        padding: 1.5rem 1rem;
         font-size: 1.1rem;
+        margin-left: 0;
+        margin-right: 0;
       }
 
       & > p:first-of-type::first-letter {
         font-size: 2.8rem;
+      }
+
+      & pre {
+        padding: 1rem;
+        overflow-x: auto;
+      }
+
+      & table {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
       }
     }
   }
 
   /* Article-specific elements */
   article.blog-content {
+    position: relative;
+    overflow: hidden;
+
     &::before {
       content: "";
       position: absolute;
-      top: -5rem;
-      right: -5rem;
-      width: 15rem;
-      height: 15rem;
+      top: 0;
+      right: 0;
+      width: 10rem;
+      height: 10rem;
       background: radial-gradient(
         circle,
         rgba(var(--primary), 0.1) 0%,
         rgba(var(--primary), 0) 70%
       );
-      z-index: -1;
+      z-index: 0;
       border-radius: 50%;
       opacity: 0.7;
+      transform: translate(30%, -30%);
     }
 
     &::after {
       content: "";
       position: absolute;
-      bottom: -5rem;
-      left: -5rem;
-      width: 15rem;
-      height: 15rem;
+      bottom: 0;
+      left: 0;
+      width: 10rem;
+      height: 10rem;
       background: radial-gradient(
         circle,
         rgba(var(--accent-1), 0.1) 0%,
         rgba(var(--accent-1), 0) 70%
       );
-      z-index: -1;
+      z-index: 0;
       border-radius: 50%;
       opacity: 0.7;
+      transform: translate(-30%, 30%);
     }
   }
 </style>

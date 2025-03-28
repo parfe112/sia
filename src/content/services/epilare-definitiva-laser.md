@@ -23,11 +23,11 @@ schemaType: "Service"
 
 # Epilare Definitivă cu Laser - Tehnologie Avansată pentru o Piele Perfect Netedă
 
-[Epilarea definitivă cu laser](/servicii/epilare-definitiva) reprezintă soluția modernă și eficientă pentru a scăpa definitiv de părul nedorit. La SIA Skin Center, folosim tehnologia avansată New Eride Smart Dual pentru a oferi rezultate excepționale, într-un mod sigur și confortabil.
+[Epilarea definitivă cu laser](/) reprezintă soluția modernă și eficientă pentru a scăpa definitiv de părul nedorit. La SIA Skin Center, folosim tehnologia avansată New Eride Smart Dual pentru a oferi rezultate excepționale, într-un mod sigur și confortabil.
 
 ## De Ce să Alegi Epilarea Definitivă cu Laser?
 
-Tratamentul nostru de [epilare cu laser](/servicii) oferă numeroase avantaje față de metodele tradiționale:
+Tratamentul nostru de [epilare cu laser](/servicii/epilare-definitiva) oferă numeroase avantaje față de metodele tradiționale:
 
 - **Rezultate de lungă durată** - reducere permanentă a părului nedorit
 - **Tratament rapid și confortabil** - sistem de răcire integrat pentru confort maxim

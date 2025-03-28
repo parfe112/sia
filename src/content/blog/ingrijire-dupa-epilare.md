@@ -4,7 +4,7 @@ description: "Află tot ce trebuie să știi despre îngrijirea pielii după epi
 pubDate: 2024-02-08
 image: "/src/assets/images/blog/ingrijire-dupa-epilare.png"
 author: "Maria Popescu"
-category: "Îngrijire Post-Tratament"
+category: "Tratamente Laser"
 tags: ["epilare laser", "îngrijire piele", "tratamente corporale", "regenerare piele", "prevenire iritații"]
 featured: true
 ---

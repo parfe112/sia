@@ -530,13 +530,27 @@ const { data } = entry;
 
       /* Links */
       & a {
-        color: rgb(var(--primary));
+        color: rgb(var(--primary-600));
         text-decoration: none;
-        border-bottom: 1px dashed rgba(var(--primary), 0.5);
+        font-weight: 600;
+        position: relative;
+        border-bottom: 1px solid rgb(var(--primary-400));
+        padding: 0 0.15em;
         transition: all 0.2s ease;
 
         &:hover {
-          border-bottom: 1px solid rgb(var(--primary));
+          color: rgb(var(--primary-800));
+          background-color: rgba(var(--primary-100), 0.3);
+        }
+
+        .dark & {
+          color: rgb(var(--primary-400));
+          border-bottom: 1px solid rgb(var(--primary-500));
+
+          &:hover {
+            color: rgb(var(--primary-300));
+            background-color: rgba(var(--primary-900), 0.3);
+          }
         }
       }
 
