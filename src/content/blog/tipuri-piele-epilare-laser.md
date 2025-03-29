@@ -91,7 +91,7 @@ Un specialist va evalua toate aceste aspecte și va ajusta setările în funcți
 ## Adaptarea Tratamentului în Funcție de Fototip
 
 ### Numărul de Ședințe Recomandate
-- **Tip I-III**: 6-8 ședințe pentru rezultate optime
+- **Tip I-III**: 8-10 ședințe pentru rezultate optime
 - **Tip IV-VI**: 8-10 ședințe, deoarece pigmentul pielii necesită setări mai blânde, deci procesul e mai gradual
 
 ### Intensitatea și Durata Impulsurilor

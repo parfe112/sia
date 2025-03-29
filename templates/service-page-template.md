@@ -48,10 +48,10 @@ Oferim servicii pentru diverse zone ale corpului:
 
 | Zonă | Durata ședinței | Număr recomandat de ședințe |
 |------|-----------------|------------------------------|
-| Față | 30 minute | 6-8 ședințe |
-| Axilă | 15 minute | 6-8 ședințe |
+| Față | 30 minute | 8-10 ședințe |
+| Axilă | 15 minute | 8-10 ședințe |
 | Picioare | 45 minute | 8-10 ședințe |
-| Zona inghinală | 30 minute | 6-8 ședințe |
+| Zona inghinală | 30 minute | 8-10 ședințe |
 
 ## Întrebări Frecvente
 

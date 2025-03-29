@@ -8,7 +8,7 @@ tags: ["epilare laser", "epilare definitivă", "tratament laser", "îndepărtare
 price: 500
 oldPrice: 750
 discount: 25
-duration: "30-60 minute"
+duration: "120-180 minute"
 features:
   - "Tehnologie laser New Eride Smart Dual de ultimă generație"
   - "Tratament rapid și confortabil, cu sistem de răcire"
@@ -50,7 +50,7 @@ schemaType: "Service"
 | H2   | 🧴 Cum să te pregătești pentru o ședință de epilare          | Igienă, ras anterior, fără creme/bronzare                                                                                                                     |
 | H2   | 🚫 Efecte secundare și contraindicații                       | Roșeață, sensibilitate, cine NU ar trebui să facă epilare definitivă                                                                                         |
 | H2   | 🙋‍♀️ Epilare definitivă pentru femei vs. bărbați             | Diferențe în densitatea firului de păr, zonele preferate, așteptări                                                                                           |
-| H2   | 📆 Câte ședințe sunt necesare pentru rezultate optime       | 6-8 ședințe, frecvență, întreținere anuală                                                                                                                    |
+| H2   | 📆 Câte ședințe sunt necesare pentru rezultate optime       | 8-10 ședințe, frecvență, întreținere anuală                                                                                                                    |
 | H2   | 🏆 Cum alegi cel mai bun salon de epilare definitivă        | Ce trebuie să urmărești: licențe, aparatură, igienă, recenzii                                                                                                 |
 | H2   | 🔄 Alte metode vs. epilarea definitivă                      | Ceară, cremă depilatoare, epilator electric – comparație pe termen lung                                                                                      |
 | H2   | 🔚 Concluzie și recomandări                                 | Recapitulare, sfaturi utile, chemare la acțiune                                                                                                               |
@@ -234,7 +234,7 @@ Deși procedura este aceeași, nevoile pot varia:
 
 Rezultatele se obțin în timp, nu după o singură vizită:
 
-- **6-8 ședințe** – pentru zonele corporale (picioare, axilă, inghinal)
+- **8-10 ședințe** – pentru zonele corporale (picioare, axilă, inghinal)
 - **8-10 ședințe** – pentru zonele cu păr gros (spate, piept)
 - **Interval**: La 4-6 săptămâni între ședințe
 - **Întreținere:** 1-2 ședințe/an pentru menținerea rezultatelor

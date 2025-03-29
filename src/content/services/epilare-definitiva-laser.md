@@ -8,7 +8,7 @@ tags: ["epilare laser", "epilare definitivă", "tratament laser", "îndepărtare
 price: 500
 oldPrice: 750
 discount: 25
-duration: "30-60 minute"
+duration: "120-180 minute"
 features:
   - "Tehnologie laser New Eride Smart Dual de ultimă generație"
   - "Tratament rapid și confortabil, cu sistem de răcire"
@@ -51,11 +51,11 @@ Această combinație unică permite:
 
 | Zonă | Durată | Număr Ședințe Recomandate |
 |------|---------|---------------------------|
-| Picioare integral | 45-60 min | 6-8 ședințe |
-| Axile | 15-20 min | 6-8 ședințe |
-| Zona inghinală | 20-30 min | 6-8 ședințe |
-| Brațe | 30-40 min | 6-8 ședințe |
-| Facial | 15-20 min | 6-8 ședințe |
+| Picioare integral | 45-60 min | 8-10 ședințe |
+| Axile | 15-20 min | 8-10 ședințe |
+| Zona inghinală | 20-30 min | 8-10 ședințe |
+| Brațe | 30-40 min | 8-10 ședințe |
+| Facial | 15-20 min | 8-10 ședințe |
 
 ## Pregătire și Îngrijire
 
@@ -87,7 +87,7 @@ Majoritatea clienților noștri observă:
 Nu. Tehnologia New Eride Smart Dual include un sistem avansat de răcire care face procedura confortabilă. Majoritatea clienților descriu senzația ca un mic ciupit elastic.
 
 ### Câte ședințe sunt necesare?
-Pentru rezultate optime, recomandăm 6-8 ședințe la interval de 4-6 săptămâni. Numărul exact depinde de zona tratată și de tipul de păr.
+Pentru rezultate optime, recomandăm 8-10 ședințe la interval de 4-6 săptămâni. Numărul exact depinde de zona tratată și de tipul de păr.
 
 ### Este sigură pentru pielea mea?
 Da. [Tehnologia noastră](/blog/tipuri-piele-epilare-laser) este sigură pentru toate tipurile de piele, inclusiv pielea bronzată sau sensibilă.

@@ -105,7 +105,7 @@
       }
     },
     {
-      "name": "PICIOARE SCURT",
+      "name": "PICIOARE PARTIAL",
       "price": 190,
       "package": {
         "price": 1520,
@@ -113,7 +113,7 @@
       }
     },
     {
-      "name": "PICIOARE LUNG",
+      "name": "PICIOARE INTEGRAL",
       "price": 280,
       "package": {
         "price": 2240,
@@ -126,6 +126,22 @@
       "package": {
         "price": 400,
         "originalPrice": 500
+      }
+    },
+    {
+      "name": "FULL BODY (include toate zonele corpului)",
+      "price": 500,
+      "package": {
+        "price": 4000,
+        "originalPrice": 5000
+      }
+    },
+    {
+      "name": "SUMMER (include axila, inghinal total, picioare integral)",
+      "price": 350,
+      "package": {
+        "price": 2800,
+        "originalPrice": 3500
       }
     }
   ],
