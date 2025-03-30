@@ -6,8 +6,8 @@ image: "../../assets/images/servicii/epilare-definitiva-laser.png"
 category: "Epilare Definitivă"
 tags: ["epilare laser", "epilare definitivă", "tratament laser", "îndepărtare păr", "new eride smart dual"]
 price: 500
-oldPrice: 750
-discount: 25
+oldPrice: 700
+discount: 20
 duration: "120-180 minute"
 features:
   - "Tehnologie laser New Eride Smart Dual de ultimă generație"

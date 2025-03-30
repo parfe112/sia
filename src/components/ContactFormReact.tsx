@@ -354,15 +354,28 @@ const ContactFormReact: React.FC = () => {
                       <p className="text-[rgb(var(--text-secondary))]">
                         Str. Antiaeriană 67C, Sector 5, București
                       </p>
-                      <a
-                        href="https://maps.google.com/?q=Str.+Antiaeariană+67C,+București"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center px-3 py-1.5 mt-2 text-sm font-medium bg-[rgb(var(--primary-100))] dark:bg-[rgb(var(--primary-800))] text-[rgb(var(--primary-600))] dark:text-[rgb(var(--primary-300))] rounded-lg hover:bg-[rgb(var(--primary-200))] dark:hover:bg-[rgb(var(--primary-700))] transition-all duration-300"
-                      >
-                        <MapPin className="w-4 h-4 mr-1.5" />
-                        Vezi pe hartă
-                      </a>
+                      <div className="mt-2 flex space-x-2">
+                        <a
+                          href="https://maps.google.com/?q=Str.+Antiaeariană+67C,+București"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center px-3 py-1.5 text-sm font-medium bg-[rgb(var(--primary-100))] dark:bg-[rgb(var(--primary-800))] text-[rgb(var(--primary-600))] dark:text-[rgb(var(--primary-300))] rounded-lg hover:bg-[rgb(var(--primary-200))] dark:hover:bg-[rgb(var(--primary-700))] transition-all duration-300"
+                        >
+                          <MapPin className="w-4 h-4 mr-1.5" />
+                          Google Maps
+                        </a>
+                        <a
+                          href="https://www.waze.com/ul?ll=44.410169,26.052140&navigate=yes&zoom=17"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center px-3 py-1.5 text-sm font-medium bg-blue-100 dark:bg-blue-800 text-blue-600 dark:text-blue-300 rounded-lg hover:bg-blue-200 dark:hover:bg-blue-700 transition-all duration-300"
+                        >
+                          <svg className="w-4 h-4 mr-1.5" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12,1.5c-5.8,0-10.5,4.7-10.5,10.5c0,5.1,3.6,9.4,8.5,10.3v-2.1c-3.8-0.9-6.5-4.3-6.5-8.2c0-4.7,3.8-8.5,8.5-8.5 s8.5,3.8,8.5,8.5c0,3.9-2.7,7.3-6.5,8.2v2.1c4.9-0.9,8.5-5.2,8.5-10.3C22.5,6.2,17.8,1.5,12,1.5z M12.7,15.5 c0,0.4-0.3,0.8-0.7,0.8s-0.7-0.3-0.7-0.8V8c0-0.4,0.3-0.7,0.7-0.7s0.7,0.3,0.7,0.7V15.5z M15.5,10.8c0,0.4-0.3,0.7-0.8,0.7 c-0.4,0-0.7-0.3-0.7-0.7V8c0-0.4,0.3-0.7,0.7-0.7c0.4,0,0.8,0.3,0.8,0.7V10.8z M9.2,10.8c0,0.4-0.3,0.7-0.7,0.7 s-0.8-0.3-0.8-0.7V8c0-0.4,0.3-0.7,0.8-0.7s0.7,0.3,0.7,0.7V10.8z"/>
+                          </svg>
+                          Waze
+                        </a>
+                      </div>
                     </div>
                   </div>
 

@@ -5,10 +5,10 @@ shortDescription: "Ghid complet cu cele mai bune centre de epilare definitivă d
 image: "../../assets/images/servicii/epilare-definitiva-bucuresti.webp"
 category: "Epilare Definitivă"
 tags: ["epilare definitiva bucuresti", "epilare laser bucuresti", "clinici epilare", "preturi epilare", "top saloane bucuresti"]
-price: 200
-oldPrice: 250
+price: 500
+oldPrice: 700
 discount: 20
-duration: "30-60 minute"
+duration: "120-180 minute"
 features:
   - "Analiză comparativă a celor mai bune 5 clinici din București"
   - "Informații complete despre toate tipurile de tehnologii laser"
@@ -161,7 +161,7 @@ Deși procedura este aceeași, nevoile pot varia:
 |---------------------|--------------------------------|----------------------------------|
 | Zone populare       | Inghinal, axilă, picioare      | Spate, piept, abdomen, gât      |
 | Tip fir de păr      | Subțire, mediu                 | Gros, dens                      |
-| Număr de ședințe    | 6-8                            | 8-10 (din cauza pilozității)    |
+| Număr de ședințe    | 8-10                            | 8-10 (din cauza pilozității)    |
 | Sensibilitate       | Mai mare în zona inghinală     | Mai mare în zona gâtului        |
 
 ## Câte ședințe sunt necesare pentru rezultate optime
