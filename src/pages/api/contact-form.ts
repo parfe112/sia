@@ -86,6 +86,44 @@ async function sendResendEmail(name: string, email: string, phone: string): Prom
     // Generate a random voucher code
     const voucherCode = `SIA-${phone.substring(phone.length-4)}-${Math.floor(1000 + Math.random() * 9000)}`;
 
+    // Create plain text version of the email
+    const textContent = `
+VOUCHERUL TAU DE 50% REDUCERE - SIA SKIN CENTER
+------------------------------------------------
+
+Buna, ${name}!
+
+Iti multumim pentru interesul aratat fata de serviciile noastre de epilare definitiva.
+
+------------------------------------------------
+VOUCHER 50% REDUCERE
+------------------------------------------------
+
+Pentru prima sedinta de epilare definitiva Full Body
+
+COD VOUCHER: ${voucherCode}
+
+IMPORTANT: Voucherul nu este inca activat!
+Suna la numarul de telefon 0770 889 907 pentru activare si programare.
+
+Acest voucher este valabil pentru 30 de zile si poate fi utilizat pentru o sedinta 
+de epilare definitiva Full Body.
+
+------------------------------------------------
+CONTACT
+------------------------------------------------
+
+Pentru programari sau intrebari:
+Telefon: 0770 889 907
+Adresa: Strada Antiaeriana 67C, Bucuresti
+
+------------------------------------------------
+
+© 2025 SIA Skin Center. Toate drepturile rezervate.
+
+Acest email a fost trimis catre ${email} deoarece ai solicitat un voucher de reducere.
+`;
+
     const response = await fetch('https://api.resend.com/emails', {
       method: 'POST',
       headers: {
@@ -95,7 +133,7 @@ async function sendResendEmail(name: string, email: string, phone: string): Prom
       body: JSON.stringify({
         from: 'SIA Skin Center <noreply@transactional.siaskincenter.ro>',
         to: [email],
-        bcc: 'admin@siaskincenter.ro',
+        bcc: 'siaskincenter@gmail.com',
         subject: 'Voucherul tau de 50% reducere - SIA Skin Center',
         html: `
           <!DOCTYPE html>
@@ -230,7 +268,8 @@ async function sendResendEmail(name: string, email: string, phone: string): Prom
               </div>
             </body>
           </html>
-        `
+        `,
+        text: textContent
       })
     });
 
