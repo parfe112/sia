@@ -1,0 +1,36 @@
+<script is:inline>
+  // Check if we are in Google Tag Manager preview mode
+  function isGTMPreviewMode() {
+    return window.location.search.includes("gtm_debug");
+  }
+
+  // If preview mode is detected, load GTM normally
+  if (isGTMPreviewMode()) {
+    const gtmScript = document.createElement("script");
+    gtmScript.src = "https://www.googletagmanager.com/gtag/js?id=GTM-M8DW7D24";
+    gtmScript.async = true;
+    document.head.appendChild(gtmScript);
+
+    const gtmInit = document.createElement("script");
+    gtmInit.innerHTML = `
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){ dataLayer.push(arguments); }
+      gtag("js", new Date());
+      gtag("config", "GTM-M8DW7D24");
+    `;
+    document.head.appendChild(gtmInit);
+  }
+</script>
+
+<!-- Default Partytown version for regular users -->
+<script
+  type="text/partytown"
+  src="https://www.googletagmanager.com/gtag/js?id=GTM-M8DW7D24"></script>
+<script type="text/partytown">
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag("js", new Date());
+  gtag("config", "GTM-M8DW7D24");
+</script>

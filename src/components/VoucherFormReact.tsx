@@ -56,14 +56,35 @@ const VoucherFormReact: React.FC = () => {
     // Start processing animation
     setSubmitStatus(SubmitStatus.Processing);
 
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+    try {
+      // Call our API endpoint
+      const response = await fetch("/api/contact-form", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formState),
+      });
 
-    // Show success state
-    setSubmitStatus(SubmitStatus.Success);
+      const result = await response.json();
 
-    // Reduce vouchers count
-    setVouchersLeft((prev) => Math.max(prev - 1, 0));
+      if (result.success) {
+        // Show success state
+        setSubmitStatus(SubmitStatus.Success);
+        // Reduce vouchers count
+        setVouchersLeft((prev) => Math.max(prev - 1, 0));
+      } else {
+        // Handle error
+        alert(
+          result.message || "A apărut o eroare. Te rugăm să încerci din nou."
+        );
+        setSubmitStatus(SubmitStatus.Idle);
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      alert("A apărut o eroare de rețea. Te rugăm să încerci din nou.");
+      setSubmitStatus(SubmitStatus.Idle);
+    }
   };
 
   // Animation variants

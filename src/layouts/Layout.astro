@@ -2,6 +2,7 @@
 import "@diadal/aos/dist/css/aos.css";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import Analytics from "../components/Analytics.astro";
 
 interface Props {
   title?: string;
@@ -31,6 +32,7 @@ import "../styles/global.css";
     <link rel="manifest" href="/site.webmanifest" />
 
     <meta name="generator" content={Astro.generator} />
+    <Analytics />
     <title>{title}</title>
     <meta name="description" content={description} />
 
@@ -80,9 +82,7 @@ import "../styles/global.css";
     <Header />
     <slot />
     <Footer />
-  </body>
-
-  <style>
+  </body><style>
     html,
     body {
       margin: 0;
