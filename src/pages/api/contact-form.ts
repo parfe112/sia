@@ -264,7 +264,7 @@ async function sendSlackNotification(name: string, email: string, phone: string)
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          text: `🎫 *Nou voucher solicitat!* \n*Nume:* ${name} \n*Email:* ${email} \n*Telefon:* ${phone} \n*Data:* ${new Date().toLocaleString('ro-RO')}`,
+          text: `🎫 SIA Skin Center - *Nou voucher solicitat!* \n*Nume:* ${name} \n*Email:* ${email} \n*Telefon:* ${phone} \n*Data:* ${new Date().toLocaleString('ro-RO')}`,
         })
       });
   
