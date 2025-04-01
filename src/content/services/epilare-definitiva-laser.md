@@ -87,7 +87,7 @@ Majoritatea clienților noștri observă:
 Nu. Tehnologia New Eride Smart Dual include un sistem avansat de răcire care face procedura confortabilă. Majoritatea clienților descriu senzația ca un mic ciupit elastic.
 
 ### Câte ședințe sunt necesare?
-Pentru rezultate optime, recomandăm 8-10 ședințe la interval de 4-6 săptămâni. Numărul exact depinde de zona tratată și de tipul de păr.
+Pentru rezultate optime, recomandăm 8-10 ședințe la interval de 5-7 săptămâni. Numărul exact depinde de zona tratată și de tipul de păr.
 
 ### Este sigură pentru pielea mea?
 Da. [Tehnologia noastră](/blog/tipuri-piele-epilare-laser) este sigură pentru toate tipurile de piele, inclusiv pielea bronzată sau sensibilă.

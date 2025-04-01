@@ -71,8 +71,8 @@ const ContactFormReact: React.FC = () => {
       const result = await response.json();
 
       if (result.success) {
-        // Show success state
-        setSubmitStatus(SubmitStatus.Success);
+    // Show success state
+    setSubmitStatus(SubmitStatus.Success);
       } else {
         // Handle error
         alert(
@@ -377,13 +377,13 @@ const ContactFormReact: React.FC = () => {
                         Str. Antiaeriană 67C, Sector 5, București
                       </p>
                       <div className="mt-2 flex space-x-2">
-                        <a
-                          href="https://maps.google.com/?q=Str.+Antiaeariană+67C,+București"
-                          target="_blank"
-                          rel="noopener noreferrer"
+                      <a
+                        href="https://maps.google.com/?q=Str.+Antiaeariană+67C,+București"
+                        target="_blank"
+                        rel="noopener noreferrer"
                           className="inline-flex items-center px-3 py-1.5 text-sm font-medium bg-[rgb(var(--primary-100))] dark:bg-[rgb(var(--primary-800))] text-[rgb(var(--primary-600))] dark:text-[rgb(var(--primary-300))] rounded-lg hover:bg-[rgb(var(--primary-200))] dark:hover:bg-[rgb(var(--primary-700))] transition-all duration-300"
-                        >
-                          <MapPin className="w-4 h-4 mr-1.5" />
+                      >
+                        <MapPin className="w-4 h-4 mr-1.5" />
                           Google Maps
                         </a>
                         <a
