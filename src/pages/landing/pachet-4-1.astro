@@ -1,0 +1,29 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Pachet41Offer from "../../components/landing/Pachet41Offer";
+
+const title = "Ofertă Specială 4+1 Epilare Laser | SIA Skin Center";
+const description =
+  "Pachet special 4+1: plătești 4 ședințe și primești 1 GRATIS! Full Body la 2000 lei în loc de 2500 lei și pachet Summer la 1400 lei în loc de 1800 lei. Consultație gratuită inclusă!";
+---
+
+<Layout title={title} description={description}>
+  <section
+    class="relative py-24 px-7 sm:px-0 sm:py-28 md:py-32 bg-gradient-to-b from-[rgb(var(--primary-50))] to-[rgb(var(--background))] dark:from-[rgb(var(--primary-200))] dark:to-[rgb(var(--background))] overflow-hidden transition-theme"
+  >
+    <!-- Background decorative elements -->
+    <div
+      class="absolute top-0 right-0 w-1/3 h-1/3 bg-[rgb(var(--primary-100))] dark:bg-[rgb(var(--primary-700))]/30 opacity-30 dark:opacity-20 rounded-bl-full -z-10"
+    >
+    </div>
+    <div
+      class="absolute bottom-0 left-0 w-1/4 h-1/4 bg-[rgb(var(--secondary-400))] opacity-10 rounded-tr-full -z-10"
+    >
+    </div>
+
+    <div class="container mx-auto px-3 sm:px-4">
+      <!-- New Pachet41Offer Component -->
+      <Pachet41Offer client:only="react" />
+    </div>
+  </section>
+</Layout>

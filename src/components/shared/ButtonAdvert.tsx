@@ -7,6 +7,7 @@ interface ButtonAdvertProps {
   discountAmount?: string;
   limitedText?: string;
   target?: string;
+  onClick?: () => void;
 }
 
 export default function ButtonAdvert({
@@ -16,7 +17,15 @@ export default function ButtonAdvert({
   discountAmount = "50%",
   limitedText = "Ofertă limitată • Locuri limitate",
   target = "_self",
+  onClick,
 }: ButtonAdvertProps) {
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (onClick) {
+      e.preventDefault();
+      onClick();
+    }
+  };
+
   return (
     <div className="relative max-w-md w-full" style={{ marginBottom: "18px" }}>
       {/* Rotating gradient border - with animation */}
@@ -27,6 +36,7 @@ export default function ButtonAdvert({
       <motion.a
         href={href}
         target={target}
+        onClick={handleClick}
         className="relative z-10 group flex items-center justify-between bg-[rgb(var(--primary-100))] hover:bg-[rgb(var(--primary-200))] dark:bg-amber-300 dark:hover:bg-amber-200 text-[rgb(var(--primary-900))] dark:text-gray-900 font-bold px-6 py-5 rounded-2xl text-lg md:text-xl transition-colors duration-300 shadow-lg hover:shadow-xl overflow-hidden w-full"
         whileHover={{
           y: -5,
