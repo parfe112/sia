@@ -13,18 +13,6 @@ export default defineConfig({
       // Example: Add dataLayer.push as a forwarding-event.
       config: {
         forward: ["dataLayer.push"],
-        debug: false, // Disable debug mode to reduce CORS issues
-        resolveUrl: (url) => {
-          // Handle Google domains for better CORS behavior
-          if (
-            url.hostname.includes("google") &&
-            url.pathname.includes("sw_iframe.html")
-          ) {
-            const proxyUrl = new URL(url);
-            return proxyUrl;
-          }
-          return url;
-        },
       },
     }),
   ],
