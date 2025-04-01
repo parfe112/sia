@@ -3,7 +3,6 @@ import { defineConfig } from "astro/config";
 import tailwindcss from "@tailwindcss/vite";
 import node from "@astrojs/node";
 import react from "@astrojs/react";
-
 import partytown from "@astrojs/partytown";
 
 // https://astro.build/config
@@ -11,65 +10,20 @@ export default defineConfig({
   integrations: [
     react(),
     partytown({
+      // Example: Add dataLayer.push as a forwarding-event.
       config: {
-        debug: true, // Enable debug mode to see more information
-        forward: [
-          "dataLayer.push",
-          "gtag",
-          "ga",
-          "google_tag_manager",
-          "googletag",
-        ],
-        resolveUrl: (url, location, type) => {
-          // Handle Google-specific domains
-          const googleUrls = [
-            "googleads.g.doubleclick.net",
-            "www.googletagmanager.com",
-            "www.googleadservices.com",
-            "googletagservices.com",
-            "www.google-analytics.com",
-            "stats.g.doubleclick.net",
-          ];
-
-          // Check if the URL is from a Google domain
-          if (googleUrls.some((domain) => url.hostname.includes(domain))) {
-            // Special handling for service_worker URLs
-            if (
-              url.href.includes("service_worker") ||
-              url.href.includes("sw_iframe")
-            ) {
-              // Create a new URL object with specific attributes for service workers
-              const newUrl = new URL(url.href);
-
-              // Set multiple properties for handling service workers
-              Object.defineProperties(newUrl, {
-                proxy: {
-                  value: true,
-                  writable: true,
-                  configurable: true,
-                },
-                noCors: {
-                  value: true,
-                  writable: true,
-                  configurable: true,
-                },
-              });
-
-              return newUrl;
-            }
-
-            // Standard handling for other Google URLs
-            const newUrl = new URL(url.href);
-            Object.defineProperty(newUrl, "proxy", {
-              value: true,
-              writable: true,
-              configurable: true,
-            });
-            return newUrl;
+        forward: ["dataLayer.push"],
+        debug: false, // Disable debug mode to reduce CORS issues
+        resolveUrl: (url) => {
+          // Handle Google domains for better CORS behavior
+          if (
+            url.hostname.includes("google") &&
+            url.pathname.includes("sw_iframe.html")
+          ) {
+            const proxyUrl = new URL(url);
+            return proxyUrl;
           }
-
-          // Default handling for other URLs
-          return undefined; // Let Partytown handle it normally
+          return url;
         },
       },
     }),
