@@ -12,8 +12,8 @@ interface ButtonAdvertProps {
 
 export default function ButtonAdvert({
   href = "/landing/pachet-4-1",
-  mainText = "REZERVĂ",
-  subText = "Pachet 4-1 doar 250 RON de la 500 RON",
+  mainText = "REZERVĂ ACUM",
+  subText = "La 4 ședințe primești 1 ședință gratuit ✅",
   discountAmount = "20%",
   limitedText = "Ofertă limitată • Locuri limitate",
   target = "_self",
