@@ -236,7 +236,7 @@ const Pachet41Offer: React.FC = () => {
           <div className="flex items-center">
             <Clock className="w-5 h-5 text-[rgb(var(--primary-600))] mr-2" />
             <span className="text-sm text-[rgb(var(--text-secondary))]">
-              Valabilitate ofertă: <b>5 zile</b>
+              Valabilitate ofertă: <b>10 zile</b>
             </span>
           </div>
         </div>

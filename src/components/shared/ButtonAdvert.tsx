@@ -11,10 +11,10 @@ interface ButtonAdvertProps {
 }
 
 export default function ButtonAdvert({
-  href = "/landing/contact-page",
-  mainText = "DESCARCĂ VOUCHERUL",
-  subText = "Epilare FULL BODY doar 250 RON de la 500 RON",
-  discountAmount = "50%",
+  href = "/landing/pachet-4-1",
+  mainText = "REZERVĂ",
+  subText = "Pachet 4-1 doar 250 RON de la 500 RON",
+  discountAmount = "20%",
   limitedText = "Ofertă limitată • Locuri limitate",
   target = "_self",
   onClick,
