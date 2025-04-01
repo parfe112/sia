@@ -1,11 +1,38 @@
-<!-- Default Partytown version for regular users -->
-<script is:inline src="https://www.googletagmanager.com/gtag/js?id=GTM-M8DW7D24"
-></script>
-<script is:inline>
-  window.dataLayer = window.dataLayer || [];
-  function gtag() {
-    dataLayer.push(arguments);
-  }
-  gtag("js", new Date());
-  gtag("config", "GTM-M8DW7D24");
-</script>
+---
+// Detect if in dev mode - CORS issues only happen in development
+const isDev = import.meta.env.DEV;
+---
+
+{isDev ? (
+  <>
+    <!-- Development version - runs inline to avoid CORS -->
+    <script
+      is:inline
+      src="https://www.googletagmanager.com/gtag/js?id=GTM-M8DW7D24"
+    ></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "GTM-M8DW7D24");
+    </script>
+  </>
+) : (
+  <>
+    <!-- Production version - uses Partytown for better performance -->
+    <script
+      type="text/partytown"
+      src="https://www.googletagmanager.com/gtag/js?id=GTM-M8DW7D24"
+    ></script>
+    <script type="text/partytown">
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "GTM-M8DW7D24");
+    </script>
+  </>
+)}
