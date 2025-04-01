@@ -1,3 +1,29 @@
+<!-- Partytown Configuration - Must be placed before any other Partytown scripts -->
+<script is:inline>
+  partytown = {
+    forward: ["dataLayer.push"],
+    resolveUrl: function (url, location) {
+      // Handle GTM requests that might trigger CORS errors
+      if (
+        url.hostname === "www.googletagmanager.com" &&
+        (url.pathname.includes("/gtag/js") || url.pathname.includes("/gtm.js"))
+      ) {
+        // Create a new URL using location (which is passed by partytown)
+        const proxyUrl = new URL("/~partytown/debug/gtm", location);
+        proxyUrl.searchParams.append("url", url.href);
+        return proxyUrl;
+      }
+      // Handle debug/bootstrap requests which commonly cause CORS errors
+      if (url.pathname.includes("/debug/bootstrap")) {
+        const proxyUrl = new URL("/~partytown/debug/bootstrap", location);
+        proxyUrl.searchParams.append("url", url.href);
+        return proxyUrl;
+      }
+      return url;
+    },
+  };
+</script>
+
 <script is:inline>
   // Check if we are in Google Tag Manager preview mode
   function isGTMPreviewMode() {

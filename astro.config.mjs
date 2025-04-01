@@ -10,9 +10,10 @@ export default defineConfig({
   integrations: [
     react(),
     partytown({
-      // Example: Add dataLayer.push as a forwarding-event.
+      // Configure Partytown for Google Tag Manager
       config: {
         forward: ["dataLayer.push"],
+        debug: true,
       },
     }),
   ],
