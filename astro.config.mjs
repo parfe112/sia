@@ -12,6 +12,7 @@ export default defineConfig({
     react(),
     partytown({
       config: {
+        debug: true, // Enable debug mode to see more information
         forward: [
           "dataLayer.push",
           "gtag",
@@ -32,9 +33,33 @@ export default defineConfig({
 
           // Check if the URL is from a Google domain
           if (googleUrls.some((domain) => url.hostname.includes(domain))) {
-            // Create a new URL object to return
+            // Special handling for service_worker URLs
+            if (
+              url.href.includes("service_worker") ||
+              url.href.includes("sw_iframe")
+            ) {
+              // Create a new URL object with specific attributes for service workers
+              const newUrl = new URL(url.href);
+
+              // Set multiple properties for handling service workers
+              Object.defineProperties(newUrl, {
+                proxy: {
+                  value: true,
+                  writable: true,
+                  configurable: true,
+                },
+                noCors: {
+                  value: true,
+                  writable: true,
+                  configurable: true,
+                },
+              });
+
+              return newUrl;
+            }
+
+            // Standard handling for other Google URLs
             const newUrl = new URL(url.href);
-            // Set proxy property using defineProperty since URL doesn't have this property natively
             Object.defineProperty(newUrl, "proxy", {
               value: true,
               writable: true,
