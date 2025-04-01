@@ -11,9 +11,41 @@ export default defineConfig({
   integrations: [
     react(),
     partytown({
-      // Example: Add dataLayer.push as a forwarding-event.
       config: {
-        forward: ["dataLayer.push"],
+        forward: [
+          "dataLayer.push",
+          "gtag",
+          "ga",
+          "google_tag_manager",
+          "googletag",
+        ],
+        resolveUrl: (url, location, type) => {
+          // Handle Google-specific domains
+          const googleUrls = [
+            "googleads.g.doubleclick.net",
+            "www.googletagmanager.com",
+            "www.googleadservices.com",
+            "googletagservices.com",
+            "www.google-analytics.com",
+            "stats.g.doubleclick.net",
+          ];
+
+          // Check if the URL is from a Google domain
+          if (googleUrls.some((domain) => url.hostname.includes(domain))) {
+            // Create a new URL object to return
+            const newUrl = new URL(url.href);
+            // Set proxy property using defineProperty since URL doesn't have this property natively
+            Object.defineProperty(newUrl, "proxy", {
+              value: true,
+              writable: true,
+              configurable: true,
+            });
+            return newUrl;
+          }
+
+          // Default handling for other URLs
+          return undefined; // Let Partytown handle it normally
+        },
       },
     }),
   ],
