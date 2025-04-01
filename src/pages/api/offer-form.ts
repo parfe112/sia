@@ -158,7 +158,7 @@ Data cererii: ${new Date().toLocaleString('ro-RO')}
       },
       body: JSON.stringify({
         from: 'Oferte SIA <noreply@transactional.siaskincenter.ro>',
-        to: ['mrtornado@gmail.com'],
+        to: ['siaskincenter@gmail.com'],
         reply_to: data.email,
         subject: `Cerere nouă - Ofertă ${offerName}`,
         html: htmlContent,
