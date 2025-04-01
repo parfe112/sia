@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Check } from "lucide-react";
 
 interface ButtonAdvertProps {
   href?: string;
@@ -13,7 +14,7 @@ interface ButtonAdvertProps {
 export default function ButtonAdvert({
   href = "/landing/pachet-4-1",
   mainText = "REZERVĂ ACUM",
-  subText = "La 4 ședințe primești 1 ședință gratuit ✅",
+  subText = "La 4 ședințe primești 1 ședință gratuit",
   discountAmount = "20%",
   limitedText = "Ofertă limitată • Locuri limitate",
   target = "_self",
@@ -55,12 +56,8 @@ export default function ButtonAdvert({
         {/* Inner content */}
         <div className="flex flex-col items-start">
           <div className="flex items-center">
-            <motion.svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6 mr-2 text-[rgb(var(--primary-900))] dark:text-gray-900"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
+            <motion.div
+              className="mr-2 flex items-center justify-center p-1 bg-green-500 dark:bg-green-600 rounded-full"
               animate={{ rotate: [0, 10, 0] }}
               transition={{
                 duration: 2,
@@ -69,13 +66,8 @@ export default function ButtonAdvert({
                 ease: "easeInOut",
               }}
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"
-              ></path>
-            </motion.svg>
+              <Check className="h-5 w-5 text-white" strokeWidth={3} />
+            </motion.div>
 
             <motion.span
               className="ml-4 tracking-wide relative overflow-hidden dark:text-gray-900"
