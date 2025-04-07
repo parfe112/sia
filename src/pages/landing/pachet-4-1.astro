@@ -8,6 +8,41 @@ const description =
 ---
 
 <Layout title={title} description={description}>
+  <!-- Custom Head Script for GTM Conversion Tracking -->
+  <script is:inline slot="head">
+    // Helper function to delay opening a URL until a gtag event is sent.
+    // Call it in response to an action that should navigate to a URL.
+    function gtagSendEvent(url) {
+      var callback = function () {
+        if (typeof url === "string") {
+          window.location = url;
+        }
+      };
+      gtag("event", "ads_conversion_Contact_Us_1", {
+        event_callback: callback,
+        event_timeout: 2000,
+        // <event_parameters>
+      });
+      return false;
+    }
+
+    // Google Ads conversion tracking
+    function gtag_report_conversion(url) {
+      var callback = function () {
+        if (typeof url != "undefined") {
+          window.location = url;
+        }
+      };
+      gtag("event", "conversion", {
+        send_to: "AW-16912616252/ocgNCITT0acaELyWyIA_",
+        value: 1.0,
+        currency: "RON",
+        event_callback: callback,
+      });
+      return false;
+    }
+  </script>
+
   <section
     class="relative py-24 px-7 sm:px-0 sm:py-28 md:py-32 bg-gradient-to-b from-[rgb(var(--primary-50))] to-[rgb(var(--background))] dark:from-[rgb(var(--primary-200))] dark:to-[rgb(var(--background))] overflow-hidden transition-theme"
   >
