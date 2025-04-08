@@ -58,30 +58,21 @@ import "../styles/global.css";
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content="/og-image.jpg" />
 
-    <!-- Theme script to prevent flashing -->
-    <script is:inline>
-      // Apply theme immediately to prevent flash
-      (function () {
-        const savedTheme = localStorage.getItem("theme");
-        const prefersDark = window.matchMedia(
-          "(prefers-color-scheme: dark)"
-        ).matches;
-
-        // Set initial theme based on saved preference or system preference
-        if (savedTheme === "dark" || (!savedTheme && prefersDark)) {
-          document.documentElement.classList.add("dark");
-        } else {
-          document.documentElement.classList.remove("dark");
-        }
-      })();
-    </script>
-
     <!-- Custom head content slot -->
     <slot name="head" />
   </head>
   <body
     class="bg-[rgb(var(--background))] text-[rgb(var(--foreground))] font-sans antialiased transition-theme"
   >
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-M8DW7D24"
+        height="0"
+        width="0"
+        style="display:none;visibility:hidden"></iframe></noscript
+    >
+    <!-- End Google Tag Manager (noscript) -->
     <Header />
     <slot />
     <Footer />
