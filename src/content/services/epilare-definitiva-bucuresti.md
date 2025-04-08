@@ -98,7 +98,7 @@ Pentru a face alegerea mai ușoară, am analizat câteva dintre cele mai aprecia
 
 - **Tehnologie:** <span style="color: #2e7d32;">New Eride Smart Dual Laser cu 3 lungimi de undă (755, 808, 1064 nm)</span>
 - **Puncte forte:** <span style="color: #2e7d32;">Tratare completă pentru toate tipurile de piele și fir de păr, fără durere, rezultate rapide și durabile</span>
-- **Prețuri:** <span style="color: #2e7d32; font-weight: bold;">Cele mai accesibile din București - doar 90 lei/zonă mică!</span>
+- **Prețuri:** <span style="color: #2e7d32; font-weight: bold;">Cele mai accesibile din București - incepand de la 50 lei!</span>
 - **Recenzii Google:** <span style="color: #2e7d32;">⭐⭐⭐⭐⭐ 5.0</span>
 
 ### 4. Silhouette
@@ -120,7 +120,7 @@ Pentru a face alegerea mai ușoară, am analizat câteva dintre cele mai aprecia
 
 | **Zonă tratată**   | **Nomasvello** | **Soma Clinic** | <span style="color: #2e7d32; font-weight: bold;">**SIA Skin Center**</span> | **Silhouette** | **The Clinic** |
 |--------------------|----------------|------------------|------------------|-----------------|----------------|
-| Axilă              | 120 lei        | 150 lei          | <span style="color: #2e7d32; font-weight: bold;">90 lei</span> | 130 lei         | 180 lei        |
+| Axilă              | 120 lei        | 150 lei          | <span style="color: #2e7d32; font-weight: bold;">50 lei</span> | 130 lei         | 180 lei        |
 | Inghinal           | 150 lei        | 200 lei          | <span style="color: #2e7d32; font-weight: bold;">90 lei</span> | 170 lei         | 220 lei        |
 | Picioare complete  | 400 lei        | 450 lei          | <span style="color: #2e7d32; font-weight: bold;">280 lei</span> | 420 lei         | 480 lei        |
 | Față completă      | 130 lei        | 160 lei          | <span style="color: #2e7d32; font-weight: bold;">90 lei</span> | 150 lei         | 200 lei        |
@@ -170,7 +170,7 @@ Rezultatele se obțin în timp, nu după o singură vizită:
 
 - **8-10 ședințe** – pentru zonele corporale (picioare, axilă, inghinal)
 - **8-10 ședințe** – pentru zonele cu păr gros (spate, piept)
-- **Interval**: La 4-6 săptămâni între ședințe
+- **Interval**: La 5-7 săptămâni între ședințe
 - **Întreținere:** 1-2 ședințe/an pentru menținerea rezultatelor
 
 ## Cum alegi cel mai bun salon de epilare definitivă în București
@@ -222,7 +222,7 @@ Da, cu grijă. Evită expunerea la soare și folosește cremă cu SPF ridicat.
 Minime – roșeață temporară, senzație de arsură ușoară. Respectarea indicațiilor post-tratament minimizează orice disconfort.
 
 ### 5. Se poate face epilare definitivă dacă am pielea bronzată?
-Este recomandat să aștepți 2-3 săptămâni după expunerea la soare pentru a evita riscul de arsuri.
+Este recomandat să aștepți 5-7 zile după expunerea la soare pentru a evita riscul de arsuri.
 
 ### 6. Care este vârsta minimă pentru a începe epilarea definitivă?
 După 16-17 ani, cu acordul părinților. Este ideal ca dezvoltarea hormonală să fie stabilă.

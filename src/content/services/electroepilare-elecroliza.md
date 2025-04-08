@@ -5,11 +5,17 @@ shortDescription: "Serviciu profesional de electroepilare – ideal pentru epila
 image: "../../assets/images/servicii/electroepilare-elecroliza.jpg"
 category: "Epilare Definitivă"
 tags: ["electroepilare", "electroliză", "epilare definitivă", "epilare sprâncene", "epilare față"]
-price: 150
-oldPrice: 200
+price: 80
+oldPrice: 120
 discount: 25
-duration: "45-90 minute"
+duration: "15-120 minute"
 features:
+  - "15 min. - 80 lei"
+  - "30 min. - 150 lei"
+  - "60 min. - 270 lei"
+  - "90 min. - 400 lei"
+  - "120 min. - 500 lei"
+  - "Electroepilarea este 100% definitivă!" 
   - "Metodă aprobată medical, recomandată pentru toate tipurile de păr (inclusiv alb, roșcat, blond)"
   - "Rezultate definitive prin distrugerea foliculului pilo-sebaceu"
   - "Ideală pentru zone mici, sensibile: față, sprâncene, axilă, linia inghinală"
@@ -18,13 +24,14 @@ features:
 featured: true
 order: 3
 schemaType: "Service"
+
 ---
 
 # Electroepilare (Electroliză) – Epilare Definitivă de Precizie
 
 Electroepilarea este singura metodă de **epilare definitivă 100% eficientă** pentru toate tipurile de fir de păr: inclusiv alb, blond, roșcat sau foarte fin, care nu poate fi tratat cu laser.
 
-La **SiaSkinCenter**, folosim aparatură profesională de ultimă generație – Apilus Junior 3G, unul dintre cele mai performante echipamente de electroepilare disponibile pe piață. Tehnologia sa avansată permite o distrugere precisă și definitivă a foliculului pilos, cu un grad minim de disconfort. Combinată cu expertiza personalului nostru specializat, această tehnologie garantează rezultate sigure, estetice și de lungă durată, indiferent de tipul de păr sau piele.
+La **SiaSkinCenter**, folosim aparatură profesională de ultimă generație și lucrăm exclusiv cu personal specializat, pentru ca tu să te bucuri de rezultate sigure, estetice și de durată.
 
 ## ✅ Cui se adresează electroepilarea?
 - Persoanelor care doresc eliminarea definitivă a firelor de păr din zone sensibile

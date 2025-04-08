@@ -30,7 +30,7 @@ Dispozitivele moderne sunt dotate cu sisteme de răcire care reduc considerabil 
 
 ### Realitatea despre sesiunile multiple și întreținerea
 
-Un alt mit comun este ideea că o singură ședință de epilare laser va elimina definitiv tot părul. De fapt, epilarea laser distruge foliculii activi în momentul tratamentului, iar părul crește în cicluri. Sunt necesare între 6 și 8 ședințe, în medie, pentru rezultate optime. După aceea, este posibilă o ședință anuală de întreținere.
+Un alt mit comun este ideea că o singură ședință de epilare laser va elimina definitiv tot părul. De fapt, epilarea laser distruge foliculii activi în momentul tratamentului, iar părul crește în cicluri. Sunt necesare între 8 și 10 ședințe, în medie, pentru rezultate optime. După aceea, este posibilă o ședință anuală de întreținere.
 
 ## Mitul #3: Epilarea laser este periculoasă pentru piele
 
