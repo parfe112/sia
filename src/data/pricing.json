@@ -82,10 +82,10 @@
     },
     {
       "name": "BIKINI LINE",
-      "price": 50,
+      "price": 90,
       "package": {
-        "price": 400,
-        "originalPrice": 500
+        "price": 900,
+        "originalPrice": 1200
       }
     },
     {
