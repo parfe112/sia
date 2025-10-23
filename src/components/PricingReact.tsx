@@ -10,9 +10,15 @@ interface PriceCardProps {
     price: number;
     originalPrice: number;
   };
+  isElectroepilation?: boolean;
 }
 
-const PriceCard: React.FC<PriceCardProps> = ({ name, price, package: pkg }) => {
+const PriceCard: React.FC<PriceCardProps> = ({
+  name,
+  price,
+  package: pkg,
+  isElectroepilation = false,
+}) => {
   // Calculate discount percentage
   const discountPercentage = Math.round(
     ((pkg.originalPrice - pkg.price) / pkg.originalPrice) * 100
@@ -54,7 +60,7 @@ const PriceCard: React.FC<PriceCardProps> = ({ name, price, package: pkg }) => {
               </div>
               <div>
                 <p className="text-sm text-[rgb(var(--text-secondary))]">
-                  Preț / ședință
+                  {isElectroepilation ? "Preț sesiune" : "Preț / ședință"}
                 </p>
               </div>
             </div>
@@ -65,61 +71,81 @@ const PriceCard: React.FC<PriceCardProps> = ({ name, price, package: pkg }) => {
             </div>
           </div>
 
-          {/* Divider */}
-          <div className="h-px bg-gradient-to-r from-transparent via-[rgb(var(--border))] to-transparent"></div>
+          {!isElectroepilation && (
+            <>
+              {/* Divider */}
+              <div className="h-px bg-gradient-to-r from-transparent via-[rgb(var(--border))] to-transparent"></div>
 
-          {/* Package Price */}
-          <div className="flex items-center justify-between">
-            <div className="flex items-center">
-              <div className="w-10 h-10 rounded-full bg-[rgb(var(--primary-100))] dark:bg-[rgb(var(--primary-900))]/20 flex items-center justify-center mr-4">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5 text-[rgb(var(--primary-600))]"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
-                  />
-                </svg>
+              {/* Package Price */}
+              <div className="flex items-center justify-between">
+                <div className="flex items-center">
+                  <div className="w-10 h-10 rounded-full bg-[rgb(var(--primary-100))] dark:bg-[rgb(var(--primary-900))]/20 flex items-center justify-center mr-4">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-5 w-5 text-[rgb(var(--primary-600))]"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+                      />
+                    </svg>
+                  </div>
+                  <div>
+                    <p className="text-sm text-[rgb(var(--text-secondary))]">
+                      Pachet (10 ședințe)
+                    </p>
+                  </div>
+                </div>
+                <div className="text-right">
+                  <div className="flex items-baseline justify-end">
+                    <p className="text-2xl font-bold text-[rgb(var(--primary-600))]">
+                      {pkg.price}{" "}
+                      <span className="text-sm font-normal">LEI</span>
+                    </p>
+                  </div>
+                  <div className="flex items-center justify-end mt-1">
+                    <p className="text-sm text-[rgb(var(--text-tertiary))] line-through mr-2">
+                      {pkg.originalPrice} LEI
+                    </p>
+                    <span className="inline-block bg-[rgb(var(--primary-100))] dark:bg-[rgb(var(--primary-800))] text-[rgb(var(--primary-700))] dark:text-[rgb(var(--primary-200))] text-xs font-medium px-2 py-0.5 rounded-full">
+                      -{discountPercentage}%
+                    </span>
+                  </div>
+                </div>
               </div>
-              <div>
-                <p className="text-sm text-[rgb(var(--text-secondary))]">
-                  Pachet (10 ședințe)
-                </p>
-              </div>
-            </div>
-            <div className="text-right">
-              <div className="flex items-baseline justify-end">
-                <p className="text-2xl font-bold text-[rgb(var(--primary-600))]">
-                  {pkg.price} <span className="text-sm font-normal">LEI</span>
-                </p>
-              </div>
-              <div className="flex items-center justify-end mt-1">
-                <p className="text-sm text-[rgb(var(--text-tertiary))] line-through mr-2">
-                  {pkg.originalPrice} LEI
-                </p>
-                <span className="inline-block bg-[rgb(var(--primary-100))] dark:bg-[rgb(var(--primary-800))] text-[rgb(var(--primary-700))] dark:text-[rgb(var(--primary-200))] text-xs font-medium px-2 py-0.5 rounded-full">
-                  -{discountPercentage}%
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
 
-        {/* Savings highlight */}
-        <div className="mt-6 bg-[rgb(var(--muted))] dark:bg-[rgb(var(--muted))]/20 rounded-lg p-3 text-center">
-          <p className="text-sm text-green-500">
-            Economisești{" "}
-            <span className="font-bold">
-              {pkg.originalPrice - pkg.price} LEI
-            </span>{" "}
-            cu pachetul
-          </p>
+              {/* Savings highlight */}
+              <div className="mt-6 bg-[rgb(var(--muted))] dark:bg-[rgb(var(--muted))]/20 rounded-lg p-3 text-center">
+                <p className="text-sm text-green-500">
+                  Economisești{" "}
+                  <span className="font-bold">
+                    {pkg.originalPrice - pkg.price} LEI
+                  </span>{" "}
+                  cu pachetul
+                </p>
+              </div>
+            </>
+          )}
+
+          {isElectroepilation && (
+            <div className="mt-2 bg-[rgb(var(--muted))] dark:bg-[rgb(var(--muted))]/20 rounded-lg p-3 text-center">
+              <p className="text-sm text-[rgb(var(--text-secondary))]">
+                Preț cu discount de{" "}
+                <span className="font-bold text-[rgb(var(--primary-600))]">
+                  25%
+                </span>{" "}
+                aplicat
+              </p>
+              <p className="text-xs text-[rgb(var(--text-tertiary))] mt-1 line-through">
+                Preț original: {pkg.originalPrice} LEI
+              </p>
+            </div>
+          )}
         </div>
       </div>
     </motion.div>
@@ -127,13 +153,18 @@ const PriceCard: React.FC<PriceCardProps> = ({ name, price, package: pkg }) => {
 };
 
 export default function PricingReact() {
+  const [serviceType, setServiceType] = useState<
+    "laserEpilation" | "electroepilation"
+  >("laserEpilation");
   const [activeTab, setActiveTab] = useState<"women" | "men">("women");
   const [searchTerm, setSearchTerm] = useState("");
-  const [filteredItems, setFilteredItems] = useState(pricingData.women);
+  const [filteredItems, setFilteredItems] = useState(
+    pricingData.laserEpilation.women
+  );
 
   useEffect(() => {
-    // Update filtered items when tab or search term changes
-    const currentData = pricingData[activeTab];
+    // Update filtered items when service type, tab or search term changes
+    const currentData = pricingData[serviceType][activeTab];
 
     if (searchTerm.trim() === "") {
       setFilteredItems(currentData);
@@ -144,7 +175,7 @@ export default function PricingReact() {
       );
       setFilteredItems(filtered);
     }
-  }, [searchTerm, activeTab]);
+  }, [searchTerm, activeTab, serviceType]);
 
   const fadeInUp = {
     hidden: { opacity: 0, y: 20 },
@@ -157,6 +188,8 @@ export default function PricingReact() {
       },
     },
   };
+
+  const isElectroepilation = serviceType === "electroepilation";
 
   return (
     <div className="py-16 bg-[rgb(var(--background))] transition-theme">
@@ -176,11 +209,44 @@ export default function PricingReact() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            Oferim servicii premium de epilare definitivă cu laser pentru toate
-            tipurile de piele, la prețuri accesibile.
+            Oferim servicii premium de epilare definitivă cu laser și
+            electroepilare pentru toate tipurile de piele, la prețuri
+            accesibile.
           </motion.p>
           <div className="mt-16 flex justify-center">
             <ButtonAdvert />
+          </div>
+        </div>
+
+        {/* Service Type Tabs */}
+        <div className="flex justify-center mb-8">
+          <div className="bg-[rgb(var(--muted))] dark:bg-[rgb(var(--card))]/30 p-1 rounded-full inline-flex">
+            <button
+              className={`px-8 py-3 rounded-full text-sm font-medium transition-theme ${
+                serviceType === "laserEpilation"
+                  ? "bg-[rgb(var(--primary-600))] text-white shadow-lg"
+                  : "text-[rgb(var(--text-secondary))] hover:text-[rgb(var(--text-primary))]"
+              }`}
+              onClick={() => {
+                setServiceType("laserEpilation");
+                setSearchTerm("");
+              }}
+            >
+              Epilare Definitivă cu Laser
+            </button>
+            <button
+              className={`px-8 py-3 rounded-full text-sm font-medium transition-theme ${
+                serviceType === "electroepilation"
+                  ? "bg-[rgb(var(--primary-600))] text-white shadow-lg"
+                  : "text-[rgb(var(--text-secondary))] hover:text-[rgb(var(--text-primary))]"
+              }`}
+              onClick={() => {
+                setServiceType("electroepilation");
+                setSearchTerm("");
+              }}
+            >
+              Electroepilare
+            </button>
           </div>
         </div>
 
@@ -209,6 +275,10 @@ export default function PricingReact() {
                 setActiveTab("men");
                 setSearchTerm("");
               }}
+              disabled={
+                isElectroepilation &&
+                pricingData.electroepilation.men.length === 0
+              }
             >
               Bărbați
             </button>
@@ -234,7 +304,11 @@ export default function PricingReact() {
             <input
               type="text"
               className="block w-full pl-10 pr-4 py-2 border border-[rgb(var(--border))] rounded-full bg-[rgb(var(--background))] text-[rgb(var(--text-primary))] placeholder-[rgb(var(--text-tertiary))] focus:outline-none focus:ring-2 focus:ring-[rgb(var(--primary-600))] focus:border-transparent transition-theme"
-              placeholder="Caută zona de epilare..."
+              placeholder={
+                isElectroepilation
+                  ? "Caută durata..."
+                  : "Caută zona de epilare..."
+              }
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             />
@@ -284,17 +358,21 @@ export default function PricingReact() {
               />
             </svg>
             <h3 className="text-xl mt-4 text-[rgb(var(--text-primary))]">
-              Nu am găsit rezultate pentru "{searchTerm}"
+              {isElectroepilation && activeTab === "men"
+                ? "Electroepilarea este disponibilă doar pentru femei"
+                : `Nu am găsit rezultate pentru "${searchTerm}"`}
             </h3>
-            <p className="text-[rgb(var(--text-secondary))] mt-2 max-w-md mx-auto">
-              Încearcă alt termen de căutare sau{" "}
-              <button
-                className="text-[rgb(var(--primary-600))] hover:text-[rgb(var(--primary-700))] transition-theme"
-                onClick={() => setSearchTerm("")}
-              >
-                vezi toate serviciile
-              </button>
-            </p>
+            {!isElectroepilation && (
+              <p className="text-[rgb(var(--text-secondary))] mt-2 max-w-md mx-auto">
+                Încearcă alt termen de căutare sau{" "}
+                <button
+                  className="text-[rgb(var(--primary-600))] hover:text-[rgb(var(--primary-700))] transition-theme"
+                  onClick={() => setSearchTerm("")}
+                >
+                  vezi toate serviciile
+                </button>
+              </p>
+            )}
           </motion.div>
         ) : (
           <motion.div
@@ -302,7 +380,7 @@ export default function PricingReact() {
             variants={fadeInUp}
             initial="hidden"
             animate="visible"
-            key={activeTab + searchTerm} // Force re-animate when tab or search changes
+            key={serviceType + activeTab + searchTerm} // Force re-animate when service type, tab or search changes
           >
             {filteredItems.map((item, index) => (
               <PriceCard
@@ -310,6 +388,7 @@ export default function PricingReact() {
                 name={item.name}
                 price={item.price}
                 package={item.package}
+                isElectroepilation={isElectroepilation}
               />
             ))}
           </motion.div>
@@ -347,8 +426,9 @@ export default function PricingReact() {
                   Ședințe recomandate
                 </h4>
                 <p className="text-[rgb(var(--text-secondary))]">
-                  Pentru a obține cele mai bune rezultate, recomandăm 6-10
-                  ședințe, în funcție de zona tratată și de tipul de păr.
+                  {isElectroepilation
+                    ? "Pentru electroepilare, numărul de ședințe variază în funcție de zona tratată și de densitatea părului. Consultația gratuită vă va ajuta să determinați planul optim."
+                    : "Pentru a obține cele mai bune rezultate, recomandăm 6-10 ședințe, în funcție de zona tratată și de tipul de păr."}
                 </p>
               </div>
             </div>
@@ -371,11 +451,14 @@ export default function PricingReact() {
               </div>
               <div>
                 <h4 className="font-bold text-lg mb-2 text-[rgb(var(--text-primary))]">
-                  Intervale între ședințe
+                  {isElectroepilation
+                    ? "Durata sesiunii"
+                    : "Intervale între ședințe"}
                 </h4>
                 <p className="text-[rgb(var(--text-secondary))]">
-                  Intervalele recomandate între ședințe sunt de 4-6 săptămâni,
-                  în funcție de zona tratată și de rezultatele obținute.
+                  {isElectroepilation
+                    ? "Sesiunile de electroepilare durează între 15-120 minute, în funcție de zona tratată și de planul stabilit împreună cu specialistul."
+                    : "Intervalele recomandate între ședințe sunt de 4-6 săptămâni, în funcție de zona tratată și de rezultatele obținute."}
                 </p>
               </div>
             </div>
@@ -401,9 +484,9 @@ export default function PricingReact() {
                   Garanția rezultatelor
                 </h4>
                 <p className="text-[rgb(var(--text-secondary))]">
-                  Garantăm rezultate vizibile după primele 3 ședințe, cu o
-                  reducere de 70-90% a părului în zona tratată la finalul
-                  pachetului.
+                  {isElectroepilation
+                    ? "Electroepilarea este singura metodă 100% definitivă aprobată de FDA. Garantăm distrugerea permanentă a foliculilor tratați."
+                    : "Garantăm rezultate vizibile după primele 3 ședințe, cu o reducere de 70-90% a părului în zona tratată la finalul pachetului."}
                 </p>
               </div>
             </div>
@@ -430,7 +513,8 @@ export default function PricingReact() {
                 </h4>
                 <p className="text-[rgb(var(--text-secondary))]">
                   Acceptăm plata cu cardul, în numerar sau prin transfer bancar.
-                  Pachetele pot fi achitate integral sau în rate.
+                  {!isElectroepilation &&
+                    " Pachetele pot fi achitate integral sau în rate."}
                 </p>
               </div>
             </div>
