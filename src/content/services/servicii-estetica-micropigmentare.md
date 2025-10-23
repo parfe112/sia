@@ -26,10 +26,9 @@ features:
   - "Rezultate naturale și durabile"
   - "Consultanță estetică inclusă"
 featured: true
-order: 1
+order: 3
 schemaType: "Service"
 ---
-
 
 ### 🌿 Servicii de estetică & micropigmentare:
 
@@ -55,4 +54,3 @@ Descoperă toate serviciile și programează-te direct pe [andrabrows.ro](https:
 
 7. **Laminare gene (Lash Lift)**  
    – Îndreptare și ridicare naturală a genelor, cu efect de alungire și curbă, fără extensii.
-

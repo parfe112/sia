@@ -24,7 +24,7 @@ features:
   - "Recomandări personalizate pentru fiecare tip de piele"
   - "Informații despre numărul necesar de ședințe"
 featured: true
-order: 3
+order: 4
 schemaType: "Service"
 ---
 

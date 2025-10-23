@@ -3,6 +3,7 @@ import "@diadal/aos/dist/css/aos.css";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import Analytics from "../components/Analytics.astro";
+import PromotionPopup from "../components/shared/PromotionPopup";
 
 interface Props {
   title?: string;
@@ -76,6 +77,7 @@ import "../styles/global.css";
     <Header />
     <slot />
     <Footer />
+    <PromotionPopup client:load />
   </body><style>
     html,
     body {
