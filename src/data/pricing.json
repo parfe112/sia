@@ -143,6 +143,46 @@
         "price": 2800,
         "originalPrice": 3500
       }
+    },
+    {
+      "name": "ELECTROEPILARE 15 MIN",
+      "price": 80,
+      "package": {
+        "price": 80,
+        "originalPrice": 107
+      }
+    },
+    {
+      "name": "ELECTROEPILARE 30 MIN",
+      "price": 150,
+      "package": {
+        "price": 150,
+        "originalPrice": 200
+      }
+    },
+    {
+      "name": "ELECTROEPILARE 60 MIN",
+      "price": 270,
+      "package": {
+        "price": 270,
+        "originalPrice": 360
+      }
+    },
+    {
+      "name": "ELECTROEPILARE 90 MIN",
+      "price": 400,
+      "package": {
+        "price": 400,
+        "originalPrice": 533
+      }
+    },
+    {
+      "name": "ELECTROEPILARE 120 MIN",
+      "price": 500,
+      "package": {
+        "price": 500,
+        "originalPrice": 667
+      }
     }
   ],
   "men": [
