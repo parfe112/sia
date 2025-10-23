@@ -7,27 +7,41 @@ export default function PromotionPopup() {
   const [hasSeenPopup, setHasSeenPopup] = useState(false);
 
   useEffect(() => {
-    // Check if user has already seen the popup in this session
-    const seen = sessionStorage.getItem("promotionPopupSeen");
+    // Check if user has already seen the popup and when
+    const seenTimestamp = sessionStorage.getItem("promotionPopupSeen");
+    const now = Date.now();
 
-    if (!seen) {
-      // Show popup after 3 seconds
-      const timer = setTimeout(() => {
-        setIsOpen(true);
-      }, 3000);
+    if (seenTimestamp) {
+      const timeSinceSeen = now - parseInt(seenTimestamp, 10);
+      const oneMinute = 60 * 1000; // 1 minute in milliseconds
 
-      return () => clearTimeout(timer);
+      // If more than 1 minute has passed, show popup again
+      if (timeSinceSeen > oneMinute) {
+        sessionStorage.removeItem("promotionPopupSeen");
+      } else {
+        // Still within 1 minute, don't show popup
+        return;
+      }
     }
+
+    // Show popup after 3 seconds
+    const timer = setTimeout(() => {
+      setIsOpen(true);
+    }, 3000);
+
+    return () => clearTimeout(timer);
   }, []);
 
   const handleClose = () => {
     setIsOpen(false);
-    sessionStorage.setItem("promotionPopupSeen", "true");
+    // Store current timestamp
+    sessionStorage.setItem("promotionPopupSeen", Date.now().toString());
     setHasSeenPopup(true);
   };
 
   const handleCTAClick = () => {
-    sessionStorage.setItem("promotionPopupSeen", "true");
+    // Store current timestamp
+    sessionStorage.setItem("promotionPopupSeen", Date.now().toString());
     window.location.href = "/contact";
   };
 
@@ -64,7 +78,7 @@ export default function PromotionPopup() {
               {/* Close Button */}
               <button
                 onClick={handleClose}
-                className="absolute top-4 right-4 z-10 p-2 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-sm transition-all"
+                className="absolute top-4 right-4 z-10 p-2 rounded-full bg-[rgb(var(--primary-600))]/80 hover:bg-[rgb(var(--primary-600))] backdrop-blur-sm transition-all"
               >
                 <X className="w-5 h-5 text-white" />
               </button>
@@ -222,14 +236,33 @@ export default function PromotionPopup() {
 
 // Floating sparkles effect
 function FloatingSparkles() {
-  const sparkles = Array.from({ length: 6 }).map((_, i) => ({
-    id: i,
-    top: `${10 + Math.random() * 80}%`,
-    left: `${5 + Math.random() * 90}%`,
-    size: 2 + Math.random() * 3,
-    delay: Math.random() * 3,
-    duration: 2 + Math.random() * 2,
-  }));
+  const [sparkles, setSparkles] = useState<
+    Array<{
+      id: number;
+      top: string;
+      left: string;
+      size: number;
+      delay: number;
+      duration: number;
+    }>
+  >([]);
+
+  // Generăm scântei doar pe client pentru a evita hydration mismatch
+  useEffect(() => {
+    setSparkles(
+      Array.from({ length: 6 }).map((_, i) => ({
+        id: i,
+        top: `${10 + Math.random() * 80}%`,
+        left: `${5 + Math.random() * 90}%`,
+        size: 2 + Math.random() * 3,
+        delay: Math.random() * 3,
+        duration: 2 + Math.random() * 2,
+      }))
+    );
+  }, []);
+
+  // Nu renderăm nimic până când sparkles sunt generate pe client
+  if (sparkles.length === 0) return null;
 
   return (
     <>

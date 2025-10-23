@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Check } from "lucide-react";
+import { useState, useEffect } from "react";
 
 interface ButtonAdvertProps {
   href?: string;
@@ -196,6 +197,38 @@ export default function ButtonAdvert({
 
 // Componenta pentru efectul de scânteie îmbunătățit
 function EnhancedSparkleEffect() {
+  const [sparkles, setSparkles] = useState<
+    Array<{
+      id: number;
+      top: string;
+      left: string;
+      size: number;
+      delay: number;
+      duration: number;
+      color: string;
+    }>
+  >([]);
+
+  // Generăm scântei doar pe client pentru a evita hydration mismatch
+  useEffect(() => {
+    setSparkles(
+      Array.from({ length: 8 }).map((_, i) => ({
+        id: i,
+        top: `${Math.random() * 100}%`,
+        left: `${Math.random() * 100}%`,
+        size: 3 + Math.random() * 5,
+        delay: Math.random() * 5,
+        duration: 1.5 + Math.random() * 2,
+        color:
+          i % 3 === 0
+            ? "var(--primary-300)"
+            : i % 3 === 1
+              ? "var(--primary-400)"
+              : "var(--primary-500)",
+      }))
+    );
+  }, []);
+
   // Definire variante pentru animațiile scânteilor
   const sparkleVariants = {
     initial: { scale: 0, opacity: 0 },
@@ -205,21 +238,8 @@ function EnhancedSparkleEffect() {
     },
   };
 
-  // Generăm scântei cu proprietăți variate
-  const sparkles = Array.from({ length: 8 }).map((_, i) => ({
-    id: i,
-    top: `${Math.random() * 100}%`,
-    left: `${Math.random() * 100}%`,
-    size: 3 + Math.random() * 5,
-    delay: Math.random() * 5,
-    duration: 1.5 + Math.random() * 2,
-    color:
-      i % 3 === 0
-        ? "var(--primary-300)"
-        : i % 3 === 1
-          ? "var(--primary-400)"
-          : "var(--primary-500)",
-  }));
+  // Nu renderăm nimic până când sparkles sunt generate pe client
+  if (sparkles.length === 0) return null;
 
   return (
     <>
