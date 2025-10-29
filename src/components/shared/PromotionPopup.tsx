@@ -113,8 +113,12 @@ export default function PromotionPopup() {
                   Epilare Definitivă cu Laser
                 </p>
 
-                <p className="text-center text-xl font-bold text-[rgb(var(--text-primary))] mb-6">
+                <p className="text-center text-xl font-bold text-[rgb(var(--text-primary))] mb-2">
                   Pe Absolut Tot Corpul
+                </p>
+
+                <p className="text-center text-sm text-[rgb(var(--text-secondary))] mb-6">
+                  (o ședință completă pentru întregul corp)
                 </p>
 
                 {/* Price Section */}
@@ -137,6 +141,9 @@ export default function PromotionPopup() {
                       </p>
                       <p className="text-4xl font-bold text-[rgb(var(--primary-600))]">
                         990 RON
+                      </p>
+                      <p className="text-xs text-[rgb(var(--text-secondary))] mt-1">
+                        per ședință
                       </p>
                     </div>
                   </div>
