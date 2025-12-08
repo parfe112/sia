@@ -68,7 +68,7 @@ export default function PromotionPopup() {
             exit={{ opacity: 0 }}
           >
             <motion.div
-              className="relative bg-gradient-to-br from-[rgb(var(--card))] to-[rgb(var(--muted))] rounded-3xl shadow-2xl max-w-lg w-full overflow-hidden border-2 border-[rgb(var(--primary-500))]"
+              className="relative bg-gradient-to-br from-[rgb(var(--card))] to-[rgb(var(--muted))] rounded-3xl shadow-2xl max-w-lg w-full max-h-[90vh] overflow-hidden border-2 border-[rgb(var(--primary-500))] flex flex-col"
               initial={{ scale: 0.8, y: 50 }}
               animate={{ scale: 1, y: 0 }}
               exit={{ scale: 0.8, y: 50 }}
@@ -86,11 +86,11 @@ export default function PromotionPopup() {
               {/* Decorative gradient top */}
               <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-yellow-400 via-[rgb(var(--primary-500))] to-yellow-400"></div>
 
-              {/* Content */}
-              <div className="relative p-8 pt-10">
+              {/* Content - Scrollable */}
+              <div className="relative p-4 pt-8 md:p-8 md:pt-10 overflow-y-auto flex-1">
                 {/* Sparkle Icon */}
                 <motion.div
-                  className="mb-4 flex justify-center"
+                  className="mb-3 md:mb-4 flex justify-center"
                   animate={{ rotate: [0, 10, -10, 0] }}
                   transition={{
                     duration: 2,
@@ -98,48 +98,48 @@ export default function PromotionPopup() {
                     ease: "easeInOut",
                   }}
                 >
-                  <div className="p-4 bg-gradient-to-br from-[rgb(var(--primary-500))] to-[rgb(var(--primary-600))] rounded-full">
-                    <Sparkles className="w-8 h-8 text-white" />
+                  <div className="p-3 md:p-4 bg-gradient-to-br from-[rgb(var(--primary-500))] to-[rgb(var(--primary-600))] rounded-full">
+                    <Sparkles className="w-6 h-6 md:w-8 md:h-8 text-white" />
                   </div>
                 </motion.div>
 
                 {/* Title */}
-                <h2 className="text-2xl md:text-3xl font-bold text-center mb-3 text-[rgb(var(--text-primary))]">
+                <h2 className="text-xl md:text-3xl font-bold text-center mb-2 md:mb-3 text-[rgb(var(--text-primary))]">
                   Ofertă Specială! 🎉
                 </h2>
 
                 {/* Subtitle */}
-                <p className="text-center text-lg font-semibold text-[rgb(var(--primary-600))] mb-4">
+                <p className="text-center text-base md:text-lg font-semibold text-[rgb(var(--primary-600))] mb-3 md:mb-4">
                   Epilare Definitivă cu Laser
                 </p>
 
-                <p className="text-center text-xl font-bold text-[rgb(var(--text-primary))] mb-2">
+                <p className="text-center text-lg md:text-xl font-bold text-[rgb(var(--text-primary))] mb-1 md:mb-2">
                   Pe Absolut Tot Corpul
                 </p>
 
-                <p className="text-center text-sm text-[rgb(var(--text-secondary))] mb-6">
+                <p className="text-center text-xs md:text-sm text-[rgb(var(--text-secondary))] mb-4 md:mb-6">
                   (o ședință completă pentru întregul corp)
                 </p>
 
                 {/* Price Section */}
-                <div className="bg-white/5 dark:bg-black/10 rounded-2xl p-6 mb-6 border border-[rgb(var(--border))]">
-                  <div className="flex items-center justify-center gap-4 mb-4">
+                <div className="bg-white/5 dark:bg-black/10 rounded-2xl p-4 md:p-6 mb-4 md:mb-6 border border-[rgb(var(--border))]">
+                  <div className="flex items-center justify-center gap-2 md:gap-4 mb-3 md:mb-4">
                     <div className="text-center">
-                      <p className="text-sm text-[rgb(var(--text-secondary))] mb-1">
+                      <p className="text-xs md:text-sm text-[rgb(var(--text-secondary))] mb-1">
                         Preț vechi
                       </p>
-                      <p className="text-2xl text-[rgb(var(--text-tertiary))] line-through font-medium">
+                      <p className="text-lg md:text-2xl text-[rgb(var(--text-tertiary))] line-through font-medium">
                         1500 RON
                       </p>
                     </div>
 
-                    <ArrowRight className="w-6 h-6 text-[rgb(var(--primary-500))]" />
+                    <ArrowRight className="w-4 h-4 md:w-6 md:h-6 text-[rgb(var(--primary-500))]" />
 
                     <div className="text-center">
-                      <p className="text-sm text-[rgb(var(--text-secondary))] mb-1">
+                      <p className="text-xs md:text-sm text-[rgb(var(--text-secondary))] mb-1">
                         Preț special
                       </p>
-                      <p className="text-4xl font-bold text-[rgb(var(--primary-600))]">
+                      <p className="text-2xl md:text-4xl font-bold text-[rgb(var(--primary-600))]">
                         990 RON
                       </p>
                       <p className="text-xs text-[rgb(var(--text-secondary))] mt-1">
@@ -151,7 +151,7 @@ export default function PromotionPopup() {
                   {/* Discount Badge */}
                   <div className="flex justify-center">
                     <motion.div
-                      className="inline-flex items-center gap-2 bg-gradient-to-r from-yellow-400 to-yellow-500 text-gray-900 font-bold px-4 py-2 rounded-full shadow-lg"
+                      className="inline-flex items-center gap-1 md:gap-2 bg-gradient-to-r from-yellow-400 to-yellow-500 text-gray-900 font-bold px-3 py-1.5 md:px-4 md:py-2 rounded-full shadow-lg"
                       animate={{ scale: [1, 1.05, 1] }}
                       transition={{
                         duration: 2,
@@ -159,16 +159,16 @@ export default function PromotionPopup() {
                         ease: "easeInOut",
                       }}
                     >
-                      <span className="text-lg">
+                      <span className="text-sm md:text-lg">
                         Economisești {discountPercentage}%
                       </span>
-                      <span className="text-xl">🔥</span>
+                      <span className="text-base md:text-xl">🔥</span>
                     </motion.div>
                   </div>
                 </div>
 
                 {/* Benefits */}
-                <div className="space-y-2 mb-6">
+                <div className="space-y-1.5 md:space-y-2 mb-4 md:mb-6">
                   {[
                     "Tehnologie laser de ultimă generație",
                     "Rezultate vizibile după prima ședință",
@@ -178,14 +178,14 @@ export default function PromotionPopup() {
                   ].map((benefit, index) => (
                     <motion.div
                       key={index}
-                      className="flex items-center gap-3 text-[rgb(var(--text-secondary))]"
+                      className="flex items-center gap-2 md:gap-3 text-[rgb(var(--text-secondary))]"
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: index * 0.1 }}
                     >
-                      <div className="w-5 h-5 rounded-full bg-green-500 flex items-center justify-center flex-shrink-0">
+                      <div className="w-4 h-4 md:w-5 md:h-5 rounded-full bg-green-500 flex items-center justify-center flex-shrink-0">
                         <svg
-                          className="w-3 h-3 text-white"
+                          className="w-2.5 h-2.5 md:w-3 md:h-3 text-white"
                           fill="none"
                           viewBox="0 0 24 24"
                           stroke="currentColor"
@@ -198,7 +198,7 @@ export default function PromotionPopup() {
                           />
                         </svg>
                       </div>
-                      <span className="text-sm">{benefit}</span>
+                      <span className="text-xs md:text-sm">{benefit}</span>
                     </motion.div>
                   ))}
                 </div>
@@ -206,17 +206,19 @@ export default function PromotionPopup() {
                 {/* CTA Button */}
                 <motion.button
                   onClick={handleCTAClick}
-                  className="w-full bg-gradient-to-r from-[rgb(var(--primary-500))] to-[rgb(var(--primary-600))] hover:from-[rgb(var(--primary-600))] hover:to-[rgb(var(--primary-700))] text-white font-bold py-4 px-6 rounded-xl shadow-lg flex items-center justify-center gap-2 transition-all"
+                  className="w-full bg-gradient-to-r from-[rgb(var(--primary-500))] to-[rgb(var(--primary-600))] hover:from-[rgb(var(--primary-600))] hover:to-[rgb(var(--primary-700))] text-white font-bold py-3 md:py-4 px-4 md:px-6 rounded-xl shadow-lg flex items-center justify-center gap-2 transition-all"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
-                  <span className="text-lg">Programează-te Acum</span>
-                  <ArrowRight className="w-5 h-5" />
+                  <span className="text-base md:text-lg">
+                    Programează-te Acum
+                  </span>
+                  <ArrowRight className="w-4 h-4 md:w-5 md:h-5" />
                 </motion.button>
 
                 {/* Limited Offer Text */}
                 <motion.p
-                  className="text-center text-xs text-[rgb(var(--text-tertiary))] mt-4"
+                  className="text-center text-xs text-[rgb(var(--text-tertiary))] mt-3 md:mt-4"
                   animate={{ opacity: [0.5, 1, 0.5] }}
                   transition={{
                     duration: 2,
