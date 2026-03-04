@@ -70,10 +70,10 @@ const Pachet41Offer: React.FC = () => {
 
             <div className="flex items-baseline mb-6">
               <span className="text-4xl font-bold text-green-600 dark:text-green-500">
-                2000 lei
+                2600 lei
               </span>
               <span className="text-lg text-red-500 dark:text-red-400 ml-2 line-through">
-                2500 lei
+                3250 lei
               </span>
               <span className="ml-2 bg-green-100 dark:bg-green-800 text-green-800 dark:text-green-100 text-sm font-medium px-2 py-1 rounded">
                 -20%
@@ -84,13 +84,13 @@ const Pachet41Offer: React.FC = () => {
               <div className="flex items-start">
                 <Check className="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" />
                 <span className="text-[rgb(var(--text-primary))]">
-                  4 ședințe plătite + 1 ședință GRATUITĂ
+                  4 ședințe plătite + 1 ședință GRATUITĂ (5 ședințe total)
                 </span>
               </div>
               <div className="flex items-start">
                 <Check className="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" />
                 <span className="text-[rgb(var(--text-primary))]">
-                  Acoperă toate zonele corpului
+                  Brațe integral, picioare integral, inghinal total și axile
                 </span>
               </div>
               <div className="flex items-start">
@@ -117,7 +117,7 @@ const Pachet41Offer: React.FC = () => {
               <ButtonAdvert
                 href="#"
                 mainText="REZERVĂ"
-                subText="Full Body: 2000 lei în loc de 2500 lei"
+                subText="Full Body: 2600 lei în loc de 3250 lei"
                 discountAmount="20%"
                 limitedText="Ofertă limitată • Doar pentru primii 10 clienți"
                 onClick={() => openModal("fullbody", "Pachet Full Body 4+1")}
@@ -149,13 +149,13 @@ const Pachet41Offer: React.FC = () => {
 
             <div className="flex items-baseline mb-6">
               <span className="text-4xl font-bold text-green-600 dark:text-green-500">
-                1400 lei
-              </span>
-              <span className="text-lg text-red-500 dark:text-red-400 ml-2 line-through">
                 1800 lei
               </span>
+              <span className="text-lg text-red-500 dark:text-red-400 ml-2 line-through">
+                2250 lei
+              </span>
               <span className="ml-2 bg-green-100 dark:bg-green-800 text-green-800 dark:text-green-100 text-sm font-medium px-2 py-1 rounded">
-                -22%
+                -20%
               </span>
             </div>
 
@@ -163,19 +163,19 @@ const Pachet41Offer: React.FC = () => {
               <div className="flex items-start">
                 <Check className="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" />
                 <span className="text-[rgb(var(--text-secondary))]">
-                  4 ședințe plătite + 1 ședință GRATUITĂ
+                  4 ședințe plătite + 1 ședință GRATUITĂ (5 ședințe total)
                 </span>
               </div>
               <div className="flex items-start">
                 <Check className="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" />
                 <span className="text-[rgb(var(--text-secondary))]">
-                  Acoperă zonele expuse în sezonul cald
+                  Axilă, inghinal și picioare scurt
                 </span>
               </div>
               <div className="flex items-start">
                 <Check className="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" />
                 <span className="text-[rgb(var(--text-secondary))]">
-                  Perfectă pentru picioare, axile și bikini
+                  Perfectă pentru sezonul cald
                 </span>
               </div>
               <div className="flex items-start">
@@ -196,8 +196,8 @@ const Pachet41Offer: React.FC = () => {
               <ButtonAdvert
                 href="#"
                 mainText="REZERVĂ"
-                subText="Summer: 1400 lei în loc de 1800 lei"
-                discountAmount="22%"
+                subText="Summer: 1800 lei în loc de 2250 lei"
+                discountAmount="20%"
                 limitedText="Ofertă limitată • Doar pentru primii 10 clienți"
                 onClick={() => openModal("summer", "Pachet Summer 4+1")}
               />
