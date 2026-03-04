@@ -3,146 +3,170 @@
   "women": [
     {
       "name": "AXILĂ",
-      "price": 90,
+      "price": 100,
       "package": {
-        "price": 720,
-        "originalPrice": 900
+        "price": 400,
+        "originalPrice": 500
       }
     },
     {
       "name": "GÂT INTEGRAL",
       "price": 140,
       "package": {
-        "price": 1100,
-        "originalPrice": 1400
+        "price": 560,
+        "originalPrice": 700
       }
     },
     {
       "name": "PERIAREOLAR",
-      "price": 35,
+      "price": 50,
       "package": {
-        "price": 250,
-        "originalPrice": 350
+        "price": 200,
+        "originalPrice": 250
       }
     },
     {
       "name": "LINIE ALBĂ ABDOMEN",
       "price": 50,
       "package": {
-        "price": 400,
-        "originalPrice": 500
+        "price": 200,
+        "originalPrice": 250
       }
     },
     {
       "name": "ABDOMEN INTEGRAL",
-      "price": 140,
+      "price": 200,
       "package": {
-        "price": 1100,
-        "originalPrice": 1400
+        "price": 800,
+        "originalPrice": 1000
       }
     },
     {
       "name": "SPATE INTEGRAL",
       "price": 200,
       "package": {
-        "price": 1600,
-        "originalPrice": 2000
+        "price": 800,
+        "originalPrice": 1000
       }
     },
     {
       "name": "ANTEBRAȚE",
       "price": 90,
       "package": {
-        "price": 720,
-        "originalPrice": 900
+        "price": 360,
+        "originalPrice": 450
       }
     },
     {
       "name": "BRAȚE INTEGRAL",
       "price": 160,
       "package": {
-        "price": 1280,
-        "originalPrice": 1600
+        "price": 640,
+        "originalPrice": 800
       }
     },
     {
       "name": "MÂINI",
       "price": 50,
       "package": {
-        "price": 400,
-        "originalPrice": 500
+        "price": 200,
+        "originalPrice": 250
       }
     },
     {
       "name": "INTERFESIERI",
       "price": 50,
       "package": {
-        "price": 400,
-        "originalPrice": 500
+        "price": 200,
+        "originalPrice": 250
       }
     },
     {
       "name": "BIKINI LINE",
       "price": 90,
       "package": {
-        "price": 900,
-        "originalPrice": 1200
+        "price": 360,
+        "originalPrice": 450
       }
     },
     {
       "name": "INGHINAL",
-      "price": 90,
+      "price": 150,
       "package": {
-        "price": 720,
-        "originalPrice": 900
+        "price": 600,
+        "originalPrice": 750
       }
     },
     {
       "name": "INGHINAL TOTAL",
       "price": 150,
       "package": {
-        "price": 1200,
-        "originalPrice": 1500
+        "price": 600,
+        "originalPrice": 750
       }
     },
     {
       "name": "PICIOARE PARTIAL",
       "price": 190,
       "package": {
-        "price": 1520,
-        "originalPrice": 1900
+        "price": 760,
+        "originalPrice": 950
       }
     },
     {
       "name": "PICIOARE INTEGRAL",
-      "price": 280,
+      "price": 300,
       "package": {
-        "price": 2240,
-        "originalPrice": 2800
+        "price": 1200,
+        "originalPrice": 1500
       }
     },
     {
       "name": "LABA PICIORULUI ȘI DEGETE",
       "price": 50,
       "package": {
+        "price": 200,
+        "originalPrice": 250
+      }
+    },
+    {
+      "name": "FESE / LOMBAR",
+      "price": 150,
+      "package": {
+        "price": 600,
+        "originalPrice": 750
+      }
+    },
+    {
+      "name": "ANTEBRAȚE",
+      "price": 100,
+      "package": {
         "price": 400,
         "originalPrice": 500
       }
     },
     {
-      "name": "FULL BODY (include toate zonele corpului)",
-      "price": 500,
+      "name": "PACHET MUST HAVE - INGHINAL + AXILĂ",
+      "price": 200,
       "package": {
-        "price": 4000,
-        "originalPrice": 5000
+        "price": 800,
+        "originalPrice": 1000
       }
     },
     {
-      "name": "SUMMER (include axila, inghinal total, picioare integral)",
-      "price": 350,
+      "name": "FULL BODY (include brate integral,picioare integral, inghinal total si axile)",
+      "price": 650,
       "package": {
-        "price": 2800,
-        "originalPrice": 3500
+        "price": 2600,
+        "originalPrice": 3250
+      }
+    },
+    {
+      "name": "SUMMER (include axila, inghinal, picioare scurt)",
+      "price": 450,
+      "package": {
+        "price": 1800,
+        "originalPrice": 2250
       }
     }
   ],
@@ -151,72 +175,72 @@
       "name": "AXILĂ",
       "price": 90,
       "package": {
-        "price": 720,
-        "originalPrice": 900
+        "price": 360,
+        "originalPrice": 450
       }
     },
     {
       "name": "BRAȚ INTEGRAL",
       "price": 200,
       "package": {
-        "price": 1600,
-        "originalPrice": 2000
+        "price": 800,
+        "originalPrice": 1000
       }
     },
     {
       "name": "CONTUR BARBĂ",
       "price": 100,
       "package": {
-        "price": 800,
-        "originalPrice": 1000
+        "price": 400,
+        "originalPrice": 500
       }
     },
     {
       "name": "ÎNTRE SPRÂNCENE",
       "price": 35,
       "package": {
-        "price": 280,
-        "originalPrice": 350
+        "price": 140,
+        "originalPrice": 175
       }
     },
     {
       "name": "FACIAL COMPLET",
       "price": 180,
       "package": {
-        "price": 1440,
-        "originalPrice": 1800
+        "price": 720,
+        "originalPrice": 900
       }
     },
     {
       "name": "GÂT PARȚIAL",
       "price": 90,
       "package": {
-        "price": 720,
-        "originalPrice": 900
+        "price": 360,
+        "originalPrice": 450
       }
     },
     {
       "name": "GÂT INTEGRAL",
       "price": 150,
       "package": {
-        "price": 1200,
-        "originalPrice": 1500
+        "price": 600,
+        "originalPrice": 750
       }
     },
     {
       "name": "PIEPT",
       "price": 150,
       "package": {
-        "price": 1200,
-        "originalPrice": 1500
+        "price": 600,
+        "originalPrice": 750
       }
     },
     {
       "name": "ABDOMEN",
       "price": 150,
       "package": {
-        "price": 1200,
-        "originalPrice": 1500
+        "price": 600,
+        "originalPrice": 750
       }
     }
     ]
@@ -257,12 +281,12 @@
     },
     {
         "name": "ELECTROEPILARE 120 MIN",
-        "price": 500,
+        "price": 550,
         "package": {
-      "price": 500,
-      "originalPrice": 667
+          "price": 550,
+          "originalPrice": 667
+        }
     }
-      }
     ],
     "men": []
   }

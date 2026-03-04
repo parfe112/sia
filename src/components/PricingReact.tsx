@@ -97,7 +97,7 @@ const PriceCard: React.FC<PriceCardProps> = ({
                   </div>
                   <div>
                     <p className="text-sm text-[rgb(var(--text-secondary))]">
-                      Pachet (10 ședințe)
+                      Pachet (5 ședințe)
                     </p>
                   </div>
                 </div>
@@ -428,7 +428,7 @@ export default function PricingReact() {
                 <p className="text-[rgb(var(--text-secondary))]">
                   {isElectroepilation
                     ? "Pentru electroepilare, numărul de ședințe variază în funcție de zona tratată și de densitatea părului. Consultația gratuită vă va ajuta să determinați planul optim."
-                    : "Pentru a obține cele mai bune rezultate, recomandăm 6-10 ședințe, în funcție de zona tratată și de tipul de păr."}
+                    : "Pentru a obține cele mai bune rezultate, recomandăm 5-8 ședințe, în funcție de zona tratată și de tipul de păr."}
                 </p>
               </div>
             </div>
