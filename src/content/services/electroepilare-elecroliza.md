@@ -12,13 +12,12 @@ tags:
     "epilare sprâncene",
     "epilare față",
   ]
-price: 80
-oldPrice: 120
+price: 150
+oldPrice: 200
 discount: 25
-duration: "15-120 minute"
+duration: "1-120 minute"
 features:
-  - "15 min. - 80 lei"
-  - "30 min. - 150 lei"
+  - "1–30 min. - 150 lei"
   - "60 min. - 270 lei"
   - "90 min. - 400 lei"
   - "120 min. - 500 lei"

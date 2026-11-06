@@ -13,6 +13,10 @@ interface PriceCardProps {
   isElectroepilation?: boolean;
 }
 
+/** Card electroepilare 1–30 min – același preț pe tot intervalul */
+const isElectroOneToThirtyTier = (name: string, isElectro: boolean) =>
+  isElectro && /1\s*[–-]\s*30/i.test(name);
+
 const PriceCard: React.FC<PriceCardProps> = ({
   name,
   price,
@@ -24,6 +28,8 @@ const PriceCard: React.FC<PriceCardProps> = ({
     ((pkg.originalPrice - pkg.price) / pkg.originalPrice) * 100
   );
 
+  const electroShortRange = isElectroOneToThirtyTier(name, isElectroepilation);
+
   return (
     <motion.div
       className="bg-[rgb(var(--card))] rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-theme border border-[rgb(var(--border))]"
@@ -33,19 +39,50 @@ const PriceCard: React.FC<PriceCardProps> = ({
       transition={{ duration: 0.3 }}
     >
       {/* Card Header with zone name */}
-      <div className="bg-gradient-to-r from-[rgb(var(--primary-500))] to-[rgb(var(--primary-600))] p-4">
-        <h3 className="font-bold text-lg text-white tracking-wide">{name}</h3>
+      <div
+        className={`bg-gradient-to-r from-[rgb(var(--primary-500))] to-[rgb(var(--primary-600))] ${electroShortRange ? "p-3" : "p-4"}`}
+      >
+        {electroShortRange ? (
+          <div className="text-center space-y-1.5">
+            <h3 className="font-bold text-base text-white tracking-wide">
+              Electroepilare
+            </h3>
+            <div
+              className="rounded-lg bg-white/20 dark:bg-black/25 px-2.5 py-2 border border-white/30"
+              role="status"
+            >
+              <p className="text-[10px] font-semibold uppercase tracking-wide text-white mb-0.5">
+                Durată sesiune
+              </p>
+              <p className="text-base sm:text-lg font-extrabold text-white leading-snug">
+                <span className="underline decoration-white/60 underline-offset-2">
+                  1–30 minute
+                </span>
+              </p>
+              <p className="text-[11px] leading-tight text-white/95 mt-1">
+                Alegi câte minute ai nevoie în acest interval — același preț mai
+                jos.
+              </p>
+            </div>
+          </div>
+        ) : (
+          <h3 className="font-bold text-lg text-white tracking-wide">{name}</h3>
+        )}
       </div>
 
-      <div className="p-6">
-        <div className="flex flex-col gap-6">
+      <div className={electroShortRange ? "p-4" : "p-6"}>
+        <div
+          className={`flex flex-col ${electroShortRange ? "gap-4" : "gap-6"}`}
+        >
           {/* Single Session Price */}
           <div className="flex items-center justify-between">
             <div className="flex items-center">
-              <div className="w-10 h-10 rounded-full bg-[rgb(var(--primary-100))] dark:bg-[rgb(var(--primary-900))]/20 flex items-center justify-center mr-4">
+              <div
+                className={`rounded-full bg-[rgb(var(--primary-100))] dark:bg-[rgb(var(--primary-900))]/20 flex items-center justify-center mr-4 ${electroShortRange ? "w-9 h-9" : "w-10 h-10"}`}
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5 text-[rgb(var(--primary-600))]"
+                  className={`text-[rgb(var(--primary-600))] ${electroShortRange ? "h-4 w-4" : "h-5 w-5"}`}
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -62,6 +99,11 @@ const PriceCard: React.FC<PriceCardProps> = ({
                 <p className="text-sm text-[rgb(var(--text-secondary))]">
                   {isElectroepilation ? "Preț sesiune" : "Preț / ședință"}
                 </p>
+                {electroShortRange && (
+                  <p className="text-[11px] leading-snug text-[rgb(var(--text-secondary))] mt-0.5 max-w-[14rem]">
+                    Preț pentru o sesiune (nu per minut).
+                  </p>
+                )}
               </div>
             </div>
             <div>
@@ -133,15 +175,23 @@ const PriceCard: React.FC<PriceCardProps> = ({
           )}
 
           {isElectroepilation && (
-            <div className="mt-2 bg-[rgb(var(--muted))] dark:bg-[rgb(var(--muted))]/20 rounded-lg p-3 text-center">
-              <p className="text-sm text-[rgb(var(--text-secondary))]">
+            <div
+              className={`bg-[rgb(var(--muted))] dark:bg-[rgb(var(--muted))]/20 rounded-lg text-center ${
+                electroShortRange ? "mt-0 p-2.5" : "mt-2 p-3"
+              }`}
+            >
+              <p
+                className={`text-[rgb(var(--text-secondary))] ${electroShortRange ? "text-xs" : "text-sm"}`}
+              >
                 Preț cu discount de{" "}
                 <span className="font-bold text-[rgb(var(--primary-600))]">
                   25%
                 </span>{" "}
                 aplicat
               </p>
-              <p className="text-xs text-[rgb(var(--text-tertiary))] mt-1 line-through">
+              <p
+                className={`text-[rgb(var(--text-tertiary))] line-through ${electroShortRange ? "text-[11px] mt-0.5" : "text-xs mt-1"}`}
+              >
                 Preț original: {pkg.originalPrice} LEI
               </p>
             </div>
